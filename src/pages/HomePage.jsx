@@ -17,16 +17,16 @@ const HomePage = () => {
   ];
 
   const benefits = [
-    { icon: Leaf,        title: homeT.benefit1Title || 'Eficiência',  text: homeT.benefit1Text || 'Reduza até 40% dos custos.' },
-    { icon: Hammer,      title: homeT.benefit2Title || 'Qualidade',   text: homeT.benefit2Text || 'Tecnologia alemã de ponta.' },
-    { icon: TrendingDown,title: homeT.benefit3Title || 'Poupança',    text: homeT.benefit3Text || 'Retorno em 3-5 anos.' },
-    { icon: Award,       title: homeT.benefit4Title || 'Garantia',    text: homeT.benefit4Text || 'Até 25 anos de vida útil.' }
+    { icon: Leaf,         title: homeT.benefit1Title || 'Eficiência',  text: homeT.benefit1Text || 'Reduza até 40% dos custos.' },
+    { icon: Hammer,       title: homeT.benefit2Title || 'Qualidade',   text: homeT.benefit2Text || 'Tecnologia alemã de ponta.' },
+    { icon: TrendingDown, title: homeT.benefit3Title || 'Poupança',    text: homeT.benefit3Text || 'Retorno em 3-5 anos.' },
+    { icon: Award,        title: homeT.benefit4Title || 'Garantia',    text: homeT.benefit4Text || 'Até 25 anos de vida útil.' }
   ];
 
   const products = [
-    { name: language === 'pt' ? 'Aquecimento Radiante' : 'Radiant Heating', path: '/products/radiant-heating', img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
-    { name: language === 'pt' ? 'Infravermelhos' : 'Infrared Heating', path: '/products/infrared-heating', img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
-    { name: language === 'pt' ? 'Eliminar Humidade' : 'Eliminate Moisture', path: '/products/moisture-elimination', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
+    { name: language === 'pt' ? 'Aquecimento Radiante' : 'Radiant Heating',   path: '/products/radiant-heating',      img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
+    { name: language === 'pt' ? 'Infravermelhos' : 'Infrared Heating',        path: '/products/infrared-heating',     img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
+    { name: language === 'pt' ? 'Eliminar Humidade' : 'Eliminate Moisture',   path: '/products/moisture-elimination', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
   ];
 
   return (
@@ -40,17 +40,20 @@ const HomePage = () => {
       />
 
       <div>
-        {/* Hero */}
-        <section className="relative flex items-center overflow-hidden" style={{ height: '100dvh', minHeight: '600px' }}>
+        {/* Hero — altura exata menos nav (64px) */}
+        <section
+          className="relative flex items-center overflow-hidden"
+          style={{ height: 'calc(100vh - 64px)', minHeight: '560px' }}
+        >
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1700124084147-995973b6a970?w=1600&q=85"
               alt="Soluções de conforto térmico modernas"
               className="w-full h-full object-cover"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
           </div>
 
           <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 xl:px-32">
@@ -61,9 +64,10 @@ const HomePage = () => {
               className="max-w-2xl"
             >
               <div className="inline-flex items-center gap-2 bg-orange-600/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-6 tracking-wide uppercase">
-                <span>● </span>
+                <span>●</span>
                 {language === 'pt' ? 'Tecnologia Alemã Certificada' : 'Certified German Technology'}
               </div>
+
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
                 {homeT.heroTitle || 'Conforto Térmico Sustentável'}
               </h1>
@@ -73,7 +77,8 @@ const HomePage = () => {
               <p className="text-base sm:text-lg text-gray-200 mb-8 leading-relaxed max-w-xl">
                 {homeT.heroTagline || 'Reduza até 40% nos custos de energia. Conforto que dura 25 anos.'}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center px-6 py-3.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95"
@@ -89,29 +94,37 @@ const HomePage = () => {
                 </Link>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-4 sm:gap-6">
+              {/* Telefone em destaque */}
+              <a
+                href="tel:+351965026603"
+                className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-5 py-3 rounded-xl hover:bg-white/20 transition-all mb-10 group"
+              >
+                <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500 transition-colors">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-xs text-white/60 leading-none mb-1">
+                    {language === 'pt' ? 'Ligue agora — resposta imediata' : 'Call now — immediate response'}
+                  </div>
+                  <div className="text-xl font-bold tracking-wide">+351 965 026 603</div>
+                </div>
+              </a>
+
+              {/* Estatísticas */}
+              <div className="flex flex-wrap gap-6 sm:gap-10">
                 {[
                   { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years experience' },
                   { n: '40%', label: language === 'pt' ? 'Poupança energia' : 'Energy savings' },
                   { n: '25', label: language === 'pt' ? 'Anos garantia' : 'Years warranty' },
                 ].map(s => (
-                  <div key={s.n} className="text-white">
+                  <div key={s.n}>
                     <div className="text-2xl font-bold text-orange-400">{s.n}</div>
-                    <div className="text-xs text-gray-300">{s.label}</div>
+                    <div className="text-xs text-gray-300 mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>
             </motion.div>
           </div>
-
-          <a
-            href="tel:+351965026603"
-            className="absolute bottom-6 right-4 sm:bottom-8 sm:right-8 z-20 flex items-center gap-2 bg-white text-gray-900 px-4 py-2.5 rounded-full shadow-lg text-sm font-semibold hover:shadow-xl transition-shadow"
-          >
-            <Phone className="w-4 h-4 text-orange-600" />
-            <span className="hidden sm:inline">+351 965 026 603</span>
-            <span className="sm:hidden">Ligar</span>
-          </a>
         </section>
 
         {/* Benefits */}
@@ -129,8 +142,8 @@ const HomePage = () => {
               </h2>
               <p className="text-gray-500 max-w-xl mx-auto">
                 {language === 'pt'
-                  ? 'Clientes como McDonald\'s, Sonae e Avillez confiam em nós.'
-                  : 'Clients like McDonald\'s, Sonae and Avillez trust us.'}
+                  ? "Clientes como McDonald's, Sonae e Avillez confiam em nós."
+                  : "Clients like McDonald's, Sonae and Avillez trust us."}
               </p>
             </motion.div>
 

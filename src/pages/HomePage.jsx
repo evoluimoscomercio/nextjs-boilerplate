@@ -40,10 +40,9 @@ const HomePage = () => {
       />
 
       <div>
-        <section
-          className="relative flex items-center overflow-hidden"
-          style={{ height: 'calc(100svh - 64px)', minHeight: '560px' }}
-        >
+        {/* Hero — 100svh inclui a navbar (fixed não ocupa layout) */}
+        <section className="relative w-full overflow-hidden" style={{ height: '100svh', minHeight: '500px' }}>
+          {/* Background */}
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1700124084147-995973b6a970?w=1600&q=85"
@@ -55,70 +54,82 @@ const HomePage = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
           </div>
 
-          <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 xl:px-32">
+          {/* Content — flex column, justify between so stats stick to bottom */}
+          <div className="relative z-10 h-full flex flex-col justify-between px-6 sm:px-10 lg:px-20 xl:px-32 pt-24 pb-8 md:pt-32 md:pb-12">
+
+            {/* Top content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="max-w-2xl"
             >
-              <div className="inline-flex items-center gap-2 bg-orange-600/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-6 tracking-wide uppercase">
+              {/* Badge — hidden on small mobile to save space */}
+              <div className="hidden sm:inline-flex items-center gap-2 bg-orange-600/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">
                 <span>●</span>
                 {language === 'pt' ? 'Tecnologia Alemã Certificada' : 'Certified German Technology'}
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight tracking-tight">
                 {homeT.heroTitle || 'Conforto Térmico Sustentável'}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-orange-400 mb-4 font-semibold tracking-tight">
+
+              {/* Subtitle — hidden on small mobile */}
+              <p className="hidden sm:block text-lg sm:text-xl md:text-2xl text-orange-400 mb-3 font-semibold tracking-tight">
                 {homeT.heroSubtitle || 'Soluções Inteligentes para Espaços Modernos'}
               </p>
-              <p className="text-base sm:text-lg text-gray-200 mb-8 leading-relaxed max-w-xl">
+
+              {/* Tagline — hidden on mobile */}
+              <p className="hidden md:block text-base lg:text-lg text-gray-200 mb-6 leading-relaxed max-w-xl">
                 {homeT.heroTagline || 'Reduza até 40% nos custos de energia. Conforto que dura 25 anos.'}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              {/* CTA buttons */}
+              <div className="flex flex-row gap-2 sm:gap-3 mt-4 sm:mt-0">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95"
+                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold text-sm sm:text-base shadow-lg active:scale-95 whitespace-nowrap"
                 >
                   {commonT.getQuote || 'Peça Orçamento'}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
                 <Link
                   to="/solutions"
-                  className="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white border border-white/40 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold text-base active:scale-95"
+                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 bg-white/10 backdrop-blur-sm text-white border border-white/40 rounded-xl hover:bg-white/20 transition-all font-semibold text-sm sm:text-base active:scale-95 whitespace-nowrap"
                 >
                   {commonT.viewSolutions || 'Ver Soluções'}
                 </Link>
               </div>
 
+              {/* Phone — visible on all sizes, compact on mobile */}
               <a
                 href="tel:+351965026603"
-                className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-5 py-3 rounded-xl hover:bg-white/20 transition-all mb-10 group"
+                className="inline-flex items-center gap-3 mt-4 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl hover:bg-white/20 transition-all group"
               >
-                <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500 transition-colors">
-                  <Phone className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500 transition-colors">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold tracking-wide">+351 965 026 603</span>
+                <span className="text-base sm:text-xl font-bold tracking-wide">+351 965 026 603</span>
               </a>
-
-              <div className="flex flex-wrap gap-6 sm:gap-10">
-                {[
-                  { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years experience' },
-                  { n: '40%', label: language === 'pt' ? 'Poupança energia' : 'Energy savings' },
-                  { n: '25',  label: language === 'pt' ? 'Anos garantia'    : 'Years warranty' },
-                ].map(s => (
-                  <div key={s.n}>
-                    <div className="text-2xl font-bold text-orange-400">{s.n}</div>
-                    <div className="text-xs text-gray-300 mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
+
+            {/* Stats — bottom of hero, hidden on small mobile */}
+            <div className="hidden sm:flex flex-wrap gap-6 sm:gap-10">
+              {[
+                { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years experience' },
+                { n: '40%', label: language === 'pt' ? 'Poupança energia'  : 'Energy savings' },
+                { n: '25',  label: language === 'pt' ? 'Anos garantia'     : 'Years warranty' },
+              ].map(s => (
+                <div key={s.n}>
+                  <div className="text-2xl font-bold text-orange-400">{s.n}</div>
+                  <div className="text-xs text-gray-300 mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
+        {/* Benefits */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
             <motion.div
@@ -161,6 +172,7 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* Featured Products */}
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
@@ -200,6 +212,7 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* Founder Quote */}
         <section className="py-16 md:py-20 bg-orange-600">
           <div className="container mx-auto px-4">
             <motion.div
@@ -227,6 +240,7 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* Clients */}
         <section className="py-12 md:py-16 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4">
             <p className="text-center text-xs uppercase font-semibold tracking-widest text-gray-400 mb-8">
@@ -240,6 +254,7 @@ const HomePage = () => {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="py-16 md:py-20 bg-gray-900 text-white">
           <div className="container mx-auto px-4 text-center">
             <motion.div

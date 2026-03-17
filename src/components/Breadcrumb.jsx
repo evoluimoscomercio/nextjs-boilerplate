@@ -1,50 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { generateBreadcrumbSchema } from '@/utils/schemaMarkup';
-import { Helmet } from 'react-helmet';
+import { ChevronRight, Home } from 'lucide-react';
 
-const Breadcrumb = ({ items }) => {
-  const { language } = useLanguage();
-  const baseUrl = 'https://evoluimoscomercio.com';
-  
-  const schemaItems = items.map(item => ({
-    name: item.label,
-    url: `${baseUrl}${item.path}`
-  }));
-  
-  const schema = generateBreadcrumbSchema(schemaItems);
+const Breadcrumb = ({ items = [], dark = false }) => {
+  const textColor = dark ? 'text-white/70 hover:text-white' : 'text-gray-500 hover:text-gray-700';
+  const dividerColor = dark ? 'text-white/40' : 'text-gray-300';
+  const currentColor = dark ? 'text-white/90' : 'text-gray-900';
 
   return (
-    <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      </Helmet>
-      <nav aria-label="Breadcrumb" className="py-4">
-        <ol className="flex items-center space-x-2 text-sm">
-          {items.map((item, index) => (
-            <li key={index} className="flex items-center">
-              {index > 0 && (
-                <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />
-              )}
-              {index === items.length - 1 ? (
-                <span className="text-gray-600 font-medium">{item.label}</span>
+    <nav aria-label="Breadcrumb">
+      <ol className="flex items-center flex-wrap gap-1 text-sm">
+        <li>
+          <Link to="/" className={`flex items-center ${textColor} transition-colors`} aria-label="Home">
+            <Home className="w-3.5 h-3.5" />
+          </Link>
+        </li>
+        {items.slice(1).map((item, index) => (
+          <React.Fragment key={item.path}>
+            <li className={dividerColor} aria-hidden="true">
+              <ChevronRight className="w-3.5 h-3.5" />
+            </li>
+            <li>
+              {index === items.length - 2 ? (
+                <span className={`font-medium ${currentColor}`}>{item.label}</span>
               ) : (
-                <Link 
-                  to={item.path} 
-                  className="text-orange-600 hover:text-orange-700 transition-colors"
-                >
-                  {item.label}
-                </Link>
+                <Link to={item.path} className={`${textColor} transition-colors`}>{item.label}</Link>
               )}
             </li>
-          ))}
-        </ol>
-      </nav>
-    </>
+          </React.Fragment>
+        ))}
+      </ol>
+    </nav>
   );
 };
 

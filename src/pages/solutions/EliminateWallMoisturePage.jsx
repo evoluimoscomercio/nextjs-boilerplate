@@ -1,31 +1,233 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CheckCircle2, ArrowRight, AlertTriangle, Droplet, Shield, TrendingDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
+import { generateFAQSchema } from '@/utils/schemaMarkup';
 
 const EliminateWallMoisturePage = () => {
-  const { language, t } = useLanguage();
-  const title = language === 'pt' ? 'Eliminar Humidade nas Paredes' : 'Eliminate Wall Moisture';
+  const { language = 'pt', t = {} } = useLanguage() || {};
+
+  const isPt = language === 'pt';
+  const title = isPt ? 'Eliminar Humidade nas Paredes' : 'Eliminate Wall Moisture';
+  const metaTitle = isPt
+    ? 'Eliminar Humidade Ascendente nas Paredes | DRYMAT + ClimateCoating'
+    : 'Eliminate Ascending Wall Moisture | DRYMAT + ClimateCoating';
+  const desc = isPt
+    ? 'Solução definitiva para humidade ascendente e condensação. Reduza 80-100% da humidade nas paredes em 2-6 meses com DRYMAT e ClimateCoating.'
+    : 'Definitive solution for ascending moisture and condensation. Reduce 80-100% of wall moisture in 2-6 months with DRYMAT and ClimateCoating.';
+
+  const faqs = isPt ? [
+    { question: 'Quanto tempo demora a eliminar a humidade?', answer: 'Em 2 a 6 meses observa-se uma redução de 80 a 100% da humidade nas paredes.' },
+    { question: 'O DRYMAT funciona em edifícios antigos?', answer: 'Sim, é especialmente eficaz em edifícios históricos e de reabilitação, sem obras invasivas.' },
+    { question: 'É necessário fazer obras?', answer: 'Não. O sistema DRYMAT é instalado sem demolição e o ClimateCoating é aplicado como tinta normal.' },
+    { question: 'Qual é a garantia?', answer: 'O sistema DRYMAT tem garantia de 10 anos e o ClimateCoating de 25 anos.' },
+  ] : [
+    { question: 'How long does it take to eliminate moisture?', answer: 'In 2 to 6 months you will see an 80 to 100% reduction in wall moisture.' },
+    { question: 'Does DRYMAT work in old buildings?', answer: 'Yes, it is especially effective in historic and rehabilitation buildings, without invasive works.' },
+    { question: 'Is construction work needed?', answer: 'No. The DRYMAT system is installed without demolition and ClimateCoating is applied like normal paint.' },
+    { question: 'What is the warranty?', answer: 'The DRYMAT system has a 10-year warranty and ClimateCoating has 25 years.' },
+  ];
+
+  const symptoms = isPt
+    ? ['Manchas escuras nas paredes', 'Cheiro a bolor e humidade', 'Tinta a descascar', 'Saúde prejudicada (alergias, asma)', 'Degradação da estrutura', 'Custos energéticos elevados']
+    : ['Dark stains on walls', 'Mold and dampness smell', 'Peeling paint', 'Health issues (allergies, asthma)', 'Structural degradation', 'High energy costs'];
+
+  const results = [
+    { icon: TrendingDown, value: '80-100%', label: isPt ? 'Redução humidade' : 'Moisture reduction' },
+    { icon: Shield,       value: '10 anos', label: isPt ? 'Garantia DRYMAT' : 'DRYMAT warranty' },
+    { icon: Droplet,      value: '2-6 meses', label: isPt ? 'Resultados visíveis' : 'Visible results' },
+    { icon: CheckCircle2, value: '0 obras', label: isPt ? 'Sem demolição' : 'No demolition' },
+  ];
 
   return (
     <>
-      <SEOHead title={title} description={title} canonical="/solutions/eliminate-moisture" language={language} />
-      <div className="min-h-screen pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <Breadcrumb items={[{ label: t.nav.home, path: '/' }, { label: t.nav.solutions || 'Solutions', path: '/solutions' }, { label: title, path: '/solutions/eliminate-moisture' }]} />
-          
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">{title}</h1>
-          <div className="prose prose-lg mb-8">
-            <h2>{language === 'pt' ? 'O Problema' : 'The Problem'}</h2>
-            <p>Ascending moisture causes severe structural and health impacts.</p>
-            <h2>{language === 'pt' ? 'A Solução' : 'The Solution'}</h2>
-            <p>DRYMAT and ClimateCoating provide 80-100% moisture reduction in 2-6 months.</p>
+      <SEOHead
+        title={metaTitle}
+        description={desc}
+        canonical="/solutions/eliminate-moisture"
+        schemas={[generateFAQSchema(faqs)]}
+        language={language}
+        image="https://images.unsplash.com/photo-1693594558979-aed4872ff156"
+      />
+
+      <div className="min-h-screen pt-20 pb-16">
+        {/* Hero */}
+        <div className="relative h-64 md:h-80 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=1400&q=85"
+            alt={title}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-end pb-8">
+            <div className="container mx-auto px-4">
+              <Breadcrumb
+                items={[
+                  { label: t?.nav?.home || 'Início', path: '/' },
+                  { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
+                  { label: title, path: '/solutions/eliminate-moisture' }
+                ]}
+                dark
+              />
+              <h1 className="text-3xl md:text-4xl font-bold text-white mt-3">{title}</h1>
+            </div>
           </div>
-          <Link to="/products/moisture-elimination" className="text-orange-600 font-bold hover:text-orange-700">Ver DRYMAT →</Link>
+        </div>
+
+        <div className="container mx-auto px-4 max-w-5xl mt-10">
+
+          {/* Results row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {results.map((r, i) => {
+              const Icon = r.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-orange-50 border border-orange-100 rounded-2xl p-5 text-center"
+                >
+                  <Icon className="w-6 h-6 text-orange-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-orange-600 mb-1">{r.value}</div>
+                  <div className="text-xs text-gray-600">{r.label}</div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2 space-y-10">
+
+              {/* Problem */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <AlertTriangle className="w-6 h-6 text-orange-600 flex-shrink-0" />
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    {isPt ? 'O Problema da Humidade' : 'The Moisture Problem'}
+                  </h2>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-5">
+                  {isPt
+                    ? 'A humidade ascendente é um dos problemas mais comuns em habitações e comércio portugueses, especialmente em edifícios antigos. A água sobe pelas paredes por capilaridade, causando danos estruturais, problemas de saúde e perda de valor do imóvel.'
+                    : 'Ascending moisture is one of the most common problems in Portuguese homes and businesses, especially in older buildings. Water rises through walls by capillary action, causing structural damage, health problems, and loss of property value.'}
+                </p>
+                <div className="bg-red-50 border border-red-100 rounded-xl p-5">
+                  <p className="text-sm font-semibold text-red-700 mb-3">
+                    {isPt ? 'Sinais de alerta:' : 'Warning signs:'}
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {symptoms.map(s => (
+                      <div key={s} className="flex items-center gap-2 text-sm text-red-600">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full flex-shrink-0" />
+                        {s}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Solution */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    {isPt ? 'A Nossa Solução' : 'Our Solution'}
+                  </h2>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  {isPt
+                    ? 'Combinamos o sistema DRYMAT (eliminação da humidade ascendente por frequência eletromagnética) com o ClimateCoating (revestimento térmico cerâmico) para uma solução completa e duradoura.'
+                    : 'We combine the DRYMAT system (ascending moisture elimination via electromagnetic frequency) with ClimateCoating (ceramic thermal coating) for a complete and lasting solution.'}
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Droplet className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">DRYMAT</h3>
+                      <p className="text-sm text-gray-600">
+                        {isPt
+                          ? 'Sistema austríaco de frequência eletromagnética que inverte o movimento capilar da água nas paredes. Sem obras, sem demolições.'
+                          : 'Austrian electromagnetic frequency system that reverses capillary water movement in walls. No construction, no demolition.'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 p-5 bg-white border border-gray-200 rounded-xl">
+                    <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">ClimateCoating</h3>
+                      <p className="text-sm text-gray-600">
+                        {isPt
+                          ? 'Revestimento cerâmico que isola termicamente e impede a condensação. Reduz custos energéticos em até 30%.'
+                          : 'Ceramic coating that provides thermal insulation and prevents condensation. Reduces energy costs by up to 30%.'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">FAQ</h2>
+                <div className="space-y-4">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className="border border-gray-200 rounded-xl p-5">
+                      <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
+                      <p className="text-gray-600 text-sm">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-5">
+              <div className="bg-orange-600 rounded-2xl p-6 text-white sticky top-24">
+                <h3 className="font-bold text-xl mb-3">
+                  {isPt ? 'Avaliação Gratuita' : 'Free Assessment'}
+                </h3>
+                <p className="text-orange-100 text-sm mb-5">
+                  {isPt
+                    ? 'Peça uma avaliação gratuita ao seu espaço. Sem compromisso.'
+                    : 'Request a free assessment for your space. No commitment.'}
+                </p>
+                <Link to="/contact" className="block w-full py-3 bg-white text-orange-600 rounded-xl text-center font-bold hover:bg-orange-50 transition-colors">
+                  {isPt ? 'Pedir Avaliação' : 'Request Assessment'}
+                </Link>
+                <div className="mt-4 pt-4 border-t border-orange-500 space-y-2 text-sm text-orange-100">
+                  <div>✓ {isPt ? 'Resposta em 24h' : 'Response in 24h'}</div>
+                  <div>✓ {isPt ? 'Orçamento sem obras' : 'Quote without construction'}</div>
+                  <div>✓ {isPt ? 'Garantia de 10 anos' : '10-year warranty'}</div>
+                </div>
+              </div>
+
+              <div className="border border-gray-200 rounded-2xl p-5">
+                <h4 className="font-bold text-gray-900 mb-3">
+                  {isPt ? 'Produtos relacionados' : 'Related products'}
+                </h4>
+                <div className="space-y-2">
+                  <Link to="/products/moisture-elimination" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 border-b border-gray-100 transition-colors">
+                    DRYMAT <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <Link to="/products/thermal-coating" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 transition-colors">
+                    ClimateCoating <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 };
+
 export default EliminateWallMoisturePage;

@@ -24,9 +24,9 @@ const HomePage = () => {
   ];
 
   const products = [
-    { name: language === 'pt' ? 'Aquecimento Radiante' : 'Radiant Heating',   path: '/products/radiant-heating',      img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
-    { name: language === 'pt' ? 'Infravermelhos' : 'Infrared Heating',        path: '/products/infrared-heating',     img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
-    { name: language === 'pt' ? 'Eliminar Humidade' : 'Eliminate Moisture',   path: '/products/moisture-elimination', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
+    { name: language === 'pt' ? 'Aquecimento Radiante' : 'Radiant Heating',  path: '/products/radiant-heating',      img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
+    { name: language === 'pt' ? 'Infravermelhos' : 'Infrared Heating',       path: '/products/infrared-heating',     img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
+    { name: language === 'pt' ? 'Eliminar Humidade' : 'Eliminate Moisture',  path: '/products/moisture-elimination', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
   ];
 
   return (
@@ -40,10 +40,9 @@ const HomePage = () => {
       />
 
       <div>
-        {/* Hero — altura exata menos nav (64px) */}
         <section
           className="relative flex items-center overflow-hidden"
-          style={{ height: 'calc(100vh - 64px)', minHeight: '560px' }}
+          style={{ height: 'calc(100svh - 64px)', minHeight: '560px' }}
         >
           <div className="absolute inset-0">
             <img
@@ -94,7 +93,6 @@ const HomePage = () => {
                 </Link>
               </div>
 
-              {/* Telefone em destaque */}
               <a
                 href="tel:+351965026603"
                 className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-5 py-3 rounded-xl hover:bg-white/20 transition-all mb-10 group"
@@ -102,20 +100,14 @@ const HomePage = () => {
                 <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500 transition-colors">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <div>
-                  <div className="text-xs text-white/60 leading-none mb-1">
-                    {language === 'pt' ? 'Ligue agora — resposta imediata' : 'Call now — immediate response'}
-                  </div>
-                  <div className="text-xl font-bold tracking-wide">+351 965 026 603</div>
-                </div>
+                <span className="text-xl font-bold tracking-wide">+351 965 026 603</span>
               </a>
 
-              {/* Estatísticas */}
               <div className="flex flex-wrap gap-6 sm:gap-10">
                 {[
                   { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years experience' },
                   { n: '40%', label: language === 'pt' ? 'Poupança energia' : 'Energy savings' },
-                  { n: '25', label: language === 'pt' ? 'Anos garantia' : 'Years warranty' },
+                  { n: '25',  label: language === 'pt' ? 'Anos garantia'    : 'Years warranty' },
                 ].map(s => (
                   <div key={s.n}>
                     <div className="text-2xl font-bold text-orange-400">{s.n}</div>
@@ -127,7 +119,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Benefits */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
             <motion.div
@@ -146,7 +137,6 @@ const HomePage = () => {
                   : "Clients like McDonald's, Sonae and Avillez trust us."}
               </p>
             </motion.div>
-
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
@@ -171,7 +161,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Featured Products */}
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
@@ -187,7 +176,6 @@ const HomePage = () => {
                 {language === 'pt' ? 'Ver todos' : 'View all'} <ArrowRight className="ml-1 w-4 h-4" />
               </Link>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {products.map((p, i) => (
                 <motion.div
@@ -212,7 +200,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Founder Quote */}
         <section className="py-16 md:py-20 bg-orange-600">
           <div className="container mx-auto px-4">
             <motion.div
@@ -240,7 +227,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Clients */}
         <section className="py-12 md:py-16 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4">
             <p className="text-center text-xs uppercase font-semibold tracking-widest text-gray-400 mb-8">
@@ -254,7 +240,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="py-16 md:py-20 bg-gray-900 text-white">
           <div className="container mx-auto px-4 text-center">
             <motion.div
@@ -264,14 +249,10 @@ const HomePage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight">
-                {language === 'pt'
-                  ? 'Pronto para Transformar o Seu Conforto?'
-                  : 'Ready to Transform Your Comfort?'}
+                {language === 'pt' ? 'Pronto para Transformar o Seu Conforto?' : 'Ready to Transform Your Comfort?'}
               </h2>
               <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                {language === 'pt'
-                  ? 'Orçamento gratuito e sem compromisso. Resposta em 24h.'
-                  : 'Free quote, no obligation. Response within 24h.'}
+                {language === 'pt' ? 'Orçamento gratuito e sem compromisso. Resposta em 24h.' : 'Free quote, no obligation. Response within 24h.'}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link

@@ -39,9 +39,9 @@ const HomePage = () => {
         language={language}
       />
 
-      <div className="min-h-screen">
+      <div>
         {/* Hero */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative flex items-center overflow-hidden" style={{ height: '100dvh', minHeight: '600px' }}>
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1700124084147-995973b6a970?w=1600&q=85"
@@ -50,10 +50,10 @@ const HomePage = () => {
               loading="eager"
               fetchpriority="high"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
           </div>
 
-          <div className="relative z-10 container mx-auto px-4 py-20 md:py-0">
+          <div className="relative z-10 w-full px-6 sm:px-10 lg:px-20 xl:px-32">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

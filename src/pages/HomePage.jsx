@@ -40,96 +40,100 @@ const HomePage = () => {
       />
 
       <div>
-        {/* Hero — 100svh inclui a navbar (fixed não ocupa layout) */}
-        <section className="relative w-full overflow-hidden" style={{ height: '100svh', minHeight: '500px' }}>
+        {/* ─── HERO ─────────────────────────────────────────────────────────
+            Uses 100svh minus navbar. On mobile: compact layout so all content
+            fits without overflow. Stats move to bottom bar. Phone is inline.
+        ──────────────────────────────────────────────────────────────────── */}
+        <section
+          className="relative flex flex-col overflow-hidden"
+          style={{ height: 'calc(100svh - 64px)', minHeight: '500px' }}
+        >
           {/* Background */}
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1700124084147-995973b6a970?w=1600&q=85"
               alt="Soluções de conforto térmico modernas"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               loading="eager"
               fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
           </div>
 
-          {/* Content — flex column, justify between so stats stick to bottom */}
-          <div className="relative z-10 h-full flex flex-col justify-between px-6 sm:px-10 lg:px-20 xl:px-32 pt-24 pb-8 md:pt-32 md:pb-12">
+          {/* Content — flex-1 so it fills the space, justify-between to push stats to bottom */}
+          <div className="relative z-10 flex flex-col justify-between h-full px-5 sm:px-10 lg:px-20 xl:px-32 py-6 sm:py-10">
 
-            {/* Top content */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-2xl"
-            >
-              {/* Badge — hidden on small mobile to save space */}
-              <div className="hidden sm:inline-flex items-center gap-2 bg-orange-600/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">
+            {/* Top: badge + text + CTAs */}
+            <div className="max-w-2xl flex flex-col justify-center flex-1 gap-0">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-orange-600/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-4 self-start tracking-wide uppercase">
                 <span>●</span>
                 {language === 'pt' ? 'Tecnologia Alemã Certificada' : 'Certified German Technology'}
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight tracking-tight">
+              {/* Headline — clamp size so it never overflows */}
+              <h1 className="font-bold text-white leading-tight tracking-tight mb-3"
+                style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
                 {homeT.heroTitle || 'Conforto Térmico Sustentável'}
               </h1>
 
-              {/* Subtitle — hidden on small mobile */}
-              <p className="hidden sm:block text-lg sm:text-xl md:text-2xl text-orange-400 mb-3 font-semibold tracking-tight">
+              <p className="text-orange-400 font-semibold tracking-tight mb-3"
+                style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
                 {homeT.heroSubtitle || 'Soluções Inteligentes para Espaços Modernos'}
               </p>
 
-              {/* Tagline — hidden on mobile */}
-              <p className="hidden md:block text-base lg:text-lg text-gray-200 mb-6 leading-relaxed max-w-xl">
+              {/* Tagline — hidden on very small screens to save space */}
+              <p className="hidden xs:block sm:block text-gray-200 leading-relaxed mb-5 max-w-lg"
+                style={{ fontSize: 'clamp(0.875rem, 1.8vw, 1.125rem)' }}>
                 {homeT.heroTagline || 'Reduza até 40% nos custos de energia. Conforto que dura 25 anos.'}
               </p>
 
-              {/* CTA buttons */}
-              <div className="flex flex-row gap-2 sm:gap-3 mt-4 sm:mt-0">
+              {/* CTAs — row on all sizes, compact on mobile */}
+              <div className="flex flex-row gap-2 sm:gap-3 mb-4 sm:mb-5">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold text-sm sm:text-base shadow-lg active:scale-95 whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-all font-semibold shadow-lg active:scale-95 text-sm sm:text-base whitespace-nowrap"
                 >
                   {commonT.getQuote || 'Peça Orçamento'}
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight className="ml-1.5 w-4 h-4" />
                 </Link>
                 <Link
                   to="/solutions"
-                  className="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-3.5 bg-white/10 backdrop-blur-sm text-white border border-white/40 rounded-xl hover:bg-white/20 transition-all font-semibold text-sm sm:text-base active:scale-95 whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3.5 bg-white/10 backdrop-blur-sm text-white border border-white/40 rounded-xl hover:bg-white/20 transition-all font-semibold text-sm sm:text-base whitespace-nowrap"
                 >
                   {commonT.viewSolutions || 'Ver Soluções'}
                 </Link>
               </div>
 
-              {/* Phone — visible on all sizes, compact on mobile */}
+              {/* Phone — compact, always visible */}
               <a
                 href="tel:+351965026603"
-                className="inline-flex items-center gap-3 mt-4 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl hover:bg-white/20 transition-all group"
+                className="inline-flex items-center gap-2.5 self-start bg-white/10 backdrop-blur-sm border border-white/25 text-white px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl hover:bg-white/20 transition-all group"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500 transition-colors">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <span className="text-base sm:text-xl font-bold tracking-wide">+351 965 026 603</span>
+                <span className="font-bold tracking-wide text-base sm:text-xl">+351 965 026 603</span>
               </a>
-            </motion.div>
+            </div>
 
-            {/* Stats — bottom of hero, hidden on small mobile */}
-            <div className="hidden sm:flex flex-wrap gap-6 sm:gap-10">
+            {/* Bottom stats bar — always at bottom of hero */}
+            <div className="flex items-center gap-6 sm:gap-10 pt-4 border-t border-white/10">
               {[
-                { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years experience' },
-                { n: '40%', label: language === 'pt' ? 'Poupança energia'  : 'Energy savings' },
-                { n: '25',  label: language === 'pt' ? 'Anos garantia'     : 'Years warranty' },
+                { n: '25+', label: language === 'pt' ? 'Anos experiência' : 'Years exp.' },
+                { n: '40%', label: language === 'pt' ? 'Poupança energia' : 'Energy savings' },
+                { n: '25',  label: language === 'pt' ? 'Anos garantia'    : 'Warranty' },
               ].map(s => (
                 <div key={s.n}>
-                  <div className="text-2xl font-bold text-orange-400">{s.n}</div>
-                  <div className="text-xs text-gray-300 mt-0.5">{s.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-orange-400">{s.n}</div>
+                  <div className="text-xs text-gray-300 mt-0.5 whitespace-nowrap">{s.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Benefits */}
+        {/* ─── BENEFITS ──────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
             <motion.div
@@ -172,7 +176,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Featured Products */}
+        {/* ─── PRODUCTS ──────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4">
@@ -212,7 +216,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Founder Quote */}
+        {/* ─── QUOTE ─────────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-orange-600">
           <div className="container mx-auto px-4">
             <motion.div
@@ -240,7 +244,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Clients */}
+        {/* ─── CLIENTS ───────────────────────────────────────────────────── */}
         <section className="py-12 md:py-16 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4">
             <p className="text-center text-xs uppercase font-semibold tracking-widest text-gray-400 mb-8">
@@ -254,7 +258,7 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* ─── CTA ───────────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-gray-900 text-white">
           <div className="container mx-auto px-4 text-center">
             <motion.div

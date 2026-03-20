@@ -78,19 +78,19 @@ function CountUp({ target, suffix = '' }) {
 
 /* ── Data ──────────────────────────────────────────────────────────── */
 const PRODUCTS = [
-  { name: 'Solamagic', tag: 'Premium', desc: 'Infravermelhos de onda curta para exterior. 92% de eficiência. Made in Germany.', path: '/products/solamagic', img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
-  { name: 'ComfortSun', tag: 'Polivalente', desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80' },
-  { name: 'Duotherm', tag: 'Radiante', desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
-  { name: 'ClimateCoating', tag: 'Revestimento', desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80' },
-  { name: 'Drymat', tag: 'Anti-Humidade', desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética alemã.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
-  { name: 'Bioclimatizadores', tag: 'Arrefecimento', desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=80' },
+  { name: 'Solamagic', tag: 'Premium', icon: Sun, desc: 'Infravermelhos de onda curta para esplanadas. Calor imediato, 92% de eficiência. Made in Germany.', path: '/products/solamagic', img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=700&q=80' },
+  { name: 'ComfortSun', tag: 'Polivalente', icon: Zap, desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80' },
+  { name: 'Duotherm', tag: 'Radiante', icon: Thermometer, desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=700&q=80' },
+  { name: 'ClimateCoating', tag: 'Revestimento', icon: Wind, desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80' },
+  { name: 'Drymat', tag: 'Anti-Humidade', icon: Droplets, desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética alemã.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=700&q=80' },
+  { name: 'Bioclimatizadores', tag: 'Arrefecimento', icon: Wind, desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=700&q=80' },
 ];
 
 const SOLUTIONS = [
-  { label: 'Eliminar Humidade', path: '/solutions/eliminate-moisture', icon: Droplets },
-  { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs', icon: Zap },
-  { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort', icon: Sun },
-  { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business', icon: Flame },
+  { label: 'Eliminar Humidade', path: '/solutions/eliminate-moisture', icon: Droplets, desc: 'Paredes com humidade ascendente? O Drymat resolve sem obras, em poucos meses.' },
+  { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs', icon: Zap, desc: 'Aquecimento inteligente que consome menos e dura mais. Retorno real do investimento.' },
+  { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort', icon: Sun, desc: 'Mantenha a esplanada aberta o ano todo. Mais ocupação, mais faturação.' },
+  { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business', icon: Flame, desc: 'Soluções ecológicas para empresas que querem poupar e ser responsáveis.' },
 ];
 
 /* ── Component ─────────────────────────────────────────────────────── */
@@ -114,32 +114,17 @@ export default function HomePage() {
         }
         .prod-card {
           display: block;
-          background: #16161A;
-          border: 1px solid rgba(255,255,255,0.08);
+          position: relative;
+          height: 300px;
           border-radius: 20px;
           overflow: hidden;
-          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
           text-decoration: none;
+          border: 1px solid rgba(255,255,255,0.06);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .prod-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(255,107,0,0.4);
-          box-shadow: 0 20px 48px rgba(0,0,0,0.4);
-        }
-        .sol-card {
-          display: flex; align-items: center; gap: 14px;
-          padding: 16px 18px;
-          background: #16161A;
-          border: 1px solid rgba(255,255,255,0.07);
-          border-radius: 14px;
-          transition: all 0.25s ease;
-          text-decoration: none;
-        }
-        .sol-card:hover {
-          background: #1E1E23;
-          border-color: rgba(255,107,0,0.3);
-          transform: translateX(4px);
-        }
+        .prod-card:hover { transform: translateY(-5px); box-shadow: 0 24px 48px rgba(0,0,0,0.5); }
+        .prod-card:hover img { transform: scale(1.06); }
+        .prod-card img { transition: transform 0.5s ease; }
       `}</style>
 
       {/* ── HERO ── */}
@@ -149,38 +134,29 @@ export default function HomePage() {
       >
         <HeroGraphic />
         <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 py-10 sm:py-14">
-          
-          {/* Center content */}
           <div className="flex flex-col items-center justify-center flex-1 text-center max-w-3xl mx-auto w-full">
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}>
               <span className="ec-tag pjs mb-6 inline-block">Tecnologia Alemã</span>
-
               <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
-                Conforto Térmico<br />
-                <span style={{ color: '#FF6B00' }}>Sustentável</span>
+                Conforto Térmico<br /><span style={{ color: '#FF6B00' }}>Sustentável</span>
               </h1>
-
               <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#B8B0A5', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
                 Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
               </p>
-
               <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
                 <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#16A34A', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(22,163,74,0.3)' }}>
-                  <MessageCircle style={{ width: '18px', height: '18px' }} />
-                  WhatsApp
+                  <MessageCircle style={{ width: '18px', height: '18px' }} />WhatsApp
                 </a>
                 <Link to="/products" className="pjs"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#FF6B00', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(255,107,0,0.3)' }}>
-                  Ver Produtos
-                  <ArrowRight style={{ width: '18px', height: '18px' }} />
+                  Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} />
                 </Link>
                 <Link to="/solutions" className="pjs"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#EDE8E0', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)' }}>
                   Soluções
                 </Link>
               </div>
-
               <a href="tel:+351965026603" className="pjs"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
                 <div style={{ width: '38px', height: '38px', background: '#FF6B00', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -190,8 +166,6 @@ export default function HomePage() {
               </a>
             </motion.div>
           </div>
-
-          {/* Bottom clients */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
             style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '18px' }}>
             <p className="pjs" style={{ color: '#5A5450', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
@@ -204,7 +178,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STATS BAR ── */}
+      {/* ── STATS ── */}
       <section style={{ background: '#FF6B00' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
           {[
@@ -224,7 +198,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRODUCTS ── */}
+      {/* ── PRODUCTS — overlay image cards ── */}
       <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
@@ -238,126 +212,73 @@ export default function HomePage() {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PRODUCTS.map((p, i) => (
-              <motion.div key={p.path} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}>
-                <Link to={p.path} className="prod-card">
-                  {/* Image */}
-                  <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+            {PRODUCTS.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <motion.div key={p.path} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}>
+                  <Link to={p.path} className="prod-card">
                     <img src={p.img} alt={p.name} loading="lazy"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                      onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
-                      onMouseLeave={e => e.target.style.transform = 'scale(1)'} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(22,22,26,0.8) 0%, transparent 60%)' }} />
-                    <span className="ec-tag pjs" style={{ position: 'absolute', top: '14px', left: '14px' }}>{p.tag}</span>
-                  </div>
-                  {/* Text */}
-                  <div style={{ padding: '22px 22px 20px' }}>
-                    <h3 className="pjs" style={{ fontSize: '20px', fontWeight: 800, color: '#F5F0E8', marginBottom: '8px' }}>{p.name}</h3>
-                    <p className="pjs" style={{ color: '#9A9490', fontSize: '14px', lineHeight: 1.7, marginBottom: '16px' }}>{p.desc}</p>
-                    <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#FF8C3A', fontSize: '14px', fontWeight: 600 }}>
-                      Saber mais <ArrowRight style={{ width: '15px', height: '15px' }} />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 48%, rgba(5,5,7,0.08) 100%)' }} />
+                    <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#FF6B00', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Icon style={{ width: '16px', height: '16px', color: '#fff' }} />
+                      </div>
+                      <span className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff' }}>{p.tag}</span>
+                    </div>
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px' }}>
+                      <h3 className="pjs" style={{ fontSize: '22px', fontWeight: 800, color: '#fff', marginBottom: '6px', lineHeight: 1.2 }}>{p.name}</h3>
+                      <p className="pjs" style={{ color: 'rgba(255,255,255,0.72)', fontSize: '13px', lineHeight: 1.6, marginBottom: '14px' }}>{p.desc}</p>
+                      <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
+                        Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} />
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── SOLUTIONS ── */}
+      {/* ── SOLUTIONS — 4 cards com descrição ── */}
       <section style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <motion.div initial={{ opacity:0, x:-24 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }}>
-              <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
-              <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
-                Resolvemos Problemas,<br />
-                <span style={{ color: '#FF6B00' }}>Não Apenas Vendemos</span>
-              </h2>
-              <p className="pjs" style={{ color: '#9A9490', fontSize: '16px', lineHeight: 1.8, marginBottom: '36px', maxWidth: '420px' }}>
-                A nossa abordagem é complementar. Os produtos criam sinergias para oferecer soluções completas de conforto térmico, do inverno ao verão.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {SOLUTIONS.map(s => {
-                  const Icon = s.icon;
-                  return (
-                    <Link key={s.path} to={s.path} className="sol-card pjs">
-                      <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon style={{ width: '18px', height: '18px', color: '#FF8C3A' }} />
-                      </div>
-                      <span style={{ fontSize: '15px', fontWeight: 600, color: '#D5D0C8', flex: 1 }}>{s.label}</span>
-                      <ArrowRight style={{ width: '16px', height: '16px', color: '#5A5450' }} />
-                    </Link>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Graphic */}
-            <motion.div initial={{ opacity:0, x:24 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }}
-              style={{ position: 'relative', aspectRatio: '1', maxWidth: '400px', margin: '0 auto' }}>
-              <svg viewBox="0 0 400 400" style={{ width: '100%', height: '100%' }}>
-                <defs>
-                  <radialGradient id="cg" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#FF6B00" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
-                <circle cx="200" cy="200" r="180" fill="url(#cg)" />
-                {[75, 115, 155].map((r, i) => (
-                  <motion.circle key={r} cx="200" cy="200" r={r}
-                    stroke="#FF6B00" strokeOpacity={0.1 + i * 0.04} strokeWidth="1" fill="none"
-                    animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                    style={{ transformOrigin: '200px 200px' }}
-                    transition={{ duration: 18 + i * 7, repeat: Infinity, ease: 'linear' }} />
-                ))}
-                <motion.g animate={{ scale: [1, 1.06, 1] }} style={{ transformOrigin: '200px 200px' }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-                  <circle cx="200" cy="200" r="48" fill="#FF6B00" fillOpacity="0.1" stroke="#FF6B00" strokeWidth="1" strokeOpacity="0.25" />
-                  <circle cx="200" cy="200" r="32" fill="#FF6B00" fillOpacity="0.18" />
-                  <text x="200" y="208" textAnchor="middle" fontSize="26">🔥</text>
-                </motion.g>
-                {[
-                  { r:75, a:0, c:'#FF6B00' }, { r:115, a:72, c:'#22C55E' },
-                  { r:75, a:144, c:'#3B82F6' }, { r:115, a:216, c:'#A78BFA' },
-                  { r:75, a:288, c:'#FBBF24' },
-                ].map((n, i) => {
-                  const rad = (n.a * Math.PI) / 180;
-                  return (
-                    <motion.g key={i} animate={{ rotate: 360 }} style={{ transformOrigin: '200px 200px' }}
-                      transition={{ duration: 22 + i * 4, repeat: Infinity, ease: 'linear' }}>
-                      <circle cx={200 + n.r * Math.cos(rad)} cy={200 + n.r * Math.sin(rad)} r="7" fill={n.c} fillOpacity="0.9" />
-                    </motion.g>
-                  );
-                })}
-              </svg>
-              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ textAlign: 'center', marginTop: '56px' }}>
-                  <p className="pjs" style={{ fontSize: '12px', color: '#FF8C3A', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Abordagem</p>
-                  <p className="pjs" style={{ fontSize: '12px', color: '#6A6460' }}>Complementar</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── QUOTE ── */}
-      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 96px) 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
-            <div style={{ fontSize: '64px', color: '#FF6B00', lineHeight: 1, marginBottom: '20px', opacity: 0.4, fontFamily: 'Georgia, serif' }}>"</div>
-            <blockquote className="pjs" style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.55rem)', fontWeight: 600, color: '#CEC8C0', lineHeight: 1.65, marginBottom: '28px' }}>
-              Trabalho com uma abordagem baseada na complementariedade. Os vários produtos criam sinergias para oferecer soluções completas de conforto térmico.
-            </blockquote>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-              <div style={{ width: '36px', height: '2px', background: '#FF6B00' }} />
-              <span className="pjs" style={{ color: '#FF8C3A', fontWeight: 700, fontSize: '15px' }}>Eduardo Catarino</span>
-              <div style={{ width: '36px', height: '2px', background: '#FF6B00' }} />
-            </div>
-            <p className="pjs" style={{ color: '#5A5450', fontSize: '13px', marginTop: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Fundador, Evoluimos Comércio</p>
+          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '52px', maxWidth: '640px' }}>
+            <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
+            <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
+              Do frio ao calor,<br />
+              <span style={{ color: '#FF6B00' }}>temos a solução certa</span>
+            </h2>
+            <p className="pjs" style={{ color: '#9A9490', fontSize: '17px', lineHeight: 1.75 }}>
+              Aquecemos dentro e fora de casa, de forma sustentável, simples e económica. Cada problema tem um produto feito para o resolver.
+            </p>
           </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SOLUTIONS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <motion.div key={s.path} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.08 }}>
+                  <Link to={s.path}
+                    style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '26px 22px', background: '#1A1A1E', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '18px', textDecoration: 'none', transition: 'all 0.25s ease', height: '100%' }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,107,0,0.4)'; e.currentTarget.style.background = '#1E1E24'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = '#1A1A1E'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <Icon style={{ width: '22px', height: '22px', color: '#FF8C3A' }} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <h3 className="pjs" style={{ fontSize: '17px', fontWeight: 700, color: '#EDE8E0', marginBottom: '8px', lineHeight: 1.3 }}>{s.label}</h3>
+                      <p className="pjs" style={{ fontSize: '14px', color: '#7A7470', lineHeight: 1.7 }}>{s.desc}</p>
+                    </div>
+                    <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
+                      Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

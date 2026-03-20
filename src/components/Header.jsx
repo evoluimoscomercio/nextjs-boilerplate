@@ -11,13 +11,13 @@ const NAV = [
     children: [
       { label: 'Todos os Produtos', path: '/products' },
       { group: 'Infravermelhos Exterior' },
-      { label: 'Solamagic — Premium', path: '/products/solamagic', badge: 'Premium' },
-      { label: 'ComfortSun — Polivalente', path: '/products/comfortsun' },
+      { label: 'Solamagic Premium', path: '/products/solamagic', badge: 'Premium' },
+      { label: 'ComfortSun Polivalente', path: '/products/comfortsun' },
       { group: 'Aquecimento Interior' },
-      { label: 'Duotherm — Radiante', path: '/products/duotherm' },
-      { group: 'Proteção & Conforto' },
+      { label: 'Duotherm Radiante', path: '/products/duotherm' },
+      { group: 'Proteção e Conforto' },
       { label: 'ClimateCoating', path: '/products/climatecoating' },
-      { label: 'Drymat — Anti-Humidade', path: '/products/drymat' },
+      { label: 'Drymat Anti-Humidade', path: '/products/drymat' },
       { label: 'Bioclimatizadores', path: '/products/bioclimatizadores' },
       { label: 'Biolareiras Herkell', path: '/products/eco-fireplaces' },
     ]
@@ -39,49 +39,59 @@ const NAV = [
 const DropItem = ({ item, onClose }) => {
   const location = useLocation();
   if (item.group) return (
-    <div className="px-4 pt-3 pb-1">
-      <span className="text-xs font-bold uppercase tracking-widest text-gray-400">{item.group}</span>
+    <div style={{ padding: '10px 14px 4px', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00' }}>
+      {item.group}
     </div>
   );
   const active = location.pathname === item.path;
   return (
-    <Link
-      to={item.path}
-      onClick={onClose}
-      className={`flex items-center justify-between px-4 py-2 text-sm transition-colors rounded-lg mx-1 ${
-        active ? 'bg-orange-50 text-orange-600 font-semibold' : 'text-gray-700 hover:bg-gray-50 hover:text-orange-600'
-      }`}
-    >
+    <Link to={item.path} onClick={onClose}
+      style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '9px 14px', margin: '1px 6px', borderRadius: '8px',
+        fontSize: '13px', fontWeight: active ? 600 : 400,
+        color: active ? '#FF8C3A' : '#C0B8B0',
+        background: active ? 'rgba(255,107,0,0.08)' : 'transparent',
+        textDecoration: 'none', transition: 'all 0.15s'
+      }}
+      onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#F0EDE8'; } }}
+      onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C0B8B0'; } }}>
       {item.label}
-      {item.badge && (
-        <span className="text-xs bg-orange-600 text-white px-1.5 py-0.5 rounded-full font-semibold">{item.badge}</span>
-      )}
+      {item.badge && <span style={{ fontSize: '9px', background: '#FF6B00', color: '#fff', padding: '2px 7px', borderRadius: '999px', fontWeight: 700 }}>{item.badge}</span>}
     </Link>
   );
 };
 
-const DesktopDropdown = ({ item }) => {
+const DesktopDrop = ({ item }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isActive = item.children?.some(c => c.path && location.pathname === c.path);
+  const active = item.children?.some(c => c.path && location.pathname === c.path);
 
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-        isActive ? 'text-orange-600' : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
-      }`}>
+      <button style={{
+        display: 'flex', alignItems: 'center', gap: '4px',
+        padding: '7px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer',
+        fontSize: '13px', fontWeight: 500, color: active ? '#FF8C3A' : '#A09890', transition: 'all 0.15s'
+      }}
+        onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#F0EDE8'; }}
+        onMouseLeave={e => { if (!active) e.currentTarget.style.color = '#A09890'; }}>
         {item.label}
-        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown style={{ width: '13px', height: '13px', transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }} />
       </button>
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
+            exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-0 mt-1 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50"
-          >
+            style={{
+              position: 'absolute', top: '100%', left: 0, marginTop: '8px',
+              width: '240px', background: '#1A1814', border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '16px', padding: '8px 0', zIndex: 100,
+              boxShadow: '0 24px 48px rgba(0,0,0,0.5)'
+            }}>
             {item.children.map((c, i) => <DropItem key={i} item={c} onClose={() => setOpen(false)} />)}
           </motion.div>
         )}
@@ -90,7 +100,7 @@ const DesktopDropdown = ({ item }) => {
   );
 };
 
-const Header = () => {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState(null);
@@ -109,95 +119,97 @@ const Header = () => {
 
   useEffect(() => { setMobileOpen(false); setExpanded(null); }, [location.pathname]);
 
+  const headerBg = scrolled
+    ? 'rgba(13,13,15,0.95)'
+    : 'rgba(13,13,15,0.8)';
+
   return (
     <>
-      <header
-        style={{ height: '64px' }}
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-200 ${
-          scrolled ? 'shadow-md' : 'border-b border-gray-100'
-        }`}
-      >
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');`}</style>
+      <header style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: '64px',
+        background: headerBg,
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        transition: 'all 0.3s',
+        fontFamily: "'DM Sans', sans-serif",
+        boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
+      }}>
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-          <Link to="/" className="font-bold text-orange-600 text-lg tracking-tight whitespace-nowrap flex-shrink-0">
-            Evoluimos Comércio
+          <Link to="/" style={{ fontFamily: "'Syne', sans-serif", fontSize: '17px', fontWeight: 800, color: '#F5F0E8', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
+            Evoluimos <span style={{ color: '#FF6B00' }}>Comércio</span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop */}
           <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
             {NAV.map((item, i) => item.children
-              ? <DesktopDropdown key={i} item={item} />
+              ? <DesktopDrop key={i} item={item} />
               : (
                 <Link key={i} to={item.path}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
-                    location.pathname === item.path ? 'text-orange-600' : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
-                  }`}>
+                  style={{
+                    padding: '7px 12px', borderRadius: '8px',
+                    fontSize: '13px', fontWeight: 500,
+                    color: location.pathname === item.path ? '#FF8C3A' : '#A09890',
+                    textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.15s'
+                  }}
+                  onMouseEnter={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#F0EDE8'; }}
+                  onMouseLeave={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#A09890'; }}>
                   {item.label}
                 </Link>
               )
             )}
           </nav>
 
-          {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
             <a href={WA} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-sm transition-colors">
-              <MessageCircle className="w-4 h-4" />
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 14px', background: '#22C55E', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '13px', textDecoration: 'none', transition: 'all 0.15s' }}>
+              <MessageCircle style={{ width: '15px', height: '15px' }} />
               WhatsApp
             </a>
             <Link to="/contact"
-              className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-semibold text-sm transition-colors whitespace-nowrap">
+              style={{ padding: '8px 14px', background: '#FF6B00', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '13px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
               Pedir Orçamento
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors flex-shrink-0">
-            {mobileOpen ? <X className="w-5 h-5 text-gray-700" /> : <Menu className="w-5 h-5 text-gray-700" />}
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden"
+            style={{ padding: '8px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', cursor: 'pointer', flexShrink: 0 }}>
+            {mobileOpen
+              ? <X style={{ width: '18px', height: '18px', color: '#F0EDE8' }} />
+              : <Menu style={{ width: '18px', height: '18px', color: '#A09890' }} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/30 z-40 lg:hidden"
-              onClick={() => setMobileOpen(false)}
-            />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 lg:hidden" style={{ background: 'rgba(0,0,0,0.6)', zIndex: 40, backdropFilter: 'blur(4px)' }}
+              onClick={() => setMobileOpen(false)} />
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.25 }}
-              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-white z-50 flex flex-col shadow-2xl"
-            >
-              <div className="flex items-center justify-between px-5 border-b border-gray-100 flex-shrink-0" style={{ height: '64px' }}>
-                <span className="font-bold text-orange-600">Menu</span>
-                <button onClick={() => setMobileOpen(false)} className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors">
-                  <X className="w-5 h-5 text-gray-600" />
+              className="fixed top-0 right-0 bottom-0 lg:hidden"
+              style={{ width: '85vw', maxWidth: '360px', background: '#111113', zIndex: 50, display: 'flex', flexDirection: 'column', boxShadow: '-8px 0 48px rgba(0,0,0,0.6)', fontFamily: "'DM Sans', sans-serif" }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: '64px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: '#FF6B00', fontSize: '15px' }}>Menu</span>
+                <button onClick={() => setMobileOpen(false)} style={{ background: 'rgba(255,255,255,0.06)', border: 'none', borderRadius: '8px', padding: '6px', cursor: 'pointer' }}>
+                  <X style={{ width: '16px', height: '16px', color: '#A09890' }} />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto py-3 px-3">
+              <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
                 {NAV.map((item, i) => item.children ? (
                   <div key={i}>
-                    <button
-                      onClick={() => setExpanded(expanded === i ? null : i)}
-                      className="flex items-center justify-between w-full px-3 py-3 text-gray-800 font-semibold text-base rounded-xl hover:bg-gray-50 transition-colors"
-                    >
+                    <button onClick={() => setExpanded(expanded === i ? null : i)}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '12px', borderRadius: '10px', background: 'transparent', border: 'none', cursor: 'pointer', color: '#D0C8C0', fontWeight: 600, fontSize: '15px', fontFamily: "'DM Sans', sans-serif" }}>
                       {item.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${expanded === i ? 'rotate-180' : ''}`} />
+                      <ChevronDown style={{ width: '16px', height: '16px', transition: 'transform 0.2s', transform: expanded === i ? 'rotate(180deg)' : 'none' }} />
                     </button>
                     <AnimatePresence>
                       {expanded === i && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="overflow-hidden pl-2"
-                        >
+                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} style={{ overflow: 'hidden', paddingLeft: '8px' }}>
                           {item.children.map((c, j) => <DropItem key={j} item={c} onClose={() => setMobileOpen(false)} />)}
                         </motion.div>
                       )}
@@ -205,20 +217,20 @@ const Header = () => {
                   </div>
                 ) : (
                   <Link key={i} to={item.path}
-                    className="block px-3 py-3 text-gray-800 font-semibold text-base rounded-xl hover:bg-gray-50 transition-colors">
+                    style={{ display: 'block', padding: '12px', borderRadius: '10px', color: '#D0C8C0', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
                     {item.label}
                   </Link>
                 ))}
               </div>
 
-              <div className="p-4 border-t border-gray-100 space-y-2 flex-shrink-0">
+              <div style={{ padding: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold text-base transition-colors">
-                  <MessageCircle className="w-5 h-5" />
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', background: '#22C55E', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none' }}>
+                  <MessageCircle style={{ width: '18px', height: '18px' }} />
                   Contactar via WhatsApp
                 </a>
                 <Link to="/contact"
-                  className="block w-full py-3.5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-base text-center transition-colors">
+                  style={{ display: 'block', padding: '14px', background: '#FF6B00', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textAlign: 'center', textDecoration: 'none' }}>
                   Pedir Orçamento
                 </Link>
               </div>
@@ -228,6 +240,4 @@ const Header = () => {
       </AnimatePresence>
     </>
   );
-};
-
-export default Header;
+}

@@ -1,149 +1,89 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame } from 'lucide-react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const WA = 'https://wa.me/351965026603';
 
-/* ── Animated heat-wave SVG hero graphic ─────────────────────────── */
-function HeatWave() {
+/* ── Animated SVG Hero ───────────────────────────────────────────── */
+function HeroGraphic() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <svg
-        viewBox="0 0 1200 700"
-        className="absolute inset-0 w-full h-full"
-        preserveAspectRatio="xMidYMid slice"
-      >
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <radialGradient id="glow1" cx="60%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.35" />
+          <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.25" />
             <stop offset="100%" stopColor="#FF6B00" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="glow2" cx="80%" cy="30%" r="40%">
-            <stop offset="0%" stopColor="#FF9500" stopOpacity="0.2" />
+          <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FF9500" stopOpacity="0.15" />
             <stop offset="100%" stopColor="#FF9500" stopOpacity="0" />
           </radialGradient>
-          <filter id="blur1">
-            <feGaussianBlur stdDeviation="2" />
-          </filter>
         </defs>
-
-        {/* Background glow blobs */}
-        <ellipse cx="750" cy="350" rx="420" ry="280" fill="url(#glow1)" />
-        <ellipse cx="950" cy="180" rx="260" ry="200" fill="url(#glow2)" />
-
-        {/* Heat wave lines — animated */}
-        {[0, 1, 2, 3, 4, 5].map(i => (
+        <ellipse cx="600" cy="350" rx="500" ry="320" fill="url(#g1)" />
+        <ellipse cx="800" cy="200" rx="300" ry="220" fill="url(#g2)" />
+        {[0,1,2,3,4].map(i => (
           <motion.path
             key={i}
-            d={`M ${650 + i * 40} 80 Q ${750 + i * 30} ${200 + i * 20} ${700 + i * 40} 350 Q ${780 + i * 25} ${480 + i * 15} ${720 + i * 40} 620`}
+            d={`M ${480 + i*45} 60 Q ${580 + i*30} ${220 + i*18} ${530 + i*45} 380 Q ${610 + i*25} ${520 + i*12} ${555 + i*45} 660`}
             stroke={i % 2 === 0 ? '#FF6B00' : '#FF9500'}
-            strokeWidth={i === 2 ? 2 : 1}
-            strokeOpacity={0.15 + i * 0.05}
+            strokeWidth={i === 2 ? 1.5 : 0.8}
+            strokeOpacity={0.1 + i * 0.04}
             fill="none"
-            filter="url(#blur1)"
             animate={{
               d: [
-                `M ${650 + i * 40} 80 Q ${750 + i * 30} ${200 + i * 20} ${700 + i * 40} 350 Q ${780 + i * 25} ${480 + i * 15} ${720 + i * 40} 620`,
-                `M ${650 + i * 40} 80 Q ${720 + i * 30} ${220 + i * 20} ${740 + i * 40} 350 Q ${760 + i * 25} ${500 + i * 15} ${700 + i * 40} 620`,
-                `M ${650 + i * 40} 80 Q ${750 + i * 30} ${200 + i * 20} ${700 + i * 40} 350 Q ${780 + i * 25} ${480 + i * 15} ${720 + i * 40} 620`,
-              ],
+                `M ${480+i*45} 60 Q ${580+i*30} ${220+i*18} ${530+i*45} 380 Q ${610+i*25} ${520+i*12} ${555+i*45} 660`,
+                `M ${480+i*45} 60 Q ${550+i*30} ${240+i*18} ${560+i*45} 380 Q ${590+i*25} ${540+i*12} ${535+i*45} 660`,
+                `M ${480+i*45} 60 Q ${580+i*30} ${220+i*18} ${530+i*45} 380 Q ${610+i*25} ${520+i*12} ${555+i*45} 660`,
+              ]
             }}
-            transition={{ duration: 4 + i * 0.7, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 5 + i * 0.8, repeat: Infinity, ease: 'easeInOut' }}
           />
         ))}
-
-        {/* Floating orbs */}
-        {[
-          { cx: 820, cy: 200, r: 6, delay: 0 },
-          { cx: 920, cy: 320, r: 4, delay: 0.8 },
-          { cx: 760, cy: 440, r: 5, delay: 1.6 },
-          { cx: 1050, cy: 250, r: 3, delay: 0.4 },
-          { cx: 980, cy: 420, r: 4, delay: 1.2 },
-        ].map((orb, i) => (
-          <motion.circle
-            key={i}
-            cx={orb.cx}
-            cy={orb.cy}
-            r={orb.r}
-            fill="#FF6B00"
-            fillOpacity={0.6}
-            animate={{ cy: [orb.cy, orb.cy - 18, orb.cy], fillOpacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: orb.delay, ease: 'easeInOut' }}
-          />
+        {[{cx:680,cy:180,r:5,d:0},{cx:780,cy:310,r:4,d:0.8},{cx:620,cy:440,r:5,d:1.5},{cx:900,cy:240,r:3,d:0.4}].map((o,i)=>(
+          <motion.circle key={i} cx={o.cx} cy={o.cy} r={o.r} fill="#FF6B00" fillOpacity={0.7}
+            animate={{ cy:[o.cy, o.cy-16, o.cy], fillOpacity:[0.7,1,0.7] }}
+            transition={{ duration: 3+i*0.5, repeat:Infinity, delay:o.d, ease:'easeInOut' }} />
         ))}
-
-        {/* Large geometric circle accent */}
-        <motion.circle
-          cx="900"
-          cy="350"
-          r="220"
-          stroke="#FF6B00"
-          strokeWidth="0.5"
-          strokeOpacity="0.12"
-          fill="none"
-          animate={{ r: [220, 240, 220] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.circle
-          cx="900"
-          cy="350"
-          r="160"
-          stroke="#FF9500"
-          strokeWidth="0.5"
-          strokeOpacity="0.1"
-          fill="none"
-          animate={{ r: [160, 175, 160] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        />
-
-        {/* Grid dots pattern */}
-        {Array.from({ length: 8 }).map((_, row) =>
-          Array.from({ length: 12 }).map((_, col) => (
-            <circle
-              key={`${row}-${col}`}
-              cx={620 + col * 55}
-              cy={80 + row * 80}
-              r="1"
-              fill="#FF6B00"
-              fillOpacity="0.08"
-            />
-          ))
-        )}
+        <motion.circle cx="720" cy="350" r="200" stroke="#FF6B00" strokeWidth="0.5" strokeOpacity="0.08" fill="none"
+          animate={{ r:[200,218,200] }} transition={{ duration:7, repeat:Infinity, ease:'easeInOut' }} />
+        <motion.circle cx="720" cy="350" r="140" stroke="#FF9500" strokeWidth="0.5" strokeOpacity="0.07" fill="none"
+          animate={{ r:[140,154,140] }} transition={{ duration:5.5, repeat:Infinity, ease:'easeInOut', delay:1 }} />
+        {Array.from({length:6}).map((_,row)=>Array.from({length:10}).map((_,col)=>(
+          <circle key={`${row}-${col}`} cx={480+col*60} cy={80+row*90} r="1" fill="#FF6B00" fillOpacity="0.07" />
+        )))}
       </svg>
     </div>
   );
 }
 
-/* ── Stat counter ─────────────────────────────────────────────────── */
-function CountUp({ target, suffix = '', duration = 2 }) {
+/* ── Count up ──────────────────────────────────────────────────────── */
+function CountUp({ target, suffix = '' }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-
   useEffect(() => {
     if (!inView) return;
-    let start = 0;
-    const step = target / (duration * 60);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(start));
-    }, 1000 / 60);
-    return () => clearInterval(timer);
-  }, [inView, target, duration]);
-
+    let n = 0;
+    const step = target / 90;
+    const t = setInterval(() => {
+      n += step;
+      if (n >= target) { setCount(target); clearInterval(t); }
+      else setCount(Math.floor(n));
+    }, 1000/60);
+    return () => clearInterval(t);
+  }, [inView, target]);
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-/* ── Product card ─────────────────────────────────────────────────── */
+/* ── Data ──────────────────────────────────────────────────────────── */
 const PRODUCTS = [
-  { name: 'Solamagic', tag: 'Premium', desc: 'Infravermelhos onda curta para exterior. 92% eficiência. Made in Germany.', path: '/products/solamagic', icon: Sun, color: 'from-amber-500/10 to-orange-500/5', border: 'border-amber-500/20', accent: 'text-amber-400' },
-  { name: 'ComfortSun', tag: 'Polivalente', desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', icon: Zap, color: 'from-orange-500/10 to-red-500/5', border: 'border-orange-500/20', accent: 'text-orange-400' },
-  { name: 'Duotherm', tag: 'Radiante', desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', icon: Thermometer, color: 'from-stone-500/10 to-orange-500/5', border: 'border-stone-500/20', accent: 'text-stone-400' },
-  { name: 'ClimateCoating', tag: 'Revestimento', desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente, regula humidade.', path: '/products/climatecoating', icon: Wind, color: 'from-blue-500/10 to-cyan-500/5', border: 'border-blue-500/20', accent: 'text-blue-400' },
-  { name: 'Drymat', tag: 'Anti-Humidade', desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética alemã.', path: '/products/drymat', icon: Droplets, color: 'from-cyan-500/10 to-teal-500/5', border: 'border-cyan-500/20', accent: 'text-cyan-400' },
-  { name: 'Bioclimatizadores', tag: 'Arrefecimento', desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', icon: Wind, color: 'from-teal-500/10 to-green-500/5', border: 'border-teal-500/20', accent: 'text-teal-400' },
+  { name: 'Solamagic', tag: 'Premium', desc: 'Infravermelhos de onda curta para exterior. 92% de eficiência. Made in Germany.', path: '/products/solamagic', img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=600&q=80' },
+  { name: 'ComfortSun', tag: 'Polivalente', desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80' },
+  { name: 'Duotherm', tag: 'Radiante', desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=600&q=80' },
+  { name: 'ClimateCoating', tag: 'Revestimento', desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80' },
+  { name: 'Drymat', tag: 'Anti-Humidade', desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética alemã.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=600&q=80' },
+  { name: 'Bioclimatizadores', tag: 'Arrefecimento', desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=80' },
 ];
 
 const SOLUTIONS = [
@@ -153,291 +93,249 @@ const SOLUTIONS = [
   { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business', icon: Flame },
 ];
 
-/* ── Main component ───────────────────────────────────────────────── */
+/* ── Component ─────────────────────────────────────────────────────── */
 export default function HomePage() {
   return (
-    <div style={{ background: '#0D0D0F', color: '#F0EDE8', fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ background: '#0F0F11', color: '#EDE8E0' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
-        .syne { font-family: 'Syne', sans-serif; }
-        .tag-pill {
-          display: inline-flex; align-items: center;
-          padding: 3px 10px; border-radius: 999px;
-          font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        .pjs { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+        .ec-tag {
+          display: inline-block;
+          padding: 4px 12px;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
-          background: rgba(255,107,0,0.12);
-          border: 1px solid rgba(255,107,0,0.25);
+          background: rgba(255,107,0,0.15);
+          border: 1px solid rgba(255,107,0,0.35);
           color: #FF8C3A;
         }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); border-color: rgba(255,107,0,0.4) !important; }
-        .orange-line {
-          display: block; width: 40px; height: 3px;
-          background: #FF6B00; border-radius: 2px; margin-bottom: 1.5rem;
+        .prod-card {
+          display: block;
+          background: #16161A;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 20px;
+          overflow: hidden;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          text-decoration: none;
         }
-        @keyframes pulse-ring {
-          0% { transform: scale(1); opacity: 0.4; }
-          100% { transform: scale(1.5); opacity: 0; }
+        .prod-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(255,107,0,0.4);
+          box-shadow: 0 20px 48px rgba(0,0,0,0.4);
         }
-        .pulse-ring::before {
-          content: ''; position: absolute; inset: -8px;
-          border-radius: 50%; border: 2px solid #FF6B00;
-          animation: pulse-ring 2s ease-out infinite;
+        .sol-card {
+          display: flex; align-items: center; gap: 14px;
+          padding: 16px 18px;
+          background: #16161A;
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 14px;
+          transition: all 0.25s ease;
+          text-decoration: none;
+        }
+        .sol-card:hover {
+          background: #1E1E23;
+          border-color: rgba(255,107,0,0.3);
+          transform: translateX(4px);
         }
       `}</style>
 
-      {/* ── HERO ──────────────────────────────────────────────────────── */}
+      {/* ── HERO ── */}
       <section
         className="relative flex flex-col overflow-hidden"
-        style={{
-          height: 'calc(100svh - 64px)',
-          minHeight: '580px',
-          background: 'radial-gradient(ellipse 80% 60% at 70% 50%, #1A0F00 0%, #0D0D0F 70%)',
-        }}
+        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 90% 70% at 60% 50%, #1C0E00 0%, #0F0F11 65%)' }}
       >
-        <HeatWave />
+        <HeroGraphic />
+        <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 py-10 sm:py-14">
+          
+          {/* Center content */}
+          <div className="flex flex-col items-center justify-center flex-1 text-center max-w-3xl mx-auto w-full">
+            <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}>
+              <span className="ec-tag pjs mb-6 inline-block">Tecnologia Alemã</span>
 
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 opacity-30"
-          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.4\'/%3E%3C/svg%3E")', backgroundSize: '200px' }} />
+              <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+                Conforto Térmico<br />
+                <span style={{ color: '#FF6B00' }}>Sustentável</span>
+              </h1>
 
-        <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 xl:px-28 py-10 sm:py-14">
-          <motion.div
-            className="max-w-2xl"
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="tag-pill mb-6 inline-block">Tecnologia Alemã</span>
+              <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#B8B0A5', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
+                Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
+              </p>
 
-            <h1 className="syne leading-[0.95] tracking-tight mb-5"
-              style={{ fontSize: 'clamp(2.6rem, 6vw, 5rem)', color: '#F5F0E8' }}>
-              Conforto<br />
-              <span style={{ color: '#FF6B00' }}>Térmico</span><br />
-              Sustentável
-            </h1>
-
-            <p className="mb-8 leading-relaxed"
-              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.15rem)', color: '#A09890', maxWidth: '440px' }}>
-              Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mb-10">
-              <a href={WA} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-semibold transition-all active:scale-95"
-                style={{ background: '#22C55E', color: '#fff', padding: '12px 22px', borderRadius: '12px', fontSize: '14px', boxShadow: '0 0 24px rgba(34,197,94,0.3)' }}>
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp
-              </a>
-              <Link to="/products"
-                className="inline-flex items-center gap-2 font-semibold transition-all active:scale-95"
-                style={{ background: '#FF6B00', color: '#fff', padding: '12px 22px', borderRadius: '12px', fontSize: '14px', boxShadow: '0 0 24px rgba(255,107,0,0.3)' }}>
-                Ver Produtos
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link to="/solutions"
-                className="inline-flex items-center gap-2 font-semibold transition-all active:scale-95"
-                style={{ background: 'rgba(255,255,255,0.06)', color: '#F0EDE8', padding: '12px 22px', borderRadius: '12px', fontSize: '14px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                Soluções
-              </Link>
-            </div>
-
-            <a href="tel:+351965026603"
-              className="inline-flex items-center gap-3 transition-all"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '10px 16px' }}>
-              <div className="relative pulse-ring" style={{ width: '36px', height: '36px', background: '#FF6B00', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <Phone className="w-4 h-4 text-white" />
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+                <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#16A34A', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(22,163,74,0.3)' }}>
+                  <MessageCircle style={{ width: '18px', height: '18px' }} />
+                  WhatsApp
+                </a>
+                <Link to="/products" className="pjs"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#FF6B00', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(255,107,0,0.3)' }}>
+                  Ver Produtos
+                  <ArrowRight style={{ width: '18px', height: '18px' }} />
+                </Link>
+                <Link to="/solutions" className="pjs"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#EDE8E0', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  Soluções
+                </Link>
               </div>
-              <span className="font-semibold" style={{ fontSize: '18px', letterSpacing: '0.02em', color: '#F0EDE8' }}>+351 965 026 603</span>
-            </a>
-          </motion.div>
 
-          {/* Clients strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}
-          >
-            <p style={{ color: '#4A4540', fontSize: '10px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '12px' }}>Clientes de referência</p>
-            <div className="flex flex-wrap gap-6 sm:gap-10">
+              <a href="tel:+351965026603" className="pjs"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
+                <div style={{ width: '38px', height: '38px', background: '#FF6B00', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Phone style={{ width: '18px', height: '18px', color: '#fff' }} />
+                </div>
+                <span style={{ fontSize: '20px', fontWeight: 700, color: '#F0EBE3', letterSpacing: '0.02em' }}>+351 965 026 603</span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Bottom clients */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
+            style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '18px' }}>
+            <p className="pjs" style={{ color: '#5A5450', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
               {["McDonald's", "Grupo Avillez", "Sonae"].map(c => (
-                <span key={c} style={{ color: '#5A5550', fontWeight: 700, fontSize: '13px', letterSpacing: '0.05em' }}>{c}</span>
+                <span key={c} className="pjs" style={{ color: '#6A6460', fontWeight: 700, fontSize: '14px' }}>{c}</span>
               ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── STATS ─────────────────────────────────────────────────────── */}
-      <section style={{ background: '#FF6B00', padding: '0' }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+      {/* ── STATS BAR ── */}
+      <section style={{ background: '#FF6B00' }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
           {[
             { n: 25, suffix: '+', label: 'Anos de experiência' },
             { n: 3, suffix: '', label: 'Grandes clientes nacionais' },
             { n: 7, suffix: '', label: 'Marcas europeias' },
           ].map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center justify-center text-center"
-              style={{ padding: '28px 16px', borderRight: i < 2 ? '1px solid rgba(0,0,0,0.1)' : 'none' }}
-            >
-              <span className="syne" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
+            <motion.div key={i} initial={{ opacity:0, y:12 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.1 }}
+              className="flex flex-col items-center justify-center text-center pjs"
+              style={{ padding: '28px 16px', borderRight: i < 2 ? '1px solid rgba(0,0,0,0.12)' : 'none' }}>
+              <span style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
                 <CountUp target={s.n} suffix={s.suffix} />
               </span>
-              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>{s.label}</span>
+              <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', marginTop: '5px', fontWeight: 500 }}>{s.label}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ── PRODUCTS ──────────────────────────────────────────────────── */}
-      <section style={{ background: '#0D0D0F', padding: 'clamp(60px, 8vw, 100px) 0' }}>
+      {/* ── PRODUCTS ── */}
+      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ marginBottom: '56px' }}
-          >
-            <span className="orange-line" />
-            <h2 className="syne" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#F5F0E8', lineHeight: 1.1, marginBottom: '12px' }}>
+          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
+            <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
+            <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '12px' }}>
               O Nosso Portfólio
             </h2>
-            <p style={{ color: '#706860', maxWidth: '480px', lineHeight: 1.7 }}>
+            <p className="pjs" style={{ color: '#9A9490', fontSize: '17px', lineHeight: 1.7, maxWidth: '480px' }}>
               Alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PRODUCTS.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <motion.div
-                  key={p.path}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                >
-                  <Link to={p.path} className="card-hover block"
-                    style={{ background: `linear-gradient(135deg, #141416, #111113)`, border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '28px', display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '20px' }}>
-                      <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(255,107,0,0.1)', border: '1px solid rgba(255,107,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon className="w-5 h-5" style={{ color: '#FF8C3A' }} />
-                      </div>
-                      <span className="tag-pill">{p.tag}</span>
-                    </div>
-                    <h3 className="syne" style={{ fontSize: '20px', color: '#F5F0E8', marginBottom: '10px' }}>{p.name}</h3>
-                    <p style={{ color: '#706860', fontSize: '13px', lineHeight: 1.7, flex: 1 }}>{p.desc}</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '20px', color: '#FF8C3A', fontSize: '13px', fontWeight: 600 }}>
-                      Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} />
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {PRODUCTS.map((p, i) => (
+              <motion.div key={p.path} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}>
+                <Link to={p.path} className="prod-card">
+                  {/* Image */}
+                  <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                    <img src={p.img} alt={p.name} loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                      onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+                      onMouseLeave={e => e.target.style.transform = 'scale(1)'} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(22,22,26,0.8) 0%, transparent 60%)' }} />
+                    <span className="ec-tag pjs" style={{ position: 'absolute', top: '14px', left: '14px' }}>{p.tag}</span>
+                  </div>
+                  {/* Text */}
+                  <div style={{ padding: '22px 22px 20px' }}>
+                    <h3 className="pjs" style={{ fontSize: '20px', fontWeight: 800, color: '#F5F0E8', marginBottom: '8px' }}>{p.name}</h3>
+                    <p className="pjs" style={{ color: '#9A9490', fontSize: '14px', lineHeight: 1.7, marginBottom: '16px' }}>{p.desc}</p>
+                    <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#FF8C3A', fontSize: '14px', fontWeight: 600 }}>
+                      Saber mais <ArrowRight style={{ width: '15px', height: '15px' }} />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── SOLUTIONS ─────────────────────────────────────────────────── */}
-      <section style={{ background: '#111113', padding: 'clamp(60px, 8vw, 100px) 0' }}>
+      {/* ── SOLUTIONS ── */}
+      <section style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <span className="orange-line" />
-              <h2 className="syne" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <motion.div initial={{ opacity:0, x:-24 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }}>
+              <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
+              <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
                 Resolvemos Problemas,<br />
                 <span style={{ color: '#FF6B00' }}>Não Apenas Vendemos</span>
               </h2>
-              <p style={{ color: '#706860', lineHeight: 1.8, marginBottom: '36px', maxWidth: '420px' }}>
-                A nossa abordagem é complementar — os produtos criam sinergias para oferecer soluções completas de conforto térmico, do inverno ao verão.
+              <p className="pjs" style={{ color: '#9A9490', fontSize: '16px', lineHeight: 1.8, marginBottom: '36px', maxWidth: '420px' }}>
+                A nossa abordagem é complementar. Os produtos criam sinergias para oferecer soluções completas de conforto térmico, do inverno ao verão.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {SOLUTIONS.map(s => {
                   const Icon = s.icon;
                   return (
-                    <Link key={s.path} to={s.path} className="card-hover"
-                      style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px 16px', background: '#141416', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '14px' }}>
-                      <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(255,107,0,0.08)', border: '1px solid rgba(255,107,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon style={{ width: '16px', height: '16px', color: '#FF8C3A' }} />
+                    <Link key={s.path} to={s.path} className="sol-card pjs">
+                      <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Icon style={{ width: '18px', height: '18px', color: '#FF8C3A' }} />
                       </div>
-                      <span style={{ fontSize: '13px', fontWeight: 600, color: '#C0B8B0' }}>{s.label}</span>
-                      <ArrowRight style={{ width: '14px', height: '14px', color: '#4A4540', marginLeft: 'auto' }} />
+                      <span style={{ fontSize: '15px', fontWeight: 600, color: '#D5D0C8', flex: 1 }}>{s.label}</span>
+                      <ArrowRight style={{ width: '16px', height: '16px', color: '#5A5450' }} />
                     </Link>
                   );
                 })}
               </div>
             </motion.div>
 
-            {/* Animated graphic */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-              style={{ aspectRatio: '1', maxWidth: '420px', margin: '0 auto' }}
-            >
-              <svg viewBox="0 0 400 400" className="w-full h-full">
+            {/* Graphic */}
+            <motion.div initial={{ opacity:0, x:24 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }}
+              style={{ position: 'relative', aspectRatio: '1', maxWidth: '400px', margin: '0 auto' }}>
+              <svg viewBox="0 0 400 400" style={{ width: '100%', height: '100%' }}>
                 <defs>
-                  <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.3" />
+                  <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.25" />
                     <stop offset="100%" stopColor="#FF6B00" stopOpacity="0" />
                   </radialGradient>
                 </defs>
-                <circle cx="200" cy="200" r="180" fill="url(#centerGlow)" />
-                {/* Orbital rings */}
-                {[80, 120, 160].map((r, i) => (
-                  <motion.circle
-                    key={r}
-                    cx="200" cy="200" r={r}
-                    stroke="#FF6B00" strokeOpacity={0.08 + i * 0.04}
-                    strokeWidth="1" fill="none"
+                <circle cx="200" cy="200" r="180" fill="url(#cg)" />
+                {[75, 115, 155].map((r, i) => (
+                  <motion.circle key={r} cx="200" cy="200" r={r}
+                    stroke="#FF6B00" strokeOpacity={0.1 + i * 0.04} strokeWidth="1" fill="none"
                     animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
                     style={{ transformOrigin: '200px 200px' }}
-                    transition={{ duration: 20 + i * 8, repeat: Infinity, ease: 'linear' }}
-                  />
+                    transition={{ duration: 18 + i * 7, repeat: Infinity, ease: 'linear' }} />
                 ))}
-                {/* Center icon */}
-                <motion.g
-                  animate={{ scale: [1, 1.05, 1] }}
-                  style={{ transformOrigin: '200px 200px' }}
+                <motion.g animate={{ scale: [1, 1.06, 1] }} style={{ transformOrigin: '200px 200px' }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-                  <circle cx="200" cy="200" r="52" fill="#FF6B00" fillOpacity="0.1" stroke="#FF6B00" strokeWidth="1" strokeOpacity="0.3" />
-                  <circle cx="200" cy="200" r="36" fill="#FF6B00" fillOpacity="0.15" />
-                  <text x="200" y="208" textAnchor="middle" fontSize="28" fill="#FF8C3A">🔥</text>
+                  <circle cx="200" cy="200" r="48" fill="#FF6B00" fillOpacity="0.1" stroke="#FF6B00" strokeWidth="1" strokeOpacity="0.25" />
+                  <circle cx="200" cy="200" r="32" fill="#FF6B00" fillOpacity="0.18" />
+                  <text x="200" y="208" textAnchor="middle" fontSize="26">🔥</text>
                 </motion.g>
-                {/* Orbiting dots */}
                 {[
-                  { r: 80, angle: 0, color: '#FF6B00', label: 'Calor' },
-                  { r: 120, angle: 72, color: '#22C55E', label: 'Ecológico' },
-                  { r: 80, angle: 144, color: '#3B82F6', label: 'Frio' },
-                  { r: 120, angle: 216, color: '#A78BFA', label: 'Saúde' },
-                  { r: 80, angle: 288, color: '#FBBF24', label: 'Poupança' },
-                ].map((node, i) => {
-                  const rad = (node.angle * Math.PI) / 180;
-                  const x = 200 + node.r * Math.cos(rad);
-                  const y = 200 + node.r * Math.sin(rad);
+                  { r:75, a:0, c:'#FF6B00' }, { r:115, a:72, c:'#22C55E' },
+                  { r:75, a:144, c:'#3B82F6' }, { r:115, a:216, c:'#A78BFA' },
+                  { r:75, a:288, c:'#FBBF24' },
+                ].map((n, i) => {
+                  const rad = (n.a * Math.PI) / 180;
                   return (
-                    <motion.g key={i}
-                      animate={{ rotate: 360 }}
-                      style={{ transformOrigin: '200px 200px' }}
-                      transition={{ duration: 24 + i * 4, repeat: Infinity, ease: 'linear' }}>
-                      <circle cx={x} cy={y} r="8" fill={node.color} fillOpacity="0.9" />
+                    <motion.g key={i} animate={{ rotate: 360 }} style={{ transformOrigin: '200px 200px' }}
+                      transition={{ duration: 22 + i * 4, repeat: Infinity, ease: 'linear' }}>
+                      <circle cx={200 + n.r * Math.cos(rad)} cy={200 + n.r * Math.sin(rad)} r="7" fill={n.c} fillOpacity="0.9" />
                     </motion.g>
                   );
                 })}
               </svg>
-              {/* Labels floating around */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="syne" style={{ fontSize: '13px', color: '#FF8C3A', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Abordagem</p>
-                  <p className="syne" style={{ fontSize: '13px', color: '#706860' }}>Complementar</p>
+              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ textAlign: 'center', marginTop: '56px' }}>
+                  <p className="pjs" style={{ fontSize: '12px', color: '#FF8C3A', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Abordagem</p>
+                  <p className="pjs" style={{ fontSize: '12px', color: '#6A6460' }}>Complementar</p>
                 </div>
               </div>
             </motion.div>
@@ -445,45 +343,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── QUOTE ─────────────────────────────────────────────────────── */}
-      <section style={{ background: '#0D0D0F', padding: 'clamp(60px, 8vw, 100px) 0', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="syne" style={{ fontSize: '72px', color: '#FF6B00', lineHeight: 1, marginBottom: '24px', opacity: 0.4 }}>"</div>
-            <blockquote className="syne" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)', color: '#D0C8C0', lineHeight: 1.5, marginBottom: '32px', fontWeight: 700 }}>
+      {/* ── QUOTE ── */}
+      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 96px) 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
+            <div style={{ fontSize: '64px', color: '#FF6B00', lineHeight: 1, marginBottom: '20px', opacity: 0.4, fontFamily: 'Georgia, serif' }}>"</div>
+            <blockquote className="pjs" style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.55rem)', fontWeight: 600, color: '#CEC8C0', lineHeight: 1.65, marginBottom: '28px' }}>
               Trabalho com uma abordagem baseada na complementariedade. Os vários produtos criam sinergias para oferecer soluções completas de conforto térmico.
             </blockquote>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-              <div style={{ width: '40px', height: '2px', background: '#FF6B00' }} />
-              <span style={{ color: '#FF8C3A', fontWeight: 700, fontSize: '14px', letterSpacing: '0.05em' }}>Eduardo Catarino</span>
-              <div style={{ width: '40px', height: '2px', background: '#FF6B00' }} />
+              <div style={{ width: '36px', height: '2px', background: '#FF6B00' }} />
+              <span className="pjs" style={{ color: '#FF8C3A', fontWeight: 700, fontSize: '15px' }}>Eduardo Catarino</span>
+              <div style={{ width: '36px', height: '2px', background: '#FF6B00' }} />
             </div>
-            <p style={{ color: '#4A4540', fontSize: '12px', marginTop: '6px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Fundador, Evoluimos Comércio</p>
+            <p className="pjs" style={{ color: '#5A5450', fontSize: '13px', marginTop: '6px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Fundador, Evoluimos Comércio</p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #CC4400 100%)', padding: 'clamp(56px, 7vw, 88px) 0' }}>
+      {/* ── CTA ── */}
+      <section style={{ background: 'linear-gradient(135deg, #E85A00 0%, #FF8C00 100%)', padding: 'clamp(60px, 7vw, 88px) 0' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="syne" style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#fff', marginBottom: '12px', lineHeight: 1.1 }}>
+          <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
+            <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', marginBottom: '12px', lineHeight: 1.1 }}>
               Pronto para começar?
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.75)', marginBottom: '36px', fontSize: '16px' }}>
+            <p className="pjs" style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '36px', fontSize: '17px', lineHeight: 1.6 }}>
               Análise gratuita, sem compromisso.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={WA} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 font-bold active:scale-95 transition-all"
-                style={{ background: '#fff', color: '#166534', padding: '14px 28px', borderRadius: '14px', fontSize: '15px', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
-                <MessageCircle className="w-5 h-5" />
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#fff', color: '#14532D', padding: '15px 28px', borderRadius: '14px', fontWeight: 800, fontSize: '16px', textDecoration: 'none', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
+                <MessageCircle style={{ width: '19px', height: '19px' }} />
                 WhatsApp
               </a>
-              <a href="tel:+351965026603"
-                className="inline-flex items-center justify-center gap-2 font-bold active:scale-95 transition-all"
-                style={{ background: 'rgba(0,0,0,0.2)', color: '#fff', padding: '14px 28px', borderRadius: '14px', fontSize: '15px', border: '1px solid rgba(255,255,255,0.2)' }}>
-                <Phone className="w-5 h-5" />
+              <a href="tel:+351965026603" className="pjs"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'rgba(0,0,0,0.18)', color: '#fff', padding: '15px 28px', borderRadius: '14px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.25)' }}>
+                <Phone style={{ width: '19px', height: '19px' }} />
                 +351 965 026 603
               </a>
             </div>

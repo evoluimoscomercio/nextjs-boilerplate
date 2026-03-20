@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 const WA = 'https://wa.me/351965026603';
 
@@ -18,80 +18,77 @@ const SOLUTIONS = [
   { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs' },
   { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort' },
   { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
-  { label: 'Casos de Sucesso', path: '/case-studies' },
 ];
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#080809', color: '#A09890', fontFamily: "'DM Sans', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');`}</style>
+    <footer style={{ background: '#09090B', color: '#9A9490', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');`}</style>
 
-      {/* Top bar */}
-      <div style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '48px 0' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '28px', fontWeight: 800, color: '#F5F0E8', marginBottom: '6px' }}>
-                Evoluimos Comércio
-              </h2>
-              <p style={{ fontSize: '13px', color: '#504840', maxWidth: '320px', lineHeight: 1.7 }}>
-                Soluções de alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.
-              </p>
-            </div>
-            <a href={WA} target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#22C55E', color: '#fff', padding: '13px 22px', borderRadius: '12px', fontWeight: 700, fontSize: '14px', textDecoration: 'none', whiteSpace: 'nowrap', boxShadow: '0 0 24px rgba(34,197,94,0.2)', transition: 'all 0.2s' }}>
-              <MessageCircle style={{ width: '18px', height: '18px' }} />
-              Contactar via WhatsApp
-            </a>
+      {/* Top CTA strip */}
+      <div style={{ background: '#131316', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '40px 24px' }}>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div>
+            <h2 style={{ fontWeight: 800, fontSize: '26px', color: '#F0EBE3', marginBottom: '6px', lineHeight: 1.2 }}>
+              Evoluimos <span style={{ color: '#FF6B00' }}>Comércio</span>
+            </h2>
+            <p style={{ fontSize: '15px', color: '#6A6460', lineHeight: 1.6, maxWidth: '340px' }}>
+              Soluções de alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.
+            </p>
           </div>
+          <a href={WA} target="_blank" rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#16A34A', color: '#fff', padding: '13px 22px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', whiteSpace: 'nowrap', boxShadow: '0 0 24px rgba(22,163,74,0.2)' }}>
+            <MessageCircle style={{ width: '18px', height: '18px' }} />
+            Contactar via WhatsApp
+          </a>
         </div>
       </div>
 
-      {/* Main grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ padding: '56px 24px' }}>
+      {/* Links grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ padding: '52px 24px' }}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* Brand col */}
+          {/* Contactos */}
           <div className="col-span-2 lg:col-span-1">
-            <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Contactos</p>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Contactos</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <li>
-                <a href="tel:+351965026603" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#A09890', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Phone style={{ width: '13px', height: '13px', color: '#FF8C3A' }} />
-                  </div>
-                  +351 965 026 603
-                </a>
-              </li>
-              <li>
-                <a href="mailto:evolucom@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#A09890', textDecoration: 'none', fontSize: '13px' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Mail style={{ width: '13px', height: '13px', color: '#FF8C3A' }} />
-                  </div>
-                  evolucom@gmail.com
-                </a>
-              </li>
-              <li>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px' }}>
-                  <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
-                    <MapPin style={{ width: '13px', height: '13px', color: '#FF8C3A' }} />
-                  </div>
-                  <span>Vila Nova de Cacela<br />8900-057 · Portugal</span>
+              {[
+                { icon: Phone, text: '+351 965 026 603', href: 'tel:+351965026603' },
+                { icon: Mail, text: 'evolucom@gmail.com', href: 'mailto:evolucom@gmail.com' },
+              ].map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <li key={i}>
+                    <a href={c.href} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#8A8480', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }}
+                      onMouseEnter={e => e.currentTarget.style.color = '#F0EBE3'}
+                      onMouseLeave={e => e.currentTarget.style.color = '#8A8480'}>
+                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Icon style={{ width: '14px', height: '14px', color: '#FF8C3A' }} />
+                      </div>
+                      {c.text}
+                    </a>
+                  </li>
+                );
+              })}
+              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: '#8A8480' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
+                  <MapPin style={{ width: '14px', height: '14px', color: '#FF8C3A' }} />
                 </div>
+                <span style={{ lineHeight: 1.6 }}>Vila Nova de Cacela<br />8900-057 · Portugal</span>
               </li>
             </ul>
-            <p style={{ marginTop: '20px', fontSize: '11px', color: '#302820' }}>NIF: PT513000461</p>
+            <p style={{ marginTop: '20px', fontSize: '12px', color: '#3A3430' }}>NIF: PT513000461</p>
           </div>
 
-          {/* Products */}
+          {/* Produtos */}
           <div>
-            <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Produtos</p>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Produtos</p>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {PRODUCTS.map(l => (
                 <li key={l.path}>
-                  <Link to={l.path} style={{ color: '#706860', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '4px' }}
-                    onMouseEnter={e => e.target.style.color = '#F0EDE8'}
-                    onMouseLeave={e => e.target.style.color = '#706860'}>
+                  <Link to={l.path} style={{ color: '#7A7470', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s', lineHeight: 1.5 }}
+                    onMouseEnter={e => e.target.style.color = '#F0EBE3'}
+                    onMouseLeave={e => e.target.style.color = '#7A7470'}>
                     {l.label}
                   </Link>
                 </li>
@@ -99,15 +96,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Solutions */}
+          {/* Soluções */}
           <div>
-            <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Soluções</p>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Soluções</p>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {SOLUTIONS.map(l => (
                 <li key={l.path}>
-                  <Link to={l.path} style={{ color: '#706860', textDecoration: 'none', fontSize: '13px', transition: 'color 0.2s' }}
-                    onMouseEnter={e => e.target.style.color = '#F0EDE8'}
-                    onMouseLeave={e => e.target.style.color = '#706860'}>
+                  <Link to={l.path} style={{ color: '#7A7470', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.target.style.color = '#F0EBE3'}
+                    onMouseLeave={e => e.target.style.color = '#7A7470'}>
                     {l.label}
                   </Link>
                 </li>
@@ -115,46 +112,43 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Empresa */}
           <div>
-            <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Empresa</p>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Empresa</p>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
               {[
                 { label: 'Sobre Nós', path: '/about' },
                 { label: 'Contactos', path: '/contact' },
               ].map(l => (
                 <li key={l.path}>
-                  <Link to={l.path} style={{ color: '#706860', textDecoration: 'none', fontSize: '13px' }}
-                    onMouseEnter={e => e.target.style.color = '#F0EDE8'}
-                    onMouseLeave={e => e.target.style.color = '#706860'}>
+                  <Link to={l.path} style={{ color: '#7A7470', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.target.style.color = '#F0EBE3'}
+                    onMouseLeave={e => e.target.style.color = '#7A7470'}>
                     {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
-
-            {/* Mini brands */}
-            <div style={{ marginTop: '32px' }}>
-              <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#302820', marginBottom: '12px' }}>Marcas representadas</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                {['Solamagic', 'ComfortSun', 'Duotherm', 'ClimateCoating', 'Drymat', 'Herkell'].map(b => (
-                  <span key={b} style={{ fontSize: '10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '6px', padding: '3px 8px', color: '#403830' }}>
-                    {b}
-                  </span>
-                ))}
-              </div>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#3A3430', marginBottom: '10px' }}>Marcas</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {['Solamagic', 'ComfortSun', 'Duotherm', 'ClimateCoating', 'Drymat', 'Herkell'].map(b => (
+                <span key={b} style={{ fontSize: '11px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '3px 8px', color: '#4A4440' }}>{b}</span>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', padding: '20px 24px' }}>
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '18px 24px' }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p style={{ fontSize: '12px', color: '#302820' }}>© 2025 Evoluimos Comércio. Todos os direitos reservados.</p>
+          <p style={{ fontSize: '13px', color: '#3A3430' }}>© 2025 Evoluimos Comércio. Todos os direitos reservados.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
-            <Link to="/about" style={{ color: '#302820', fontSize: '12px', textDecoration: 'none' }}>Sobre</Link>
-            <Link to="/contact" style={{ color: '#302820', fontSize: '12px', textDecoration: 'none' }}>Contactos</Link>
+            {[{ l: 'Sobre', p: '/about' }, { l: 'Contactos', p: '/contact' }].map(x => (
+              <Link key={x.p} to={x.p} style={{ color: '#3A3430', fontSize: '13px', textDecoration: 'none' }}
+                onMouseEnter={e => e.target.style.color = '#8A8480'}
+                onMouseLeave={e => e.target.style.color = '#3A3430'}>{x.l}</Link>
+            ))}
           </div>
         </div>
       </div>

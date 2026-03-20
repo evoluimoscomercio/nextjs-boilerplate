@@ -32,14 +32,13 @@ const NAV = [
       { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
     ]
   },
-  { label: 'Casos de Sucesso', path: '/case-studies' },
   { label: 'Sobre', path: '/about' },
 ];
 
 const DropItem = ({ item, onClose }) => {
   const location = useLocation();
   if (item.group) return (
-    <div style={{ padding: '10px 14px 4px', fontSize: '10px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00' }}>
+    <div style={{ padding: '10px 14px 4px', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#FF6B00', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       {item.group}
     </div>
   );
@@ -48,16 +47,17 @@ const DropItem = ({ item, onClose }) => {
     <Link to={item.path} onClick={onClose}
       style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '9px 14px', margin: '1px 6px', borderRadius: '8px',
-        fontSize: '13px', fontWeight: active ? 600 : 400,
-        color: active ? '#FF8C3A' : '#C0B8B0',
+        padding: '10px 14px', margin: '1px 6px', borderRadius: '8px',
+        fontSize: '14px', fontWeight: active ? 600 : 400,
+        color: active ? '#FF8C3A' : '#B0A8A0',
         background: active ? 'rgba(255,107,0,0.08)' : 'transparent',
-        textDecoration: 'none', transition: 'all 0.15s'
+        textDecoration: 'none', transition: 'all 0.15s',
+        fontFamily: "'Plus Jakarta Sans', sans-serif"
       }}
-      onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#F0EDE8'; } }}
-      onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C0B8B0'; } }}>
+      onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#F0EBE3'; }}}
+      onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#B0A8A0'; }}}>
       {item.label}
-      {item.badge && <span style={{ fontSize: '9px', background: '#FF6B00', color: '#fff', padding: '2px 7px', borderRadius: '999px', fontWeight: 700 }}>{item.badge}</span>}
+      {item.badge && <span style={{ fontSize: '10px', background: '#FF6B00', color: '#fff', padding: '2px 8px', borderRadius: '999px', fontWeight: 700 }}>{item.badge}</span>}
     </Link>
   );
 };
@@ -66,32 +66,18 @@ const DesktopDrop = ({ item }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const active = item.children?.some(c => c.path && location.pathname === c.path);
-
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button style={{
-        display: 'flex', alignItems: 'center', gap: '4px',
-        padding: '7px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer',
-        fontSize: '13px', fontWeight: 500, color: active ? '#FF8C3A' : '#A09890', transition: 'all 0.15s'
-      }}
-        onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#F0EDE8'; }}
+      <button style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '14px', fontWeight: 500, color: active ? '#FF8C3A' : '#A09890', transition: 'color 0.15s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#F0EBE3'; }}
         onMouseLeave={e => { if (!active) e.currentTarget.style.color = '#A09890'; }}>
         {item.label}
-        <ChevronDown style={{ width: '13px', height: '13px', transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+        <ChevronDown style={{ width: '14px', height: '14px', transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'none' }} />
       </button>
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.15 }}
-            style={{
-              position: 'absolute', top: '100%', left: 0, marginTop: '8px',
-              width: '240px', background: '#1A1814', border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px', padding: '8px 0', zIndex: 100,
-              boxShadow: '0 24px 48px rgba(0,0,0,0.5)'
-            }}>
+          <motion.div initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:8 }} transition={{ duration: 0.15 }}
+            style={{ position: 'absolute', top: '100%', left: 0, marginTop: '8px', width: '248px', background: '#1A1816', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '8px 0', zIndex: 100, boxShadow: '0 24px 48px rgba(0,0,0,0.5)' }}>
             {item.children.map((c, i) => <DropItem key={i} item={c} onClose={() => setOpen(false)} />)}
           </motion.div>
         )}
@@ -119,40 +105,22 @@ export default function Header() {
 
   useEffect(() => { setMobileOpen(false); setExpanded(null); }, [location.pathname]);
 
-  const headerBg = scrolled
-    ? 'rgba(13,13,15,0.95)'
-    : 'rgba(13,13,15,0.8)';
-
   return (
     <>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');`}</style>
-      <header style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: '64px',
-        background: headerBg,
-        backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
-        transition: 'all 0.3s',
-        fontFamily: "'DM Sans', sans-serif",
-        boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none',
-      }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');`}</style>
+      <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: '64px', background: scrolled ? 'rgba(13,13,15,0.96)' : 'rgba(13,13,15,0.85)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.07)', transition: 'all 0.3s', fontFamily: "'Plus Jakarta Sans', sans-serif", boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none' }}>
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-          <Link to="/" style={{ fontFamily: "'Syne', sans-serif", fontSize: '17px', fontWeight: 800, color: '#F5F0E8', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
+          <Link to="/" style={{ fontSize: '17px', fontWeight: 800, color: '#F5F0E8', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Evoluimos <span style={{ color: '#FF6B00' }}>Comércio</span>
           </Link>
 
-          {/* Desktop */}
           <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
             {NAV.map((item, i) => item.children
               ? <DesktopDrop key={i} item={item} />
               : (
                 <Link key={i} to={item.path}
-                  style={{
-                    padding: '7px 12px', borderRadius: '8px',
-                    fontSize: '13px', fontWeight: 500,
-                    color: location.pathname === item.path ? '#FF8C3A' : '#A09890',
-                    textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.15s'
-                  }}
-                  onMouseEnter={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#F0EDE8'; }}
+                  style={{ padding: '8px 12px', borderRadius: '8px', fontSize: '14px', fontWeight: 500, color: location.pathname === item.path ? '#FF8C3A' : '#A09890', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.15s' }}
+                  onMouseEnter={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#F0EBE3'; }}
                   onMouseLeave={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#A09890'; }}>
                   {item.label}
                 </Link>
@@ -162,20 +130,20 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
             <a href={WA} target="_blank" rel="noopener noreferrer"
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 14px', background: '#22C55E', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '13px', textDecoration: 'none', transition: 'all 0.15s' }}>
-              <MessageCircle style={{ width: '15px', height: '15px' }} />
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '9px 15px', background: '#16A34A', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none' }}>
+              <MessageCircle style={{ width: '16px', height: '16px' }} />
               WhatsApp
             </a>
             <Link to="/contact"
-              style={{ padding: '8px 14px', background: '#FF6B00', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '13px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+              style={{ padding: '9px 15px', background: '#FF6B00', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
               Pedir Orçamento
             </Link>
           </div>
 
           <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden"
-            style={{ padding: '8px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '8px', cursor: 'pointer', flexShrink: 0 }}>
+            style={{ padding: '8px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: '8px', cursor: 'pointer', flexShrink: 0 }}>
             {mobileOpen
-              ? <X style={{ width: '18px', height: '18px', color: '#F0EDE8' }} />
+              ? <X style={{ width: '18px', height: '18px', color: '#F0EBE3' }} />
               : <Menu style={{ width: '18px', height: '18px', color: '#A09890' }} />}
           </button>
         </div>
@@ -184,32 +152,30 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 lg:hidden" style={{ background: 'rgba(0,0,0,0.6)', zIndex: 40, backdropFilter: 'blur(4px)' }}
+            <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}
+              className="fixed inset-0 lg:hidden" style={{ background: 'rgba(0,0,0,0.65)', zIndex: 40, backdropFilter: 'blur(4px)' }}
               onClick={() => setMobileOpen(false)} />
-            <motion.div
-              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.25 }}
+            <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'tween', duration: 0.25 }}
               className="fixed top-0 right-0 bottom-0 lg:hidden"
-              style={{ width: '85vw', maxWidth: '360px', background: '#111113', zIndex: 50, display: 'flex', flexDirection: 'column', boxShadow: '-8px 0 48px rgba(0,0,0,0.6)', fontFamily: "'DM Sans', sans-serif" }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', height: '64px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, color: '#FF6B00', fontSize: '15px' }}>Menu</span>
-                <button onClick={() => setMobileOpen(false)} style={{ background: 'rgba(255,255,255,0.06)', border: 'none', borderRadius: '8px', padding: '6px', cursor: 'pointer' }}>
+              style={{ width: '85vw', maxWidth: '360px', background: '#111114', zIndex: 50, display: 'flex', flexDirection: 'column', boxShadow: '-8px 0 48px rgba(0,0,0,0.6)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 18px', height: '64px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                <span style={{ fontWeight: 800, color: '#FF6B00', fontSize: '16px' }}>Menu</span>
+                <button onClick={() => setMobileOpen(false)} style={{ background: 'rgba(255,255,255,0.06)', border: 'none', borderRadius: '8px', padding: '7px', cursor: 'pointer' }}>
                   <X style={{ width: '16px', height: '16px', color: '#A09890' }} />
                 </button>
               </div>
 
-              <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              <div style={{ flex: 1, overflowY: 'auto', padding: '10px' }}>
                 {NAV.map((item, i) => item.children ? (
                   <div key={i}>
                     <button onClick={() => setExpanded(expanded === i ? null : i)}
-                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '12px', borderRadius: '10px', background: 'transparent', border: 'none', cursor: 'pointer', color: '#D0C8C0', fontWeight: 600, fontSize: '15px', fontFamily: "'DM Sans', sans-serif" }}>
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '13px 12px', borderRadius: '10px', background: 'transparent', border: 'none', cursor: 'pointer', color: '#D5D0C8', fontWeight: 600, fontSize: '15px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       {item.label}
                       <ChevronDown style={{ width: '16px', height: '16px', transition: 'transform 0.2s', transform: expanded === i ? 'rotate(180deg)' : 'none' }} />
                     </button>
                     <AnimatePresence>
                       {expanded === i && (
-                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} style={{ overflow: 'hidden', paddingLeft: '8px' }}>
+                        <motion.div initial={{ height:0, opacity:0 }} animate={{ height:'auto', opacity:1 }} exit={{ height:0, opacity:0 }} style={{ overflow: 'hidden', paddingLeft: '8px' }}>
                           {item.children.map((c, j) => <DropItem key={j} item={c} onClose={() => setMobileOpen(false)} />)}
                         </motion.div>
                       )}
@@ -217,15 +183,15 @@ export default function Header() {
                   </div>
                 ) : (
                   <Link key={i} to={item.path}
-                    style={{ display: 'block', padding: '12px', borderRadius: '10px', color: '#D0C8C0', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
+                    style={{ display: 'block', padding: '13px 12px', borderRadius: '10px', color: '#D5D0C8', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
                     {item.label}
                   </Link>
                 ))}
               </div>
 
-              <div style={{ padding: '16px', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ padding: '14px', borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', background: '#22C55E', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none' }}>
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '14px', background: '#16A34A', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none' }}>
                   <MessageCircle style={{ width: '18px', height: '18px' }} />
                   Contactar via WhatsApp
                 </a>

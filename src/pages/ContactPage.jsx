@@ -1,105 +1,119 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '@/contexts/LanguageContext';
 import SEOHead from '@/components/SEOHead';
-import Breadcrumb from '@/components/Breadcrumb';
-import { generateLocalBusinessSchema, generateContactSchema, generateFAQSchema } from '@/utils/schemaMarkup';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
 
-const ContactPage = () => {
-  const { language = 'pt', t = {} } = useLanguage() || {};
+const WA = 'https://wa.me/351965026603';
 
-  const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', intent: '', message: ''
-  });
-
-  const title = language === 'pt' ? 'Contactos - Evoluimos Comércio' : 'Contact Us - Evoluimos Comércio';
-  
-  const faqs = language === 'pt' ? [
-    { question: 'Como funcionam os orçamentos?', answer: 'São gratuitos e sem compromisso.' }
-  ] : [
-    { question: 'How do quotes work?', answer: 'They are free and without obligation.' }
-  ];
-
-  const schemas = [
-    generateLocalBusinessSchema(language),
-    generateContactSchema(),
-    generateFAQSchema(faqs)
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    
-    alert(language === 'pt' ? 'Sucesso! Mensagem enviada.' : 'Success! Message sent.');
-    setFormData({ name: '', email: '', phone: '', intent: '', message: '' });
-  };
-
+export default function ContactPage() {
   return (
     <>
-      <SEOHead title={title} description="Contact us" canonical="/contact" schemas={schemas} language={language} />
-      <div className="min-h-screen pt-24 pb-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <Breadcrumb items={[{ label: t?.nav?.home || 'Home', path: '/' }, { label: t?.nav?.contact || 'Contact', path: '/contact' }]} />
-          
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{title}</h1>
-            <p className="text-xl text-gray-600">{language === 'pt' ? 'Estamos aqui para ajudar com o seu projeto.' : 'We are here to help with your project.'}</p>
+      <SEOHead
+        title="Contactos | Evoluimos Comércio"
+        description="Fale connosco via WhatsApp, telefone ou email. Análise gratuita e sem compromisso."
+        canonical="/contact"
+      />
+      <div className="min-h-screen bg-gray-50 pt-12 pb-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-14"
+          >
+            <span className="text-orange-600 text-xs font-bold uppercase tracking-widest">Contactos</span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mt-3 mb-4 tracking-tight">
+              Fale Connosco
+            </h1>
+            <p className="text-gray-500 text-lg max-w-lg mx-auto">
+              A forma mais rápida é via WhatsApp. Respondemos normalmente em poucos minutos.
+            </p>
+          </motion.div>
+
+          {/* WhatsApp hero card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-gray-900 rounded-3xl p-8 sm:p-10 text-center mb-8"
+          >
+            <div className="w-20 h-20 bg-green-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+              <MessageCircle className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">WhatsApp</h2>
+            <p className="text-gray-400 mb-7 max-w-sm mx-auto">
+              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso — respondemos rapidamente.
+            </p>
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-extrabold text-lg transition-all shadow-xl hover:shadow-green-500/40 active:scale-95"
+            >
+              <MessageCircle className="w-6 h-6" />
+              Abrir WhatsApp
+            </a>
+            <p className="text-gray-600 text-sm mt-5">+351 965 026 603</p>
+          </motion.div>
+
+          {/* Other contacts */}
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Phone,
+                title: 'Telefone',
+                value: '+351 965 026 603',
+                href: 'tel:+351965026603',
+                sub: 'Chamada para rede móvel nacional',
+                color: 'bg-orange-50 text-orange-600',
+              },
+              {
+                icon: Mail,
+                title: 'Email',
+                value: 'evolucom@gmail.com',
+                href: 'mailto:evolucom@gmail.com',
+                sub: 'Resposta em 24h úteis',
+                color: 'bg-blue-50 text-blue-600',
+              },
+              {
+                icon: MapPin,
+                title: 'Localização',
+                value: 'Vila Nova de Cacela',
+                href: null,
+                sub: '8900-057 · Portugal',
+                color: 'bg-gray-100 text-gray-600',
+              },
+            ].map((c, i) => {
+              const Icon = c.icon;
+              const inner = (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + i * 0.07 }}
+                  className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-200 hover:shadow-md transition-all text-center"
+                >
+                  <div className={`w-12 h-12 ${c.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{c.title}</div>
+                  <div className="font-bold text-gray-900 text-sm">{c.value}</div>
+                  <div className="text-gray-400 text-xs mt-1">{c.sub}</div>
+                </motion.div>
+              );
+              return c.href
+                ? <a key={i} href={c.href}>{inner}</a>
+                : <div key={i}>{inner}</div>;
+            })}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <div className="bg-white p-8 rounded-2xl shadow-lg border mb-8">
-                <h2 className="text-2xl font-bold mb-6">{language === 'pt' ? 'Informação de Contacto' : 'Contact Information'}</h2>
-                <div className="space-y-6">
-                  <a href="tel:+351965026603" className="flex items-center gap-4 text-gray-700 hover:text-orange-600 transition-colors">
-                    <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 shrink-0"><Phone /></div>
-                    <span className="text-lg font-medium">+351 965 026 603</span>
-                  </a>
-                  <a href="mailto:evolucom@gmail.com" className="flex items-center gap-4 text-gray-700 hover:text-orange-600 transition-colors">
-                    <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 shrink-0"><Mail /></div>
-                    <span className="text-lg font-medium">evolucom@gmail.com</span>
-                  </a>
-                  <div className="flex items-center gap-4 text-gray-700">
-                    <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 shrink-0"><MapPin /></div>
-                    <span className="text-lg font-medium">Ribeiro de Junco<br/>8900-057 Vila Nova de Cacela, Portugal</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border">
-              <h2 className="text-2xl font-bold mb-6">{language === 'pt' ? 'Envie uma Mensagem' : 'Send a Message'}</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">{language === 'pt' ? 'Nome' : 'Name'}</label>
-                  <input type="text" value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-orange-500 outline-none text-gray-900" required />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">Email</label>
-                    <input type="email" value={formData.email} onChange={e=>setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-orange-500 outline-none text-gray-900" required />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">{language === 'pt' ? 'Telefone' : 'Phone'}</label>
-                    <input type="tel" value={formData.phone} onChange={e=>setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-orange-500 outline-none text-gray-900" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">{language === 'pt' ? 'Mensagem' : 'Message'}</label>
-                  <textarea value={formData.message} onChange={e=>setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-orange-500 outline-none h-32 text-gray-900" required></textarea>
-                </div>
-                <button type="submit" className="w-full bg-orange-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-orange-700 transition-colors flex items-center justify-center gap-2">
-                  <Send className="w-5 h-5" />
-                  {t?.common?.submit || 'Submit'}
-                </button>
-              </form>
-            </div>
-          </div>
+          {/* NIF */}
+          <p className="text-center text-gray-400 text-xs mt-10">
+            Evoluimos Comércio Lda · NIF PT513000461
+          </p>
         </div>
       </div>
     </>
   );
-};
-
-export default ContactPage;
+}

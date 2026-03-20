@@ -1,0 +1,118 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { CheckCircle2, MessageCircle, Droplets, AlertTriangle } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
+
+const WA = 'https://wa.me/351965026603';
+
+export default function DrymatPage() {
+  const symptoms = ['Manchas escuras nas paredes', 'Cheiro a bolor', 'Salitre e eflorescências', 'Tinta a descascar', 'Paredes frias e húmidas', 'Problemas respiratórios'];
+  const how = [
+    { step: '1', title: 'Instalação', text: 'O aparelho é colocado estrategicamente numa das paredes com humidade ascendente. Sem obras, sem demolições.' },
+    { step: '2', title: 'Ação', text: 'O equipamento altera a polaridade da água dentro das paredes. A humidade que subia começa a descer e volta à terra.' },
+    { step: '3', title: 'Resultado', text: 'Após alguns meses as paredes ficam progressivamente secas. Redução de 80 a 100% da humidade ascendente.' },
+  ];
+
+  return (
+    <>
+      <SEOHead
+        title="Drymat — Eliminar Humidade Ascendente Sem Obras | Evoluimos Comércio"
+        description="Drymat elimina humidade ascendente sem obras. Tecnologia alemã de frequência eletromagnética. Análise gratuita ao seu imóvel."
+        canonical="/products/drymat"
+      />
+      <div className="min-h-screen">
+        <div className="relative h-64 sm:h-80 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=1400&q=85" alt="Drymat eliminação de humidade" className="w-full h-full object-cover" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/30" />
+          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+            <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Drymat', path: '/products/drymat' }]} dark />
+            <span className="inline-block bg-cyan-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Eliminação de Humidade</span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Drymat®</h1>
+            <p className="text-cyan-300 font-semibold mt-1">A solução eficaz e definitiva para humidade ascendente — sem obras</p>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div className="lg:col-span-2 space-y-10">
+              <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">O Que É o Drymat?</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  O Drymat® é um aparelho desenvolvido e produzido na Alemanha, que se instala <strong>sem obras</strong> numa das paredes com humidade ascendente. É uma das poucas soluções no mercado que realmente seca as paredes e elimina a causa do salitre.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  O equipamento altera a polaridade da água existente dentro das paredes. Como resultado dessa mudança, a humidade que subia começa a descer e volta para a terra. Após alguns meses, as paredes ficam secas.
+                </p>
+              </div>
+
+              {/* Symptoms */}
+              <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <AlertTriangle className="w-5 h-5 text-red-500" />
+                  <h3 className="font-extrabold text-gray-900">Reconhece estes sinais?</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {symptoms.map(s => (
+                    <div key={s} className="flex items-center gap-2 text-sm text-red-700">
+                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full flex-shrink-0" />
+                      {s}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 mt-4">Se sim, pode ter humidade ascendente. Contacte-nos para uma análise gratuita.</p>
+              </div>
+
+              {/* How it works */}
+              <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-5">Como Funciona</h2>
+                <div className="space-y-4">
+                  {how.map(h => (
+                    <div key={h.step} className="flex gap-4 p-5 bg-white border border-gray-200 rounded-2xl">
+                      <div className="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0 text-white font-extrabold">
+                        {h.step}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-900 mb-1">{h.title}</h3>
+                        <p className="text-sm text-gray-600">{h.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4 text-center">
+                {[
+                  { n: '80-100%', label: 'Redução da humidade' },
+                  { n: '2-6', label: 'Meses para resultado' },
+                  { n: '0', label: 'Obras necessárias' },
+                ].map(s => (
+                  <div key={s.n} className="bg-cyan-50 border border-cyan-100 rounded-2xl p-5">
+                    <div className="text-3xl font-extrabold text-cyan-700 mb-1">{s.n}</div>
+                    <div className="text-xs text-gray-600">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+                <Droplets className="w-8 h-8 text-cyan-400 mb-3" />
+                <h3 className="font-extrabold text-xl mb-2">Análise Gratuita</h3>
+                <p className="text-gray-400 text-sm mb-5">Confirmamos se o problema é humidade ascendente e avaliamos a colocação do produto no seu imóvel.</p>
+                <a href={WA} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
+                  <MessageCircle className="w-5 h-5" />WhatsApp
+                </a>
+                <Link to="/contact" className="block w-full py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-center transition-colors">
+                  Pedir Análise
+                </Link>
+                <p className="text-gray-500 text-xs text-center mt-3">Análise completamente gratuita</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

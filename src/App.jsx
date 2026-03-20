@@ -21,11 +21,6 @@ import ReduceHeatingCostsPage from '@/pages/solutions/ReduceHeatingCostsPage';
 import OutdoorComfortPage from '@/pages/solutions/OutdoorComfortPage';
 import SustainableBusinessPage from '@/pages/solutions/SustainableBusinessPage';
 
-import CaseStudiesPage from '@/pages/case-studies/CaseStudiesPage';
-import CaseStudy1 from '@/pages/case-studies/CaseStudy1';
-import CaseStudy2 from '@/pages/case-studies/CaseStudy2';
-import CaseStudy3 from '@/pages/case-studies/CaseStudy3';
-
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 
@@ -54,11 +49,6 @@ function App() {
               <Route path="/solutions/reduce-heating-costs" element={<ReduceHeatingCostsPage />} />
               <Route path="/solutions/outdoor-comfort" element={<OutdoorComfortPage />} />
               <Route path="/solutions/sustainable-business" element={<SustainableBusinessPage />} />
-
-              <Route path="/case-studies" element={<CaseStudiesPage />} />
-              <Route path="/case-studies/mcdonalds" element={<CaseStudy1 />} />
-              <Route path="/case-studies/avillez" element={<CaseStudy2 />} />
-              <Route path="/case-studies/sonae" element={<CaseStudy3 />} />
 
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />

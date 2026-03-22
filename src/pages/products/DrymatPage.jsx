@@ -42,9 +42,16 @@ export default function DrymatPage() {
                 <p className="text-gray-700 leading-relaxed mb-4">
                   O Drymat® é um aparelho desenvolvido e produzido na Alemanha, que se instala <strong>sem obras</strong> numa das paredes com humidade ascendente. É uma das poucas soluções no mercado que realmente seca as paredes e elimina a causa do salitre.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed mb-5">
                   O equipamento altera a polaridade da água existente dentro das paredes. Como resultado dessa mudança, a humidade que subia começa a descer e volta para a terra. Após alguns meses, as paredes ficam secas.
                 </p>
+                <div className="bg-cyan-900 rounded-2xl p-5 text-white flex items-start gap-3">
+                  <span className="text-2xl flex-shrink-0">🛡️</span>
+                  <div>
+                    <h3 className="font-extrabold text-base mb-1">Garantia por Escrito ou Devolução do Dinheiro</h3>
+                    <p className="text-cyan-200 text-sm leading-relaxed">Se as paredes não secarem, recebe o dinheiro de volta. Esta é a nossa confiança no produto — oferecida por escrito antes da instalação.</p>
+                  </div>
+                </div>
               </div>
 
               {/* Symptoms */}
@@ -99,8 +106,8 @@ export default function DrymatPage() {
             <div className="space-y-4">
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <Droplets className="w-8 h-8 text-cyan-400 mb-3" />
-                <h3 className="font-extrabold text-xl mb-2">Análise Gratuita</h3>
-                <p className="text-gray-400 text-sm mb-5">Confirmamos se o problema é humidade ascendente e avaliamos a colocação do produto no seu imóvel.</p>
+                <h3 className="font-extrabold text-xl mb-2">Visita e Análise Gratuitas</h3>
+                <p className="text-gray-400 text-sm mb-5">Deslocamo-nos ao seu imóvel, confirmamos se o problema é humidade ascendente e avaliamos a solução ideal. Grátis e sem compromisso.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />WhatsApp

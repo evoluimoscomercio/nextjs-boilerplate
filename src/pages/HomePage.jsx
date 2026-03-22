@@ -203,6 +203,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── PHILOSOPHY ── */}
+      <section aria-label="Filosofia" style={{ background: '#0F0F11', padding: 'clamp(40px, 6vw, 64px) 0' }}>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <p className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#F0A020', marginBottom: '16px' }}>A nossa abordagem</p>
+            <h2 className="pjs" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.2, marginBottom: '14px' }}>
+              Complementaridade é a chave.
+            </h2>
+            <p className="pjs" style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto' }}>
+              Aquecer bem um espaço não depende só do aquecedor. Paredes húmidas, pontes térmicas e falta de isolamento triplicam os custos. Por isso reunimos soluções que trabalham juntas: eliminação de humidade, revestimento térmico, aquecimento eficiente e arrefecimento natural.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── PRODUCTS overlay image cards ── */}
       <section aria-label="Os Nossos Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

@@ -10,7 +10,7 @@ export default function ClimateCoatingPage() {
   const products = [
     { name: 'ThermoVital / ThermoPlus', zone: 'Interior', desc: 'Regula a humidade do ar (≈55%), funciona como esponja. Ideal para todas as paredes e tetos interiores.' },
     { name: 'ThermoProtect', zone: 'Exterior', desc: 'Membrana impermeável para fachadas. Reflete o calor solar e protege contra chuva e humidade.' },
-    { name: 'ThermoShield Roof', zone: 'Coberturas', desc: 'Aplicação em coberturas planas e telhados. Reduz drasticamente o ganho de calor no verão.' },
+    { name: 'ThermoActive', zone: 'Coberturas', desc: 'Aplicação em coberturas planas e telhados. Reduz drasticamente o ganho de calor no verão.' },
   ];
 
   return (
@@ -41,9 +41,14 @@ export default function ClimateCoatingPage() {
                 <p className="text-gray-700 leading-relaxed mb-4">
                   O ClimateCoating® é a marca alemã original de produtos com base em nanotecnologia que formam uma <strong>membrana cerâmica com microesferas de vácuo</strong>. Aplica-se exatamente como uma tinta normal mas os efeitos são radicalmente diferentes.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed mb-5">
                   Esta membrana produz <strong>efeitos endotérmicos</strong> que promovem a secagem de paredes e aumentam o conforto térmico. Estudos internacionais registam economias de <strong>30 a 40%</strong> nos custos de climatização apenas por pintar com estes produtos.
                 </p>
+                <blockquote className="border-l-4 border-blue-600 bg-blue-50 rounded-r-2xl px-5 py-4">
+                  <p className="text-gray-800 font-bold text-base leading-snug">
+                    "Não é uma tinta normal e não é um sistema de isolamento. Mas substitui ambos!"
+                  </p>
+                </blockquote>
               </div>
 
               <div>

@@ -45,6 +45,8 @@ const WHY = [
   'Não emite gases, não queima oxigénio',
   'Baixo consumo comparado com resistências convencionais',
   'Fácil instalação, sem manutenção regular',
+  'Opções Bluetooth para controlo via smartphone',
+  'Modelos portáteis para residências e uso ocasional',
 ];
 
 export default function ComfortSunPage() {
@@ -87,7 +89,7 @@ export default function ComfortSunPage() {
                   A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com tecnologia de lâmpadas HeLeN avançada. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico, com fornecimento direto da fábrica alemã.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento.
+                  Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento. A gama inclui ainda <strong>soluções Bluetooth</strong> e <strong>modelos portáteis</strong>, perfeitos para residências particulares e uso ocasional.
                 </p>
               </div>
 

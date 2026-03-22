@@ -16,6 +16,7 @@ export default function DuothermPage() {
     'Elemento decorativo personalizável',
     'Termostato incluído controlo preciso',
     'Versão DELUXE com placa de vidro nanotecnológica',
+    '10 anos de garantia do fabricante',
   ];
 
   return (
@@ -68,6 +69,14 @@ export default function DuothermPage() {
                 <p className="text-gray-700 text-sm leading-relaxed">
                   O aquecimento por radiação funciona como o sol aquece os corpos e as superfícies diretamente, sem circular ar ou criar correntes. Resultado: sem poeiras em suspensão, sem ressecamento do ar, melhor para alergias e vias respiratórias.
                 </p>
+              </div>
+
+              <div className="bg-stone-800 rounded-2xl p-6 text-white flex items-start gap-4">
+                <div className="text-3xl flex-shrink-0">🏆</div>
+                <div>
+                  <h3 className="font-extrabold text-lg mb-1">10 Anos de Garantia do Fabricante</h3>
+                  <p className="text-stone-300 text-sm leading-relaxed">A qualidade do Duotherm é comprovada por 10 anos de garantia direta do fabricante, sem necessidade de qualquer manutenção. Instala-se uma vez e funciona durante décadas.</p>
+                </div>
               </div>
             </div>
 

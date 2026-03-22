@@ -132,11 +132,17 @@ export default function Footer() {
               ))}
             </ul>
             <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#3A3430', marginBottom: '10px' }}>Marcas</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
               {['Solamagic', 'ComfortSun', 'Duotherm', 'ClimateCoating', 'Drymat', 'Herkell'].map(b => (
                 <span key={b} style={{ fontSize: '11px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '3px 8px', color: '#4A4440' }}>{b}</span>
               ))}
             </div>
+            <a href="https://www.knoch-infrarot.de/" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#6A6460', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#F0A020'}
+              onMouseLeave={e => e.currentTarget.style.color = '#6A6460'}>
+              <span style={{ fontSize: '10px' }}>↗</span> Site do Fabricante
+            </a>
           </div>
         </div>
       </div>

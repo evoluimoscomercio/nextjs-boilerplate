@@ -41,8 +41,9 @@ function App() {
         <ErrorBoundary>
           <ScrollToTop />
           <div className="flex flex-col min-h-screen">
+            <a href="#main-content" className="skip-to-content">Saltar para o conteúdo</a>
             <Header />
-            <main className="flex-grow" style={{ paddingTop: '64px' }}>
+            <main id="main-content" className="flex-grow" style={{ paddingTop: '64px' }}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
 

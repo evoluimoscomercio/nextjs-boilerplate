@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, MessageCircle, HelpCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle, HelpCircle, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA } from '@/config/company';
 
 const FAQS = [
@@ -74,6 +75,8 @@ const FAQS = [
 
 function FAQItem({ item, index }) {
   const [open, setOpen] = useState(false);
+  const panelId = `faq-panel-${index}`;
+  const buttonId = `faq-button-${index}`;
 
   return (
     <motion.div
@@ -82,18 +85,27 @@ function FAQItem({ item, index }) {
       transition={{ delay: index * 0.04 }}
       className="bg-white border border-gray-200 rounded-2xl overflow-hidden"
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-      >
-        <span className="font-semibold text-gray-900 text-sm sm:text-base leading-snug">{item.q}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-orange-500 flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+      <h3>
+        <button
+          id={buttonId}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+        >
+          <span className="font-semibold text-gray-900 text-sm sm:text-base leading-snug">{item.q}</span>
+          <ChevronDown
+            className={`w-5 h-5 text-orange-500 flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            aria-hidden="true"
+          />
+        </button>
+      </h3>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -119,6 +131,8 @@ export default function FAQPage() {
       />
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
+
+          <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Perguntas Frequentes', path: '/faqs' }]} />
 
           {/* Header */}
           <motion.div
@@ -174,6 +188,24 @@ export default function FAQPage() {
               </Link>
             </div>
           </motion.div>
+
+          {/* Cross-links */}
+          <div className="mt-10 grid sm:grid-cols-2 gap-3">
+            {[
+              { label: 'Ver Todos os Produtos', desc: 'Conheça as nossas soluções de conforto térmico', path: '/products' },
+              { label: 'Soluções por Necessidade', desc: 'Encontre a resposta certa para o seu caso', path: '/solutions' },
+            ].map(link => (
+              <Link key={link.path} to={link.path}
+                className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all group"
+              >
+                <div className="flex-1">
+                  <div className="font-bold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">{link.label}</div>
+                  <div className="text-gray-500 text-xs mt-0.5">{link.desc}</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-orange-400 flex-shrink-0" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
 
         </div>
       </div>

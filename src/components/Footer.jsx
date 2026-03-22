@@ -77,7 +77,7 @@ export default function Footer() {
                 <span style={{ lineHeight: 1.6 }}>{COMPANY.address.street}<br />{COMPANY.address.postalCode} · {COMPANY.address.country}</span>
               </li>
             </ul>
-            <p style={{ marginTop: '20px', fontSize: '12px', color: '#3A3430' }}>NIF: {COMPANY.nif}</p>
+            <p style={{ marginTop: '20px', fontSize: '12px', color: '#6A6460' }}>NIF: {COMPANY.nif}</p>
           </div>
 
           {/* Produtos */}
@@ -131,10 +131,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#3A3430', marginBottom: '10px' }}>Marcas</p>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6A6460', marginBottom: '10px' }}>Marcas</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
               {['Solamagic', 'ComfortSun', 'Duotherm', 'ClimateCoating', 'Drymat', 'Herkell'].map(b => (
-                <span key={b} style={{ fontSize: '11px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '3px 8px', color: '#4A4440' }}>{b}</span>
+                <span key={b} style={{ fontSize: '11px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '3px 8px', color: '#8A8480' }}>{b}</span>
               ))}
             </div>
             <a href="https://www.knoch-infrarot.de/" target="_blank" rel="noopener noreferrer"
@@ -150,14 +150,14 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '18px 24px' }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p style={{ fontSize: '13px', color: '#3A3430' }}>© {year} {COMPANY.legalName}. Todos os direitos reservados.</p>
+          <p style={{ fontSize: '13px', color: '#6A6460' }}>© {year} {COMPANY.legalName}. Todos os direitos reservados.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {[
               { l: 'Sobre', p: '/about' },
               { l: 'Contactos', p: '/contact' },
               { l: 'Privacidade', p: '/privacy-policy' },
             ].map(x => (
-              <Link key={x.p} to={x.p} style={{ color: '#3A3430', fontSize: '13px', textDecoration: 'none' }}
+              <Link key={x.p} to={x.p} style={{ color: '#6A6460', fontSize: '13px', textDecoration: 'none' }}
                 onMouseEnter={e => e.target.style.color = '#8A8480'}
                 onMouseLeave={e => e.target.style.color = '#3A3430'}>{x.l}</Link>
             ))}

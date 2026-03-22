@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
+import { WA_URL as WA } from '@/config/company';
 
 const INFRARED = [
   {
@@ -119,6 +121,8 @@ export default function ProductsHubPage() {
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
+          <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }]} />
+
           {/* Header */}
           <div className="text-center mb-14">
             <span className="text-orange-600 text-xs font-bold uppercase tracking-widest">Portfólio Completo</span>
@@ -163,6 +167,39 @@ export default function ProductsHubPage() {
               {PROTECTION.map((p, i) => <ProductCard key={i} p={p} />)}
             </div>
           </div>
+
+          {/* CTA + Cross-links */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 bg-orange-50 border border-orange-200 rounded-2xl p-8 text-center"
+          >
+            <h2 className="text-xl font-extrabold text-gray-900 mb-2">Não sabe qual o produto ideal?</h2>
+            <p className="text-gray-600 text-sm mb-6 max-w-md mx-auto">
+              Descubra a solução certa para o seu caso, ou fale diretamente connosco para uma análise gratuita.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+              <a href={WA} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors">
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
+                Falar por WhatsApp
+              </a>
+              <Link to="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold transition-colors">
+                Pedir Orçamento
+              </Link>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link to="/solutions" className="inline-flex items-center gap-1 text-orange-600 font-semibold text-sm hover:underline">
+                Ver Soluções por Necessidade <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+              <span className="text-gray-300">|</span>
+              <Link to="/faqs" className="inline-flex items-center gap-1 text-orange-600 font-semibold text-sm hover:underline">
+                Perguntas Frequentes <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     </>

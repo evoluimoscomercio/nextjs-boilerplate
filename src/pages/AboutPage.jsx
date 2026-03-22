@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MessageCircle, CheckCircle2 } from 'lucide-react';
+import { MessageCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA } from '@/config/company';
 
 const BRANDS = ['SOLAMAGIC', 'COMFORTSUN', 'DUOTHERM', 'CLIMATECOATING', 'DRYMAT', 'HERKELL', 'CLAGE'];
@@ -17,6 +18,8 @@ export default function AboutPage() {
       />
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+
+          <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Sobre Nós', path: '/about' }]} />
 
           <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
@@ -68,7 +71,7 @@ export default function AboutPage() {
                 {[
                   { n: '2018', label: 'Ano de fundação' },
                   { n: '25+', label: 'Anos experiência' },
-                  { n: '3', label: 'Clientes Fortune 500' },
+                  { n: '3', label: 'Clientes de referência' },
                   { n: '7', label: 'Marcas representadas' },
                 ].map(s => (
                   <div key={s.n} className="bg-white border border-gray-200 rounded-2xl p-5 text-center">
@@ -111,6 +114,25 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Cross-links */}
+          <div className="mt-16 grid sm:grid-cols-3 gap-4">
+            {[
+              { label: 'Os Nossos Produtos', desc: 'Conheça todas as soluções de conforto térmico', path: '/products' },
+              { label: 'Soluções por Necessidade', desc: 'Encontre a solução certa para o seu caso', path: '/solutions' },
+              { label: 'Serviços Imobiliários', desc: 'Compra e venda de imóveis no Algarve', path: '/real-estate' },
+            ].map(link => (
+              <Link key={link.path} to={link.path}
+                className="flex items-center gap-3 p-5 bg-white rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-md transition-all group"
+              >
+                <div className="flex-1">
+                  <div className="font-bold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">{link.label}</div>
+                  <div className="text-gray-500 text-xs mt-1">{link.desc}</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-orange-400 flex-shrink-0" aria-hidden="true" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>

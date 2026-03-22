@@ -7,68 +7,65 @@ import { WA_URL as WA } from '@/config/company';
 
 /* ── Animated SVG Hero ───────────────────────────────────────────── */
 function HeroGraphic() {
-  const CX = 800, CY = 350, OR = 188;
+  const CX = 810, CY = 345, OR = 190;
   const orbitals = [
-    { angle: -90,    Icon: Sun,         color: '#8B5A00' },
-    { angle: -38.57, Icon: Zap,         color: '#1A5A80' },
-    { angle:  12.86, Icon: Thermometer, color: '#A03020' },
-    { angle:  64.29, Icon: Flame,       color: '#B84000' },
-    { angle: 115.71, Icon: Droplets,    color: '#1A5A80' },
-    { angle: 167.14, Icon: Wind,        color: '#2A6A30' },
-    { angle: 218.57, Icon: Snowflake,   color: '#1A5A80' },
+    { angle: -90,    Icon: Sun },
+    { angle: -38.57, Icon: Zap },
+    { angle:  12.86, Icon: Thermometer },
+    { angle:  64.29, Icon: Flame },
+    { angle: 115.71, Icon: Droplets },
+    { angle: 167.14, Icon: Wind },
+    { angle: 218.57, Icon: Snowflake },
   ];
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <filter id="nblur"><feGaussianBlur stdDeviation="30" /></filter>
-          <radialGradient id="nb1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#2A7040" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#2A7040" stopOpacity="0" />
+          <filter id="hglow"><feGaussianBlur stdDeviation="32" /></filter>
+          <filter id="cglow"><feGaussianBlur stdDeviation="5" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <radialGradient id="hg1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#B84500" stopOpacity="0.30" />
+            <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="nb2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#1A5030" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#1A5030" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="nb3" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#3A8850" stopOpacity="0.30" />
-            <stop offset="100%" stopColor="#3A8850" stopOpacity="0" />
+          <radialGradient id="hg2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#D07000" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#D07000" stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        {/* Subtle depth blobs */}
-        <ellipse cx="80"  cy="160" rx="300" ry="240" fill="url(#nb1)" filter="url(#nblur)" />
-        <ellipse cx="1100" cy="580" rx="280" ry="200" fill="url(#nb2)" filter="url(#nblur)" />
-        <ellipse cx="350" cy="650" rx="320" ry="170" fill="url(#nb3)" filter="url(#nblur)" />
-        <ellipse cx="600" cy="80"  rx="250" ry="130" fill="url(#nb2)" filter="url(#nblur)" />
-        <ellipse cx={CX} cy={CY} rx="340" ry="280" fill="url(#nb1)" filter="url(#nblur)" />
+        {/* Warm ambient hazes */}
+        <ellipse cx={CX} cy={CY} rx="380" ry="320" fill="url(#hg1)" filter="url(#hglow)" />
+        <ellipse cx="200" cy="180" rx="260" ry="200" fill="url(#hg2)" filter="url(#hglow)" />
+        <ellipse cx="400" cy="620" rx="300" ry="160" fill="url(#hg2)" filter="url(#hglow)" />
 
         {/* Expanding pulse rings */}
         {[0, 1, 2].map(i => (
-          <motion.circle key={i} cx={CX} cy={CY} stroke="#3ACA60" strokeWidth="0.8" fill="none"
-            animate={{ r: [OR * 0.42, OR + 170], strokeOpacity: [0.22, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeOut', delay: i * 1.67 }}
+          <motion.circle key={i} cx={CX} cy={CY} stroke="#D07000" strokeWidth="0.8" fill="none"
+            animate={{ r: [OR * 0.4, OR + 180], strokeOpacity: [0.25, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeOut', delay: i * 1.83 }}
           />
         ))}
 
         {/* Static concentric rings */}
-        {[68, 112, OR, 232, 278].map((r, i) => (
-          <circle key={i} cx={CX} cy={CY} r={r} stroke="#3ABA58"
-            strokeWidth={i === 2 ? 1.2 : 0.5}
-            strokeOpacity={[0.22, 0.12, 0.22, 0.09, 0.06][i]}
+        {[66, 110, OR, 235, 280].map((r, i) => (
+          <circle key={i} cx={CX} cy={CY} r={r} stroke="#D07000"
+            strokeWidth={i === 2 ? 1.1 : 0.5}
+            strokeOpacity={[0.18, 0.10, 0.18, 0.08, 0.05][i]}
             fill="none" />
         ))}
-        <circle cx={CX} cy={CY} r="300" stroke="#3ABA58" strokeWidth="0.4"
-          strokeOpacity="0.06" fill="none" strokeDasharray="6 12" />
+        <circle cx={CX} cy={CY} r="306" stroke="#B84500" strokeWidth="0.4"
+          strokeOpacity="0.06" fill="none" strokeDasharray="5 12" />
 
-        {/* Lines center → orbitals */}
+        {/* Dashed lines center → orbitals */}
         {orbitals.map((o, i) => {
           const rad = (o.angle * Math.PI) / 180;
           return (
             <line key={i}
-              x1={CX + Math.cos(rad) * 72} y1={CY + Math.sin(rad) * 72}
+              x1={CX + Math.cos(rad) * 70} y1={CY + Math.sin(rad) * 70}
               x2={CX + Math.cos(rad) * (OR - 32)} y2={CY + Math.sin(rad) * (OR - 32)}
-              stroke="#4ACA68" strokeWidth="0.7" strokeOpacity="0.20" strokeDasharray="3 7"
+              stroke="#D07000" strokeWidth="0.6" strokeOpacity="0.18" strokeDasharray="3 7"
             />
           );
         })}
@@ -80,54 +77,74 @@ function HeroGraphic() {
           const y = CY + Math.sin(rad) * OR;
           return (
             <g key={i}>
-              <motion.circle cx={x} cy={y} r={29}
-                fill="rgba(255,255,255,0.08)" stroke="#4ACA68" strokeWidth="1.2" strokeOpacity="0.45"
-                animate={{ r: [29, 31.5, 29] }}
-                transition={{ duration: 3 + i * 0.28, repeat: Infinity, ease: 'easeInOut', delay: i * 0.38 }}
+              <motion.circle cx={x} cy={y} r={28}
+                fill="rgba(184,69,0,0.08)" stroke="#D07000" strokeWidth="1" strokeOpacity="0.35"
+                animate={{ r: [28, 30.5, 28] }}
+                transition={{ duration: 3 + i * 0.3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
               />
-              <circle cx={x} cy={y} r="23" fill="rgba(255,255,255,0.05)" />
+              <circle cx={x} cy={y} r="22" fill="rgba(208,112,0,0.05)" />
               <foreignObject x={x - 12} y={y - 12} width="24" height="24">
                 <div style={{ display:'flex', alignItems:'center', justifyContent:'center', width:'100%', height:'100%' }}>
-                  <o.Icon size={15} color="#7AE898" strokeWidth={2} />
+                  <o.Icon size={15} color="#F0A020" strokeWidth={2} />
                 </div>
               </foreignObject>
             </g>
           );
         })}
 
-        {/* Central circle */}
-        <circle cx={CX} cy={CY} r="66" fill="rgba(255,255,255,0.07)" stroke="#4ACA68" strokeWidth="2.2" strokeOpacity="0.50" />
-        <circle cx={CX} cy={CY} r="60" fill="rgba(255,255,255,0.04)" />
+        {/* Central circle with glow */}
+        <motion.circle cx={CX} cy={CY} r="66"
+          fill="rgba(184,69,0,0.06)" stroke="#D07000" strokeWidth="2" strokeOpacity="0.40"
+          animate={{ strokeOpacity: [0.40, 0.55, 0.40] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <circle cx={CX} cy={CY} r="60" fill="rgba(208,112,0,0.04)" />
         {/* House walls */}
         <path d={`M ${CX-24} ${CY-7} L ${CX-24} ${CY+29} L ${CX+24} ${CY+29} L ${CX+24} ${CY-7}`}
-          fill="none" stroke="#8AE8A0" strokeWidth="1.8" strokeLinejoin="round" />
+          fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
         {/* Roof */}
         <path d={`M ${CX-30} ${CY-5} L ${CX} ${CY-36} L ${CX+30} ${CY-5}`}
-          fill="none" stroke="#8AE8A0" strokeWidth="1.8" strokeLinejoin="round" />
+          fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
         {/* Door */}
-        <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#8AE8A0" strokeWidth="1.4" />
+        <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
         {/* Window */}
-        <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#8AE8A0" strokeWidth="1.4" />
-        {/* Eco leaf accent */}
+        <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
+        {/* Eco leaf */}
         <motion.path
           d={`M ${CX+15} ${CY+23} Q ${CX+26} ${CY+10} ${CX+15} ${CY+2} Q ${CX+8} ${CY+15} ${CX+15} ${CY+23}`}
-          fill="#5AE870"
-          animate={{ fillOpacity: [0.55, 0.90, 0.55] }}
+          fill="#F0A020"
+          animate={{ fillOpacity: [0.45, 0.75, 0.45] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
         />
 
-        {/* Pulsing dots at outer ring */}
+        {/* Small bright core in center */}
+        <circle cx={CX} cy={CY-16} r="4" fill="#F0A020" fillOpacity="0.35" filter="url(#cglow)" />
+
+        {/* Outer pulsing dots */}
         {orbitals.map((o, i) => {
           const rad = (o.angle * Math.PI) / 180;
           return (
             <motion.circle key={i}
-              cx={CX + Math.cos(rad) * 275} cy={CY + Math.sin(rad) * 275}
-              r={2.5} fill="#4ACA68"
-              animate={{ fillOpacity: [0.25, 0.65, 0.25], r: [2.5, 3.5, 2.5] }}
-              transition={{ duration: 2.2 + i * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.28 }}
+              cx={CX + Math.cos(rad) * 280} cy={CY + Math.sin(rad) * 280}
+              r={2} fill="#D07000"
+              animate={{ fillOpacity: [0.2, 0.55, 0.2], r: [2, 3, 2] }}
+              transition={{ duration: 2.4 + i * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             />
           );
         })}
+
+        {/* Floating warm particles */}
+        {[
+          { x: 480, y: 520 }, { x: 580, y: 560 }, { x: 700, y: 500 },
+          { x: 850, y: 540 }, { x: 950, y: 490 }, { x: 380, y: 480 },
+          { x: 1060, y: 530 }, { x: 660, y: 580 },
+        ].map((p, i) => (
+          <motion.circle key={`p${i}`} cx={p.x} cy={p.y} r={1.5 + (i % 3) * 0.5}
+            fill={i % 2 === 0 ? '#F0A020' : '#D07000'}
+            animate={{ cy: [p.y, p.y - 130], fillOpacity: [0.5, 0] }}
+            transition={{ duration: 4 + i * 0.35, repeat: Infinity, ease: 'easeOut', delay: i * 0.5 }}
+          />
+        ))}
       </svg>
     </div>
   );
@@ -158,7 +175,7 @@ const PRODUCTS = [
   { name: 'ComfortSun', tag: 'Polivalente', icon: Zap, desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80' },
   { name: 'Duotherm', tag: 'Radiante', icon: Thermometer, desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=700&q=80' },
   { name: 'ClimateCoating', tag: 'Revestimento', icon: Wind, desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80' },
-  { name: 'Drymat', tag: 'Anti-Humidade', icon: Droplets, desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética alemã.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=700&q=80' },
+  { name: 'Drymat', tag: 'Anti-Humidade', icon: Droplets, desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética austríaca.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=700&q=80' },
   { name: 'Bioclimatizadores', tag: 'Arrefecimento', icon: Wind, desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=700&q=80' },
 ];
 
@@ -183,9 +200,9 @@ export default function HomePage() {
           font-weight: 700;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          background: rgba(74,202,104,0.12);
-          border: 1px solid rgba(74,202,104,0.32);
-          color: #6AE888;
+          background: rgba(184,69,0,0.12);
+          border: 1px solid rgba(184,69,0,0.32);
+          color: #F0A020;
         }
         .prod-card {
           display: block;
@@ -212,17 +229,17 @@ export default function HomePage() {
       <section
         aria-label="Apresentação"
         className="relative flex flex-col overflow-hidden"
-        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 88% 75% at 68% 30%, #0D2B18 0%, #081C10 38%, #050F08 68%, #030B06 100%)' }}
+        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 85% 70% at 68% 32%, #1C0E00 0%, #120800 38%, #0C0500 65%, #0F0F11 100%)' }}
       >
         <HeroGraphic />
         <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 py-10 sm:py-14">
           <div className="flex flex-col items-center justify-center flex-1 text-center max-w-3xl mx-auto w-full">
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}>
               <span className="ec-tag pjs mb-6 inline-block">Tecnologia Alemã</span>
-              <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#E8F8EE', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
-                Conforto Térmico<br /><span style={{ color: '#5ADA78' }}>Sustentável</span>
+              <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+                Conforto Térmico<br /><span style={{ color: '#B84500' }}>Sustentável</span>
               </h1>
-              <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#7AB890', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
+              <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#B8B0A5', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
                 Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
@@ -235,25 +252,25 @@ export default function HomePage() {
                   Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} aria-hidden="true" />
                 </Link>
                 <Link to="/solutions" className="pjs"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#C8F0D8', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.14)' }}>
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#EDE8E0', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)' }}>
                   Soluções
                 </Link>
               </div>
               <a href="tel:+351965026603" className="pjs" aria-label="Ligar para +351 965 026 603"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
-                <div style={{ width: '38px', height: '38px', background: '#3AAA58', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
+                <div style={{ width: '38px', height: '38px', background: '#B84500', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Phone style={{ width: '18px', height: '18px', color: '#fff' }} aria-hidden="true" />
                 </div>
-                <span style={{ fontSize: '20px', fontWeight: 700, color: '#E8F8EE', letterSpacing: '0.02em' }}>+351 965 026 603</span>
+                <span style={{ fontSize: '20px', fontWeight: 700, color: '#F0EBE3', letterSpacing: '0.02em' }}>+351 965 026 603</span>
               </a>
             </motion.div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
             style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '18px' }}>
-            <p className="pjs" style={{ color: '#4A7A58', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
+            <p className="pjs" style={{ color: '#5A5450', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
               {["McDonald's", "Grupo Avillez", "Sonae"].map(c => (
-                <span key={c} className="pjs" style={{ color: '#5A9070', fontWeight: 700, fontSize: '14px' }}>{c}</span>
+                <span key={c} className="pjs" style={{ color: '#6A6460', fontWeight: 700, fontSize: '14px' }}>{c}</span>
               ))}
             </div>
           </motion.div>
@@ -277,7 +294,7 @@ export default function HomePage() {
               <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '18px' }}>
                 Complementaridade <span style={{ color: '#B84500' }}>é a chave.</span>
               </h2>
-              <p className="pjs" style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.85 }}>
+              <p className="pjs" style={{ fontSize: '16px', color: '#9A9490', lineHeight: 1.85 }}>
                 Aquecer bem um espaço não depende só do aquecedor. Paredes húmidas, pontes térmicas e falta de isolamento triplicam os custos. Por isso reunimos soluções que trabalham juntas: eliminação de humidade, revestimento térmico, aquecimento eficiente e arrefecimento natural.
               </p>
             </div>
@@ -294,7 +311,7 @@ export default function HomePage() {
                   <div className="pjs" style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', fontWeight: 800, color: '#F0A020', lineHeight: 1, letterSpacing: '-0.02em' }}>
                     <CountUp target={s.n} suffix={s.suffix} />
                   </div>
-                  <div className="pjs" style={{ fontSize: '12px', color: '#6A6460', marginTop: '10px', fontWeight: 500, lineHeight: 1.5, whiteSpace: 'pre-line' }}>{s.label}</div>
+                  <div className="pjs" style={{ fontSize: '13px', color: '#9A9490', marginTop: '10px', fontWeight: 500, lineHeight: 1.5, whiteSpace: 'pre-line' }}>{s.label}</div>
                 </motion.div>
               ))}
             </div>

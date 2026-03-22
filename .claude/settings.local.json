@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(find /c/Users/maria/Documents/Evolucom/nextjs-boilerplate -type f -name *.json -o -name *.js -o -name *.jsx -o -name *.ts -o -name *.tsx -o -name *.css -o -name *.txt -o -name *.xml -o -name .env*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/**)"
     ]
   }
 }

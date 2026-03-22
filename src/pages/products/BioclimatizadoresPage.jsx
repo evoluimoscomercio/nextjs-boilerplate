@@ -19,6 +19,7 @@ export default function BioclimatizadoresPage() {
         title="Bioclimatizadores — Arrefecimento Natural por Evaporação | Evoluimos Comércio"
         description="Bioclimatizadores Elite e MF60. Arrefecimento natural sem compressor, baixo consumo, sem gases. Alternativa saudável ao ar condicionado."
         canonical="/products/bioclimatizadores"
+        image="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a"
       />
       <div className="min-h-screen">
         <div className="relative h-64 sm:h-80 overflow-hidden">

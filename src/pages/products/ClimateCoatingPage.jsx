@@ -19,6 +19,7 @@ export default function ClimateCoatingPage() {
         title="ClimateCoating — Revestimento Térmico Cerâmico | Evoluimos Comércio"
         description="ClimateCoating: membrana cerâmica de nanotecnologia alemã. Isola termicamente, regula humidade, aplica-se como tinta. Economias de 30-40% em climatização."
         canonical="/products/climatecoating"
+        image="https://images.unsplash.com/photo-1486325212027-8081e485255e"
       />
       <div className="min-h-screen">
         <div className="relative h-64 sm:h-80 overflow-hidden">

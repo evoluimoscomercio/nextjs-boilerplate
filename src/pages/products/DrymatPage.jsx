@@ -20,6 +20,7 @@ export default function DrymatPage() {
         title="Drymat — Eliminar Humidade Ascendente Sem Obras | Evoluimos Comércio"
         description="Drymat elimina humidade ascendente sem obras. Tecnologia alemã de frequência eletromagnética. Análise gratuita ao seu imóvel."
         canonical="/products/drymat"
+        image="https://images.unsplash.com/photo-1693594558979-aed4872ff156"
       />
       <div className="min-h-screen">
         <div className="relative h-64 sm:h-80 overflow-hidden">

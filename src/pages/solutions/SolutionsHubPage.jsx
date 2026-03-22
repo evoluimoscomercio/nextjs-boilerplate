@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Droplets, TrendingDown, Sun, Building2, HardHat } from 'lucide-react';
+import { ArrowRight, Droplets, TrendingDown, Sun, Building2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOHead from '@/components/SEOHead';
@@ -9,8 +9,10 @@ import Breadcrumb from '@/components/Breadcrumb';
 const SolutionsHubPage = () => {
   const { language = 'pt', t = {} } = useLanguage() || {};
 
-  const title = language === 'pt' ? 'Soluções por Necessidade Encontre a Solução Ideal para Seu Problema' : 'Solutions by Need Find the Ideal Solution for Your Problem';
-  const desc = language === 'pt' ? 'Encontre a solução certa para as suas necessidades.' : 'Find the right solution for your needs.';
+  const title = language === 'pt' ? 'Soluções para Cada Necessidade' : 'Solutions for Every Need';
+  const desc = language === 'pt'
+    ? 'Eliminar humidade, reduzir custos de aquecimento, aquecer esplanadas ou tornar o negócio mais sustentável — temos a solução certa para si.'
+    : 'Eliminate moisture, reduce heating costs, heat outdoor spaces, or make your business more sustainable — we have the right solution for you.';
 
   const solutions = [
     {
@@ -35,24 +37,17 @@ const SolutionsHubPage = () => {
       image: 'https://images.unsplash.com/photo-1662976631114-bcec16615950'
     },
     {
-      id: 'sustainable-business-heating',
-      name: language === 'pt' ? 'Aquecimento Sustentável para Negócios' : 'Sustainable Business Heating',
-      desc: language === 'pt' ? 'Soluções corporativas e ESG.' : 'Corporate and ESG solutions.',
+      id: 'sustainable-business',
+      name: language === 'pt' ? 'Negócios Sustentáveis' : 'Sustainable Business',
+      desc: language === 'pt' ? 'Soluções corporativas e ESG. Reduza emissões e pague menos energia.' : 'Corporate and ESG solutions. Reduce emissions and lower energy costs.',
       icon: Building2,
-      image: 'https://images.unsplash.com/photo-1700914504404-5245d466e6e6'
-    },
-    {
-      id: 'construction-rehabilitation',
-      name: language === 'pt' ? 'Soluções Térmicas para Construção & Reabilitação' : 'Thermal Solutions for Construction & Rehabilitation',
-      desc: language === 'pt' ? 'Inovação na construção civil.' : 'Innovation in civil construction.',
-      icon: HardHat,
-      image: 'https://images.unsplash.com/photo-1550963547-1c1a59d72757'
+      image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e'
     }
   ];
 
   return (
     <>
-      <SEOHead title={`${title} | Evoluimos Comércio`} description={desc} canonical="/solutions" language={language} />
+      <SEOHead title={`${title} | Evoluimos Comércio`} description={desc} canonical="/solutions" language={language} image="https://images.unsplash.com/photo-1693594558979-aed4872ff156" />
       <div className="min-h-screen pt-24 pb-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <Breadcrumb items={[{ label: t?.nav?.home || 'Home', path: '/' }, { label: t?.nav?.solutions || 'Solutions', path: '/solutions' }]} />

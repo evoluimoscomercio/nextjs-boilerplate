@@ -54,6 +54,7 @@ export default function ComfortSunPage() {
         title="ComfortSun — Aquecimento Infravermelhos Polivalente | Evoluimos Comércio"
         description="Linha ComfortSun de aquecedores infravermelhos: Polivalente, Profissional e Deluxe. Tecnologia alemã para esplanadas, hotéis e habitação."
         canonical="/products/comfortsun"
+        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
       />
 
       <div className="min-h-screen">

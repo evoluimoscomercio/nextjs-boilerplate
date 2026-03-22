@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import ScrollToTop from '@/components/ScrollToTop';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 
 import HomePage from '@/pages/HomePage';
 import ProductsHubPage from '@/pages/products/ProductsHubPage';
@@ -23,6 +24,7 @@ import SustainableBusinessPage from '@/pages/solutions/SustainableBusinessPage';
 
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 
 function App() {
   return (
@@ -52,9 +54,11 @@ function App() {
 
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             </Routes>
           </main>
           <Footer />
+          <CookieBanner />
         </div>
       </Router>
     </LanguageProvider>

@@ -21,9 +21,10 @@ const SOLUTIONS = [
 ];
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer style={{ background: '#09090B', color: '#9A9490', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');`}</style>
 
       {/* Top CTA strip */}
       <div style={{ background: '#131316', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '40px 24px' }}>
@@ -36,9 +37,9 @@ export default function Footer() {
               Soluções de alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.
             </p>
           </div>
-          <a href={WA} target="_blank" rel="noopener noreferrer"
+          <a href={WA} target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: '#16A34A', color: '#fff', padding: '13px 22px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', whiteSpace: 'nowrap', boxShadow: '0 0 24px rgba(22,163,74,0.2)' }}>
-            <MessageCircle style={{ width: '18px', height: '18px' }} />
+            <MessageCircle style={{ width: '18px', height: '18px' }} aria-hidden="true" />
             Contactar via WhatsApp
           </a>
         </div>
@@ -63,7 +64,7 @@ export default function Footer() {
                       onMouseEnter={e => e.currentTarget.style.color = '#F0EBE3'}
                       onMouseLeave={e => e.currentTarget.style.color = '#8A8480'}>
                       <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon style={{ width: '14px', height: '14px', color: '#FF8C3A' }} />
+                        <Icon style={{ width: '14px', height: '14px', color: '#FF8C3A' }} aria-hidden="true" />
                       </div>
                       {c.text}
                     </a>
@@ -72,7 +73,7 @@ export default function Footer() {
               })}
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: '#8A8480' }}>
                 <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
-                  <MapPin style={{ width: '14px', height: '14px', color: '#FF8C3A' }} />
+                  <MapPin style={{ width: '14px', height: '14px', color: '#FF8C3A' }} aria-hidden="true" />
                 </div>
                 <span style={{ lineHeight: 1.6 }}>Vila Nova de Cacela<br />8900-057 · Portugal</span>
               </li>
@@ -119,6 +120,7 @@ export default function Footer() {
               {[
                 { label: 'Sobre Nós', path: '/about' },
                 { label: 'Contactos', path: '/contact' },
+                { label: 'Política de Privacidade', path: '/privacy-policy' },
               ].map(l => (
                 <li key={l.path}>
                   <Link to={l.path} style={{ color: '#7A7470', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }}
@@ -142,9 +144,13 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '18px 24px' }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p style={{ fontSize: '13px', color: '#3A3430' }}>© 2025 Evoluimos Comércio. Todos os direitos reservados.</p>
+          <p style={{ fontSize: '13px', color: '#3A3430' }}>© {year} Evoluimos Comércio Lda. Todos os direitos reservados.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
-            {[{ l: 'Sobre', p: '/about' }, { l: 'Contactos', p: '/contact' }].map(x => (
+            {[
+              { l: 'Sobre', p: '/about' },
+              { l: 'Contactos', p: '/contact' },
+              { l: 'Privacidade', p: '/privacy-policy' },
+            ].map(x => (
               <Link key={x.p} to={x.p} style={{ color: '#3A3430', fontSize: '13px', textDecoration: 'none' }}
                 onMouseEnter={e => e.target.style.color = '#8A8480'}
                 onMouseLeave={e => e.target.style.color = '#3A3430'}>{x.l}</Link>

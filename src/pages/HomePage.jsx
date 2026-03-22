@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import SEOHead from '@/components/SEOHead';
 
 const WA = 'https://wa.me/351965026603';
 
@@ -98,7 +99,6 @@ export default function HomePage() {
   return (
     <div style={{ background: '#0F0F11', color: '#EDE8E0' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         .pjs { font-family: 'Plus Jakarta Sans', sans-serif !important; }
         .ec-tag {
           display: inline-block;
@@ -127,8 +127,15 @@ export default function HomePage() {
         .prod-card img { transition: transform 0.5s ease; }
       `}</style>
 
+      <SEOHead
+        title="Evoluimos Comércio — Conforto Térmico Sustentável"
+        description="Aquecimento, arrefecimento e proteção de edifícios com tecnologia europeia de alta eficiência. Distribuidores oficiais de Solamagic, Duotherm, Drymat e mais."
+        canonical="/"
+      />
+
       {/* ── HERO ── */}
       <section
+        aria-label="Apresentação"
         className="relative flex flex-col overflow-hidden"
         style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 90% 70% at 60% 50%, #1C0E00 0%, #0F0F11 65%)' }}
       >
@@ -144,23 +151,23 @@ export default function HomePage() {
                 Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-                <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs"
+                <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs" aria-label="Contactar via WhatsApp"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#16A34A', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(22,163,74,0.3)' }}>
-                  <MessageCircle style={{ width: '18px', height: '18px' }} />WhatsApp
+                  <MessageCircle style={{ width: '18px', height: '18px' }} aria-hidden="true" />WhatsApp
                 </a>
                 <Link to="/products" className="pjs"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#FF6B00', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(255,107,0,0.3)' }}>
-                  Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} />
+                  Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} aria-hidden="true" />
                 </Link>
                 <Link to="/solutions" className="pjs"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#EDE8E0', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)' }}>
                   Soluções
                 </Link>
               </div>
-              <a href="tel:+351965026603" className="pjs"
+              <a href="tel:+351965026603" className="pjs" aria-label="Ligar para +351 965 026 603"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
                 <div style={{ width: '38px', height: '38px', background: '#FF6B00', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Phone style={{ width: '18px', height: '18px', color: '#fff' }} />
+                  <Phone style={{ width: '18px', height: '18px', color: '#fff' }} aria-hidden="true" />
                 </div>
                 <span style={{ fontSize: '20px', fontWeight: 700, color: '#F0EBE3', letterSpacing: '0.02em' }}>+351 965 026 603</span>
               </a>
@@ -179,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ── */}
-      <section style={{ background: '#FF6B00' }}>
+      <section aria-label="Estatísticas" style={{ background: '#FF6B00' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
           {[
             { n: 25, suffix: '+', label: 'Anos de experiência' },
@@ -199,7 +206,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PRODUCTS — overlay image cards ── */}
-      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
+      <section aria-label="Portfólio de Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
             <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
@@ -216,13 +223,13 @@ export default function HomePage() {
               const Icon = p.icon;
               return (
                 <motion.div key={p.path} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}>
-                  <Link to={p.path} className="prod-card">
-                    <img src={p.img} alt={p.name} loading="lazy"
+                  <Link to={p.path} className="prod-card" aria-label={`Ver produto ${p.name}`}>
+                    <img src={p.img} alt={`${p.name} — ${p.desc}`} loading="lazy"
                       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 48%, rgba(5,5,7,0.08) 100%)' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 48%, rgba(5,5,7,0.08) 100%)' }} aria-hidden="true" />
                     <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#FF6B00', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon style={{ width: '16px', height: '16px', color: '#fff' }} />
+                        <Icon style={{ width: '16px', height: '16px', color: '#fff' }} aria-hidden="true" />
                       </div>
                       <span className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff' }}>{p.tag}</span>
                     </div>
@@ -230,7 +237,7 @@ export default function HomePage() {
                       <h3 className="pjs" style={{ fontSize: '22px', fontWeight: 800, color: '#fff', marginBottom: '6px', lineHeight: 1.2 }}>{p.name}</h3>
                       <p className="pjs" style={{ color: 'rgba(255,255,255,0.72)', fontSize: '13px', lineHeight: 1.6, marginBottom: '14px' }}>{p.desc}</p>
                       <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
-                        Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} />
+                        Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} aria-hidden="true" />
                       </span>
                     </div>
                   </Link>
@@ -242,7 +249,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SOLUTIONS — 4 cards com descrição ── */}
-      <section style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
+      <section aria-label="Soluções" style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '52px', maxWidth: '640px' }}>
             <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
@@ -265,14 +272,14 @@ export default function HomePage() {
                     onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,107,0,0.4)'; e.currentTarget.style.background = '#1E1E24'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = '#1A1A1E'; e.currentTarget.style.transform = 'translateY(0)'; }}>
                     <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon style={{ width: '22px', height: '22px', color: '#FF8C3A' }} />
+                      <Icon style={{ width: '22px', height: '22px', color: '#FF8C3A' }} aria-hidden="true" />
                     </div>
                     <div style={{ flex: 1 }}>
                       <h3 className="pjs" style={{ fontSize: '17px', fontWeight: 700, color: '#EDE8E0', marginBottom: '8px', lineHeight: 1.3 }}>{s.label}</h3>
                       <p className="pjs" style={{ fontSize: '14px', color: '#7A7470', lineHeight: 1.7 }}>{s.desc}</p>
                     </div>
                     <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
-                      Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} />
+                      Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} aria-hidden="true" />
                     </span>
                   </Link>
                 </motion.div>
@@ -283,7 +290,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: 'linear-gradient(135deg, #E85A00 0%, #FF8C00 100%)', padding: 'clamp(60px, 7vw, 88px) 0' }}>
+      <section aria-label="Contacto" style={{ background: 'linear-gradient(135deg, #E85A00 0%, #FF8C00 100%)', padding: 'clamp(60px, 7vw, 88px) 0' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
             <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', marginBottom: '12px', lineHeight: 1.1 }}>
@@ -293,14 +300,14 @@ export default function HomePage() {
               Análise gratuita, sem compromisso.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs"
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="pjs" aria-label="Contactar via WhatsApp"
                 style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#fff', color: '#14532D', padding: '15px 28px', borderRadius: '14px', fontWeight: 800, fontSize: '16px', textDecoration: 'none', boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
-                <MessageCircle style={{ width: '19px', height: '19px' }} />
+                <MessageCircle style={{ width: '19px', height: '19px' }} aria-hidden="true" />
                 WhatsApp
               </a>
-              <a href="tel:+351965026603" className="pjs"
+              <a href="tel:+351965026603" className="pjs" aria-label="Ligar para +351 965 026 603"
                 style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'rgba(0,0,0,0.18)', color: '#fff', padding: '15px 28px', borderRadius: '14px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.25)' }}>
-                <Phone style={{ width: '19px', height: '19px' }} />
+                <Phone style={{ width: '19px', height: '19px' }} aria-hidden="true" />
                 +351 965 026 603
               </a>
             </div>

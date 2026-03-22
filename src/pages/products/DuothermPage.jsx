@@ -83,7 +83,7 @@ export default function DuothermPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <h3 className="font-extrabold text-xl mb-2">Pedir Informação</h3>
                 <p className="text-gray-400 text-sm mb-5">Calculamos a potência ideal para o seu espaço.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"

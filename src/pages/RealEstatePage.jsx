@@ -163,7 +163,7 @@ export default function RealEstatePage() {
 
             {/* Sidebar */}
             <div className="space-y-5">
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <div className="w-14 h-14 bg-amber-600 rounded-2xl flex items-center justify-center mb-4">
                   <Home className="w-7 h-7 text-white" />
                 </div>

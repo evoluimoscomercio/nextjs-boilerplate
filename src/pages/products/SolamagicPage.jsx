@@ -124,7 +124,7 @@ export default function SolamagicPage() {
 
             {/* Sidebar */}
             <div className="space-y-4">
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <div className="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
                   <Star className="w-6 h-6 text-white" />
                 </div>

@@ -94,7 +94,7 @@ export default function BioclimatizadoresPage() {
             </div>
 
             <div>
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <h3 className="font-extrabold text-xl mb-2">Encomendar</h3>
                 <p className="text-gray-400 text-sm mb-5">Preços com IVA e entrega incluídos. Entrega em Portugal continental.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"

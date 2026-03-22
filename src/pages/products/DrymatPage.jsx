@@ -106,7 +106,7 @@ export default function DrymatPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
+              <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <Droplets className="w-8 h-8 text-cyan-400 mb-3" />
                 <h3 className="font-extrabold text-xl mb-2">Visita e Análise Gratuitas</h3>
                 <p className="text-gray-400 text-sm mb-5">Deslocamo-nos ao seu imóvel, confirmamos se o problema é humidade ascendente e avaliamos a solução ideal. Grátis e sem compromisso.</p>

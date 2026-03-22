@@ -199,7 +199,7 @@ const SustainableBusinessPage = () => {
 
             {/* Sidebar */}
             <div className="space-y-5">
-              <div className="bg-green-700 rounded-2xl p-6 text-white sticky top-24">
+              <div className="bg-green-700 rounded-2xl p-6 text-white">
                 <h3 className="font-bold text-xl mb-3">
                   {isPt ? 'Auditoria Energética' : 'Energy Audit'}
                 </h3>

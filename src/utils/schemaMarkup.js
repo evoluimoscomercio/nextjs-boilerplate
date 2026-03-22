@@ -1,180 +1,179 @@
+import { COMPANY } from '@/config/company';
+
 export const generateLocalBusinessSchema = (language = 'pt') => {
   const isPortuguese = language === 'pt';
   return {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Evoluimos Comércio — Soluções Térmicas & Conforto S.A.",
-    "image": "https://evoluimoscomercio.com/logo.png",
-    "description": isPortuguese 
-      ? "Soluções inteligentes de aquecimento, conforto térmico e eliminação de humidade."
-      : "Intelligent heating, thermal comfort, and moisture elimination solutions.",
-    "@id": "https://evoluimoscomercio.com",
-    "url": "https://evoluimoscomercio.com",
-    "telephone": "+351965026603",
-    "email": "evolucom@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Ribeiro de Junco",
-      "addressLocality": "Vila Nova de Cacela",
-      "postalCode": "8900-057",
-      "addressCountry": "PT"
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    'name': COMPANY.name,
+    'image': `${COMPANY.baseUrl}/logo.png`,
+    'description': isPortuguese
+      ? 'Soluções inteligentes de aquecimento, conforto térmico e eliminação de humidade.'
+      : 'Intelligent heating, thermal comfort, and moisture elimination solutions.',
+    '@id': COMPANY.baseUrl,
+    'url': COMPANY.baseUrl,
+    'telephone': COMPANY.phoneBare,
+    'email': COMPANY.email,
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': COMPANY.address.street,
+      'addressLocality': COMPANY.address.city,
+      'postalCode': COMPANY.address.postalCode,
+      'addressCountry': COMPANY.address.countryCode,
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 37.1669,
-      "longitude": -7.5374
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': COMPANY.geo.lat,
+      'longitude': COMPANY.geo.lng,
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
+    'openingHoursSpecification': {
+      '@type': 'OpeningHoursSpecification',
+      'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      'opens': '09:00',
+      'closes': '18:00',
     },
-    "priceRange": "€€",
-    "taxID": "PT513000461"
+    'priceRange': '€€',
+    'taxID': COMPANY.nif,
   };
 };
 
 export const generateOrganizationSchema = () => {
   return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Evoluimos Comércio",
-    "legalName": "Evoluimos Comércio — Soluções Térmicas & Conforto S.A.",
-    "url": "https://evoluimoscomercio.com",
-    "logo": "https://evoluimoscomercio.com/logo.png",
-    "foundingDate": "2018",
-    "founder": {
-      "@type": "Person",
-      "name": "Eduardo Catarino"
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': COMPANY.name,
+    'legalName': COMPANY.legalName,
+    'url': COMPANY.baseUrl,
+    'logo': `${COMPANY.baseUrl}/logo.png`,
+    'foundingDate': COMPANY.founded,
+    'founder': {
+      '@type': 'Person',
+      'name': COMPANY.founder,
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+351-965026603",
-      "contactType": "customer service",
-      "email": "evolucom@gmail.com",
-      "availableLanguage": ["Portuguese", "English"]
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'telephone': COMPANY.phoneBare,
+      'contactType': 'customer service',
+      'email': COMPANY.email,
+      'availableLanguage': ['Portuguese', 'English'],
     },
-    "sameAs": [
-      "https://facebook.com/evoluimoscomercio",
-      "https://linkedin.com/company/evoluimoscomercio"
-    ]
+    'sameAs': Object.values(COMPANY.social),
   };
 };
 
-export const generateProductSchema = (product, language = 'pt') => {
+export const generateProductSchema = (product) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": product.name,
-    "description": product.description,
-    "image": product.image,
-    "brand": {
-      "@type": "Brand",
-      "name": product.brand || "Evoluimos Comércio"
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': product.name,
+    'description': product.description,
+    'image': product.image,
+    'brand': {
+      '@type': 'Brand',
+      'name': product.brand || COMPANY.name,
     },
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/InStock",
-      "priceCurrency": "EUR",
-      "url": product.url
-    }
+    'offers': {
+      '@type': 'Offer',
+      'availability': 'https://schema.org/InStock',
+      'priceCurrency': 'EUR',
+      'url': product.url,
+    },
   };
 };
 
 export const generateFAQSchema = (faqs) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.answer,
+      },
+    })),
   };
 };
 
-export const generateHowToSchema = (howTo, language = 'pt') => {
+export const generateHowToSchema = (howTo) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": howTo.name,
-    "description": howTo.description,
-    "step": howTo.steps.map((step, index) => ({
-      "@type": "HowToStep",
-      "position": index + 1,
-      "name": step.name,
-      "text": step.text
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    'name': howTo.name,
+    'description': howTo.description,
+    'step': howTo.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      'position': index + 1,
+      'name': step.name,
+      'text': step.text,
+    })),
   };
 };
 
 export const generateBreadcrumbSchema = (items) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.url
-    }))
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': items.map((item, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': item.name,
+      'item': item.url,
+    })),
   };
 };
 
-export const generateArticleSchema = (article, language = 'pt') => {
+export const generateArticleSchema = (article) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": article.title,
-    "image": article.image,
-    "author": {
-      "@type": "Organization",
-      "name": "Evoluimos Comércio"
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    'headline': article.title,
+    'image': article.image,
+    'author': {
+      '@type': 'Organization',
+      'name': COMPANY.name,
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Evoluimos Comércio",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://evoluimoscomercio.com/logo.png"
-      }
+    'publisher': {
+      '@type': 'Organization',
+      'name': COMPANY.name,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${COMPANY.baseUrl}/logo.png`,
+      },
     },
-    "datePublished": new Date().toISOString().split('T')[0],
-    "description": article.description
+    'datePublished': new Date().toISOString().split('T')[0],
+    'description': article.description,
   };
 };
 
 export const generateReviewSchema = (review) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-      "@type": "Organization",
-      "name": "Evoluimos Comércio"
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    'itemReviewed': {
+      '@type': 'Organization',
+      'name': COMPANY.name,
     },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": review.rating || "5",
-      "bestRating": "5"
+    'reviewRating': {
+      '@type': 'Rating',
+      'ratingValue': review.rating || '5',
+      'bestRating': '5',
     },
-    "author": {
-      "@type": "Person",
-      "name": review.author
+    'author': {
+      '@type': 'Person',
+      'name': review.author,
     },
-    "reviewBody": review.text
+    'reviewBody': review.text,
   };
 };
 
 export const generateContactSchema = () => {
   return {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Evoluimos Comércio",
-    "description": "Contact us for quotes, expert advice, and assessments on intelligent heating and moisture elimination.",
-    "url": "https://evoluimoscomercio.com/contact"
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    'name': `Contacto ${COMPANY.name}`,
+    'description': 'Contacte-nos para orçamentos, aconselhamento técnico e avaliações gratuitas.',
+    'url': `${COMPANY.baseUrl}/contact`,
   };
 };

@@ -26,6 +26,7 @@ import EliminateWallMoisturePage from '@/pages/solutions/EliminateWallMoisturePa
 import ReduceHeatingCostsPage from '@/pages/solutions/ReduceHeatingCostsPage';
 import OutdoorComfortPage from '@/pages/solutions/OutdoorComfortPage';
 import SustainableBusinessPage from '@/pages/solutions/SustainableBusinessPage';
+import ArrefecimentoNaturalPage from '@/pages/solutions/ArrefecimentoNaturalPage';
 
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
@@ -65,6 +66,7 @@ function App() {
                 <Route path="/solutions/reduce-heating-costs" element={<ReduceHeatingCostsPage />} />
                 <Route path="/solutions/outdoor-comfort" element={<OutdoorComfortPage />} />
                 <Route path="/solutions/sustainable-business" element={<SustainableBusinessPage />} />
+                <Route path="/solutions/natural-cooling" element={<ArrefecimentoNaturalPage />} />
 
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />

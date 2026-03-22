@@ -95,6 +95,20 @@ export default function ComfortSunPage() {
                 </p>
               </div>
 
+              {/* Video */}
+              <div>
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/gOkds_PFvpE"
+                    title="ComfortSun Aquecimento Infravermelhos"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
               {/* 4 Lines */}
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-5">As 4 Linhas ComfortSun</h2>

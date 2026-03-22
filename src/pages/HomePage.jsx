@@ -7,51 +7,116 @@ import { WA_URL as WA } from '@/config/company';
 
 /* ── Animated SVG Hero ───────────────────────────────────────────── */
 function HeroGraphic() {
+  const SX = 820, SY = 210; // solar core position
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <radialGradient id="g1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#B84500" stopOpacity="0.25" />
+          <radialGradient id="sg0" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor="#FFD060" stopOpacity="0.65" />
+            <stop offset="30%"  stopColor="#F0A020" stopOpacity="0.30" />
+            <stop offset="65%"  stopColor="#B84500" stopOpacity="0.12" />
             <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="g2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#D07000" stopOpacity="0.15" />
+          <radialGradient id="sg1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor="#D07000" stopOpacity="0.22" />
             <stop offset="100%" stopColor="#D07000" stopOpacity="0" />
           </radialGradient>
+          <radialGradient id="sg2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor="#B84500" stopOpacity="0.14" />
+            <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
+          </radialGradient>
+          <filter id="sfglow">
+            <feGaussianBlur stdDeviation="7" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
         </defs>
-        <ellipse cx="600" cy="350" rx="500" ry="320" fill="url(#g1)" />
-        <ellipse cx="800" cy="200" rx="300" ry="220" fill="url(#g2)" />
-        {[0,1,2,3,4].map(i => (
-          <motion.path
-            key={i}
-            d={`M ${480 + i*45} 60 Q ${580 + i*30} ${220 + i*18} ${530 + i*45} 380 Q ${610 + i*25} ${520 + i*12} ${555 + i*45} 660`}
-            stroke={i % 2 === 0 ? '#B84500' : '#D07000'}
-            strokeWidth={i === 2 ? 1.5 : 0.8}
-            strokeOpacity={0.1 + i * 0.04}
-            fill="none"
-            animate={{
-              d: [
-                `M ${480+i*45} 60 Q ${580+i*30} ${220+i*18} ${530+i*45} 380 Q ${610+i*25} ${520+i*12} ${555+i*45} 660`,
-                `M ${480+i*45} 60 Q ${550+i*30} ${240+i*18} ${560+i*45} 380 Q ${590+i*25} ${540+i*12} ${535+i*45} 660`,
-                `M ${480+i*45} 60 Q ${580+i*30} ${220+i*18} ${530+i*45} 380 Q ${610+i*25} ${520+i*12} ${555+i*45} 660`,
-              ]
-            }}
-            transition={{ duration: 5 + i * 0.8, repeat: Infinity, ease: 'easeInOut' }}
+
+        {/* Ambient warm hazes */}
+        <ellipse cx={SX} cy={SY} rx="520" ry="420" fill="url(#sg1)" />
+        <ellipse cx="280" cy="620" rx="360" ry="200" fill="url(#sg2)" />
+
+        {/* Pulsing solar aura */}
+        <motion.ellipse cx={SX} cy={SY} rx="230" ry="230" fill="url(#sg0)"
+          animate={{ rx: [230, 260, 230], ry: [230, 260, 230] }}
+          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }} />
+
+        {/* Sun rays */}
+        {Array.from({ length: 16 }).map((_, i) => {
+          const angle = (i * 360 / 16) * Math.PI / 180;
+          const x1 = SX + Math.cos(angle) * 38;
+          const y1 = SY + Math.sin(angle) * 38;
+          const len = i % 4 === 0 ? 320 : i % 2 === 0 ? 230 : 170;
+          const x2 = SX + Math.cos(angle) * len;
+          const y2 = SY + Math.sin(angle) * len;
+          const baseOp = i % 4 === 0 ? 0.24 : 0.11;
+          return (
+            <motion.line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+              stroke={i % 2 === 0 ? '#F0A020' : '#D07000'}
+              strokeWidth={i % 4 === 0 ? 1.1 : 0.5}
+              animate={{ strokeOpacity: [baseOp, baseOp * 1.9, baseOp] }}
+              transition={{ duration: 2.4 + i * 0.18, repeat: Infinity, ease: 'easeInOut', delay: i * 0.11 }}
+            />
+          );
+        })}
+
+        {/* Expanding infrared rings */}
+        {[0, 1, 2, 3].map(i => (
+          <motion.circle key={i} cx={SX} cy={SY}
+            stroke="#D07000" strokeWidth="0.9" fill="none"
+            animate={{ r: [55, 520], strokeOpacity: [0.38, 0] }}
+            transition={{ duration: 5.2, repeat: Infinity, ease: 'easeOut', delay: i * 1.3 }}
           />
         ))}
-        {[{cx:680,cy:180,r:5,d:0},{cx:780,cy:310,r:4,d:0.8},{cx:620,cy:440,r:5,d:1.5},{cx:900,cy:240,r:3,d:0.4}].map((o,i)=>(
-          <motion.circle key={i} cx={o.cx} cy={o.cy} r={o.r} fill="#B84500" fillOpacity={0.7}
-            animate={{ cy:[o.cy, o.cy-16, o.cy], fillOpacity:[0.7,1,0.7] }}
-            transition={{ duration: 3+i*0.5, repeat:Infinity, delay:o.d, ease:'easeInOut' }} />
+
+        {/* Glowing solar core */}
+        <motion.circle cx={SX} cy={SY} r="20" fill="#FFD060" fillOpacity="0.88"
+          filter="url(#sfglow)"
+          animate={{ r: [20, 27, 20], fillOpacity: [0.88, 1, 0.88] }}
+          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }} />
+        <circle cx={SX} cy={SY} r="8" fill="#FFFFFF" fillOpacity="0.45" filter="url(#sfglow)" />
+
+        {/* Heat particles rising */}
+        {[
+          { x: 540, y: 510, dy: -160, r: 2 },  { x: 618, y: 545, dy: -140, r: 1.5 },
+          { x: 695, y: 490, dy: -170, r: 2.5 }, { x: 755, y: 525, dy: -150, r: 2 },
+          { x: 828, y: 565, dy: -130, r: 1.5 }, { x: 895, y: 500, dy: -155, r: 2 },
+          { x: 460, y: 490, dy: -120, r: 1.5 }, { x: 975, y: 520, dy: -140, r: 2 },
+          { x: 350, y: 560, dy: -110, r: 1.5 }, { x: 1050, y: 480, dy: -130, r: 2 },
+        ].map((p, i) => (
+          <motion.circle key={i} cx={p.x} cy={p.y} r={p.r}
+            fill={i % 3 === 0 ? '#F0A020' : i % 3 === 1 ? '#B84500' : '#D07000'}
+            animate={{
+              cy: [p.y, p.y + p.dy],
+              cx: [p.x, p.x + (i % 2 === 0 ? 12 : -12)],
+              fillOpacity: [0.65, 0],
+            }}
+            transition={{ duration: 3.8 + i * 0.32, repeat: Infinity, ease: 'easeOut', delay: i * 0.48 }}
+          />
         ))}
-        <motion.circle cx="720" cy="350" r="200" stroke="#B84500" strokeWidth="0.5" strokeOpacity="0.08" fill="none"
-          animate={{ r:[200,218,200] }} transition={{ duration:7, repeat:Infinity, ease:'easeInOut' }} />
-        <motion.circle cx="720" cy="350" r="140" stroke="#D07000" strokeWidth="0.5" strokeOpacity="0.07" fill="none"
-          animate={{ r:[140,154,140] }} transition={{ duration:5.5, repeat:Infinity, ease:'easeInOut', delay:1 }} />
-        {Array.from({length:6}).map((_,row)=>Array.from({length:10}).map((_,col)=>(
-          <circle key={`${row}-${col}`} cx={480+col*60} cy={80+row*90} r="1" fill="#B84500" fillOpacity="0.07" />
-        )))}
+
+        {/* Wavy heat shimmer lines */}
+        {[0, 1, 2].map(i => (
+          <motion.path key={i}
+            d={`M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`}
+            stroke="#B84500" strokeWidth="0.7" fill="none" strokeOpacity={0.07 + i * 0.02}
+            animate={{
+              d: [
+                `M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`,
+                `M -50 ${440 + i * 75} Q 300 ${452 + i * 75} 600 ${434 + i * 75} Q 900 ${442 + i * 75} 1250 ${455 + i * 75}`,
+                `M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`,
+              ]
+            }}
+            transition={{ duration: 7.5 + i * 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        ))}
+
+        {/* Subtle dot grid */}
+        {Array.from({ length: 4 }).map((_, row) =>
+          Array.from({ length: 7 }).map((_, col) => (
+            <circle key={`d${row}-${col}`} cx={50 + col * 90} cy={500 + row * 52} r="1" fill="#B84500" fillOpacity="0.06" />
+          ))
+        )}
       </svg>
     </div>
   );
@@ -136,7 +201,7 @@ export default function HomePage() {
       <section
         aria-label="Apresentação"
         className="relative flex flex-col overflow-hidden"
-        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 90% 70% at 60% 50%, #1C0E00 0%, #0F0F11 65%)' }}
+        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 75% 65% at 72% 28%, #200D00 0%, #130800 35%, #0F0F11 68%)' }}
       >
         <HeroGraphic />
         <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 py-10 sm:py-14">

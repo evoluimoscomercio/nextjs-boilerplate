@@ -10,8 +10,8 @@ const NAV = [
     children: [
       { label: 'Todos os Produtos', path: '/products' },
       { group: 'Infravermelhos Exterior' },
-      { label: 'Solamagic Premium', path: '/products/solamagic', badge: 'Premium' },
-      { label: 'ComfortSun Polivalente', path: '/products/comfortsun' },
+      { label: 'Solamagic', path: '/products/solamagic', badge: 'Premium' },
+      { label: 'ComfortSun', path: '/products/comfortsun', badge: 'Polivalente' },
       { group: 'Aquecimento Interior' },
       { label: 'Duotherm Radiante', path: '/products/duotherm' },
       { group: 'Proteção e Conforto' },

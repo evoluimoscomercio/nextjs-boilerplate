@@ -68,12 +68,14 @@ export default function ComfortSunPage() {
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
+          <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb
               items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'ComfortSun', path: '/products/comfortsun' }]}
               dark
             />
-            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Polivalente</span>
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Polivalente</span>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ComfortSun</h1>
             <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">4 Linhas · Interior & Exterior</p>
           </div>

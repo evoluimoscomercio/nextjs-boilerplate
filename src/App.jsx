@@ -12,6 +12,9 @@ import ProductsHubPage from '@/pages/products/ProductsHubPage';
 import SolamagicPage from '@/pages/products/SolamagicPage';
 import ComfortSunPage from '@/pages/products/ComfortSunPage';
 import ComfortSunProfessionalPage from '@/pages/products/ComfortSunProfessionalPage';
+import ComfortSunDeluxePage from '@/pages/products/ComfortSunDeluxePage';
+import ComfortSunEspecializadoPage from '@/pages/products/ComfortSunEspecializadoPage';
+import ComfortSunPolivalentePage from '@/pages/products/ComfortSunPolivalentePage';
 import DuothermPage from '@/pages/products/DuothermPage';
 import ClimateCoatingPage from '@/pages/products/ClimateCoatingPage';
 import DrymatPage from '@/pages/products/DrymatPage';
@@ -47,6 +50,9 @@ function App() {
                 <Route path="/products/solamagic" element={<SolamagicPage />} />
                 <Route path="/products/comfortsun" element={<ComfortSunPage />} />
                 <Route path="/products/comfortsun/professional" element={<ComfortSunProfessionalPage />} />
+                <Route path="/products/comfortsun/deluxe" element={<ComfortSunDeluxePage />} />
+                <Route path="/products/comfortsun/especializado" element={<ComfortSunEspecializadoPage />} />
+                <Route path="/products/comfortsun/polivalente" element={<ComfortSunPolivalentePage />} />
                 <Route path="/products/duotherm" element={<DuothermPage />} />
                 <Route path="/products/climatecoating" element={<ClimateCoatingPage />} />
                 <Route path="/products/drymat" element={<DrymatPage />} />

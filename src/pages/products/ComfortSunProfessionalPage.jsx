@@ -4,6 +4,7 @@ import { CheckCircle2, MessageCircle, ArrowRight, Zap, Wrench } from 'lucide-rea
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
+import ComfortSunLineNav from '@/components/ComfortSunLineNav';
 import { WA_URL as WA } from '@/config/company';
 
 const MODELS = [
@@ -55,17 +56,10 @@ export default function ComfortSunProfessionalPage() {
         image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
       />
 
-      <div className="min-h-screen">
-        {/* Hero */}
-        <div className="relative h-80 md:h-[460px] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=85"
-            alt="ComfortSun Linha Profissional"
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/55 to-black/85" />
-          <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
+      <div className="min-h-screen bg-gray-50">
+        {/* Compact dark header */}
+        <div className="bg-gradient-to-br from-gray-950 via-gray-800/60 to-gray-900 pt-6 pb-10 px-4">
+          <div className="max-w-4xl mx-auto">
             <Breadcrumb
               items={[
                 { label: 'Início', path: '/' },
@@ -75,22 +69,25 @@ export default function ComfortSunProfessionalPage() {
               ]}
               dark
             />
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <span className="inline-block bg-gray-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-              ComfortSun
-            </span>
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
-              Linha Profissional
-            </h1>
-            <p className="text-gray-300 font-semibold mt-3 text-lg drop-shadow">
-              1400W &amp; 2000W · Hotéis, Restaurantes &amp; Spas
-            </p>
+            <div className="mt-6 text-center">
+              <span className="inline-block bg-gray-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                ComfortSun · Linha Profissional
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Profissional
+              </h1>
+              <p className="text-gray-300 mt-2 font-medium">
+                1400W &amp; 2000W · Hotéis, Restaurantes &amp; Spas
+              </p>
+            </div>
+            <div className="mt-6">
+              <ComfortSunLineNav />
+            </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
           <div className="grid lg:grid-cols-3 gap-10">
 
             {/* Main */}

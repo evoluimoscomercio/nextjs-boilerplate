@@ -9,32 +9,36 @@ import { WA_URL as WA } from '@/config/company';
 
 const LINES = [
   {
-    name: 'Aquecimento Infravermelhos',
-    desc: 'Linha base para aquecimento por infravermelhos no exterior. Eficiente e acessível para restaurantes, cafés e habitação.',
-    uses: ['Esplanadas', 'Varanda', 'Jardim'],
-    color: 'bg-orange-50 border-orange-200',
-    tag: 'bg-orange-600',
-  },
-  {
     name: 'Polivalente',
-    desc: 'Versão versátil para uso interior e exterior. Adapta-se a diferentes ambientes com flexibilidade máxima.',
-    uses: ['Interior', 'Exterior', 'Semi-coberto'],
+    desc: 'Torres portáteis para exterior (IP 65, Bluetooth) e painéis interiores AHT com Wi-Fi e touchscreen.',
+    uses: ['Interior', 'Exterior', 'Torres'],
     color: 'bg-blue-50 border-blue-200',
     tag: 'bg-blue-600',
+    path: '/products/comfortsun/polivalente',
   },
   {
     name: 'Profissional',
-    desc: 'Concebida para instalações comerciais intensivas hotéis, spas, restauração de volume. Maior potência e robustez.',
+    desc: 'Concebida para instalações comerciais intensivas — hotéis, spas e restauração de volume. Maior potência e robustez.',
     uses: ['Hotéis', 'Spas', 'Restauração'],
     color: 'bg-gray-50 border-gray-300',
     tag: 'bg-gray-700',
+    path: '/products/comfortsun/professional',
   },
   {
     name: 'Deluxe',
-    desc: 'O topo da linha ComfortSun. Design premium e tecnologia avançada com lâmpada HeLeN para maior conforto visual.',
-    uses: ['Premium', 'Design', 'Low Glare'],
+    desc: 'O topo da gama ComfortSun. Bluetooth, app móvel, telecomando e lâmpadas Low Glare para o máximo conforto.',
+    uses: ['Bluetooth', 'App móvel', 'Low Glare'],
     color: 'bg-amber-50 border-amber-200',
     tag: 'bg-amber-600',
+    path: '/products/comfortsun/deluxe',
+  },
+  {
+    name: 'Especializado',
+    desc: 'Aquecedores certificados para ambientes húmidos: casa de banho (IP 24, TÜV) e fraldário para bebés.',
+    uses: ['Casa de Banho', 'Fraldário', 'IP 24'],
+    color: 'bg-teal-50 border-teal-200',
+    tag: 'bg-teal-600',
+    path: '/products/comfortsun/especializado',
   },
 ];
 
@@ -122,13 +126,15 @@ export default function ComfortSunPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.08 }}
-                      className={`border rounded-2xl p-5 ${l.color}`}
                     >
-                      <div className="flex items-start gap-4">
+                      <Link
+                        to={l.path}
+                        className={`border rounded-2xl p-5 flex items-start gap-4 hover:shadow-md transition-shadow group ${l.color}`}
+                      >
                         <span className={`${l.tag} text-white text-xs font-extrabold px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 mt-0.5`}>
                           {l.name}
                         </span>
-                        <div>
+                        <div className="flex-1">
                           <p className="text-gray-700 text-sm leading-relaxed">{l.desc}</p>
                           <div className="flex flex-wrap gap-1.5 mt-2">
                             {l.uses.map(u => (
@@ -136,7 +142,8 @@ export default function ComfortSunPage() {
                             ))}
                           </div>
                         </div>
-                      </div>
+                        <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 mt-1 group-hover:text-gray-600 transition-colors" />
+                      </Link>
                     </motion.div>
                   ))}
                 </div>

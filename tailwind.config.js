@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     container: { center: true, padding: '2rem' },
     extend: {
+      fontFamily: {
+        sans: ["'Plus Jakarta Sans'", 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

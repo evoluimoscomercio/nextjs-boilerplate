@@ -33,6 +33,7 @@ const NAV = [
   },
   { label: 'Imobiliário', path: '/real-estate' },
   { label: 'Sobre', path: '/about' },
+  { label: 'FAQ', path: '/faqs' },
   { label: 'Contacto', path: '/contact' },
 ];
 

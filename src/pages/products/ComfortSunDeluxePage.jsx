@@ -11,6 +11,7 @@ const MODELS = [
   {
     name: 'CS 2000BT / 2800BT',
     watts: ['2000W', '2800W'],
+    imgs: ['/ComfortSun25BT_2000.webp', '/ComfortSun25BT2800.webp'],
     price: 'A partir de 515 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 25 (TÜV)',
@@ -30,6 +31,7 @@ const MODELS = [
   {
     name: 'Torre de Aquecimento Deluxe',
     watts: ['2000W'],
+    imgs: ['/torreaquecimento1.webp', '/torreaquecimento2.webp'],
     price: 'A partir de 412 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 65 (TÜV)',
@@ -136,8 +138,18 @@ export default function ComfortSunDeluxePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="bg-white border border-gray-200 rounded-2xl p-6"
+                      className="bg-white border border-gray-200 rounded-2xl overflow-hidden"
                     >
+                      {/* Product images row */}
+                      {m.imgs && m.imgs.length > 0 && (
+                        <div className="flex gap-2 bg-gray-50 px-4 pt-4 pb-2 justify-center">
+                          {m.imgs.map((img, j) => (
+                            <img key={j} src={img} alt={`${m.name} ${m.watts[j] || ''}`}
+                              className="h-28 object-contain" />
+                          ))}
+                        </div>
+                      )}
+                      <div className="p-6">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <h3 className="font-extrabold text-gray-900 text-lg">{m.name}</h3>
                         <span className={`${m.tagColor} text-white text-xs font-bold px-2.5 py-0.5 rounded-full`}>{m.tag}</span>
@@ -159,6 +171,7 @@ export default function ComfortSunDeluxePage() {
                       </div>
                       <div className="pt-3 border-t border-gray-100">
                         <span className="text-amber-600 font-extrabold">{m.price}</span>
+                      </div>
                       </div>
                     </motion.div>
                   ))}

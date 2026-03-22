@@ -11,6 +11,7 @@ const MODELS = [
   {
     icon: Thermometer,
     name: 'Torre de Aquecimento 2000W',
+    imgs: ['/torreaquecimento1.webp', '/torreaquecimento2.webp', '/torreaquecimento3.webp'],
     watts: ['2000W'],
     price: 'A partir de 399 € + IVA',
     coverage: 'Até 14 m²',
@@ -32,6 +33,7 @@ const MODELS = [
   {
     icon: PanelTop,
     name: 'Painel AHT — Aquecimento Interior',
+    imgs: ['/infravermelhosAHT.webp'],
     watts: ['Vários modelos'],
     price: 'Consultar',
     coverage: 'Variável conforme modelo',
@@ -118,8 +120,16 @@ export default function ComfortSunPolivalentePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="bg-white border border-gray-200 rounded-2xl p-6"
+                      className="bg-white border border-gray-200 rounded-2xl overflow-hidden"
                     >
+                      {m.imgs && m.imgs.length > 0 && (
+                        <div className="flex gap-3 justify-center bg-gray-50 px-4 pt-4 pb-2">
+                          {m.imgs.map((img, j) => (
+                            <img key={j} src={img} alt={m.name} className="h-28 object-contain" />
+                          ))}
+                        </div>
+                      )}
+                      <div className="p-6">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
                           <m.icon className="w-5 h-5 text-blue-600" />
@@ -152,6 +162,7 @@ export default function ComfortSunPolivalentePage() {
 
                       <div className="pt-3 border-t border-gray-100">
                         <span className="text-blue-600 font-extrabold">{m.price}</span>
+                      </div>
                       </div>
                     </motion.div>
                   ))}

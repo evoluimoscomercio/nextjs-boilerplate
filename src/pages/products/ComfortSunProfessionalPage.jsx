@@ -10,12 +10,14 @@ import { WA_URL as WA } from '@/config/company';
 const MODELS = [
   {
     watts: '1400W',
+    img: '/ComfortSun25_1400.webp',
     desc: 'O modelo mais popular. Ideal para esplanadas médias, bares e restaurantes com espaços moderados.',
     uses: ['Restaurantes', 'Cafés', 'Esplanadas'],
     highlight: true,
   },
   {
     watts: '2000W',
+    img: null,
     desc: 'Máxima potência para grandes espaços comerciais. Hotéis, spas e terraços de grande dimensão.',
     uses: ['Hotéis', 'Spas', 'Terraços amplos'],
     highlight: false,
@@ -115,13 +117,20 @@ export default function ComfortSunProfessionalPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className={`border rounded-2xl p-5 ${m.highlight ? 'bg-orange-50 border-orange-200' : 'bg-gray-50 border-gray-200'}`}
+                      className={`border rounded-2xl overflow-hidden ${m.highlight ? 'bg-orange-50 border-orange-200' : 'bg-gray-50 border-gray-200'}`}
                     >
-                      <div className="flex items-start gap-4">
-                        <span className={`text-white text-sm font-extrabold px-3 py-1.5 rounded-xl flex-shrink-0 ${m.highlight ? 'bg-orange-600' : 'bg-gray-700'}`}>
-                          {m.watts}
-                        </span>
-                        <div>
+                      <div className="flex items-stretch gap-0">
+                        {m.img && (
+                          <div className="w-28 flex-shrink-0 bg-white">
+                            <img src={m.img} alt={`ComfortSun ${m.watts}`} className="w-full h-full object-contain p-2" />
+                          </div>
+                        )}
+                        <div className="p-5 flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className={`text-white text-sm font-extrabold px-3 py-1.5 rounded-xl ${m.highlight ? 'bg-orange-600' : 'bg-gray-700'}`}>
+                              {m.watts}
+                            </span>
+                          </div>
                           <p className="text-gray-700 text-sm leading-relaxed mb-2">{m.desc}</p>
                           <div className="flex flex-wrap gap-1.5">
                             {m.uses.map(u => (

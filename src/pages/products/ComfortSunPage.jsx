@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, ArrowRight, MessageCircle, Zap } from 'lucide-react';
+import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
-
 import { WA_URL as WA } from '@/config/company';
 
 const LINES = [
@@ -43,31 +42,55 @@ const LINES = [
 ];
 
 const WHY = [
-  'Tecnologia de lâmpadas HeLeN desenvolvida por engenheiro alemão',
-  'Aquecimento imediato não aquece o ar, aquece as pessoas',
-  'Resistente ao vento ideal para exterior',
-  'Não emite gases, não queima oxigénio',
-  'Baixo consumo comparado com resistências convencionais',
-  'Fácil instalação, sem manutenção regular',
-  'Opções Bluetooth para controlo via smartphone',
-  'Modelos portáteis para residências e uso ocasional',
+  'Convertem quase 100% da energia em calor útil',
+  'Tecnologia de lâmpadas HeLeN criada por engenheiro alemão',
+  'Aquecimento imediato — aquece pessoas, não o ar',
+  'Resistente ao vento: calor direto sem dispersão',
+  'Não emite gases, não queima oxigénio, não levanta poeiras',
+  'Certificados TÜV para uso exterior com exposição à chuva',
+  'Sem peças móveis, sem manutenção regular',
+  'Opções Bluetooth e app para controlo remoto',
+];
+
+const SITUATIONS = [
+  {
+    label: 'Hotéis, Restaurantes e Cafés',
+    img: '/esplanada.png',
+    path: '/products/comfortsun/professional',
+  },
+  {
+    label: 'Terraços e Jardins',
+    img: '/terracosejardins.webp',
+    path: '/products/comfortsun/polivalente',
+  },
+  {
+    label: 'Igrejas',
+    img: '/igrejas.webp',
+    path: '/contact',
+  },
+  {
+    label: 'Aquecimento Polivalente',
+    img: '/aquecimentopolivalente.webp',
+    path: '/products/comfortsun/polivalente',
+  },
 ];
 
 export default function ComfortSunPage() {
   return (
     <>
       <SEOHead
-        title="ComfortSun Aquecimento Infravermelhos Polivalente | Evoluimos Comércio"
-        description="Linha ComfortSun de aquecedores infravermelhos: Polivalente, Profissional e Deluxe. Tecnologia alemã para esplanadas, hotéis e habitação."
+        title="ComfortSun Aquecimento Infravermelhos | Evoluimos Comércio"
+        description="Gama ComfortSun de aquecedores infravermelhos: Polivalente, Profissional, Deluxe e Especializado. Tecnologia alemã TÜV para esplanadas, hotéis, jardins e interior."
         canonical="/products/comfortsun"
-        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+        image="/esplanada.png"
       />
 
       <div className="min-h-screen">
+        {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=85"
-            alt="ComfortSun Infravermelhos Polivalente"
+            src="/esplanada.png"
+            alt="ComfortSun — aquecedores infravermelhos em esplanada"
             className="w-full h-full object-cover"
             loading="eager"
           />
@@ -79,9 +102,9 @@ export default function ComfortSunPage() {
             />
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Polivalente</span>
+            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Tecnologia Alemã</span>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ComfortSun</h1>
-            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">4 Linhas · Interior & Exterior</p>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">4 Linhas · Interior & Exterior · TÜV Certificado</p>
           </div>
         </div>
 
@@ -89,15 +112,29 @@ export default function ComfortSunPage() {
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-10">
 
+              {/* Intro */}
               <div className="flex gap-6 items-start">
                 <div className="flex-1">
-                  <h2 className="text-2xl font-extrabold text-gray-900 mb-4">A Solução Polivalente</h2>
+                  <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Aquecimento que imita o sol</h2>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com tecnologia de lâmpadas HeLeN avançada. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico, com fornecimento direto da fábrica alemã.
+                    A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com a tecnologia de lâmpadas <strong>HeLeN</strong>. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico com fornecimento da fábrica alemã.
                   </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento. A gama inclui ainda <strong>soluções Bluetooth</strong> e <strong>modelos portáteis</strong>, perfeitos para residências particulares e uso ocasional.
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Ao contrário dos aquecedores convencionais, os modelos ComfortSun <strong>não aquecem o ar</strong> — emitem radiação infravermelha que aquece diretamente pessoas e superfícies, como faz o sol. O resultado é um calor saudável, eficaz e resistente ao vento.
                   </p>
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-3 mt-5">
+                    {[
+                      { n: '~100%', label: 'Energia convertida em calor' },
+                      { n: 'TÜV', label: 'Certificação alemã' },
+                      { n: '4', label: 'Linhas especializadas' },
+                    ].map(s => (
+                      <div key={s.n} className="bg-orange-50 border border-orange-100 rounded-xl p-3 text-center">
+                        <div className="text-xl font-extrabold text-orange-600">{s.n}</div>
+                        <div className="text-xs text-gray-500 mt-0.5 leading-tight">{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Vertical video */}
@@ -151,7 +188,8 @@ export default function ComfortSunPage() {
 
               {/* Why infrared */}
               <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Porquê Infravermelhos?</h2>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-2">Porquê Infravermelhos?</h2>
+                <p className="text-gray-500 text-sm mb-4">Os aquecedores infravermelhos são a forma mais eficiente e saudável de aquecer espaços abertos ou fechados.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {WHY.map((w, i) => (
                     <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
@@ -161,13 +199,27 @@ export default function ComfortSunPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Lamps image */}
+              <div className="rounded-2xl overflow-hidden">
+                <img
+                  src="/lampadas.webp"
+                  alt="Tipos de lâmpadas ComfortSun: Dark Glow, Low Glow, Low Glare"
+                  className="w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-gray-50 border border-t-0 border-gray-200 rounded-b-2xl px-4 py-3">
+                  <p className="text-xs text-gray-500">Lâmpadas ComfortSun: <strong>Dark Glow</strong>, <strong>Low Glow</strong> e <strong>Low Glare</strong> — diferentes intensidades luminosas para cada contexto.</p>
+                </div>
+              </div>
+
             </div>
 
             {/* Sidebar */}
             <div className="space-y-4">
               <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <h3 className="font-extrabold text-xl mb-2">Pedir Informação</h3>
-                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar recomendamos a linha certa.</p>
+                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar — recomendamos a linha certa.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />
@@ -186,6 +238,45 @@ export default function ComfortSunPage() {
                   Ver Solamagic <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Situations section — full width */}
+        <div className="bg-white border-t border-gray-100 py-16 px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-orange-600 text-center mb-10">
+              Onde quer aplicar o seu aquecedor?
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {SITUATIONS.map((s, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex flex-col"
+                >
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-gray-700 mb-3 leading-tight">
+                    {s.label}
+                  </p>
+                  <div className="flex-1 overflow-hidden rounded-xl mb-3 aspect-[4/3]">
+                    <img
+                      src={s.img}
+                      alt={s.label}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <Link
+                    to={s.path}
+                    className="block w-full py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold text-center rounded-lg transition-colors"
+                  >
+                    saber mais
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

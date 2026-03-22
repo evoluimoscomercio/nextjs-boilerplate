@@ -339,9 +339,9 @@ export default function FAQPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="mb-8 overflow-x-auto scrollbar-hide"
+            className="mb-8"
           >
-            <div className="flex gap-2 pb-1 min-w-max justify-center" role="tablist" aria-label="Categorias FAQ">
+            <div className="flex gap-2 pb-1 flex-wrap justify-center" role="tablist" aria-label="Categorias FAQ">
               {CATEGORIES.map(cat => {
                 const Icon = cat.icon;
                 const isActive = activeCat === cat.id;

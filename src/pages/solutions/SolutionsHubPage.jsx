@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Droplets, TrendingDown, Sun, Building2, MessageCircle } from 'lucide-react';
+import { ArrowRight, Droplets, TrendingDown, Sun, Building2, MessageCircle, Wind } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SEOHead from '@/components/SEOHead';
@@ -38,8 +38,15 @@ const SolutionsHubPage = () => {
       image: 'https://images.unsplash.com/photo-1654630106961-955f61257d8f'
     },
     {
+      id: 'natural-cooling',
+      name: language === 'pt' ? 'Arrefecimento Natural' : 'Natural Cooling',
+      desc: language === 'pt' ? 'Alternativa ecológica ao ar condicionado. Até 80% menos consumo.' : 'Eco-friendly alternative to air conditioning. Up to 80% less consumption.',
+      icon: Wind,
+      image: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a'
+    },
+    {
       id: 'sustainable-business',
-      name: language === 'pt' ? 'Negócios Sustentáveis' : 'Sustainable Business',
+      name: language === 'pt' ? 'Soluções para Empresas' : 'Business Solutions',
       desc: language === 'pt' ? 'Soluções corporativas e ESG. Reduza emissões e pague menos energia.' : 'Corporate and ESG solutions. Reduce emissions and lower energy costs.',
       icon: Building2,
       image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e'

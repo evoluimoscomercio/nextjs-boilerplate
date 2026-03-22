@@ -13,10 +13,11 @@ const PRODUCTS = [
 ];
 
 const SOLUTIONS = [
+  { label: 'Aquecer Esplanadas', path: '/solutions/outdoor-comfort' },
   { label: 'Eliminar Humidade', path: '/solutions/eliminate-moisture' },
   { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs' },
-  { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort' },
-  { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
+  { label: 'Arrefecimento Natural', path: '/solutions/natural-cooling' },
+  { label: 'Soluções para Empresas', path: '/solutions/sustainable-business' },
 ];
 
 export default function Footer() {

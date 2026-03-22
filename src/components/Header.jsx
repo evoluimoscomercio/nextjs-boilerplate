@@ -25,10 +25,14 @@ const NAV = [
     label: 'Soluções',
     children: [
       { label: 'Todas as Soluções', path: '/solutions' },
-      { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort' },
-      { label: 'Eliminar Humidade', path: '/solutions/eliminate-moisture' },
-      { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs' },
-      { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
+      { group: 'Aquecimento' },
+      { label: 'Aquecer Esplanadas e Terraços', path: '/solutions/outdoor-comfort' },
+      { label: 'Reduzir Custos de Aquecimento', path: '/solutions/reduce-heating-costs' },
+      { group: 'Proteção e Conforto' },
+      { label: 'Eliminar Humidade nas Paredes', path: '/solutions/eliminate-moisture' },
+      { label: 'Arrefecimento Natural', path: '/solutions/natural-cooling', badge: 'Novo' },
+      { group: 'Empresas' },
+      { label: 'Soluções para Empresas', path: '/solutions/sustainable-business' },
     ]
   },
   { label: 'Imobiliário', path: '/real-estate' },

@@ -16,6 +16,13 @@ const SolutionsHubPage = () => {
 
   const solutions = [
     {
+      id: 'outdoor-comfort',
+      name: language === 'pt' ? 'Melhorar Conforto em Esplanadas' : 'Improve Outdoor Comfort',
+      desc: language === 'pt' ? 'Aumente a rentabilidade do seu espaço exterior.' : 'Increase profitability of your outdoor space.',
+      icon: Sun,
+      image: 'https://images.unsplash.com/photo-1662976631114-bcec16615950'
+    },
+    {
       id: 'eliminate-wall-moisture',
       name: language === 'pt' ? 'Eliminar Humidade nas Paredes' : 'Eliminate Wall Moisture',
       desc: language === 'pt' ? 'Soluções definitivas sem obras.' : 'Definitive solutions without renovation.',
@@ -28,13 +35,6 @@ const SolutionsHubPage = () => {
       desc: language === 'pt' ? 'Aumente a eficiência energética.' : 'Increase energy efficiency.',
       icon: TrendingDown,
       image: 'https://images.unsplash.com/photo-1654630106961-955f61257d8f'
-    },
-    {
-      id: 'outdoor-comfort',
-      name: language === 'pt' ? 'Melhorar Conforto em Esplanadas' : 'Improve Outdoor Comfort',
-      desc: language === 'pt' ? 'Aumente a rentabilidade do seu espaço exterior.' : 'Increase profitability of your outdoor space.',
-      icon: Sun,
-      image: 'https://images.unsplash.com/photo-1662976631114-bcec16615950'
     },
     {
       id: 'sustainable-business',

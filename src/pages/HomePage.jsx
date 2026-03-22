@@ -185,32 +185,31 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ── */}
-      <section aria-label="Estatísticas" style={{ background: '#FF6B00' }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
+      <section aria-label="Estatísticas" style={{ background: '#111114', padding: '14px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
           {[
             { n: 25, suffix: '+', label: 'Anos de experiência' },
             { n: 3, suffix: '', label: 'Grandes clientes nacionais' },
             { n: 7, suffix: '', label: 'Marcas europeias' },
           ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity:0, y:12 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.1 }}
-              className="flex flex-col items-center justify-center text-center pjs"
-              style={{ padding: '28px 16px', borderRight: i < 2 ? '1px solid rgba(0,0,0,0.12)' : 'none' }}>
-              <span style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
+            <motion.div key={i} initial={{ opacity:0 }} whileInView={{ opacity:1 }} viewport={{ once:true }} transition={{ delay: i*0.15 }}
+              style={{ display: 'flex', alignItems: 'baseline', gap: '7px' }}>
+              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#F0A020', lineHeight: 1 }}>
                 <CountUp target={s.n} suffix={s.suffix} />
               </span>
-              <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', marginTop: '5px', fontWeight: 500 }}>{s.label}</span>
+              <span style={{ fontSize: '12px', color: '#524E49', fontWeight: 500 }}>{s.label}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ── PRODUCTS overlay image cards ── */}
-      <section aria-label="Portfólio de Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
+      <section aria-label="Os Nossos Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
             <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
             <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '12px' }}>
-              O Nosso Portfólio
+              Os Nossos Produtos
             </h2>
             <p className="pjs" style={{ color: '#9A9490', fontSize: '17px', lineHeight: 1.7, maxWidth: '480px' }}>
               Alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.

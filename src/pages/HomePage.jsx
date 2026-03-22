@@ -12,12 +12,12 @@ function HeroGraphic() {
       <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
         <defs>
           <radialGradient id="g1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#FF6B00" stopOpacity="0" />
+            <stop offset="0%" stopColor="#B84500" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="g2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FF9500" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#FF9500" stopOpacity="0" />
+            <stop offset="0%" stopColor="#D07000" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#D07000" stopOpacity="0" />
           </radialGradient>
         </defs>
         <ellipse cx="600" cy="350" rx="500" ry="320" fill="url(#g1)" />
@@ -26,7 +26,7 @@ function HeroGraphic() {
           <motion.path
             key={i}
             d={`M ${480 + i*45} 60 Q ${580 + i*30} ${220 + i*18} ${530 + i*45} 380 Q ${610 + i*25} ${520 + i*12} ${555 + i*45} 660`}
-            stroke={i % 2 === 0 ? '#FF6B00' : '#FF9500'}
+            stroke={i % 2 === 0 ? '#B84500' : '#D07000'}
             strokeWidth={i === 2 ? 1.5 : 0.8}
             strokeOpacity={0.1 + i * 0.04}
             fill="none"
@@ -41,16 +41,16 @@ function HeroGraphic() {
           />
         ))}
         {[{cx:680,cy:180,r:5,d:0},{cx:780,cy:310,r:4,d:0.8},{cx:620,cy:440,r:5,d:1.5},{cx:900,cy:240,r:3,d:0.4}].map((o,i)=>(
-          <motion.circle key={i} cx={o.cx} cy={o.cy} r={o.r} fill="#FF6B00" fillOpacity={0.7}
+          <motion.circle key={i} cx={o.cx} cy={o.cy} r={o.r} fill="#B84500" fillOpacity={0.7}
             animate={{ cy:[o.cy, o.cy-16, o.cy], fillOpacity:[0.7,1,0.7] }}
             transition={{ duration: 3+i*0.5, repeat:Infinity, delay:o.d, ease:'easeInOut' }} />
         ))}
-        <motion.circle cx="720" cy="350" r="200" stroke="#FF6B00" strokeWidth="0.5" strokeOpacity="0.08" fill="none"
+        <motion.circle cx="720" cy="350" r="200" stroke="#B84500" strokeWidth="0.5" strokeOpacity="0.08" fill="none"
           animate={{ r:[200,218,200] }} transition={{ duration:7, repeat:Infinity, ease:'easeInOut' }} />
-        <motion.circle cx="720" cy="350" r="140" stroke="#FF9500" strokeWidth="0.5" strokeOpacity="0.07" fill="none"
+        <motion.circle cx="720" cy="350" r="140" stroke="#D07000" strokeWidth="0.5" strokeOpacity="0.07" fill="none"
           animate={{ r:[140,154,140] }} transition={{ duration:5.5, repeat:Infinity, ease:'easeInOut', delay:1 }} />
         {Array.from({length:6}).map((_,row)=>Array.from({length:10}).map((_,col)=>(
-          <circle key={`${row}-${col}`} cx={480+col*60} cy={80+row*90} r="1" fill="#FF6B00" fillOpacity="0.07" />
+          <circle key={`${row}-${col}`} cx={480+col*60} cy={80+row*90} r="1" fill="#B84500" fillOpacity="0.07" />
         )))}
       </svg>
     </div>
@@ -107,9 +107,9 @@ export default function HomePage() {
           font-weight: 700;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          background: rgba(255,107,0,0.15);
-          border: 1px solid rgba(255,107,0,0.35);
-          color: #FF8C3A;
+          background: rgba(184,69,0,0.12);
+          border: 1px solid rgba(184,69,0,0.32);
+          color: #F0A020;
         }
         .prod-card {
           display: block;
@@ -144,7 +144,7 @@ export default function HomePage() {
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}>
               <span className="ec-tag pjs mb-6 inline-block">Tecnologia Alemã</span>
               <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
-                Conforto Térmico<br /><span style={{ color: '#FF6B00' }}>Sustentável</span>
+                Conforto Térmico<br /><span style={{ color: '#B84500' }}>Sustentável</span>
               </h1>
               <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#B8B0A5', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
                 Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
@@ -155,7 +155,7 @@ export default function HomePage() {
                   <MessageCircle style={{ width: '18px', height: '18px' }} aria-hidden="true" />WhatsApp
                 </a>
                 <Link to="/products" className="pjs"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#FF6B00', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(255,107,0,0.3)' }}>
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#B84500', color: '#fff', padding: '14px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', boxShadow: '0 0 28px rgba(184,69,0,0.35)' }}>
                   Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} aria-hidden="true" />
                 </Link>
                 <Link to="/solutions" className="pjs"
@@ -165,7 +165,7 @@ export default function HomePage() {
               </div>
               <a href="tel:+351965026603" className="pjs" aria-label="Ligar para +351 965 026 603"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
-                <div style={{ width: '38px', height: '38px', background: '#FF6B00', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div style={{ width: '38px', height: '38px', background: '#B84500', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Phone style={{ width: '18px', height: '18px', color: '#fff' }} aria-hidden="true" />
                 </div>
                 <span style={{ fontSize: '20px', fontWeight: 700, color: '#F0EBE3', letterSpacing: '0.02em' }}>+351 965 026 603</span>
@@ -184,36 +184,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section aria-label="Estatísticas" style={{ background: '#111114', padding: '14px 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
-          {[
-            { n: 25, suffix: '+', label: 'Anos de experiência' },
-            { n: 3, suffix: '', label: 'Grandes clientes nacionais' },
-            { n: 7, suffix: '', label: 'Marcas europeias' },
-          ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity:0 }} whileInView={{ opacity:1 }} viewport={{ once:true }} transition={{ delay: i*0.15 }}
-              style={{ display: 'flex', alignItems: 'baseline', gap: '7px' }}>
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#F0A020', lineHeight: 1 }}>
-                <CountUp target={s.n} suffix={s.suffix} />
-              </span>
-              <span style={{ fontSize: '12px', color: '#524E49', fontWeight: 500 }}>{s.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* ── APPROACH + STATS ── */}
+      <section aria-label="A nossa abordagem" style={{ background: 'linear-gradient(180deg, #111114 0%, #130900 55%, #111114 100%)', padding: 'clamp(64px, 9vw, 104px) 0', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 
-      {/* ── PHILOSOPHY ── */}
-      <section aria-label="Filosofia" style={{ background: '#0F0F11', padding: 'clamp(40px, 6vw, 64px) 0' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#F0A020', marginBottom: '16px' }}>A nossa abordagem</p>
-            <h2 className="pjs" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.2, marginBottom: '14px' }}>
-              Complementaridade é a chave.
-            </h2>
-            <p className="pjs" style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.75, maxWidth: '560px', margin: '0 auto' }}>
-              Aquecer bem um espaço não depende só do aquecedor. Paredes húmidas, pontes térmicas e falta de isolamento triplicam os custos. Por isso reunimos soluções que trabalham juntas: eliminação de humidade, revestimento térmico, aquecimento eficiente e arrefecimento natural.
-            </p>
+            {/* Label with lines */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '40px', justifyContent: 'center' }}>
+              <div style={{ flex: 1, maxWidth: '80px', height: '1px', background: 'rgba(184,69,0,0.4)' }} />
+              <p className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#F0A020', whiteSpace: 'nowrap' }}>A nossa abordagem</p>
+              <div style={{ flex: 1, maxWidth: '80px', height: '1px', background: 'rgba(184,69,0,0.4)' }} />
+            </div>
+
+            {/* Heading + text */}
+            <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 56px' }}>
+              <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '18px' }}>
+                Complementaridade <span style={{ color: '#B84500' }}>é a chave.</span>
+              </h2>
+              <p className="pjs" style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.85 }}>
+                Aquecer bem um espaço não depende só do aquecedor. Paredes húmidas, pontes térmicas e falta de isolamento triplicam os custos. Por isso reunimos soluções que trabalham juntas: eliminação de humidade, revestimento térmico, aquecimento eficiente e arrefecimento natural.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+              {[
+                { n: 25, suffix: '+', label: 'Anos de\nexperiência' },
+                { n: 3, suffix: '', label: 'Grandes clientes\nnacionais' },
+                { n: 7, suffix: '', label: 'Marcas\neuropeias' },
+              ].map((s, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
+                  style={{ textAlign: 'center', padding: 'clamp(22px, 3vw, 36px) 12px', background: 'rgba(184,69,0,0.07)', border: '1px solid rgba(184,69,0,0.18)', borderRadius: '20px' }}>
+                  <div className="pjs" style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', fontWeight: 800, color: '#F0A020', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                    <CountUp target={s.n} suffix={s.suffix} />
+                  </div>
+                  <div className="pjs" style={{ fontSize: '12px', color: '#6A6460', marginTop: '10px', fontWeight: 500, lineHeight: 1.5, whiteSpace: 'pre-line' }}>{s.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
           </motion.div>
         </div>
       </section>
@@ -222,7 +231,7 @@ export default function HomePage() {
       <section aria-label="Os Nossos Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
-            <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
+            <div style={{ width: '36px', height: '3px', background: '#B84500', borderRadius: '2px', marginBottom: '20px' }} />
             <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '12px' }}>
               Os Nossos Produtos
             </h2>
@@ -241,7 +250,7 @@ export default function HomePage() {
                       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 48%, rgba(5,5,7,0.08) 100%)' }} aria-hidden="true" />
                     <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#FF6B00', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#B84500', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Icon style={{ width: '16px', height: '16px', color: '#fff' }} aria-hidden="true" />
                       </div>
                       <span className="pjs" style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff' }}>{p.tag}</span>
@@ -249,7 +258,7 @@ export default function HomePage() {
                     <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px' }}>
                       <h3 className="pjs" style={{ fontSize: '22px', fontWeight: 800, color: '#fff', marginBottom: '6px', lineHeight: 1.2 }}>{p.name}</h3>
                       <p className="pjs" style={{ color: 'rgba(255,255,255,0.72)', fontSize: '13px', lineHeight: 1.6, marginBottom: '14px' }}>{p.desc}</p>
-                      <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
+                      <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#F0A020', fontSize: '13px', fontWeight: 700 }}>
                         Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} aria-hidden="true" />
                       </span>
                     </div>
@@ -265,10 +274,10 @@ export default function HomePage() {
       <section aria-label="Soluções" style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '52px', maxWidth: '640px' }}>
-            <div style={{ width: '36px', height: '3px', background: '#FF6B00', borderRadius: '2px', marginBottom: '20px' }} />
+            <div style={{ width: '36px', height: '3px', background: '#B84500', borderRadius: '2px', marginBottom: '20px' }} />
             <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
               Do frio ao calor,<br />
-              <span style={{ color: '#FF6B00' }}>temos a solução certa</span>
+              <span style={{ color: '#B84500' }}>temos a solução certa</span>
             </h2>
             <p className="pjs" style={{ color: '#9A9490', fontSize: '17px', lineHeight: 1.75 }}>
               Aquecemos dentro e fora de casa, de forma sustentável, simples e económica. Cada problema tem um produto feito para o resolver.
@@ -282,16 +291,16 @@ export default function HomePage() {
                 <motion.div key={s.path} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.08 }}>
                   <Link to={s.path}
                     style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '26px 22px', background: '#1A1A1E', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '18px', textDecoration: 'none', transition: 'all 0.25s ease', height: '100%' }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,107,0,0.4)'; e.currentTarget.style.background = '#1E1E24'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(184,69,0,0.45)'; e.currentTarget.style.background = '#1E1E24'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.background = '#1A1A1E'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(255,107,0,0.12)', border: '1px solid rgba(255,107,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon style={{ width: '22px', height: '22px', color: '#FF8C3A' }} aria-hidden="true" />
+                    <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(184,69,0,0.12)', border: '1px solid rgba(184,69,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <Icon style={{ width: '22px', height: '22px', color: '#F0A020' }} aria-hidden="true" />
                     </div>
                     <div style={{ flex: 1 }}>
                       <h3 className="pjs" style={{ fontSize: '17px', fontWeight: 700, color: '#EDE8E0', marginBottom: '8px', lineHeight: 1.3 }}>{s.label}</h3>
                       <p className="pjs" style={{ fontSize: '14px', color: '#7A7470', lineHeight: 1.7 }}>{s.desc}</p>
                     </div>
-                    <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#FF8C3A', fontSize: '13px', fontWeight: 700 }}>
+                    <span className="pjs" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#F0A020', fontSize: '13px', fontWeight: 700 }}>
                       Saber mais <ArrowRight style={{ width: '14px', height: '14px' }} aria-hidden="true" />
                     </span>
                   </Link>
@@ -303,7 +312,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section aria-label="Contacto" style={{ background: 'linear-gradient(135deg, #E85A00 0%, #FF8C00 100%)', padding: 'clamp(60px, 7vw, 88px) 0' }}>
+      <section aria-label="Contacto" style={{ background: 'linear-gradient(135deg, #8B3200 0%, #B84500 100%)', padding: 'clamp(60px, 7vw, 88px) 0' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
             <h2 className="pjs" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#fff', marginBottom: '12px', lineHeight: 1.1 }}>

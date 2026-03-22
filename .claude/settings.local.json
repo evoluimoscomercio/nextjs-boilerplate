@@ -5,7 +5,8 @@
       "Bash(git config:*)",
       "Bash(for f:*)",
       "Bash(do echo:*)",
-      "Read(//c/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/**)"
+      "Read(//c/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/**)",
+      "WebFetch(domain:sites.google.com)"
     ]
   }
 }

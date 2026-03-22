@@ -31,20 +31,15 @@ const NAV = [
       { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
     ]
   },
-  {
-    label: 'Sobre',
-    children: [
-      { label: 'Sobre Nós', path: '/about' },
-      { label: 'Serviços Imobiliários', path: '/real-estate' },
-    ]
-  },
+  { label: 'Imobiliário', path: '/real-estate' },
+  { label: 'Sobre', path: '/about' },
   { label: 'Contacto', path: '/contact' },
 ];
 
 const DropItem = ({ item, onClose }) => {
   const location = useLocation();
   if (item.group) return (
-    <div style={{ padding: '10px 14px 4px', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#FF6B00', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ padding: '10px 14px 4px', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#B84500', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       {item.group}
     </div>
   );
@@ -55,15 +50,15 @@ const DropItem = ({ item, onClose }) => {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '10px 14px', margin: '1px 6px', borderRadius: '8px',
         fontSize: '14px', fontWeight: active ? 600 : 400,
-        color: active ? '#FF8C3A' : '#B0A8A0',
-        background: active ? 'rgba(255,107,0,0.08)' : 'transparent',
+        color: active ? '#F0A020' : '#B0A8A0',
+        background: active ? 'rgba(184,69,0,0.1)' : 'transparent',
         textDecoration: 'none', transition: 'all 0.15s',
         fontFamily: "'Plus Jakarta Sans', sans-serif"
       }}
       onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#F0EBE3'; }}}
       onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#B0A8A0'; }}}>
       {item.label}
-      {item.badge && <span style={{ fontSize: '10px', background: '#FF6B00', color: '#fff', padding: '2px 8px', borderRadius: '999px', fontWeight: 700 }}>{item.badge}</span>}
+      {item.badge && <span style={{ fontSize: '10px', background: '#B84500', color: '#fff', padding: '2px 8px', borderRadius: '999px', fontWeight: 700 }}>{item.badge}</span>}
     </Link>
   );
 };
@@ -77,7 +72,7 @@ const DesktopDrop = ({ item }) => {
       <button
         aria-expanded={open}
         aria-haspopup="true"
-        style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '14px', fontWeight: 500, color: active ? '#FF8C3A' : '#A09890', transition: 'color 0.15s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '14px', fontWeight: 500, color: active ? '#F0A020' : '#A09890', transition: 'color 0.15s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#F0EBE3'; }}
         onMouseLeave={e => { if (!active) e.currentTarget.style.color = '#A09890'; }}>
         {item.label}
@@ -134,7 +129,7 @@ export default function Header() {
               ? <DesktopDrop key={i} item={item} />
               : (
                 <Link key={i} to={item.path}
-                  style={{ padding: '8px 12px', borderRadius: '8px', fontSize: '14px', fontWeight: 500, color: location.pathname === item.path ? '#FF8C3A' : '#A09890', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.15s' }}
+                  style={{ padding: '8px 12px', borderRadius: '8px', fontSize: '14px', fontWeight: 500, color: location.pathname === item.path ? '#F0A020' : '#A09890', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'color 0.15s' }}
                   onMouseEnter={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#F0EBE3'; }}
                   onMouseLeave={e => { if (location.pathname !== item.path) e.currentTarget.style.color = '#A09890'; }}>
                   {item.label}
@@ -150,7 +145,7 @@ export default function Header() {
               WhatsApp
             </a>
             <Link to="/contact"
-              style={{ padding: '9px 15px', background: '#FF6B00', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+              style={{ padding: '9px 15px', background: '#B84500', color: '#fff', borderRadius: '10px', fontWeight: 600, fontSize: '14px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
               Pedir Orçamento
             </Link>
           </div>
@@ -183,7 +178,7 @@ export default function Header() {
               className="fixed top-0 right-0 bottom-0 lg:hidden"
               style={{ width: '85vw', maxWidth: '360px', background: '#111114', zIndex: 50, display: 'flex', flexDirection: 'column', boxShadow: '-8px 0 48px rgba(0,0,0,0.6)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 18px', height: '64px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                <span style={{ fontWeight: 800, color: '#FF6B00', fontSize: '16px' }}>Menu</span>
+                <span style={{ fontWeight: 800, color: '#B84500', fontSize: '16px' }}>Menu</span>
                 <button
                   onClick={() => setMobileOpen(false)}
                   aria-label="Fechar menu"
@@ -211,7 +206,7 @@ export default function Header() {
                   </div>
                 ) : (
                   <Link key={i} to={item.path}
-                    style={{ display: 'block', padding: '13px 12px', borderRadius: '10px', color: location.pathname === item.path ? '#FF8C3A' : '#D5D0C8', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
+                    style={{ display: 'block', padding: '13px 12px', borderRadius: '10px', color: location.pathname === item.path ? '#F0A020' : '#D5D0C8', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
                     {item.label}
                   </Link>
                 ))}
@@ -224,7 +219,7 @@ export default function Header() {
                   Contactar via WhatsApp
                 </a>
                 <Link to="/contact"
-                  style={{ display: 'block', padding: '14px', background: '#FF6B00', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textAlign: 'center', textDecoration: 'none' }}>
+                  style={{ display: 'block', padding: '14px', background: '#B84500', color: '#fff', borderRadius: '12px', fontWeight: 700, fontSize: '15px', textAlign: 'center', textDecoration: 'none' }}>
                   Pedir Orçamento
                 </Link>
               </div>

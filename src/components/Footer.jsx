@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div>
             <h2 style={{ fontWeight: 800, fontSize: '26px', color: '#F0EBE3', marginBottom: '6px', lineHeight: 1.2 }}>
-              Evoluimos <span style={{ color: '#FF6B00' }}>Comércio</span>
+              Evoluimos <span style={{ color: '#B84500' }}>Comércio</span>
             </h2>
             <p style={{ fontSize: '15px', color: '#6A6460', lineHeight: 1.6, maxWidth: '340px' }}>
               Soluções de alta tecnologia europeia para aquecimento, arrefecimento e proteção de edifícios.
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Contactos */}
           <div className="col-span-2 lg:col-span-1">
-            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Contactos</p>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B84500', marginBottom: '20px' }}>Contactos</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {[
                 { icon: Phone, text: COMPANY.phone, href: `tel:${COMPANY.phoneBare}` },
@@ -62,8 +62,8 @@ export default function Footer() {
                     <a href={c.href} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#8A8480', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }}
                       onMouseEnter={e => e.currentTarget.style.color = '#F0EBE3'}
                       onMouseLeave={e => e.currentTarget.style.color = '#8A8480'}>
-                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon style={{ width: '14px', height: '14px', color: '#FF8C3A' }} aria-hidden="true" />
+                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(184,69,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Icon style={{ width: '14px', height: '14px', color: '#F0A020' }} aria-hidden="true" />
                       </div>
                       {c.text}
                     </a>
@@ -71,8 +71,8 @@ export default function Footer() {
                 );
               })}
               <li style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: '#8A8480' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
-                  <MapPin style={{ width: '14px', height: '14px', color: '#FF8C3A' }} aria-hidden="true" />
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(184,69,0,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
+                  <MapPin style={{ width: '14px', height: '14px', color: '#F0A020' }} aria-hidden="true" />
                 </div>
                 <span style={{ lineHeight: 1.6 }}>{COMPANY.address.street}<br />{COMPANY.address.postalCode} · {COMPANY.address.country}</span>
               </li>
@@ -82,7 +82,7 @@ export default function Footer() {
 
           {/* Produtos */}
           <div>
-            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Produtos</p>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B84500', marginBottom: '20px' }}>Produtos</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {PRODUCTS.map(l => (
                 <li key={l.path}>
@@ -98,7 +98,7 @@ export default function Footer() {
 
           {/* Soluções */}
           <div>
-            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Soluções</p>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B84500', marginBottom: '20px' }}>Soluções</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {SOLUTIONS.map(l => (
                 <li key={l.path}>
@@ -114,7 +114,7 @@ export default function Footer() {
 
           {/* Empresa */}
           <div>
-            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Empresa</p>
+            <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#B84500', marginBottom: '20px' }}>Empresa</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
               {[
                 { label: 'Sobre Nós', path: '/about' },

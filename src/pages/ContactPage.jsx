@@ -42,7 +42,7 @@ export default function ContactPage() {
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">WhatsApp</h2>
             <p className="text-gray-400 mb-7 max-w-sm mx-auto">
-              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso — respondemos rapidamente.
+              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso respondemos rapidamente.
             </p>
             <a
               href={WA}

@@ -7,7 +7,7 @@ import SEOHead from '@/components/SEOHead';
 const INFRARED = [
   {
     name: 'Solamagic',
-    tag: 'PREMIUM — Made in Germany',
+    tag: 'PREMIUM Made in Germany',
     badge: '⭐ Premium',
     badgeColor: 'bg-amber-500',
     desc: 'O topo da gama em infravermelhos de onda curta para exterior. Design versátil, alcance máximo, 92% de eficiência. A escolha dos melhores restaurantes e hotéis.',
@@ -17,7 +17,7 @@ const INFRARED = [
   },
   {
     name: 'ComfortSun',
-    tag: 'POLIVALENTE — 4 Linhas',
+    tag: 'POLIVALENTE 4 Linhas',
     badge: 'Volume',
     badgeColor: 'bg-orange-600',
     desc: 'Solução polivalente com 4 linhas: Aquecimento Infravermelhos, Polivalente, Profissional e Deluxe. Flexibilidade para cada necessidade e orçamento.',
@@ -56,7 +56,7 @@ const PROTECTION = [
   {
     name: 'Bioclimatizadores',
     tag: 'ARREFECIMENTO NATURAL',
-    desc: 'Arrefecimento por evaporação — sem compressor, sem gases, baixo consumo. Ideal para substituir ar condicionado convencional no verão.',
+    desc: 'Arrefecimento por evaporação sem compressor, sem gases, baixo consumo. Ideal para substituir ar condicionado convencional no verão.',
     path: '/products/bioclimatizadores',
     img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=700&q=80',
   },

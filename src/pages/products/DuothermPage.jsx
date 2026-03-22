@@ -8,33 +8,33 @@ import { WA_URL as WA } from '@/config/company';
 
 export default function DuothermPage() {
   const benefits = [
-    'Sem emissão de CO₂ — 100% ecológico',
-    'Sem manutenção — apenas ligar/desligar',
+    'Sem emissão de CO₂ 100% ecológico',
+    'Sem manutenção apenas ligar/desligar',
     'Calor saudável por radiação (como o sol)',
-    'Aquece também as paredes — ficam secas',
+    'Aquece também as paredes ficam secas',
     'Fácil de instalar, sem obras invasivas',
     'Elemento decorativo personalizável',
-    'Termostato incluído — controlo preciso',
+    'Termostato incluído controlo preciso',
     'Versão DELUXE com placa de vidro nanotecnológica',
   ];
 
   return (
     <>
       <SEOHead
-        title="Duotherm — Aquecimento Radiante em Pedra Natural | Evoluimos Comércio"
+        title="Duotherm Aquecimento Radiante em Pedra Natural | Evoluimos Comércio"
         description="Radiadores Duotherm em pedra natural. Sistema de aquecimento por infravermelhos produzido em Portugal, tecnologia alemã. Sem CO₂, sem manutenção."
         canonical="/products/duotherm"
         image="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1"
       />
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=1400&q=85" alt="Duotherm Aquecimento Radiante" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Duotherm', path: '/products/duotherm' }]} dark />
-            <span className="inline-block bg-stone-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Aquecimento Radiante</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Duotherm</h1>
-            <p className="text-orange-400 font-semibold mt-1">Radiadores em Pedra Natural · Tecnologia Alemã · Produzido em Portugal</p>
+            <span className="inline-block bg-stone-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Aquecimento Radiante</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Duotherm</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Radiadores em Pedra Natural · Tecnologia Alemã · Produzido em Portugal</p>
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export default function DuothermPage() {
                   O Duotherm® é um sistema de aquecimento por infravermelhos em pedra natural, desenvolvido na Alemanha e produzido em Portugal. Os radiadores superam os sistemas clássicos de aquecimento em todos os aspetos: baixo consumo energético, fácil instalação sem obras, silencioso e completamente limpo.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Na versão <strong>DELUXE</strong>, a pedra natural é aquecida através de uma placa de vidro que integra a resistência elétrica à base de nanotecnologia. Esta alta tecnologia permite maior aproveitamento térmico com menor potência elétrica — mais acumulação de calor e menor consumo.
+                  Na versão <strong>DELUXE</strong>, a pedra natural é aquecida através de uma placa de vidro que integra a resistência elétrica à base de nanotecnologia. Esta alta tecnologia permite maior aproveitamento térmico com menor potência elétrica mais acumulação de calor e menor consumo.
                 </p>
               </div>
 
@@ -66,7 +66,7 @@ export default function DuothermPage() {
               <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6">
                 <h3 className="font-extrabold text-gray-900 mb-2">Calor Saudável por Radiação</h3>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  O aquecimento por radiação funciona como o sol — aquece os corpos e as superfícies diretamente, sem circular ar ou criar correntes. Resultado: sem poeiras em suspensão, sem ressecamento do ar, melhor para alergias e vias respiratórias.
+                  O aquecimento por radiação funciona como o sol aquece os corpos e as superfícies diretamente, sem circular ar ou criar correntes. Resultado: sem poeiras em suspensão, sem ressecamento do ar, melhor para alergias e vias respiratórias.
                 </p>
               </div>
             </div>

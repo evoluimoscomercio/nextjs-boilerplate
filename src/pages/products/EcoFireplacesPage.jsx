@@ -10,20 +10,20 @@ export default function EcoFireplacesPage() {
   return (
     <>
       <SEOHead
-        title="Biolareiras Herkell — Biolareiras a Bio-Etanol | Evoluimos Comércio"
+        title="Biolareiras Herkell Biolareiras a Bio-Etanol | Evoluimos Comércio"
         description="Biolareiras a bio-etanol e grelhadores a pellets Herkell. Sem chaminé, sem gás, 100% ecológico. Conforto e estética para qualquer espaço."
         canonical="/products/eco-fireplaces"
         image="https://images.unsplash.com/photo-1679419857423-ad10bd29a74f"
       />
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1679419857423-ad10bd29a74f?w=1400&q=85" alt="Biolareiras Herkell" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Biolareiras', path: '/products/eco-fireplaces' }]} dark />
-            <span className="inline-block bg-red-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Biolareiras Eco</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Biolareiras Herkell</h1>
-            <p className="text-orange-400 font-semibold mt-1">Bio-Etanol & Pellets · Sem Chaminé · 100% Ecológico</p>
+            <span className="inline-block bg-red-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Biolareiras Eco</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Biolareiras Herkell</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Bio-Etanol & Pellets · Sem Chaminé · 100% Ecológico</p>
           </div>
         </div>
 
@@ -36,7 +36,7 @@ export default function EcoFireplacesPage() {
                   As biolareiras Herkell a bio-etanol e os grelhadores a pellets oferecem todo o conforto e estética de uma lareira tradicional sem necessidade de chaminé, instalação de gás ou obras de qualquer tipo.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  O bio-etanol é um combustível renovável derivado de plantas. A combustão produz apenas vapor de água e CO₂ em quantidades mínimas — equivalente ao que expiramos ao respirar.
+                  O bio-etanol é um combustível renovável derivado de plantas. A combustão produz apenas vapor de água e CO₂ em quantidades mínimas equivalente ao que expiramos ao respirar.
                 </p>
               </div>
 
@@ -45,7 +45,7 @@ export default function EcoFireplacesPage() {
                 <div className="grid sm:grid-cols-2 gap-2.5">
                   {[
                     'Sem chaminé nem instalação de gás',
-                    'Sem obras — coloca onde quiser',
+                    'Sem obras coloca onde quiser',
                     'Combustível renovável (bio-etanol)',
                     'Chama real visível',
                     '100% ecológico',

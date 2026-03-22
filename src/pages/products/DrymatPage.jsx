@@ -17,20 +17,20 @@ export default function DrymatPage() {
   return (
     <>
       <SEOHead
-        title="Drymat — Eliminar Humidade Ascendente Sem Obras | Evoluimos Comércio"
+        title="Drymat Eliminar Humidade Ascendente Sem Obras | Evoluimos Comércio"
         description="Drymat elimina humidade ascendente sem obras. Tecnologia alemã de frequência eletromagnética. Análise gratuita ao seu imóvel."
         canonical="/products/drymat"
         image="https://images.unsplash.com/photo-1693594558979-aed4872ff156"
       />
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=1400&q=85" alt="Drymat eliminação de humidade" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Drymat', path: '/products/drymat' }]} dark />
-            <span className="inline-block bg-cyan-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Eliminação de Humidade</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Drymat®</h1>
-            <p className="text-cyan-300 font-semibold mt-1">A solução eficaz e definitiva para humidade ascendente — sem obras</p>
+            <span className="inline-block bg-cyan-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Eliminação de Humidade</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Drymat®</h1>
+            <p className="text-cyan-300 font-semibold mt-2 text-lg drop-shadow">A solução eficaz e definitiva para humidade ascendente sem obras</p>
           </div>
         </div>
 

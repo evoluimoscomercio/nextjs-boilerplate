@@ -11,8 +11,8 @@ const SolutionsHubPage = () => {
 
   const title = language === 'pt' ? 'Soluções para Cada Necessidade' : 'Solutions for Every Need';
   const desc = language === 'pt'
-    ? 'Eliminar humidade, reduzir custos de aquecimento, aquecer esplanadas ou tornar o negócio mais sustentável — temos a solução certa para si.'
-    : 'Eliminate moisture, reduce heating costs, heat outdoor spaces, or make your business more sustainable — we have the right solution for you.';
+    ? 'Eliminar humidade, reduzir custos de aquecimento, aquecer esplanadas ou tornar o negócio mais sustentável temos a solução certa para si.'
+    : 'Eliminate moisture, reduce heating costs, heat outdoor spaces, or make your business more sustainable we have the right solution for you.';
 
   const solutions = [
     {

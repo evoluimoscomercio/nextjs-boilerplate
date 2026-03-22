@@ -16,20 +16,20 @@ export default function ClimateCoatingPage() {
   return (
     <>
       <SEOHead
-        title="ClimateCoating — Revestimento Térmico Cerâmico | Evoluimos Comércio"
+        title="ClimateCoating Revestimento Térmico Cerâmico | Evoluimos Comércio"
         description="ClimateCoating: membrana cerâmica de nanotecnologia alemã. Isola termicamente, regula humidade, aplica-se como tinta. Economias de 30-40% em climatização."
         canonical="/products/climatecoating"
         image="https://images.unsplash.com/photo-1486325212027-8081e485255e"
       />
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85" alt="ClimateCoating revestimento térmico" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'ClimateCoating', path: '/products/climatecoating' }]} dark />
-            <span className="inline-block bg-blue-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Revestimento Térmico</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">ClimateCoating®</h1>
-            <p className="text-orange-400 font-semibold mt-1">Nanotecnologia Cerâmica · Made in Germany · Mais do que uma tinta</p>
+            <span className="inline-block bg-blue-700 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Revestimento Térmico</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ClimateCoating®</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Nanotecnologia Cerâmica · Made in Germany · Mais do que uma tinta</p>
           </div>
         </div>
 
@@ -39,7 +39,7 @@ export default function ClimateCoatingPage() {
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Muito Mais do que uma Tinta</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  O ClimateCoating® é a marca alemã original de produtos com base em nanotecnologia que formam uma <strong>membrana cerâmica com microesferas de vácuo</strong>. Aplica-se exatamente como uma tinta normal — mas os efeitos são radicalmente diferentes.
+                  O ClimateCoating® é a marca alemã original de produtos com base em nanotecnologia que formam uma <strong>membrana cerâmica com microesferas de vácuo</strong>. Aplica-se exatamente como uma tinta normal mas os efeitos são radicalmente diferentes.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Esta membrana produz <strong>efeitos endotérmicos</strong> que promovem a secagem de paredes e aumentam o conforto térmico. Estudos internacionais registam economias de <strong>30 a 40%</strong> nos custos de climatização apenas por pintar com estes produtos.

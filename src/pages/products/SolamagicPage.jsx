@@ -17,7 +17,7 @@ const SPECS = [
 ];
 
 const BENEFITS = [
-  { icon: Zap, title: 'Calor Imediato', text: 'Ativação instantânea. Sem tempo de espera — ideal para esplanadas com clientela rotativa.' },
+  { icon: Zap, title: 'Calor Imediato', text: 'Ativação instantânea. Sem tempo de espera ideal para esplanadas com clientela rotativa.' },
   { icon: Shield, title: 'Segurança Total', text: 'Lâmpada HeLeN patenteada com refletor de alto rendimento. Sem risco de incêndio.' },
   { icon: Droplets, title: 'À Prova de Chuva', text: 'Isolamento impermeável certificado. Funciona mesmo com chuva no exterior.' },
   { icon: Star, title: 'Design Versátil', text: 'Múltiplos modelos e cores. Integra-se discretamente em qualquer ambiente.' },
@@ -27,7 +27,7 @@ export default function SolamagicPage() {
   return (
     <>
       <SEOHead
-        title="Solamagic — Infravermelhos Premium para Esplanadas | Evoluimos Comércio"
+        title="Solamagic Infravermelhos Premium para Esplanadas | Evoluimos Comércio"
         description="Representante nacional Solamagic em Portugal. Aquecedores infravermelhos de onda curta para exterior. Calor imediato, 92% eficiência, made in Germany."
         canonical="/products/solamagic"
         image="https://images.unsplash.com/photo-1638668679884-4196de47fe97"
@@ -35,25 +35,25 @@ export default function SolamagicPage() {
 
       <div className="min-h-screen">
         {/* Hero */}
-        <div className="relative h-72 sm:h-96 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=1400&q=85"
-            alt="Solamagic — Infravermelhos Premium"
+            alt="Solamagic Infravermelhos Premium"
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb
               items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Solamagic', path: '/products/solamagic' }]}
               dark
             />
-            <div className="flex items-center gap-3 mt-3">
+            <div className="flex items-center justify-center gap-3 mt-6">
               <span className="bg-amber-500 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">⭐ Premium</span>
-              <span className="text-white/60 text-sm">Representante Nacional em Portugal</span>
+              <span className="text-white/70 text-sm">Representante Nacional em Portugal</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white mt-2 tracking-tight">Solamagic</h1>
-            <p className="text-orange-400 font-semibold mt-1 text-lg">Infravermelhos de Onda Curta · Made in Germany</p>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Solamagic</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Infravermelhos de Onda Curta · Made in Germany</p>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default function SolamagicPage() {
                   A Evoluimos Comércio é o <strong>representante nacional da marca Solamagic em Portugal</strong>. Trazemos diretamente do fabricante alemão a mais alta tecnologia em aquecimento de exterior.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Os radiadores Solamagic de infravermelhos de onda curta convertem <strong>92% da potência em calor</strong> e apenas 8% em luz (com opção de lâmpadas low glare para ambientes noturnos). O aquecimento é imediato, localizado e resistente ao vento — porque aquece diretamente as pessoas e os objetos, não o ar.
+                  Os radiadores Solamagic de infravermelhos de onda curta convertem <strong>92% da potência em calor</strong> e apenas 8% em luz (com opção de lâmpadas low glare para ambientes noturnos). O aquecimento é imediato, localizado e resistente ao vento porque aquece diretamente as pessoas e os objetos, não o ar.
                 </p>
               </div>
 

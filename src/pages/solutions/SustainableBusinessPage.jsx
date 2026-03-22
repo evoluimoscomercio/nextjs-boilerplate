@@ -16,8 +16,8 @@ const SustainableBusinessPage = () => {
     ? 'Aquecimento Sustentável para Empresas | ESG + Eficiência Energética'
     : 'Sustainable Heating for Businesses | ESG + Energy Efficiency';
   const desc = isPt
-    ? 'Soluções de aquecimento e arrefecimento ecológicas para empresas. Reduza as emissões de CO2, melhore o seu relatório ESG e poupe até 40% na energia — sem comprometer o conforto.'
-    : 'Eco-friendly heating and cooling solutions for businesses. Reduce CO2 emissions, improve your ESG report, and save up to 40% on energy — without compromising comfort.';
+    ? 'Soluções de aquecimento e arrefecimento ecológicas para empresas. Reduza as emissões de CO2, melhore o seu relatório ESG e poupe até 40% na energia sem comprometer o conforto.'
+    : 'Eco-friendly heating and cooling solutions for businesses. Reduce CO2 emissions, improve your ESG report, and save up to 40% on energy without compromising comfort.';
 
   const faqs = isPt ? [
     { question: 'Como é que os produtos contribuem para objetivos ESG?', answer: 'Os equipamentos não emitem CO2 no ponto de uso (são elétricos), têm vida útil longa e contribuem para metas de eficiência energética e bem-estar dos colaboradores.' },
@@ -53,7 +53,7 @@ const SustainableBusinessPage = () => {
     },
     {
       title: 'Reabilitação de Edifícios',
-      desc: 'Impermeabilização e isolamento térmico com ClimateCoating e eliminação de humidade com Drymat — sem obras invasivas.',
+      desc: 'Impermeabilização e isolamento térmico com ClimateCoating e eliminação de humidade com Drymat sem obras invasivas.',
       products: ['/products/climatecoating', 'ClimateCoating'],
     },
     {
@@ -74,7 +74,7 @@ const SustainableBusinessPage = () => {
     },
     {
       title: 'Building Rehabilitation',
-      desc: 'Waterproofing and thermal insulation with ClimateCoating and damp elimination with Drymat — no invasive construction.',
+      desc: 'Waterproofing and thermal insulation with ClimateCoating and damp elimination with Drymat no invasive construction.',
       products: ['/products/climatecoating', 'ClimateCoating'],
     },
     {
@@ -95,27 +95,26 @@ const SustainableBusinessPage = () => {
         image="https://images.unsplash.com/photo-1486325212027-8081e485255e"
       />
 
-      <div className="min-h-screen pt-20 pb-16">
+      <div className="min-h-screen pb-16">
         {/* Hero */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-end pb-8">
-            <div className="container mx-auto px-4">
-              <Breadcrumb
-                items={[
-                  { label: t?.nav?.home || 'Início', path: '/' },
-                  { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
-                  { label: title, path: '/solutions/sustainable-business' }
-                ]}
-                dark
-              />
-              <h1 className="text-3xl md:text-4xl font-bold text-white mt-3">{title}</h1>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
+            <Breadcrumb
+              items={[
+                { label: t?.nav?.home || 'Início', path: '/' },
+                { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
+                { label: title, path: '/solutions/sustainable-business' }
+              ]}
+              dark
+            />
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight drop-shadow-lg">{title}</h1>
           </div>
         </div>
 
@@ -151,13 +150,13 @@ const SustainableBusinessPage = () => {
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   {isPt
-                    ? 'As empresas enfrentam hoje uma dupla pressão: reduzir a pegada ambiental e controlar os custos operacionais. Com as soluções Evoluimos Comércio, estas duas metas são alcançadas em simultâneo — sem compromissos.'
-                    : 'Businesses today face dual pressure: reduce their environmental footprint and control operating costs. With Evoluimos Comércio solutions, both goals are achieved simultaneously — without compromise.'}
+                    ? 'As empresas enfrentam hoje uma dupla pressão: reduzir a pegada ambiental e controlar os custos operacionais. Com as soluções Evoluimos Comércio, estas duas metas são alcançadas em simultâneo sem compromissos.'
+                    : 'Businesses today face dual pressure: reduce their environmental footprint and control operating costs. With Evoluimos Comércio solutions, both goals are achieved simultaneously without compromise.'}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   {isPt
-                    ? 'Os nossos produtos são 100% elétricos, sem combustão e sem emissões diretas. Usados com energia renovável, a pegada de carbono operacional é zero — o que contribui diretamente para relatórios de sustentabilidade ESG e certificações energéticas dos edifícios.'
-                    : 'Our products are 100% electric, combustion-free and emission-free. Used with renewable energy, the operational carbon footprint is zero — directly contributing to ESG sustainability reports and building energy certifications.'}
+                    ? 'Os nossos produtos são 100% elétricos, sem combustão e sem emissões diretas. Usados com energia renovável, a pegada de carbono operacional é zero o que contribui diretamente para relatórios de sustentabilidade ESG e certificações energéticas dos edifícios.'
+                    : 'Our products are 100% electric, combustion-free and emission-free. Used with renewable energy, the operational carbon footprint is zero directly contributing to ESG sustainability reports and building energy certifications.'}
                 </p>
               </div>
 

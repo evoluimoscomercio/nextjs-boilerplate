@@ -24,13 +24,13 @@ const ReduceHeatingCostsPage = () => {
     { question: 'Em quanto tempo recupero o investimento?', answer: 'Tipicamente entre 3 a 5 anos, com base nas poupanças mensais em energia. Após esse período, o ganho é total.' },
     { question: 'O Duotherm funciona em todas as divisões?', answer: 'Sim. Existe uma gama ampla de modelos em diferentes tamanhos e acabamentos em pedra natural, adequados a qualquer divisão e estilo de decoração.' },
     { question: 'O ClimateCoating substitui o isolamento tradicional?', answer: 'Complementa o isolamento existente. A membrana cerâmica reduz as perdas térmicas em paredes e tetos, funcionando em conjunto com outros sistemas.' },
-    { question: 'Preciso de obras para instalar o Duotherm?', answer: 'Não. Os radiadores Duotherm são plug-and-play — ligam à tomada elétrica normal, sem necessidade de instalação de tubagens ou obras.' },
+    { question: 'Preciso de obras para instalar o Duotherm?', answer: 'Não. Os radiadores Duotherm são plug-and-play ligam à tomada elétrica normal, sem necessidade de instalação de tubagens ou obras.' },
   ] : [
     { question: 'How much can I save on my energy bill?', answer: 'Our clients record savings of 30 to 40% in heating costs, depending on existing insulation and usage habits.' },
     { question: 'How long until I recover my investment?', answer: 'Typically 3 to 5 years, based on monthly energy savings. After that period, all savings are pure gain.' },
     { question: 'Does Duotherm work in all rooms?', answer: 'Yes. There is a wide range of models in different sizes and natural stone finishes, suitable for any room and decorative style.' },
     { question: 'Does ClimateCoating replace traditional insulation?', answer: 'It complements existing insulation. The ceramic membrane reduces thermal losses in walls and ceilings, working alongside other systems.' },
-    { question: 'Do I need construction work to install Duotherm?', answer: 'No. Duotherm radiators are plug-and-play — they connect to a regular electrical socket, with no pipe installation or construction needed.' },
+    { question: 'Do I need construction work to install Duotherm?', answer: 'No. Duotherm radiators are plug-and-play they connect to a regular electrical socket, with no pipe installation or construction needed.' },
   ];
 
   const stats = [
@@ -42,12 +42,12 @@ const ReduceHeatingCostsPage = () => {
 
   const tips = isPt ? [
     { title: 'Aquecimento por zonas', desc: 'Aqueça apenas as divisões em uso. Os radiadores Duotherm permitem controlo independente por divisão.' },
-    { title: 'Temperatura de conforto mais baixa', desc: 'A sensação de calor dos infravermelhos é igual à de ar aquecido 2-3°C mais alto — o que significa menos consumo.' },
+    { title: 'Temperatura de conforto mais baixa', desc: 'A sensação de calor dos infravermelhos é igual à de ar aquecido 2-3°C mais alto o que significa menos consumo.' },
     { title: 'Isolamento das paredes', desc: 'O ClimateCoating retém até 30% do calor que normalmente se perde pelas paredes e tetos.' },
     { title: 'Programação inteligente', desc: 'Vários modelos Duotherm incluem termostato e temporizador, evitando gastos desnecessários.' },
   ] : [
     { title: 'Zone heating', desc: 'Heat only rooms in use. Duotherm radiators allow independent control per room.' },
-    { title: 'Lower comfort temperature', desc: 'The warmth of infrared feels the same as air heated 2-3°C higher — which means less consumption.' },
+    { title: 'Lower comfort temperature', desc: 'The warmth of infrared feels the same as air heated 2-3°C higher which means less consumption.' },
     { title: 'Wall insulation', desc: 'ClimateCoating retains up to 30% of the heat normally lost through walls and ceilings.' },
     { title: 'Smart scheduling', desc: 'Several Duotherm models include a thermostat and timer, avoiding unnecessary spending.' },
   ];
@@ -63,27 +63,26 @@ const ReduceHeatingCostsPage = () => {
         image="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1"
       />
 
-      <div className="min-h-screen pt-20 pb-16">
+      <div className="min-h-screen pb-16">
         {/* Hero */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=1400&q=85"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-end pb-8">
-            <div className="container mx-auto px-4">
-              <Breadcrumb
-                items={[
-                  { label: t?.nav?.home || 'Início', path: '/' },
-                  { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
-                  { label: title, path: '/solutions/reduce-heating-costs' }
-                ]}
-                dark
-              />
-              <h1 className="text-3xl md:text-4xl font-bold text-white mt-3">{title}</h1>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
+            <Breadcrumb
+              items={[
+                { label: t?.nav?.home || 'Início', path: '/' },
+                { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
+                { label: title, path: '/solutions/reduce-heating-costs' }
+              ]}
+              dark
+            />
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight drop-shadow-lg">{title}</h1>
           </div>
         </div>
 
@@ -143,8 +142,8 @@ const ReduceHeatingCostsPage = () => {
                       <h3 className="font-bold text-gray-900 mb-1">Duotherm</h3>
                       <p className="text-sm text-gray-600">
                         {isPt
-                          ? 'Radiadores em pedra natural com tecnologia de infravermelhos. Aquecem por irradiação direta, sem circular ar — mais saudável e até 40% mais eficiente que convecção.'
-                          : 'Natural stone radiators with infrared technology. They heat by direct radiation without circulating air — healthier and up to 40% more efficient than convection.'}
+                          ? 'Radiadores em pedra natural com tecnologia de infravermelhos. Aquecem por irradiação direta, sem circular ar mais saudável e até 40% mais eficiente que convecção.'
+                          : 'Natural stone radiators with infrared technology. They heat by direct radiation without circulating air healthier and up to 40% more efficient than convection.'}
                       </p>
                     </div>
                   </div>
@@ -156,8 +155,8 @@ const ReduceHeatingCostsPage = () => {
                       <h3 className="font-bold text-gray-900 mb-1">ClimateCoating</h3>
                       <p className="text-sm text-gray-600">
                         {isPt
-                          ? 'Membrana cerâmica aplicada em paredes e tetos que retém o calor no interior e impede pontes térmicas — reduz perdas energéticas em até 30%.'
-                          : 'Ceramic membrane applied to walls and ceilings that retains heat inside and prevents thermal bridges — reduces energy losses by up to 30%.'}
+                          ? 'Membrana cerâmica aplicada em paredes e tetos que retém o calor no interior e impede pontes térmicas reduz perdas energéticas em até 30%.'
+                          : 'Ceramic membrane applied to walls and ceilings that retains heat inside and prevents thermal bridges reduces energy losses by up to 30%.'}
                       </p>
                     </div>
                   </div>

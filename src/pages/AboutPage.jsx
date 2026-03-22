@@ -11,8 +11,8 @@ export default function AboutPage() {
   return (
     <>
       <SEOHead
-        title="Sobre Nós — Eduardo Catarino | Evoluimos Comércio"
-        description="Fundada por Eduardo Catarino em 2018. Especialistas em conforto térmico sustentável — aquecimento, arrefecimento e proteção de edifícios com tecnologia alemã."
+        title="Sobre Nós Eduardo Catarino | Evoluimos Comércio"
+        description="Fundada por Eduardo Catarino em 2018. Especialistas em conforto térmico sustentável aquecimento, arrefecimento e proteção de edifícios com tecnologia alemã."
         canonical="/about"
       />
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
@@ -26,13 +26,13 @@ export default function AboutPage() {
                 <span className="text-orange-600">Evoluimos Comércio</span>
               </h1>
               <p className="text-gray-700 leading-relaxed mb-5">
-                Sou o Eduardo Catarino e dou rosto a este projeto que nasceu da vontade de trazer soluções eficazes, sustentáveis e acessíveis para o conforto térmico — seja em casa, em esplanadas, jardins ou espaços comerciais.
+                Sou o Eduardo Catarino e dou rosto a este projeto que nasceu da vontade de trazer soluções eficazes, sustentáveis e acessíveis para o conforto térmico seja em casa, em esplanadas, jardins ou espaços comerciais.
               </p>
               <p className="text-gray-700 leading-relaxed mb-5">
                 Trabalho com uma <strong>abordagem baseada na complementariedade</strong>. Os vários produtos criam sinergias entre si, para se otimizarem e, no seu total, oferecerem soluções completas de conforto térmico, do inverno ao verão.
               </p>
               <p className="text-gray-700 leading-relaxed mb-8">
-                Com um percurso ligado ao aconselhamento técnico e comercial, coloco o bem-estar e a saúde das pessoas como prioridade, acompanhando de perto as reais necessidades de clientes particulares e profissionais — com o compromisso de apresentar equipamentos fiáveis, simples de aplicar e com apoio pós-venda próximo.
+                Com um percurso ligado ao aconselhamento técnico e comercial, coloco o bem-estar e a saúde das pessoas como prioridade, acompanhando de perto as reais necessidades de clientes particulares e profissionais com o compromisso de apresentar equipamentos fiáveis, simples de aplicar e com apoio pós-venda próximo.
               </p>
 
               <div className="bg-orange-50 border-l-4 border-orange-600 rounded-r-2xl p-5 mb-8">

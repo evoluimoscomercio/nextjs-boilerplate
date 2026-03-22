@@ -24,7 +24,7 @@ const LINES = [
   },
   {
     name: 'Profissional',
-    desc: 'Concebida para instalações comerciais intensivas — hotéis, spas, restauração de volume. Maior potência e robustez.',
+    desc: 'Concebida para instalações comerciais intensivas hotéis, spas, restauração de volume. Maior potência e robustez.',
     uses: ['Hotéis', 'Spas', 'Restauração'],
     color: 'bg-gray-50 border-gray-300',
     tag: 'bg-gray-700',
@@ -40,8 +40,8 @@ const LINES = [
 
 const WHY = [
   'Tecnologia de lâmpadas HeLeN desenvolvida por engenheiro alemão',
-  'Aquecimento imediato — não aquece o ar, aquece as pessoas',
-  'Resistente ao vento — ideal para exterior',
+  'Aquecimento imediato não aquece o ar, aquece as pessoas',
+  'Resistente ao vento ideal para exterior',
   'Não emite gases, não queima oxigénio',
   'Baixo consumo comparado com resistências convencionais',
   'Fácil instalação, sem manutenção regular',
@@ -51,29 +51,29 @@ export default function ComfortSunPage() {
   return (
     <>
       <SEOHead
-        title="ComfortSun — Aquecimento Infravermelhos Polivalente | Evoluimos Comércio"
+        title="ComfortSun Aquecimento Infravermelhos Polivalente | Evoluimos Comércio"
         description="Linha ComfortSun de aquecedores infravermelhos: Polivalente, Profissional e Deluxe. Tecnologia alemã para esplanadas, hotéis e habitação."
         canonical="/products/comfortsun"
         image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
       />
 
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=85"
-            alt="ComfortSun — Infravermelhos Polivalente"
+            alt="ComfortSun Infravermelhos Polivalente"
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb
               items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'ComfortSun', path: '/products/comfortsun' }]}
               dark
             />
-            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Polivalente</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">ComfortSun</h1>
-            <p className="text-orange-400 font-semibold mt-1">4 Linhas · Interior & Exterior</p>
+            <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Polivalente</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ComfortSun</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">4 Linhas · Interior & Exterior</p>
           </div>
         </div>
 
@@ -87,7 +87,7 @@ export default function ComfortSunPage() {
                   A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com tecnologia de lâmpadas HeLeN avançada. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico, com fornecimento direto da fábrica alemã.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> — com 4 linhas diferentes para cada tipo de aplicação e orçamento.
+                  Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento.
                 </p>
               </div>
 
@@ -140,7 +140,7 @@ export default function ComfortSunPage() {
             <div className="space-y-4">
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <h3 className="font-extrabold text-xl mb-2">Pedir Informação</h3>
-                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar — recomendamos a linha certa.</p>
+                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar recomendamos a linha certa.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />

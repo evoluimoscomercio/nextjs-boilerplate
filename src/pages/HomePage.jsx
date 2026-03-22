@@ -127,7 +127,7 @@ export default function HomePage() {
       `}</style>
 
       <SEOHead
-        title="Evoluimos Comércio — Conforto Térmico Sustentável"
+        title="Evoluimos Comércio Conforto Térmico Sustentável"
         description="Aquecimento, arrefecimento e proteção de edifícios com tecnologia europeia de alta eficiência. Distribuidores oficiais de Solamagic, Duotherm, Drymat e mais."
         canonical="/"
       />
@@ -204,7 +204,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRODUCTS — overlay image cards ── */}
+      {/* ── PRODUCTS overlay image cards ── */}
       <section aria-label="Portfólio de Produtos" style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '48px' }}>
@@ -223,7 +223,7 @@ export default function HomePage() {
               return (
                 <motion.div key={p.path} initial={{ opacity:0, y:24 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay: i*0.07 }}>
                   <Link to={p.path} className="prod-card" aria-label={`Ver produto ${p.name}`}>
-                    <img src={p.img} alt={`${p.name} — ${p.desc}`} loading="lazy"
+                    <img src={p.img} alt={`${p.name} ${p.desc}`} loading="lazy"
                       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 48%, rgba(5,5,7,0.08) 100%)' }} aria-hidden="true" />
                     <div style={{ position: 'absolute', top: '16px', left: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -247,7 +247,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SOLUTIONS — 4 cards com descrição ── */}
+      {/* ── SOLUTIONS 4 cards com descrição ── */}
       <section aria-label="Soluções" style={{ background: '#141417', padding: 'clamp(64px, 8vw, 100px) 0' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} style={{ marginBottom: '52px', maxWidth: '640px' }}>

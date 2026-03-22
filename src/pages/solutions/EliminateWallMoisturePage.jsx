@@ -53,27 +53,26 @@ const EliminateWallMoisturePage = () => {
         image="https://images.unsplash.com/photo-1693594558979-aed4872ff156"
       />
 
-      <div className="min-h-screen pt-20 pb-16">
+      <div className="min-h-screen pb-16">
         {/* Hero */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=1400&q=85"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-end pb-8">
-            <div className="container mx-auto px-4">
-              <Breadcrumb
-                items={[
-                  { label: t?.nav?.home || 'Início', path: '/' },
-                  { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
-                  { label: title, path: '/solutions/eliminate-moisture' }
-                ]}
-                dark
-              />
-              <h1 className="text-3xl md:text-4xl font-bold text-white mt-3">{title}</h1>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
+            <Breadcrumb
+              items={[
+                { label: t?.nav?.home || 'Início', path: '/' },
+                { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
+                { label: title, path: '/solutions/eliminate-moisture' }
+              ]}
+              dark
+            />
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight drop-shadow-lg">{title}</h1>
           </div>
         </div>
 

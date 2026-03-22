@@ -63,27 +63,26 @@ const OutdoorComfortPage = () => {
         image="https://images.unsplash.com/photo-1638668679884-4196de47fe97"
       />
 
-      <div className="min-h-screen pt-20 pb-16">
+      <div className="min-h-screen pb-16">
         {/* Hero */}
-        <div className="relative h-64 md:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=1400&q=85"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex items-end pb-8">
-            <div className="container mx-auto px-4">
-              <Breadcrumb
-                items={[
-                  { label: t?.nav?.home || 'Início', path: '/' },
-                  { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
-                  { label: title, path: '/solutions/outdoor-comfort' }
-                ]}
-                dark
-              />
-              <h1 className="text-3xl md:text-4xl font-bold text-white mt-3">{title}</h1>
-            </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
+            <Breadcrumb
+              items={[
+                { label: t?.nav?.home || 'Início', path: '/' },
+                { label: t?.nav?.solutions || 'Soluções', path: '/solutions' },
+                { label: title, path: '/solutions/outdoor-comfort' }
+              ]}
+              dark
+            />
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tight drop-shadow-lg">{title}</h1>
           </div>
         </div>
 
@@ -118,8 +117,8 @@ const OutdoorComfortPage = () => {
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   {isPt
-                    ? 'Em Portugal, as esplanadas e terraços representam uma enorme oportunidade de negócio — mas apenas se estiverem confortáveis durante a época fria. Com aquecimento por infravermelhos Solamagic, transforma o exterior num espaço utilizável 12 meses por ano.'
-                    : 'In Portugal, patios and terraces represent a huge business opportunity — but only if they are comfortable during the cold season. With Solamagic infrared heating, you transform the exterior into a usable space 12 months a year.'}
+                    ? 'Em Portugal, as esplanadas e terraços representam uma enorme oportunidade de negócio mas apenas se estiverem confortáveis durante a época fria. Com aquecimento por infravermelhos Solamagic, transforma o exterior num espaço utilizável 12 meses por ano.'
+                    : 'In Portugal, patios and terraces represent a huge business opportunity but only if they are comfortable during the cold season. With Solamagic infrared heating, you transform the exterior into a usable space 12 months a year.'}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   {isPt

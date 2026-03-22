@@ -16,20 +16,20 @@ export default function BioclimatizadoresPage() {
   return (
     <>
       <SEOHead
-        title="Bioclimatizadores — Arrefecimento Natural por Evaporação | Evoluimos Comércio"
+        title="Bioclimatizadores Arrefecimento Natural por Evaporação | Evoluimos Comércio"
         description="Bioclimatizadores Elite e MF60. Arrefecimento natural sem compressor, baixo consumo, sem gases. Alternativa saudável ao ar condicionado."
         canonical="/products/bioclimatizadores"
         image="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a"
       />
       <div className="min-h-screen">
-        <div className="relative h-64 sm:h-80 overflow-hidden">
+        <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=1400&q=85" alt="Bioclimatizadores arrefecimento natural" className="w-full h-full object-cover" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/30" />
-          <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-10 pb-8">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-16">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Bioclimatizadores', path: '/products/bioclimatizadores' }]} dark />
-            <span className="inline-block bg-teal-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-3 self-start">Arrefecimento Natural</span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 tracking-tight">Bioclimatizadores</h1>
-            <p className="text-orange-400 font-semibold mt-1">Arrefecimento por Evaporação · Sem Compressor · Baixo Consumo</p>
+            <span className="inline-block bg-teal-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mt-6">Arrefecimento Natural</span>
+            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Bioclimatizadores</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Arrefecimento por Evaporação · Sem Compressor · Baixo Consumo</p>
           </div>
         </div>
 
@@ -39,10 +39,10 @@ export default function BioclimatizadoresPage() {
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Arrefecimento Natural sem Compressor</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Os bioclimatizadores são uma alternativa saudável ao ar condicionado convencional. O arrefecimento é produzido através da <strong>evaporação de água</strong> — quanto mais calor fizer, maior o arrefecimento, com humidificação natural do ar.
+                  Os bioclimatizadores são uma alternativa saudável ao ar condicionado convencional. O arrefecimento é produzido através da <strong>evaporação de água</strong> quanto mais calor fizer, maior o arrefecimento, com humidificação natural do ar.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  O consumo elétrico é baixíssimo — limita-se à ventoinha que suga o ar quente e o impulsiona arrefecido para o ambiente. Os modelos Elite têm design moderno, comando remoto, 3 velocidades, função antimosquitos e ionização do ar.
+                  O consumo elétrico é baixíssimo limita-se à ventoinha que suga o ar quente e o impulsiona arrefecido para o ambiente. Os modelos Elite têm design moderno, comando remoto, 3 velocidades, função antimosquitos e ionização do ar.
                 </p>
               </div>
 
@@ -77,7 +77,7 @@ export default function BioclimatizadoresPage() {
                     'Sem compressor, sem gases fluorados',
                     'Baixíssimo consumo elétrico',
                     'Humidifica o ar seco',
-                    'Sem instalação — plug & play',
+                    'Sem instalação plug & play',
                     'Função antimosquitos (Elite)',
                     'Ionização do ar (Elite)',
                     'Ideal para verão e esplanadas',

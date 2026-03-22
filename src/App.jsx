@@ -59,7 +59,7 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
 
-                {/* 404 — deve ser sempre a última rota */}
+                {/* 404 deve ser sempre a última rota */}
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </main>

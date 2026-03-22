@@ -116,7 +116,7 @@ export default function RealEstatePage() {
               <p style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontWeight: 600, color: '#B84500', marginBottom: '24px', letterSpacing: '0.01em' }}>
                 Consultor Imobiliário · Algarve
               </p>
-              <p style={{ fontSize: '17px', color: '#8A8480', lineHeight: 1.8, marginBottom: '36px', maxWidth: '480px' }}>
+              <p style={{ fontSize: '17px', color: '#B0AAA6', lineHeight: 1.8, marginBottom: '36px', maxWidth: '480px' }}>
                 Agente imobiliário e empreendedor no setor do conforto térmico. Uma combinação única que oferece ao cliente muito mais do que a mediação tradicional.
               </p>
 
@@ -147,14 +147,14 @@ export default function RealEstatePage() {
 
               {/* Social row */}
               <div style={{ display: 'flex', gap: '14px', marginTop: '28px', alignItems: 'center' }}>
-                <span style={{ fontSize: '12px', color: '#4A4440', fontWeight: 500 }}>Redes sociais</span>
+                <span style={{ fontSize: '12px', color: '#7A7470', fontWeight: 500 }}>Redes sociais</span>
                 {[
                   { href: 'https://www.facebook.com/EduardoCatarinoConsultor', icon: FB_SVG, label: 'Facebook' },
                   { href: 'https://www.instagram.com/eduardocatarino_consultor_exp', icon: IG_SVG, label: 'Instagram' },
                   { href: 'https://www.linkedin.com/in/eduardocatarinoevoluimos/', icon: LI_SVG, label: 'LinkedIn' },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#7A7470', textDecoration: 'none', transition: 'all 0.2s' }}
+                    style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A8A29E', textDecoration: 'none', transition: 'all 0.2s' }}
                     onMouseEnter={e => { e.currentTarget.style.background = 'rgba(184,69,0,0.15)'; e.currentTarget.style.color = '#F0A020'; e.currentTarget.style.borderColor = 'rgba(184,69,0,0.3)'; }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#7A7470'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}>
                     {s.icon}
@@ -172,7 +172,7 @@ export default function RealEstatePage() {
                 <div style={{ position: 'absolute', inset: '-32px', borderRadius: '40px', border: '1px solid rgba(184,69,0,0.08)', pointerEvents: 'none' }} />
                 <img
                   src="/eduardoexp1.webp"
-                  alt="Eduardo Catarino — Consultor Imobiliário Algarve"
+                  alt="Eduardo Catarino, Consultor Imobiliário Algarve"
                   style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'top', borderRadius: '24px', display: 'block', boxShadow: '0 40px 80px rgba(0,0,0,0.6)' }}
                   loading="eager"
                 />
@@ -191,16 +191,15 @@ export default function RealEstatePage() {
       {/* ── STATS STRIP ── */}
       <section style={{ background: '#111114', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '28px 0' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-3 gap-6 text-center">
             {[
               { value: '25+', label: 'Anos de experiência' },
               { value: '3', label: 'Línguas faladas' },
               { value: 'CAP', label: 'Certificação EXP' },
-              { value: '100%', label: 'Comissão no sucesso' },
             ].map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
                 <div style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 800, color: '#F0A020', lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: '12px', color: '#5A5450', fontWeight: 500, marginTop: '6px', letterSpacing: '0.02em' }}>{s.label}</div>
+                <div style={{ fontSize: '12px', color: '#7A7470', fontWeight: 500, marginTop: '6px', letterSpacing: '0.02em' }}>{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -208,7 +207,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* ── ABOUT / DIFFERENTIATOR ── */}
-      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 96px) 0' }}>
+      <section style={{ background: '#17171A', padding: 'clamp(64px, 8vw, 96px) 0' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -234,11 +233,11 @@ export default function RealEstatePage() {
               <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '20px' }}>
                 Muito mais do que<br />mediação imobiliária.
               </h2>
-              <p style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.8, marginBottom: '16px' }}>
+              <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.8, marginBottom: '16px' }}>
                 Eduardo Catarino é empreendedor de longa data no setor do conforto térmico e, em simultâneo, agente imobiliário certificado pela EXP Portugal. Esta combinação única permite oferecer um serviço que vai muito além da mediação tradicional.
               </p>
-              <p style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.8, marginBottom: '28px' }}>
-                Ao acompanhar o cliente na compra ou venda de um imóvel, Eduardo avalia gratuitamente o estado das paredes, o isolamento térmico e a eficiência energética — identificando problemas e apresentando soluções concretas sem obras invasivas.
+              <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.8, marginBottom: '28px' }}>
+                Ao acompanhar o cliente na compra ou venda de um imóvel, Eduardo avalia gratuitamente o estado das paredes, o isolamento térmico e a eficiência energética, identificando problemas e apresentando soluções concretas sem obras invasivas.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {[
@@ -249,7 +248,7 @@ export default function RealEstatePage() {
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <CheckCircle2 style={{ width: '16px', height: '16px', color: '#B84500', flexShrink: 0 }} />
-                    <span style={{ fontSize: '14px', color: '#9A9490' }}>{item}</span>
+                    <span style={{ fontSize: '14px', color: '#B8B2AE' }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -265,7 +264,7 @@ export default function RealEstatePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '52px' }}>
             <div style={{ width: '36px', height: '3px', background: '#B84500', borderRadius: '2px', marginBottom: '20px' }} />
             <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 800, color: '#F5F0E8', marginBottom: '12px', lineHeight: 1.1 }}>O que Eduardo Catarino oferece</h2>
-            <p style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.7, maxWidth: '480px' }}>Um serviço integrado que cobre todas as fases da transação imobiliária, com um diferenciador técnico único no mercado.</p>
+            <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.7, maxWidth: '480px' }}>Um serviço integrado que cobre todas as fases da transação imobiliária, com um diferenciador técnico único no mercado.</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -278,7 +277,7 @@ export default function RealEstatePage() {
                     <Icon style={{ width: '22px', height: '22px', color: '#F0A020' }} />
                   </div>
                   <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#EDE8E0', lineHeight: 1.3 }}>{s.title}</h3>
-                  <p style={{ fontSize: '13px', color: '#6A6460', lineHeight: 1.7 }}>{s.desc}</p>
+                  <p style={{ fontSize: '13px', color: '#908A86', lineHeight: 1.7 }}>{s.desc}</p>
                 </motion.div>
               );
             })}
@@ -287,7 +286,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* ── ACHIEVEMENTS ── */}
-      <section style={{ background: '#0F0F11', padding: 'clamp(64px, 8vw, 96px) 0' }}>
+      <section style={{ background: '#141417', padding: 'clamp(64px, 8vw, 96px) 0' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -305,7 +304,7 @@ export default function RealEstatePage() {
                     </div>
                     <div>
                       <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#EDE8E0', marginBottom: '6px' }}>{a.title}</h3>
-                      <p style={{ fontSize: '13px', color: '#6A6460', lineHeight: 1.7 }}>{a.desc}</p>
+                      <p style={{ fontSize: '13px', color: '#908A86', lineHeight: 1.7 }}>{a.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -333,7 +332,7 @@ export default function RealEstatePage() {
             <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '14px' }}>
               Diagnóstico integrado com as soluções Evoluimos Comércio
             </h2>
-            <p style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.8, maxWidth: '560px', margin: '0 auto' }}>
+            <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.8, maxWidth: '560px', margin: '0 auto' }}>
               Na compra ou venda de um imóvel, Eduardo Catarino avalia gratuitamente o estado das paredes (humidade ascendente), o isolamento térmico e o sistema de aquecimento. Se existirem problemas, são apresentadas soluções concretas, sem obras invasivas.
             </p>
           </motion.div>
@@ -350,7 +349,7 @@ export default function RealEstatePage() {
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(184,69,0,0.08)'; e.currentTarget.style.borderColor = 'rgba(184,69,0,0.35)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.borderColor = 'rgba(184,69,0,0.18)'; }}>
                   <span style={{ fontSize: '14px', fontWeight: 700, color: '#EDE8E0' }}>{p.label}</span>
-                  <span style={{ fontSize: '12px', color: '#5A5450' }}>{p.desc}</span>
+                  <span style={{ fontSize: '12px', color: '#7A7470' }}>{p.desc}</span>
                   <span style={{ fontSize: '12px', fontWeight: 700, color: '#F0A020', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '4px' }}>
                     Ver produto <ArrowRight style={{ width: '12px', height: '12px' }} />
                   </span>
@@ -362,7 +361,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* ── CONTACT CTA ── full width, premium */}
-      <section style={{ background: '#0F0F11', padding: 'clamp(72px, 10vw, 112px) 0' }}>
+      <section style={{ background: '#17171A', padding: 'clamp(72px, 10vw, 112px) 0' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -373,12 +372,12 @@ export default function RealEstatePage() {
                 <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.1, marginBottom: '16px' }}>
                   Pronto para comprar,<br />vender ou avaliar?
                 </h2>
-                <p style={{ fontSize: '16px', color: '#7A7470', lineHeight: 1.8, marginBottom: '28px' }}>
+                <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.8, marginBottom: '28px' }}>
                   Contacte Eduardo Catarino diretamente. Resposta rápida, sem compromisso. Atendimento em português, inglês e alemão.
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                   <MapPin style={{ width: '16px', height: '16px', color: '#B84500', flexShrink: 0 }} />
-                  <span style={{ fontSize: '14px', color: '#7A7470' }}>Algarve · Vila Nova de Cacela · Todo o território nacional</span>
+                  <span style={{ fontSize: '14px', color: '#A8A29E' }}>Algarve · Vila Nova de Cacela · Todo o território nacional</span>
                 </div>
                 <a href="https://sites.google.com/view/eduardocatarino-exp" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 600, color: '#F0A020', textDecoration: 'none', marginTop: '8px' }}>
@@ -407,7 +406,7 @@ export default function RealEstatePage() {
                   <Mail style={{ width: '20px', height: '20px', color: '#F0A020', flexShrink: 0 }} />
                   <div>
                     <div style={{ fontSize: '14px', fontWeight: 700, color: '#EDE8E0' }}>eduardo.catarino@expportugal.com</div>
-                    <div style={{ fontSize: '12px', color: '#6A6460' }}>Email profissional</div>
+                    <div style={{ fontSize: '12px', color: '#908A86' }}>Email profissional</div>
                   </div>
                 </a>
 
@@ -415,10 +414,10 @@ export default function RealEstatePage() {
                   style={{ display: 'flex', alignItems: 'center', gap: '14px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '16px 20px', textDecoration: 'none', transition: 'all 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}>
-                  <Phone style={{ width: '20px', height: '20px', color: '#7A7470', flexShrink: 0 }} />
+                  <Phone style={{ width: '20px', height: '20px', color: '#A8A29E', flexShrink: 0 }} />
                   <div>
                     <div style={{ fontSize: '14px', fontWeight: 700, color: '#EDE8E0' }}>{COMPANY.phone}</div>
-                    <div style={{ fontSize: '12px', color: '#6A6460' }}>Chamada direta</div>
+                    <div style={{ fontSize: '12px', color: '#908A86' }}>Chamada direta</div>
                   </div>
                 </a>
 

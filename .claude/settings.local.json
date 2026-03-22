@@ -13,7 +13,8 @@
       "Read(//c/Users/maria/Downloads/**)",
       "Read(//c/Users/maria/Desktop/**)",
       "Bash(find c:/Users/maria/Desktop -name eduardo*)",
-      "Bash(find c:/Users/maria/Documents -maxdepth 4 -name *.webp)"
+      "Bash(find c:/Users/maria/Documents -maxdepth 4 -name *.webp)",
+      "WebFetch(domain:www.comfortsun.pt)"
     ]
   }
 }

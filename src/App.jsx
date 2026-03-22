@@ -11,6 +11,7 @@ import HomePage from '@/pages/HomePage';
 import ProductsHubPage from '@/pages/products/ProductsHubPage';
 import SolamagicPage from '@/pages/products/SolamagicPage';
 import ComfortSunPage from '@/pages/products/ComfortSunPage';
+import ComfortSunProfessionalPage from '@/pages/products/ComfortSunProfessionalPage';
 import DuothermPage from '@/pages/products/DuothermPage';
 import ClimateCoatingPage from '@/pages/products/ClimateCoatingPage';
 import DrymatPage from '@/pages/products/DrymatPage';
@@ -27,6 +28,7 @@ import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 import RealEstatePage from '@/pages/RealEstatePage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import FAQPage from '@/pages/FAQPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
                 <Route path="/products" element={<ProductsHubPage />} />
                 <Route path="/products/solamagic" element={<SolamagicPage />} />
                 <Route path="/products/comfortsun" element={<ComfortSunPage />} />
+                <Route path="/products/comfortsun/professional" element={<ComfortSunProfessionalPage />} />
                 <Route path="/products/duotherm" element={<DuothermPage />} />
                 <Route path="/products/climatecoating" element={<ClimateCoatingPage />} />
                 <Route path="/products/drymat" element={<DrymatPage />} />
@@ -60,6 +63,7 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/real-estate" element={<RealEstatePage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/faqs" element={<FAQPage />} />
 
                 {/* 404 deve ser sempre a última rota */}
                 <Route path="*" element={<NotFoundPage />} />

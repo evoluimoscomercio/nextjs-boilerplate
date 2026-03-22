@@ -25,13 +25,19 @@ const NAV = [
     label: 'Soluções',
     children: [
       { label: 'Todas as Soluções', path: '/solutions' },
+      { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort' },
       { label: 'Eliminar Humidade', path: '/solutions/eliminate-moisture' },
       { label: 'Reduzir Custos', path: '/solutions/reduce-heating-costs' },
-      { label: 'Conforto em Esplanadas', path: '/solutions/outdoor-comfort' },
       { label: 'Negócios Sustentáveis', path: '/solutions/sustainable-business' },
     ]
   },
-  { label: 'Sobre', path: '/about' },
+  {
+    label: 'Sobre',
+    children: [
+      { label: 'Sobre Nós', path: '/about' },
+      { label: 'Serviços Imobiliários', path: '/real-estate' },
+    ]
+  },
   { label: 'Contacto', path: '/contact' },
 ];
 

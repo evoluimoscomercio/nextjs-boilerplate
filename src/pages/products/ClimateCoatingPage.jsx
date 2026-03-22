@@ -109,6 +109,14 @@ export default function ClimateCoatingPage() {
                 <p className="text-xs text-gray-600 mb-3">ClimateCoating + Drymat = proteção total contra humidade e perda térmica.</p>
                 <Link to="/products/drymat" className="text-xs text-orange-600 font-bold hover:text-orange-700">Ver Drymat →</Link>
               </div>
+              <div className="border border-gray-200 rounded-2xl p-5">
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Site oficial</p>
+                <a href="https://www.climatecoating.com/pt-pt/" target="_blank" rel="noopener noreferrer"
+                  className="text-sm text-blue-700 font-semibold hover:text-blue-900 break-all">
+                  climatecoating.com/pt-pt →
+                </a>
+                <p className="text-xs text-gray-500 mt-1">Informação técnica completa, estudos e certificações</p>
+              </div>
             </div>
           </div>
         </div>

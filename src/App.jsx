@@ -25,6 +25,7 @@ import SustainableBusinessPage from '@/pages/solutions/SustainableBusinessPage';
 
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
+import RealEstatePage from '@/pages/RealEstatePage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
@@ -57,6 +58,7 @@ function App() {
 
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/real-estate" element={<RealEstatePage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
 
                 {/* 404 deve ser sempre a última rota */}

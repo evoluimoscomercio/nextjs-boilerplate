@@ -6,7 +6,14 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Read(//c/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/**)",
-      "WebFetch(domain:sites.google.com)"
+      "WebFetch(domain:sites.google.com)",
+      "Bash(find c:/Users/maria/Documents/Evolucom/nextjs-boilerplate -name eduardo* -o -name Eduardo*)",
+      "Bash(find c:/Users/maria/Documents/Evolucom/nextjs-boilerplate/src -name *.webp -o -name *.jpg -o -name *.png)",
+      "Read(//c/Users/maria/**)",
+      "Read(//c/Users/maria/Downloads/**)",
+      "Read(//c/Users/maria/Desktop/**)",
+      "Bash(find c:/Users/maria/Desktop -name eduardo*)",
+      "Bash(find c:/Users/maria/Documents -maxdepth 4 -name *.webp)"
     ]
   }
 }

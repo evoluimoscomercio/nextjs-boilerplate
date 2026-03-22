@@ -85,27 +85,29 @@ export default function ComfortSunPage() {
           <div className="grid lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-10">
 
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">A Solução Polivalente</h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com tecnologia de lâmpadas HeLeN avançada. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico, com fornecimento direto da fábrica alemã.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento. A gama inclui ainda <strong>soluções Bluetooth</strong> e <strong>modelos portáteis</strong>, perfeitos para residências particulares e uso ocasional.
-                </p>
-              </div>
+              <div className="flex gap-6 items-start">
+                <div className="flex-1">
+                  <h2 className="text-2xl font-extrabold text-gray-900 mb-4">A Solução Polivalente</h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com tecnologia de lâmpadas HeLeN avançada. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico, com fornecimento direto da fábrica alemã.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Enquanto a Solamagic é o posicionamento premium, a ComfortSun é a solução de <strong>volume e polivalência</strong> com 4 linhas diferentes para cada tipo de aplicação e orçamento. A gama inclui ainda <strong>soluções Bluetooth</strong> e <strong>modelos portáteis</strong>, perfeitos para residências particulares e uso ocasional.
+                  </p>
+                </div>
 
-              {/* Video */}
-              <div>
-                <div className="relative w-full rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/gOkds_PFvpE"
-                    title="ComfortSun Aquecimento Infravermelhos"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    loading="lazy"
-                  />
+                {/* Vertical video */}
+                <div className="flex-shrink-0 hidden sm:block" style={{ width: '180px' }}>
+                  <div className="relative w-full rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: '9/16' }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/gOkds_PFvpE"
+                      title="ComfortSun Aquecimento Infravermelhos"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
 

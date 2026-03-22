@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 const SPECS = [
   { label: 'Tecnologia', value: 'Infravermelhos onda curta' },

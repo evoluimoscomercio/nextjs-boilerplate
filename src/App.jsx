@@ -5,6 +5,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 import HomePage from '@/pages/HomePage';
 import ProductsHubPage from '@/pages/products/ProductsHubPage';
@@ -25,41 +26,47 @@ import SustainableBusinessPage from '@/pages/solutions/SustainableBusinessPage';
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 function App() {
   return (
     <LanguageProvider>
       <Router>
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow" style={{ paddingTop: '64px' }}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
+        <ErrorBoundary>
+          <ScrollToTop />
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow" style={{ paddingTop: '64px' }}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
 
-              <Route path="/products" element={<ProductsHubPage />} />
-              <Route path="/products/solamagic" element={<SolamagicPage />} />
-              <Route path="/products/comfortsun" element={<ComfortSunPage />} />
-              <Route path="/products/duotherm" element={<DuothermPage />} />
-              <Route path="/products/climatecoating" element={<ClimateCoatingPage />} />
-              <Route path="/products/drymat" element={<DrymatPage />} />
-              <Route path="/products/bioclimatizadores" element={<BioclimatizadoresPage />} />
-              <Route path="/products/eco-fireplaces" element={<EcoFireplacesPage />} />
+                <Route path="/products" element={<ProductsHubPage />} />
+                <Route path="/products/solamagic" element={<SolamagicPage />} />
+                <Route path="/products/comfortsun" element={<ComfortSunPage />} />
+                <Route path="/products/duotherm" element={<DuothermPage />} />
+                <Route path="/products/climatecoating" element={<ClimateCoatingPage />} />
+                <Route path="/products/drymat" element={<DrymatPage />} />
+                <Route path="/products/bioclimatizadores" element={<BioclimatizadoresPage />} />
+                <Route path="/products/eco-fireplaces" element={<EcoFireplacesPage />} />
 
-              <Route path="/solutions" element={<SolutionsHubPage />} />
-              <Route path="/solutions/eliminate-moisture" element={<EliminateWallMoisturePage />} />
-              <Route path="/solutions/reduce-heating-costs" element={<ReduceHeatingCostsPage />} />
-              <Route path="/solutions/outdoor-comfort" element={<OutdoorComfortPage />} />
-              <Route path="/solutions/sustainable-business" element={<SustainableBusinessPage />} />
+                <Route path="/solutions" element={<SolutionsHubPage />} />
+                <Route path="/solutions/eliminate-moisture" element={<EliminateWallMoisturePage />} />
+                <Route path="/solutions/reduce-heating-costs" element={<ReduceHeatingCostsPage />} />
+                <Route path="/solutions/outdoor-comfort" element={<OutdoorComfortPage />} />
+                <Route path="/solutions/sustainable-business" element={<SustainableBusinessPage />} />
 
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            </Routes>
-          </main>
-          <Footer />
-          <CookieBanner />
-        </div>
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+
+                {/* 404 — deve ser sempre a última rota */}
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </main>
+            <Footer />
+            <CookieBanner />
+          </div>
+        </ErrorBoundary>
       </Router>
     </LanguageProvider>
   );

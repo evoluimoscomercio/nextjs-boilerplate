@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { MessageCircle, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
-
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 const BRANDS = ['SOLAMAGIC', 'COMFORTSUN', 'DUOTHERM', 'CLIMATECOATING', 'DRYMAT', 'HERKELL', 'CLAGE'];
 

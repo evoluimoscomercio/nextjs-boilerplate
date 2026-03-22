@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
-
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA, COMPANY } from '@/config/company';
 
 const PRODUCTS = [
   { label: 'Solamagic Premium', path: '/products/solamagic' },
@@ -54,8 +53,8 @@ export default function Footer() {
             <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6B00', marginBottom: '20px' }}>Contactos</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {[
-                { icon: Phone, text: '+351 965 026 603', href: 'tel:+351965026603' },
-                { icon: Mail, text: 'evolucom@gmail.com', href: 'mailto:evolucom@gmail.com' },
+                { icon: Phone, text: COMPANY.phone, href: `tel:${COMPANY.phoneBare}` },
+                { icon: Mail, text: COMPANY.email, href: `mailto:${COMPANY.email}` },
               ].map((c, i) => {
                 const Icon = c.icon;
                 return (
@@ -75,10 +74,10 @@ export default function Footer() {
                 <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,107,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>
                   <MapPin style={{ width: '14px', height: '14px', color: '#FF8C3A' }} aria-hidden="true" />
                 </div>
-                <span style={{ lineHeight: 1.6 }}>Vila Nova de Cacela<br />8900-057 · Portugal</span>
+                <span style={{ lineHeight: 1.6 }}>{COMPANY.address.street}<br />{COMPANY.address.postalCode} · {COMPANY.address.country}</span>
               </li>
             </ul>
-            <p style={{ marginTop: '20px', fontSize: '12px', color: '#3A3430' }}>NIF: PT513000461</p>
+            <p style={{ marginTop: '20px', fontSize: '12px', color: '#3A3430' }}>NIF: {COMPANY.nif}</p>
           </div>
 
           {/* Produtos */}
@@ -144,7 +143,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '18px 24px' }}>
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p style={{ fontSize: '13px', color: '#3A3430' }}>© {year} Evoluimos Comércio Lda. Todos os direitos reservados.</p>
+          <p style={{ fontSize: '13px', color: '#3A3430' }}>© {year} {COMPANY.legalName}. Todos os direitos reservados.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {[
               { l: 'Sobre', p: '/about' },

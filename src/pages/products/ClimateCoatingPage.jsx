@@ -4,7 +4,7 @@ import { CheckCircle2, MessageCircle, Wind } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 export default function ClimateCoatingPage() {
   const products = [

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
-
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 /* ── Animated SVG Hero ───────────────────────────────────────────── */
 function HeroGraphic() {

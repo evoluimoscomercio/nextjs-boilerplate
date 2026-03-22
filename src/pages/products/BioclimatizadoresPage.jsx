@@ -4,7 +4,7 @@ import { CheckCircle2, MessageCircle, Wind } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 const MODELS = [
   { name: 'Elite 8', area: 'até 15 m²', price: '160,00€', desc: 'Compacto e silencioso. Ideal para escritórios, quartos e pequenas salas.' },

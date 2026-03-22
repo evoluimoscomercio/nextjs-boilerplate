@@ -4,7 +4,7 @@ import { CheckCircle2, MessageCircle, Droplets, AlertTriangle } from 'lucide-rea
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA } from '@/config/company';
 
 export default function DrymatPage() {
   const symptoms = ['Manchas escuras nas paredes', 'Cheiro a bolor', 'Salitre e eflorescências', 'Tinta a descascar', 'Paredes frias e húmidas', 'Problemas respiratórios'];

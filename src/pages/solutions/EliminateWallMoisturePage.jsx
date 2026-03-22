@@ -214,10 +214,10 @@ const EliminateWallMoisturePage = () => {
                   {isPt ? 'Produtos relacionados' : 'Related products'}
                 </h4>
                 <div className="space-y-2">
-                  <Link to="/products/moisture-elimination" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 border-b border-gray-100 transition-colors">
+                  <Link to="/products/drymat" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 border-b border-gray-100 transition-colors">
                     DRYMAT <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
-                  <Link to="/products/thermal-coating" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 transition-colors">
+                  <Link to="/products/climatecoating" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 transition-colors">
                     ClimateCoating <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

@@ -185,11 +185,11 @@ const OutdoorComfortPage = () => {
                 <h4 className="font-bold text-gray-900 mb-3">
                   {isPt ? 'Produto recomendado' : 'Recommended product'}
                 </h4>
-                <Link to="/products/infrared-heating" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 transition-colors">
+                <Link to="/products/solamagic" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 transition-colors">
                   Solamagic {isPt ? 'Infravermelhos' : 'Infrared'} <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
-                <Link to="/case-studies" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 border-t border-gray-100 transition-colors">
-                  {isPt ? 'Ver casos de sucesso' : 'View case studies'} <ArrowRight className="w-3.5 h-3.5" />
+                <Link to="/products/comfortsun" className="flex items-center justify-between text-sm text-gray-600 hover:text-orange-600 py-2 border-t border-gray-100 transition-colors">
+                  ComfortSun <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

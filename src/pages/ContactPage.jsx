@@ -2,8 +2,7 @@ import React from 'react';
 import { MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
-
-const WA = 'https://wa.me/351965026603';
+import { WA_URL as WA, COMPANY } from '@/config/company';
 
 export default function ContactPage() {
   return (
@@ -54,7 +53,7 @@ export default function ContactPage() {
               <MessageCircle className="w-6 h-6" />
               Abrir WhatsApp
             </a>
-            <p className="text-gray-600 text-sm mt-5">+351 965 026 603</p>
+            <p className="text-gray-600 text-sm mt-5">{COMPANY.phone}</p>
           </motion.div>
 
           {/* Other contacts */}
@@ -63,25 +62,25 @@ export default function ContactPage() {
               {
                 icon: Phone,
                 title: 'Telefone',
-                value: '+351 965 026 603',
-                href: 'tel:+351965026603',
+                value: COMPANY.phone,
+                href: `tel:${COMPANY.phoneBare}`,
                 sub: 'Chamada para rede móvel nacional',
                 color: 'bg-orange-50 text-orange-600',
               },
               {
                 icon: Mail,
                 title: 'Email',
-                value: 'evolucom@gmail.com',
-                href: 'mailto:evolucom@gmail.com',
+                value: COMPANY.email,
+                href: `mailto:${COMPANY.email}`,
                 sub: 'Resposta em 24h úteis',
                 color: 'bg-blue-50 text-blue-600',
               },
               {
                 icon: MapPin,
                 title: 'Localização',
-                value: 'Vila Nova de Cacela',
+                value: COMPANY.address.city,
                 href: null,
-                sub: '8900-057 · Portugal',
+                sub: `${COMPANY.address.postalCode} · ${COMPANY.address.country}`,
                 color: 'bg-gray-100 text-gray-600',
               },
             ].map((c, i) => {
@@ -110,7 +109,7 @@ export default function ContactPage() {
 
           {/* NIF */}
           <p className="text-center text-gray-400 text-xs mt-10">
-            Evoluimos Comércio Lda · NIF PT513000461
+            {COMPANY.legalName} · NIF {COMPANY.nif}
           </p>
         </div>
       </div>

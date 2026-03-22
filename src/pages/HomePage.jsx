@@ -1,122 +1,132 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame } from 'lucide-react';
+import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame, Snowflake } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import { WA_URL as WA } from '@/config/company';
 
 /* ── Animated SVG Hero ───────────────────────────────────────────── */
 function HeroGraphic() {
-  const SX = 820, SY = 210; // solar core position
+  const CX = 800, CY = 350, OR = 188;
+  const orbitals = [
+    { angle: -90,    Icon: Sun,         color: '#8B5A00' },
+    { angle: -38.57, Icon: Zap,         color: '#1A5A80' },
+    { angle:  12.86, Icon: Thermometer, color: '#A03020' },
+    { angle:  64.29, Icon: Flame,       color: '#B84000' },
+    { angle: 115.71, Icon: Droplets,    color: '#1A5A80' },
+    { angle: 167.14, Icon: Wind,        color: '#2A6A30' },
+    { angle: 218.57, Icon: Snowflake,   color: '#1A5A80' },
+  ];
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <radialGradient id="sg0" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#FFD060" stopOpacity="0.65" />
-            <stop offset="30%"  stopColor="#F0A020" stopOpacity="0.30" />
-            <stop offset="65%"  stopColor="#B84500" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
+          <filter id="nblur"><feGaussianBlur stdDeviation="30" /></filter>
+          <radialGradient id="nb1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#6A9E50" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#6A9E50" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="sg1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#D07000" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#D07000" stopOpacity="0" />
+          <radialGradient id="nb2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#90B870" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#90B870" stopOpacity="0" />
           </radialGradient>
-          <radialGradient id="sg2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="#B84500" stopOpacity="0.14" />
-            <stop offset="100%" stopColor="#B84500" stopOpacity="0" />
+          <radialGradient id="nb3" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#B8D890" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#B8D890" stopOpacity="0" />
           </radialGradient>
-          <filter id="sfglow">
-            <feGaussianBlur stdDeviation="7" result="b" />
-            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-          </filter>
         </defs>
 
-        {/* Ambient warm hazes */}
-        <ellipse cx={SX} cy={SY} rx="520" ry="420" fill="url(#sg1)" />
-        <ellipse cx="280" cy="620" rx="360" ry="200" fill="url(#sg2)" />
+        {/* Blurred nature depth blobs */}
+        <ellipse cx="80"  cy="160" rx="300" ry="240" fill="url(#nb1)" filter="url(#nblur)" />
+        <ellipse cx="1100" cy="580" rx="280" ry="200" fill="url(#nb2)" filter="url(#nblur)" />
+        <ellipse cx="350" cy="650" rx="320" ry="170" fill="url(#nb3)" filter="url(#nblur)" />
+        <ellipse cx="600" cy="80"  rx="250" ry="130" fill="url(#nb2)" filter="url(#nblur)" />
 
-        {/* Pulsing solar aura */}
-        <motion.ellipse cx={SX} cy={SY} rx="230" ry="230" fill="url(#sg0)"
-          animate={{ rx: [230, 260, 230], ry: [230, 260, 230] }}
-          transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }} />
+        {/* Expanding pulse rings */}
+        {[0, 1, 2].map(i => (
+          <motion.circle key={i} cx={CX} cy={CY} stroke="#4A8A3A" strokeWidth="0.9" fill="none"
+            animate={{ r: [OR * 0.42, OR + 170], strokeOpacity: [0.28, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeOut', delay: i * 1.67 }}
+          />
+        ))}
 
-        {/* Sun rays */}
-        {Array.from({ length: 16 }).map((_, i) => {
-          const angle = (i * 360 / 16) * Math.PI / 180;
-          const x1 = SX + Math.cos(angle) * 38;
-          const y1 = SY + Math.sin(angle) * 38;
-          const len = i % 4 === 0 ? 320 : i % 2 === 0 ? 230 : 170;
-          const x2 = SX + Math.cos(angle) * len;
-          const y2 = SY + Math.sin(angle) * len;
-          const baseOp = i % 4 === 0 ? 0.24 : 0.11;
+        {/* Static concentric rings */}
+        {[68, 112, OR, 232, 278].map((r, i) => (
+          <circle key={i} cx={CX} cy={CY} r={r} stroke="#3A7030"
+            strokeWidth={i === 2 ? 1.3 : 0.55}
+            strokeOpacity={[0.30, 0.14, 0.30, 0.10, 0.07][i]}
+            fill="none" />
+        ))}
+        <circle cx={CX} cy={CY} r="300" stroke="#3A7030" strokeWidth="0.4"
+          strokeOpacity="0.07" fill="none" strokeDasharray="6 12" />
+
+        {/* Lines center → orbitals */}
+        {orbitals.map((o, i) => {
+          const rad = (o.angle * Math.PI) / 180;
           return (
-            <motion.line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-              stroke={i % 2 === 0 ? '#F0A020' : '#D07000'}
-              strokeWidth={i % 4 === 0 ? 1.1 : 0.5}
-              animate={{ strokeOpacity: [baseOp, baseOp * 1.9, baseOp] }}
-              transition={{ duration: 2.4 + i * 0.18, repeat: Infinity, ease: 'easeInOut', delay: i * 0.11 }}
+            <line key={i}
+              x1={CX + Math.cos(rad) * 72} y1={CY + Math.sin(rad) * 72}
+              x2={CX + Math.cos(rad) * (OR - 32)} y2={CY + Math.sin(rad) * (OR - 32)}
+              stroke="#3A7030" strokeWidth="0.7" strokeOpacity="0.22" strokeDasharray="3 7"
             />
           );
         })}
 
-        {/* Expanding infrared rings */}
-        {[0, 1, 2, 3].map(i => (
-          <motion.circle key={i} cx={SX} cy={SY}
-            stroke="#D07000" strokeWidth="0.9" fill="none"
-            animate={{ r: [55, 520], strokeOpacity: [0.38, 0] }}
-            transition={{ duration: 5.2, repeat: Infinity, ease: 'easeOut', delay: i * 1.3 }}
-          />
-        ))}
+        {/* Orbital circles + icons via foreignObject */}
+        {orbitals.map((o, i) => {
+          const rad = (o.angle * Math.PI) / 180;
+          const x = CX + Math.cos(rad) * OR;
+          const y = CY + Math.sin(rad) * OR;
+          return (
+            <g key={i}>
+              <motion.circle cx={x} cy={y} r={29}
+                fill="rgba(255,255,255,0.68)" stroke="#4A8A3A" strokeWidth="1.3" strokeOpacity="0.40"
+                animate={{ r: [29, 31.5, 29] }}
+                transition={{ duration: 3 + i * 0.28, repeat: Infinity, ease: 'easeInOut', delay: i * 0.38 }}
+              />
+              <circle cx={x} cy={y} r="23" fill="rgba(255,255,255,0.30)" />
+              <foreignObject x={x - 12} y={y - 12} width="24" height="24">
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'center', width:'100%', height:'100%' }}>
+                  <o.Icon size={15} color={o.color} strokeWidth={2} />
+                </div>
+              </foreignObject>
+            </g>
+          );
+        })}
 
-        {/* Glowing solar core */}
-        <motion.circle cx={SX} cy={SY} r="20" fill="#FFD060" fillOpacity="0.88"
-          filter="url(#sfglow)"
-          animate={{ r: [20, 27, 20], fillOpacity: [0.88, 1, 0.88] }}
-          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }} />
-        <circle cx={SX} cy={SY} r="8" fill="#FFFFFF" fillOpacity="0.45" filter="url(#sfglow)" />
+        {/* Central circle */}
+        <circle cx={CX} cy={CY} r="66" fill="rgba(255,255,255,0.75)" stroke="#3A7828" strokeWidth="2.5" strokeOpacity="0.45" />
+        <circle cx={CX} cy={CY} r="60" fill="rgba(255,255,255,0.40)" />
+        {/* House walls */}
+        <path d={`M ${CX-24} ${CY-7} L ${CX-24} ${CY+29} L ${CX+24} ${CY+29} L ${CX+24} ${CY-7}`}
+          fill="none" stroke="#2A5820" strokeWidth="1.9" strokeLinejoin="round" />
+        {/* Roof */}
+        <path d={`M ${CX-30} ${CY-5} L ${CX} ${CY-36} L ${CX+30} ${CY-5}`}
+          fill="none" stroke="#2A5820" strokeWidth="1.9" strokeLinejoin="round" />
+        {/* Door */}
+        <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#2A5820" strokeWidth="1.5" />
+        {/* Window */}
+        <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#2A5820" strokeWidth="1.5" />
+        {/* Eco leaf accent */}
+        <motion.path
+          d={`M ${CX+15} ${CY+23} Q ${CX+26} ${CY+10} ${CX+15} ${CY+2} Q ${CX+8} ${CY+15} ${CX+15} ${CY+23}`}
+          fill="#3A8828"
+          animate={{ fillOpacity: [0.50, 0.82, 0.50] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+        />
 
-        {/* Heat particles rising */}
-        {[
-          { x: 540, y: 510, dy: -160, r: 2 },  { x: 618, y: 545, dy: -140, r: 1.5 },
-          { x: 695, y: 490, dy: -170, r: 2.5 }, { x: 755, y: 525, dy: -150, r: 2 },
-          { x: 828, y: 565, dy: -130, r: 1.5 }, { x: 895, y: 500, dy: -155, r: 2 },
-          { x: 460, y: 490, dy: -120, r: 1.5 }, { x: 975, y: 520, dy: -140, r: 2 },
-          { x: 350, y: 560, dy: -110, r: 1.5 }, { x: 1050, y: 480, dy: -130, r: 2 },
-        ].map((p, i) => (
-          <motion.circle key={i} cx={p.x} cy={p.y} r={p.r}
-            fill={i % 3 === 0 ? '#F0A020' : i % 3 === 1 ? '#B84500' : '#D07000'}
-            animate={{
-              cy: [p.y, p.y + p.dy],
-              cx: [p.x, p.x + (i % 2 === 0 ? 12 : -12)],
-              fillOpacity: [0.65, 0],
-            }}
-            transition={{ duration: 3.8 + i * 0.32, repeat: Infinity, ease: 'easeOut', delay: i * 0.48 }}
-          />
-        ))}
-
-        {/* Wavy heat shimmer lines */}
-        {[0, 1, 2].map(i => (
-          <motion.path key={i}
-            d={`M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`}
-            stroke="#B84500" strokeWidth="0.7" fill="none" strokeOpacity={0.07 + i * 0.02}
-            animate={{
-              d: [
-                `M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`,
-                `M -50 ${440 + i * 75} Q 300 ${452 + i * 75} 600 ${434 + i * 75} Q 900 ${442 + i * 75} 1250 ${455 + i * 75}`,
-                `M -50 ${440 + i * 75} Q 300 ${428 + i * 75} 600 ${445 + i * 75} Q 900 ${460 + i * 75} 1250 ${440 + i * 75}`,
-              ]
-            }}
-            transition={{ duration: 7.5 + i * 1.4, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        ))}
-
-        {/* Subtle dot grid */}
-        {Array.from({ length: 4 }).map((_, row) =>
-          Array.from({ length: 7 }).map((_, col) => (
-            <circle key={`d${row}-${col}`} cx={50 + col * 90} cy={500 + row * 52} r="1" fill="#B84500" fillOpacity="0.06" />
-          ))
-        )}
+        {/* Pulsing dots at orbital positions on outer ring */}
+        {orbitals.map((o, i) => {
+          const rad = (o.angle * Math.PI) / 180;
+          return (
+            <motion.circle key={i}
+              cx={CX + Math.cos(rad) * 275} cy={CY + Math.sin(rad) * 275}
+              r={2.5} fill="#5A8A4A"
+              animate={{ fillOpacity: [0.28, 0.72, 0.28], r: [2.5, 3.5, 2.5] }}
+              transition={{ duration: 2.2 + i * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.28 }}
+            />
+          );
+        })}
       </svg>
     </div>
   );
@@ -172,9 +182,9 @@ export default function HomePage() {
           font-weight: 700;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          background: rgba(184,69,0,0.12);
-          border: 1px solid rgba(184,69,0,0.32);
-          color: #F0A020;
+          background: rgba(184,69,0,0.10);
+          border: 1px solid rgba(184,69,0,0.35);
+          color: #8B4000;
         }
         .prod-card {
           display: block;
@@ -201,17 +211,17 @@ export default function HomePage() {
       <section
         aria-label="Apresentação"
         className="relative flex flex-col overflow-hidden"
-        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', background: 'radial-gradient(ellipse 75% 65% at 72% 28%, #200D00 0%, #130800 35%, #0F0F11 68%)' }}
+        style={{ height: 'calc(100svh - 64px)', minHeight: '600px', color: '#142012', background: 'radial-gradient(ellipse 95% 85% at 68% 32%, #B2D49A 0%, #C8E2B0 18%, #DAEEC2 38%, #EAF6D8 62%, #F2F9EC 100%)' }}
       >
         <HeroGraphic />
         <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-12 lg:px-20 py-10 sm:py-14">
           <div className="flex flex-col items-center justify-center flex-1 text-center max-w-3xl mx-auto w-full">
             <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16,1,0.3,1] }}>
               <span className="ec-tag pjs mb-6 inline-block">Tecnologia Alemã</span>
-              <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+              <h1 className="pjs" style={{ fontSize: 'clamp(2.4rem, 6vw, 5rem)', fontWeight: 800, color: '#142012', lineHeight: 1.05, letterSpacing: '-0.02em', marginBottom: '20px' }}>
                 Conforto Térmico<br /><span style={{ color: '#B84500' }}>Sustentável</span>
               </h1>
-              <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#B8B0A5', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
+              <p className="pjs" style={{ fontSize: 'clamp(1.05rem, 2vw, 1.2rem)', color: '#3A5835', lineHeight: 1.75, marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px' }}>
                 Aquecimento, arrefecimento e proteção de edifícios. Soluções de alta tecnologia europeia para habitação e negócio.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
@@ -224,25 +234,25 @@ export default function HomePage() {
                   Ver Produtos<ArrowRight style={{ width: '18px', height: '18px' }} aria-hidden="true" />
                 </Link>
                 <Link to="/solutions" className="pjs"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.07)', color: '#EDE8E0', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(20,60,15,0.07)', color: '#1A3A10', padding: '14px 24px', borderRadius: '12px', fontWeight: 600, fontSize: '15px', textDecoration: 'none', border: '1px solid rgba(20,60,15,0.22)' }}>
                   Soluções
                 </Link>
               </div>
               <a href="tel:+351965026603" className="pjs" aria-label="Ligar para +351 965 026 603"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none' }}>
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(255,255,255,0.72)', border: '1px solid rgba(20,60,15,0.16)', borderRadius: '14px', padding: '11px 18px', textDecoration: 'none', backdropFilter: 'blur(8px)' }}>
                 <div style={{ width: '38px', height: '38px', background: '#B84500', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Phone style={{ width: '18px', height: '18px', color: '#fff' }} aria-hidden="true" />
                 </div>
-                <span style={{ fontSize: '20px', fontWeight: 700, color: '#F0EBE3', letterSpacing: '0.02em' }}>+351 965 026 603</span>
+                <span style={{ fontSize: '20px', fontWeight: 700, color: '#142012', letterSpacing: '0.02em' }}>+351 965 026 603</span>
               </a>
             </motion.div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
-            style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '18px' }}>
-            <p className="pjs" style={{ color: '#5A5450', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
+            style={{ borderTop: '1px solid rgba(20,60,15,0.14)', paddingTop: '18px' }}>
+            <p className="pjs" style={{ color: '#4A6A40', fontSize: '11px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px' }}>Clientes de referência</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
               {["McDonald's", "Grupo Avillez", "Sonae"].map(c => (
-                <span key={c} className="pjs" style={{ color: '#6A6460', fontWeight: 700, fontSize: '14px' }}>{c}</span>
+                <span key={c} className="pjs" style={{ color: '#3A5830', fontWeight: 700, fontSize: '14px' }}>{c}</span>
               ))}
             </div>
           </motion.div>

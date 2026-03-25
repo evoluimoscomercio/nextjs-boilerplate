@@ -5,24 +5,53 @@ import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import { WA_URL as WA } from '@/config/company';
 
-/* ── Animated SVG Hero ───────────────────────────────────────────── */
+/* ── Animated SVG Hero (interactive) ──────────────────────────────── */
 function HeroGraphic() {
   const CX = 810, CY = 345, OR = 190;
+  const containerRef = useRef(null);
+  const [hovered, setHovered] = useState(-1);
+  const [centerHov, setCenterHov] = useState(false);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 35, damping: 25 });
+  const springY = useSpring(mouseY, { stiffness: 35, damping: 25 });
+
   const orbitals = [
-    { angle: -90,    Icon: Sun },
-    { angle: -38.57, Icon: Zap },
-    { angle:  12.86, Icon: Thermometer },
-    { angle:  64.29, Icon: Flame },
-    { angle: 115.71, Icon: Droplets },
-    { angle: 167.14, Icon: Wind },
-    { angle: 218.57, Icon: Snowflake },
+    { angle: -90,    Icon: Sun,         label: 'Solar' },
+    { angle: -38.57, Icon: Zap,         label: 'Energia' },
+    { angle:  12.86, Icon: Thermometer, label: 'Aquecimento' },
+    { angle:  64.29, Icon: Flame,       label: 'Lareira Eco' },
+    { angle: 115.71, Icon: Droplets,    label: 'Humidade' },
+    { angle: 167.14, Icon: Wind,        label: 'Ventilação' },
+    { angle: 218.57, Icon: Snowflake,   label: 'Arrefecimento' },
   ];
+
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(((e.clientX - rect.left) / rect.width - 0.5) * 22);
+    mouseY.set(((e.clientY - rect.top) / rect.height - 0.5) * 22);
+  };
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <svg viewBox="0 0 1200 700" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 overflow-hidden"
+      style={{ pointerEvents: 'none' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
+    >
+      <motion.svg viewBox="0 0 1200 700"
+        className="absolute inset-0 w-full h-full"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ x: springX, y: springY }}
+      >
         <defs>
           <filter id="hglow"><feGaussianBlur stdDeviation="32" /></filter>
           <filter id="cglow"><feGaussianBlur stdDeviation="5" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <filter id="orbglow"><feGaussianBlur stdDeviation="8" result="b" />
             <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
           <radialGradient id="hg1" cx="50%" cy="50%" r="50%">
@@ -58,67 +87,131 @@ function HeroGraphic() {
         <circle cx={CX} cy={CY} r="306" stroke="#B84500" strokeWidth="0.4"
           strokeOpacity="0.06" fill="none" strokeDasharray="5 12" />
 
-        {/* Dashed lines center → orbitals */}
+        {/* Dashed lines center → orbitals (glow on hover) */}
         {orbitals.map((o, i) => {
           const rad = (o.angle * Math.PI) / 180;
           return (
-            <line key={i}
+            <motion.line key={i}
               x1={CX + Math.cos(rad) * 70} y1={CY + Math.sin(rad) * 70}
               x2={CX + Math.cos(rad) * (OR - 32)} y2={CY + Math.sin(rad) * (OR - 32)}
-              stroke="#D07000" strokeWidth="0.6" strokeOpacity="0.18" strokeDasharray="3 7"
+              stroke="#D07000" strokeWidth="0.6" strokeDasharray="3 7"
+              animate={{ strokeOpacity: hovered === i ? 0.55 : 0.18 }}
+              transition={{ duration: 0.3 }}
             />
           );
         })}
 
-        {/* Orbital circles + icons */}
+        {/* ── Orbital circles + icons (INTERACTIVE) ── */}
         {orbitals.map((o, i) => {
           const rad = (o.angle * Math.PI) / 180;
           const x = CX + Math.cos(rad) * OR;
           const y = CY + Math.sin(rad) * OR;
+          const isHov = hovered === i;
           return (
-            <g key={i}>
-              <motion.circle cx={x} cy={y} r={28}
-                fill="rgba(184,69,0,0.08)" stroke="#D07000" strokeWidth="1" strokeOpacity="0.35"
-                animate={{ r: [28, 30.5, 28] }}
-                transition={{ duration: 3 + i * 0.3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
+            <g key={i}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(-1)}
+              style={{ cursor: 'pointer', pointerEvents: 'all' }}
+            >
+              {/* Outer glow ring */}
+              <motion.circle cx={x} cy={y}
+                fill="none" stroke="#F0A020" strokeWidth="0.8" filter="url(#orbglow)"
+                animate={{ r: isHov ? 44 : 28, strokeOpacity: isHov ? 0.4 : 0 }}
+                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
               />
-              <circle cx={x} cy={y} r="22" fill="rgba(208,112,0,0.05)" />
+              {/* Main circle */}
+              <motion.circle cx={x} cy={y}
+                stroke="#D07000"
+                animate={{
+                  r: isHov ? 36 : 28,
+                  fill: isHov ? 'rgba(184,69,0,0.20)' : 'rgba(184,69,0,0.08)',
+                  strokeWidth: isHov ? 1.5 : 1,
+                  strokeOpacity: isHov ? 0.70 : 0.35,
+                }}
+                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+              />
+              <motion.circle cx={x} cy={y}
+                fill="rgba(208,112,0,0.05)"
+                animate={{ r: isHov ? 28 : 22 }}
+                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+              />
+              {/* Icon */}
               <foreignObject x={x - 12} y={y - 12} width="24" height="24">
                 <div style={{ display:'flex', alignItems:'center', justifyContent:'center', width:'100%', height:'100%' }}>
                   <o.Icon size={15} color="#F0A020" strokeWidth={2} />
                 </div>
               </foreignObject>
+              {/* Label (appears on hover) */}
+              <motion.text
+                x={x} y={y + 52}
+                textAnchor="middle"
+                fill="#F0A020"
+                fontSize="12"
+                fontWeight="600"
+                fontFamily="'Plus Jakarta Sans', sans-serif"
+                animate={{ opacity: isHov ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {o.label}
+              </motion.text>
             </g>
           );
         })}
 
-        {/* Central circle with glow */}
-        <motion.circle cx={CX} cy={CY} r="66"
-          fill="rgba(184,69,0,0.06)" stroke="#D07000" strokeWidth="2" strokeOpacity="0.40"
-          animate={{ strokeOpacity: [0.40, 0.55, 0.40] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <circle cx={CX} cy={CY} r="60" fill="rgba(208,112,0,0.04)" />
-        {/* House walls */}
-        <path d={`M ${CX-24} ${CY-7} L ${CX-24} ${CY+29} L ${CX+24} ${CY+29} L ${CX+24} ${CY-7}`}
-          fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
-        {/* Roof */}
-        <path d={`M ${CX-30} ${CY-5} L ${CX} ${CY-36} L ${CX+30} ${CY-5}`}
-          fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
-        {/* Door */}
-        <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
-        {/* Window */}
-        <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
-        {/* Eco leaf */}
-        <motion.path
-          d={`M ${CX+15} ${CY+23} Q ${CX+26} ${CY+10} ${CX+15} ${CY+2} Q ${CX+8} ${CY+15} ${CX+15} ${CY+23}`}
-          fill="#F0A020"
-          animate={{ fillOpacity: [0.45, 0.75, 0.45] }}
-          transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {/* ── Central circle (INTERACTIVE) ── */}
+        <g
+          onMouseEnter={() => setCenterHov(true)}
+          onMouseLeave={() => setCenterHov(false)}
+          style={{ cursor: 'pointer', pointerEvents: 'all' }}
+        >
+          <motion.circle cx={CX} cy={CY}
+            fill="rgba(184,69,0,0.06)" stroke="#D07000" strokeWidth="2"
+            animate={{
+              r: centerHov ? 72 : 66,
+              strokeOpacity: centerHov ? 0.65 : 0.40,
+              fill: centerHov ? 'rgba(184,69,0,0.14)' : 'rgba(184,69,0,0.06)',
+            }}
+            transition={{ type: 'spring', stiffness: 200, damping: 16 }}
+          />
+          <motion.circle cx={CX} cy={CY}
+            fill="rgba(208,112,0,0.04)"
+            animate={{ r: centerHov ? 65 : 60 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 16 }}
+          />
+          {/* House walls */}
+          <path d={`M ${CX-24} ${CY-7} L ${CX-24} ${CY+29} L ${CX+24} ${CY+29} L ${CX+24} ${CY-7}`}
+            fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
+          {/* Roof */}
+          <path d={`M ${CX-30} ${CY-5} L ${CX} ${CY-36} L ${CX+30} ${CY-5}`}
+            fill="none" stroke="#F0A020" strokeWidth="1.7" strokeLinejoin="round" strokeOpacity="0.7" />
+          {/* Door */}
+          <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
+          {/* Window */}
+          <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
+          {/* Eco leaf */}
+          <motion.path
+            d={`M ${CX+15} ${CY+23} Q ${CX+26} ${CY+10} ${CX+15} ${CY+2} Q ${CX+8} ${CY+15} ${CX+15} ${CY+23}`}
+            fill="#F0A020"
+            animate={{ fillOpacity: centerHov ? 0.90 : 0.50 }}
+            transition={{ duration: 0.3 }}
+          />
+          {/* Label */}
+          <motion.text
+            x={CX} y={CY + 56}
+            textAnchor="middle"
+            fill="#F0A020"
+            fontSize="13"
+            fontWeight="700"
+            fontFamily="'Plus Jakarta Sans', sans-serif"
+            animate={{ opacity: centerHov ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            Conforto Térmico
+          </motion.text>
+        </g>
 
-        {/* Small bright core in center */}
-        <circle cx={CX} cy={CY-16} r="4" fill="#F0A020" fillOpacity="0.35" filter="url(#cglow)" />
+        {/* Small bright core */}
+        <circle cx={CX} cy={CY-16} r="4" fill="#F0A020" fillOpacity="0.35" filter="url(#cglow)" style={{ pointerEvents:'none' }} />
 
         {/* Outer pulsing dots */}
         {orbitals.map((o, i) => {
@@ -126,7 +219,7 @@ function HeroGraphic() {
           return (
             <motion.circle key={i}
               cx={CX + Math.cos(rad) * 280} cy={CY + Math.sin(rad) * 280}
-              r={2} fill="#D07000"
+              r={2} fill="#D07000" style={{ pointerEvents:'none' }}
               animate={{ fillOpacity: [0.2, 0.55, 0.2], r: [2, 3, 2] }}
               transition={{ duration: 2.4 + i * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             />
@@ -141,11 +234,12 @@ function HeroGraphic() {
         ].map((p, i) => (
           <motion.circle key={`p${i}`} cx={p.x} cy={p.y} r={1.5 + (i % 3) * 0.5}
             fill={i % 2 === 0 ? '#F0A020' : '#D07000'}
+            style={{ pointerEvents:'none' }}
             animate={{ cy: [p.y, p.y - 130], fillOpacity: [0.5, 0] }}
             transition={{ duration: 4 + i * 0.35, repeat: Infinity, ease: 'easeOut', delay: i * 0.5 }}
           />
         ))}
-      </svg>
+      </motion.svg>
     </div>
   );
 }

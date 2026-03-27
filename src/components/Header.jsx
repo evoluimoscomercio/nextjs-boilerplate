@@ -118,15 +118,8 @@ export default function Header() {
     <>
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: '64px', background: scrolled ? 'rgba(13,13,15,0.96)' : 'rgba(13,13,15,0.85)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.07)', transition: 'all 0.3s', fontFamily: "'Plus Jakarta Sans', sans-serif", boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none' }}>
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-          <Link to="/" aria-label="Evoluimos Comércio página inicial" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
-            <svg height="30" viewBox="0 0 22 32" overflow="visible" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0" y="0" width="22" height="32" rx="2" fill="#B84500"/>
-              <text x="3" y="23.5" fill="white" fontSize="21" fontWeight="900" fontFamily="'Plus Jakarta Sans',sans-serif">E</text>
-              <path d="M 18 2 A 14 14 0 1 1 18 30" fill="none" stroke="#F0A020" strokeWidth="5" strokeLinecap="round"/>
-            </svg>
-            <span style={{ fontSize: '16px', fontWeight: 800, color: '#F5F0E8', whiteSpace: 'nowrap', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Evoluimos <span style={{ color: '#F0A020' }}>Comércio</span>
-            </span>
+          <Link to="/" aria-label="Evoluimos Comércio página inicial" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
+            <img src="/logo.png" alt="Evoluimos Comércio" style={{ height: '40px', width: 'auto', display: 'block' }} />
           </Link>
 
           <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">

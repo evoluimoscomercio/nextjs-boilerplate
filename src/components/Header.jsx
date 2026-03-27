@@ -119,7 +119,7 @@ export default function Header() {
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, height: '64px', background: scrolled ? 'rgba(13,13,15,0.96)' : 'rgba(13,13,15,0.85)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.07)', transition: 'all 0.3s', fontFamily: "'Plus Jakarta Sans', sans-serif", boxShadow: scrolled ? '0 4px 32px rgba(0,0,0,0.4)' : 'none' }}>
         <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
           <Link to="/" aria-label="Evoluimos Comércio página inicial" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-            <img src="/logo.png" alt="Evoluimos Comércio" style={{ height: '40px', width: 'auto', display: 'block' }} />
+            <img src="/logobranco.png" alt="Evoluimos Comércio" style={{ height: '40px', width: 'auto', display: 'block' }} />
           </Link>
 
           <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">

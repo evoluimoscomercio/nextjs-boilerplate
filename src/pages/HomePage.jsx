@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame, Snowflake } from 'lucide-react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring, useTransform, animate } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import { WA_URL as WA } from '@/config/company';
 
@@ -15,6 +15,17 @@ function HeroGraphic() {
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 35, damping: 25 });
   const springY = useSpring(mouseY, { stiffness: 35, damping: 25 });
+
+  const orbitRotate = useMotionValue(0);
+  const counterRotate = useTransform(orbitRotate, v => -v);
+  useEffect(() => {
+    const anim = animate(orbitRotate, [0, 360], {
+      duration: 40,
+      repeat: Infinity,
+      ease: 'linear',
+    });
+    return () => anim.stop();
+  }, [orbitRotate]);
 
   const orbitals = [
     { angle: -90,    Icon: Sun,         label: 'Solar' },
@@ -37,14 +48,14 @@ function HeroGraphic() {
     <div
       ref={containerRef}
       className="absolute inset-0 overflow-hidden"
-      style={{ pointerEvents: 'none' }}
+      style={{ pointerEvents: 'all' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
     >
       <motion.svg viewBox="0 0 1200 700"
         className="absolute inset-0 w-full h-full"
         preserveAspectRatio="xMidYMid slice"
-        style={{ x: springX, y: springY }}
+        style={{ x: springX, y: springY, pointerEvents: 'none' }}
       >
         <defs>
           <filter id="hglow"><feGaussianBlur stdDeviation="32" /></filter>
@@ -87,76 +98,74 @@ function HeroGraphic() {
         <circle cx={CX} cy={CY} r="306" stroke="#B84500" strokeWidth="0.4"
           strokeOpacity="0.06" fill="none" strokeDasharray="5 12" />
 
-        {/* Dashed lines center → orbitals (glow on hover) */}
-        {orbitals.map((o, i) => {
-          const rad = (o.angle * Math.PI) / 180;
-          return (
-            <motion.line key={i}
-              x1={CX + Math.cos(rad) * 70} y1={CY + Math.sin(rad) * 70}
-              x2={CX + Math.cos(rad) * (OR - 32)} y2={CY + Math.sin(rad) * (OR - 32)}
-              stroke="#D07000" strokeWidth="0.6" strokeDasharray="3 7"
-              animate={{ strokeOpacity: hovered === i ? 0.55 : 0.18 }}
-              transition={{ duration: 0.3 }}
-            />
-          );
-        })}
-
-        {/* ── Orbital circles + icons (INTERACTIVE) ── */}
-        {orbitals.map((o, i) => {
-          const rad = (o.angle * Math.PI) / 180;
-          const x = CX + Math.cos(rad) * OR;
-          const y = CY + Math.sin(rad) * OR;
-          const isHov = hovered === i;
-          return (
-            <g key={i}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(-1)}
-              style={{ cursor: 'pointer', pointerEvents: 'all' }}
-            >
-              {/* Outer glow ring */}
-              <motion.circle cx={x} cy={y}
-                fill="none" stroke="#F0A020" strokeWidth="0.8" filter="url(#orbglow)"
-                animate={{ r: isHov ? 44 : 28, strokeOpacity: isHov ? 0.4 : 0 }}
-                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
-              />
-              {/* Main circle */}
-              <motion.circle cx={x} cy={y}
-                stroke="#D07000"
-                animate={{
-                  r: isHov ? 36 : 28,
-                  fill: isHov ? 'rgba(184,69,0,0.20)' : 'rgba(184,69,0,0.08)',
-                  strokeWidth: isHov ? 1.5 : 1,
-                  strokeOpacity: isHov ? 0.70 : 0.35,
-                }}
-                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
-              />
-              <motion.circle cx={x} cy={y}
-                fill="rgba(208,112,0,0.05)"
-                animate={{ r: isHov ? 28 : 22 }}
-                transition={{ type: 'spring', stiffness: 250, damping: 18 }}
-              />
-              {/* Icon */}
-              <foreignObject x={x - 12} y={y - 12} width="24" height="24">
-                <div style={{ display:'flex', alignItems:'center', justifyContent:'center', width:'100%', height:'100%' }}>
-                  <o.Icon size={15} color="#F0A020" strokeWidth={2} />
-                </div>
-              </foreignObject>
-              {/* Label (appears on hover) */}
-              <motion.text
-                x={x} y={y + 52}
-                textAnchor="middle"
-                fill="#F0A020"
-                fontSize="12"
-                fontWeight="600"
-                fontFamily="'Plus Jakarta Sans', sans-serif"
-                animate={{ opacity: isHov ? 1 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {o.label}
-              </motion.text>
-            </g>
-          );
-        })}
+        {/* ── Ferris wheel: rotating group with counter-rotating icons ── */}
+        <motion.g style={{ rotate: orbitRotate, transformOrigin: `${CX}px ${CY}px` }}>
+          {orbitals.map((o, i) => {
+            const rad = (o.angle * Math.PI) / 180;
+            const x = CX + Math.cos(rad) * OR;
+            const y = CY + Math.sin(rad) * OR;
+            const isHov = hovered === i;
+            return (
+              <g key={i}>
+                {/* Dashed spoke */}
+                <motion.line
+                  x1={CX + Math.cos(rad) * 70} y1={CY + Math.sin(rad) * 70}
+                  x2={x - Math.cos(rad) * 32} y2={y - Math.sin(rad) * 32}
+                  stroke="#D07000" strokeWidth="0.6" strokeDasharray="3 7"
+                  animate={{ strokeOpacity: isHov ? 0.55 : 0.18 }}
+                  transition={{ duration: 0.3 }}
+                />
+                {/* Outer glow ring */}
+                <motion.circle cx={x} cy={y}
+                  fill="none" stroke="#F0A020" strokeWidth="0.8" filter="url(#orbglow)"
+                  animate={{ r: isHov ? 44 : 28, strokeOpacity: isHov ? 0.4 : 0 }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+                />
+                {/* Main circle */}
+                <motion.circle cx={x} cy={y}
+                  stroke="#D07000"
+                  animate={{
+                    r: isHov ? 36 : 28,
+                    fill: isHov ? 'rgba(184,69,0,0.20)' : 'rgba(184,69,0,0.08)',
+                    strokeWidth: isHov ? 1.5 : 1,
+                    strokeOpacity: isHov ? 0.70 : 0.35,
+                  }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+                />
+                <motion.circle cx={x} cy={y}
+                  fill="rgba(208,112,0,0.05)"
+                  animate={{ r: isHov ? 28 : 22 }}
+                  transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+                />
+                {/* Icon — counter-rotated so it stays upright */}
+                <motion.g
+                  style={{ rotate: counterRotate, transformOrigin: `${x}px ${y}px`, pointerEvents: 'all', cursor: 'pointer' }}
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(-1)}
+                >
+                  <foreignObject x={x - 12} y={y - 12} width="24" height="24">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+                      <o.Icon size={15} color="#F0A020" strokeWidth={2} />
+                    </div>
+                  </foreignObject>
+                  {/* Label (appears on hover) */}
+                  <motion.text
+                    x={x} y={y + 44}
+                    textAnchor="middle"
+                    fill="#F0A020"
+                    fontSize="12"
+                    fontWeight="600"
+                    fontFamily="'Plus Jakarta Sans', sans-serif"
+                    animate={{ opacity: isHov ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {o.label}
+                  </motion.text>
+                </motion.g>
+              </g>
+            );
+          })}
+        </motion.g>
 
         {/* ── Central circle (INTERACTIVE) ── */}
         <g
@@ -188,13 +197,6 @@ function HeroGraphic() {
           <rect x={CX-8} y={CY+11} width="16" height="18" rx="2" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
           {/* Window */}
           <rect x={CX+10} y={CY-1} width="11" height="11" rx="1.5" fill="none" stroke="#F0A020" strokeWidth="1.3" strokeOpacity="0.6" />
-          {/* Eco leaf */}
-          <motion.path
-            d={`M ${CX+15} ${CY+23} Q ${CX+26} ${CY+10} ${CX+15} ${CY+2} Q ${CX+8} ${CY+15} ${CX+15} ${CY+23}`}
-            fill="#F0A020"
-            animate={{ fillOpacity: centerHov ? 0.90 : 0.50 }}
-            transition={{ duration: 0.3 }}
-          />
           {/* Label */}
           <motion.text
             x={CX} y={CY + 56}

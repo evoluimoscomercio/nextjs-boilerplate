@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import {
   MessageCircle, Phone, Mail, MapPin, Star, Award, Globe,
   CheckCircle2, ArrowRight, ExternalLink, Home, Thermometer, Droplets,
+  Search, ClipboardList, ShieldCheck, Handshake, KeyRound, Wrench,
 } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -35,6 +36,39 @@ const SERVICES = [
     icon: Globe,
     title: 'Atendimento Multilingue',
     desc: 'Poliglota com experiência internacional. Atendimento em português, inglês e alemão, ideal para clientes estrangeiros no mercado imobiliário português.',
+  },
+];
+
+const BUYER_STEPS = [
+  {
+    icon: Search,
+    title: 'Pesquisa qualificada',
+    desc: 'Pesquisa online com ferramentas profissionais e offline através de networking entre colegas. Partilha apenas de resultados compatíveis e qualificados com o cliente.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Análise e visita ao imóvel',
+    desc: 'Contacto para apurar mais informações, avaliação dos valores de mercado, visita ao imóvel com verificação de patologias e soluções — apresentação de relatório ao potencial comprador.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Due diligence',
+    desc: 'Verificação da documentação do imóvel, confirmação da legalidade do processo e, se necessário, nova visita com o comprador antes de avançar.',
+  },
+  {
+    icon: Handshake,
+    title: 'Proposta e negociação',
+    desc: 'Apresentação de proposta e apoio ativo na negociação para que todas as partes fechem um bom negócio.',
+  },
+  {
+    icon: KeyRound,
+    title: 'CPCV até à escritura',
+    desc: 'Acompanhamento em todo o processo, do contrato-promessa à escritura, com o apoio do departamento jurídico da EXP Portugal.',
+  },
+  {
+    icon: Wrench,
+    title: 'Pós-escritura',
+    desc: 'Apoio na resolução do que for necessário — humidade, pintura, climatização e muito mais. Soluções fornecidas diretamente pela Evoluimos Comércio.',
   },
 ];
 
@@ -282,6 +316,52 @@ export default function RealEstatePage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ── BUYER PROCESS ── */}
+      <section style={{ background: '#17171A', padding: 'clamp(64px, 8vw, 96px) 0' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '52px' }}>
+            <div style={{ width: '36px', height: '3px', background: '#B84500', borderRadius: '2px', marginBottom: '20px' }} />
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 800, color: '#F5F0E8', marginBottom: '12px', lineHeight: 1.1 }}>
+              Como trabalho para o comprador
+            </h2>
+            <p style={{ fontSize: '16px', color: '#A8A29E', lineHeight: 1.7, maxWidth: '520px' }}>
+              O que faz um bom agente imobiliário? O que for preciso para encontrar o imóvel certo e fechar um bom negócio.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {BUYER_STEPS.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                  style={{ background: '#1A1A1E', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '20px', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px', position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', top: '20px', right: '20px', fontSize: '36px', fontWeight: 800, color: 'rgba(184,69,0,0.08)', lineHeight: 1 }}>{i + 1}</div>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(184,69,0,0.12)', border: '1px solid rgba(184,69,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Icon style={{ width: '22px', height: '22px', color: '#F0A020' }} />
+                  </div>
+                  <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#EDE8E0', lineHeight: 1.3 }}>{step.title}</h3>
+                  <p style={{ fontSize: '13px', color: '#908A86', lineHeight: 1.7 }}>{step.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Ironic quote */}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ marginTop: '48px', background: 'rgba(184,69,0,0.06)', border: '1px solid rgba(184,69,0,0.18)', borderRadius: '16px', padding: '28px 32px', display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+            <span style={{ fontSize: '48px', color: 'rgba(184,69,0,0.35)', lineHeight: 0.8, fontFamily: 'Georgia, serif', flexShrink: 0 }}>"</span>
+            <div>
+              <p style={{ fontSize: '16px', color: '#C8C0B8', lineHeight: 1.8, fontStyle: 'italic', marginBottom: '10px' }}>
+                Os agentes não fazem nada, apenas recebem comissão...
+              </p>
+              <p style={{ fontSize: '14px', color: '#F0A020', fontWeight: 700 }}>
+                É quase isso. — Eduardo Catarino
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 

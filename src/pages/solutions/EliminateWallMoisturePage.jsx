@@ -50,14 +50,14 @@ const EliminateWallMoisturePage = () => {
         canonical="/solutions/eliminate-moisture"
         schemas={[generateFAQSchema(faqs)]}
         language={language}
-        image="https://images.unsplash.com/photo-1693594558979-aed4872ff156"
+        image="/ClimateCoating/bannermarketing.png"
       />
 
       <div className="min-h-screen pb-16">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=1400&q=85"
+            src="/ClimateCoating/eduardoacompanhado1.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

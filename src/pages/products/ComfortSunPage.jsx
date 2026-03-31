@@ -55,23 +55,43 @@ const WHY = [
 const SITUATIONS = [
   {
     label: 'Hotéis, Restaurantes e Cafés',
-    img: '/esplanada.png',
+    img: '/ComfortSun/cafeaquecedor.png',
     path: '/products/comfortsun/professional',
   },
   {
     label: 'Terraços e Jardins',
-    img: '/terracosejardins.webp',
+    img: '/ComfortSun/terracosejardins.jpg',
     path: '/products/comfortsun/polivalente',
   },
   {
+    label: 'Jantar ao Ar Livre',
+    img: '/ComfortSun/jantaraquecedor.png',
+    path: '/products/comfortsun/professional',
+  },
+  {
     label: 'Igrejas',
-    img: '/igrejas.webp',
+    img: '/ComfortSun/igrejas.webp',
     path: '/contact',
+  },
+  {
+    label: 'Esplanadas',
+    img: '/ComfortSun/esplanada.png',
+    path: '/products/comfortsun/professional',
   },
   {
     label: 'Aquecimento Polivalente',
     img: '/aquecimentopolivalente.webp',
     path: '/products/comfortsun/polivalente',
+  },
+  {
+    label: 'Praia e Espaços Abertos',
+    img: '/ComfortSun/praia.png',
+    path: '/products/comfortsun/polivalente',
+  },
+  {
+    label: 'Massagem e Bem-Estar',
+    img: '/ComfortSun/massagistaaquecedor.jpg',
+    path: '/contact',
   },
 ];
 
@@ -82,14 +102,14 @@ export default function ComfortSunPage() {
         title="ComfortSun Aquecimento Infravermelhos | Evoluimos Comércio"
         description="Gama ComfortSun de aquecedores infravermelhos: Polivalente, Profissional, Deluxe e Especializado. Tecnologia alemã TÜV para esplanadas, hotéis, jardins e interior."
         canonical="/products/comfortsun"
-        image="/esplanada.png"
+        image="/ComfortSun/esplanada.png"
       />
 
       <div className="min-h-screen">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="/esplanada.png"
+            src="/ComfortSun/esplanada.png"
             alt="ComfortSun — aquecedores infravermelhos em esplanada"
             className="w-full h-full object-cover"
             loading="eager"
@@ -203,7 +223,7 @@ export default function ComfortSunPage() {
               {/* Lamps image */}
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="/lampadas.webp"
+                  src="/ComfortSun/lampadas.webp"
                   alt="Tipos de lâmpadas ComfortSun: Dark Glow, Low Glow, Low Glare"
                   className="w-full object-cover"
                   loading="lazy"
@@ -248,7 +268,7 @@ export default function ComfortSunPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-orange-600 text-center mb-10">
               Onde quer aplicar o seu aquecedor?
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {SITUATIONS.map((s, i) => (
                 <motion.div
                   key={i}

@@ -11,7 +11,7 @@ const MODELS = [
   {
     icon: Thermometer,
     name: 'Torre de Aquecimento 2000W',
-    imgs: ['/torreaquecimento1.webp', '/torreaquecimento2.webp', '/torreaquecimento3.webp'],
+    imgs: ['/ComfortSun/torreaquecimento1.webp', '/ComfortSun/torreaquecimento2.webp', '/ComfortSun/torreaquecimento3.webp'],
     watts: ['2000W'],
     price: 'A partir de 399 € + IVA',
     coverage: 'Até 14 m²',

@@ -25,11 +25,11 @@ export default function DuothermPage() {
         title="Duotherm Aquecimento Radiante em Pedra Natural | Evoluimos Comércio"
         description="Radiadores Duotherm em pedra natural. Sistema de aquecimento por infravermelhos produzido em Portugal, tecnologia alemã. Sem CO₂, sem manutenção."
         canonical="/products/duotherm"
-        image="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1"
+        image="/Duotherm/saladeestar.png"
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=1400&q=85" alt="Duotherm Aquecimento Radiante" className="w-full h-full object-cover" loading="eager" />
+          <img src="/Duotherm/saladeestar.png" alt="Duotherm Aquecimento Radiante em sala de estar" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Duotherm', path: '/products/duotherm' }]} dark />
@@ -78,6 +78,23 @@ export default function DuothermPage() {
                 <div>
                   <h3 className="font-extrabold text-lg mb-1">10 Anos de Garantia do Fabricante</h3>
                   <p className="text-stone-300 text-sm leading-relaxed">A qualidade do Duotherm é comprovada por 10 anos de garantia direta do fabricante, sem necessidade de qualquer manutenção. Instala-se uma vez e funciona durante décadas.</p>
+                </div>
+              </div>
+
+              {/* Photo gallery */}
+              <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Duotherm em Ambiente Real</h2>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { src: '/Duotherm/sala.png', alt: 'Duotherm em sala' },
+                    { src: '/Duotherm/salatv.png', alt: 'Duotherm em sala de TV' },
+                    { src: '/Duotherm/parede.png', alt: 'Duotherm montado em parede' },
+                    { src: '/Duotherm/saladeestar.png', alt: 'Duotherm em sala de estar' },
+                  ].map((img, i) => (
+                    <div key={i} className="rounded-xl overflow-hidden aspect-[4/3]">
+                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

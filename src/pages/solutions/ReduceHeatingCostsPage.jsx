@@ -60,14 +60,14 @@ const ReduceHeatingCostsPage = () => {
         canonical="/solutions/reduce-heating-costs"
         schemas={[generateFAQSchema(faqs)]}
         language={language}
-        image="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1"
+        image="/Duotherm/saladeestar.png"
       />
 
       <div className="min-h-screen pb-16">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=1400&q=85"
+            src="/Duotherm/sala.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

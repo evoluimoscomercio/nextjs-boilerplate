@@ -60,14 +60,14 @@ const OutdoorComfortPage = () => {
         canonical="/solutions/outdoor-comfort"
         schemas={[generateFAQSchema(faqs)]}
         language={language}
-        image="https://images.unsplash.com/photo-1638668679884-4196de47fe97"
+        image="/ComfortSun/aquecimentoesplanada.jpg"
       />
 
       <div className="min-h-screen pb-16">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=1400&q=85"
+            src="/ComfortSun/aquecimentoesplanada.jpg"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

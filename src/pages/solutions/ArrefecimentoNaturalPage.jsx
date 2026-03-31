@@ -63,14 +63,14 @@ const ArrefecimentoNaturalPage = () => {
         canonical="/solutions/natural-cooling"
         schemas={[generateFAQSchema(faqs)]}
         language={language}
-        image="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a"
+        image="/Bioclimatizadores/bioclimatizadorquarto.png"
       />
 
       <div className="min-h-screen pb-16">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=1400&q=85"
+            src="/Bioclimatizadores/bioclimatizadorquarto.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

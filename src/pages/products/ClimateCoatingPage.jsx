@@ -19,11 +19,11 @@ export default function ClimateCoatingPage() {
         title="ClimateCoating Revestimento Térmico Cerâmico | Evoluimos Comércio"
         description="ClimateCoating: membrana cerâmica de nanotecnologia alemã. Isola termicamente, regula humidade, aplica-se como tinta. Economias de 30-40% em climatização."
         canonical="/products/climatecoating"
-        image="https://images.unsplash.com/photo-1486325212027-8081e485255e"
+        image="/ClimateCoating/bannermarketing.png"
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85" alt="ClimateCoating revestimento térmico" className="w-full h-full object-cover" loading="eager" />
+          <img src="/ClimateCoating/bannermarketing.png" alt="ClimateCoating revestimento térmico cerâmico" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'ClimateCoating', path: '/products/climatecoating' }]} dark />
@@ -70,6 +70,22 @@ export default function ClimateCoatingPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Real photos */}
+              <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">A Nossa Equipa em Ação</h2>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="rounded-xl overflow-hidden aspect-square">
+                    <img src="/ClimateCoating/eduardo.png" alt="Eduardo Catarino — ClimateCoating" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="rounded-xl overflow-hidden aspect-square">
+                    <img src="/ClimateCoating/eduardoacompanhado.png" alt="Demonstração ClimateCoating" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="rounded-xl overflow-hidden aspect-square">
+                    <img src="/ClimateCoating/expositor.png" alt="Expositor ClimateCoating" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
                 </div>
               </div>
 

@@ -92,14 +92,14 @@ const SustainableBusinessPage = () => {
         canonical="/solutions/sustainable-business"
         schemas={[generateFAQSchema(faqs)]}
         language={language}
-        image="https://images.unsplash.com/photo-1486325212027-8081e485255e"
+        image="/ClimateCoating/bannermarketing.png"
       />
 
       <div className="min-h-screen pb-16">
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85"
+            src="/ClimateCoating/expositor.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

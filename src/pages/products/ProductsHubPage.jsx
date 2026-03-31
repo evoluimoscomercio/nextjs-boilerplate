@@ -14,7 +14,7 @@ const INFRARED = [
     badgeColor: 'bg-amber-500',
     desc: 'O topo da gama em infravermelhos de onda curta para exterior. Design versátil, alcance máximo, 92% de eficiência. A escolha dos melhores restaurantes e hotéis.',
     path: '/products/solamagic',
-    img: 'https://images.unsplash.com/photo-1638668679884-4196de47fe97?w=800&q=80',
+    img: '/Solamagic/aquecedorexterior.png',
     highlight: true,
   },
   {
@@ -24,7 +24,7 @@ const INFRARED = [
     badgeColor: 'bg-orange-600',
     desc: 'Solução polivalente com 4 linhas: Aquecimento Infravermelhos, Polivalente, Profissional e Deluxe. Flexibilidade para cada necessidade e orçamento.',
     path: '/products/comfortsun',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    img: '/ComfortSun/esplanada.png',
     highlight: false,
     lines: ['Infravermelhos', 'Polivalente', 'Profissional', 'Deluxe'],
   },
@@ -36,7 +36,7 @@ const HEATING = [
     tag: 'AQUECIMENTO RADIANTE',
     desc: 'Radiadores em pedra natural produzidos na Alemanha. Calor saudável por infravermelhos, sem emissão de CO₂, com termostato e efeito decorativo único.',
     path: '/products/duotherm',
-    img: 'https://images.unsplash.com/photo-1518276779712-dfdcb9daa7a1?w=700&q=80',
+    img: '/Duotherm/saladeestar.png',
   },
 ];
 
@@ -46,7 +46,7 @@ const PROTECTION = [
     tag: 'REVESTIMENTO TÉRMICO',
     desc: 'Membrana cerâmica de nanotecnologia alemã. Aplica-se como tinta, isola termicamente, regula a humidade do ar e reduz custos de climatização.',
     path: '/products/climatecoating',
-    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80',
+    img: '/ClimateCoating/bannermarketing.png',
   },
   {
     name: 'Drymat',
@@ -60,7 +60,7 @@ const PROTECTION = [
     tag: 'ARREFECIMENTO NATURAL',
     desc: 'Arrefecimento por evaporação sem compressor, sem gases, baixo consumo. Ideal para substituir ar condicionado convencional no verão.',
     path: '/products/bioclimatizadores',
-    img: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=700&q=80',
+    img: '/Bioclimatizadores/bioclimatizadorquarto.png',
   },
   {
     name: 'Biolareiras Herkell',

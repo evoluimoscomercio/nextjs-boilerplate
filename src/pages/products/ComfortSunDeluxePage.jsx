@@ -11,7 +11,7 @@ const MODELS = [
   {
     name: 'CS 2000BT / 2800BT',
     watts: ['2000W', '2800W'],
-    imgs: ['/ComfortSun25BT_2000.webp', '/ComfortSun25BT2800.webp'],
+    imgs: ['/ComfortSun/ComfortSun25BT_2000.webp', '/ComfortSun/ComfortSun25BT2800.webp'],
     price: 'A partir de 515 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 25 (TÜV)',
@@ -31,7 +31,7 @@ const MODELS = [
   {
     name: 'Torre de Aquecimento Deluxe',
     watts: ['2000W'],
-    imgs: ['/torreaquecimento1.webp', '/torreaquecimento2.webp'],
+    imgs: ['/ComfortSun/torreaquecimento1.webp', '/ComfortSun/torreaquecimento2.webp'],
     price: 'A partir de 412 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 65 (TÜV)',

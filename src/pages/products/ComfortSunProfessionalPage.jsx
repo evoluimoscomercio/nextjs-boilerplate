@@ -10,7 +10,7 @@ import { WA_URL as WA } from '@/config/company';
 const MODELS = [
   {
     watts: '1400W',
-    img: '/ComfortSun25_1400.webp',
+    img: '/ComfortSun/ComfortSun25_1400.webp',
     desc: 'O modelo mais popular. Ideal para esplanadas médias, bares e restaurantes com espaços moderados.',
     uses: ['Restaurantes', 'Cafés', 'Esplanadas'],
     highlight: true,
@@ -55,7 +55,7 @@ export default function ComfortSunProfessionalPage() {
         title="ComfortSun Linha Profissional — Aquecimento Infravermelhos Comercial | Evoluimos Comércio"
         description="Linha Profissional ComfortSun: aquecedores infravermelhos de 1400W e 2000W para hotéis, restaurantes, spas e esplanadas. Tecnologia alemã. A partir de 223€ + IVA."
         canonical="/products/comfortsun/professional"
-        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+        image="/ComfortSun/esplanada.png"
       />
 
       <div className="min-h-screen bg-gray-50">

@@ -17,7 +17,7 @@ const LINES = [
   },
   {
     name: 'Profissional',
-    desc: 'Concebida para instalações comerciais intensivas — hotéis, spas e restauração de volume. Maior potência e robustez.',
+    desc: 'Concebida para instalações comerciais intensivas, hotéis, spas e restauração de volume. Maior potência e robustez.',
     uses: ['Hotéis', 'Spas', 'Restauração'],
     color: 'bg-gray-50 border-gray-300',
     tag: 'bg-gray-700',
@@ -44,7 +44,7 @@ const LINES = [
 const WHY = [
   'Convertem quase 100% da energia em calor útil',
   'Tecnologia de lâmpadas HeLeN criada por engenheiro alemão',
-  'Aquecimento imediato — aquece pessoas, não o ar',
+  'Aquecimento imediato, aquece pessoas, não o ar',
   'Resistente ao vento: calor direto sem dispersão',
   'Não emite gases, não queima oxigénio, não levanta poeiras',
   'Certificados TÜV para uso exterior com exposição à chuva',
@@ -140,7 +140,7 @@ export default function ComfortSunPage() {
                     A ComfortSun foi fundada por um engenheiro alemão que desenvolveu os radiadores com a tecnologia de lâmpadas <strong>HeLeN</strong>. A <strong>ComfortSun Ibérica</strong>, com sede operacional em Portugal, distribui diretamente para o mercado ibérico com fornecimento da fábrica alemã.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Ao contrário dos aquecedores convencionais, os modelos ComfortSun <strong>não aquecem o ar</strong> — emitem radiação infravermelha que aquece diretamente pessoas e superfícies, como faz o sol. O resultado é um calor saudável, eficaz e resistente ao vento.
+                    Ao contrário dos aquecedores convencionais, os modelos ComfortSun <strong>não aquecem o ar</strong>, emitem radiação infravermelha que aquece diretamente pessoas e superfícies, como faz o sol. O resultado é um calor saudável, eficaz e resistente ao vento.
                   </p>
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-3 mt-5">
@@ -229,7 +229,7 @@ export default function ComfortSunPage() {
                   loading="lazy"
                 />
                 <div className="bg-gray-50 border border-t-0 border-gray-200 rounded-b-2xl px-4 py-3">
-                  <p className="text-xs text-gray-500">Lâmpadas ComfortSun: <strong>Dark Glow</strong>, <strong>Low Glow</strong> e <strong>Low Glare</strong> — diferentes intensidades luminosas para cada contexto.</p>
+                  <p className="text-xs text-gray-500">Lâmpadas ComfortSun: <strong>Dark Glow</strong>, <strong>Low Glow</strong> e <strong>Low Glare</strong>, diferentes intensidades luminosas para cada contexto.</p>
                 </div>
               </div>
 
@@ -239,7 +239,7 @@ export default function ComfortSunPage() {
             <div className="space-y-4">
               <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <h3 className="font-extrabold text-xl mb-2">Pedir Informação</h3>
-                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar — recomendamos a linha certa.</p>
+                <p className="text-gray-400 text-sm mb-5">Diga-nos onde quer aplicar, recomendamos a linha certa.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />

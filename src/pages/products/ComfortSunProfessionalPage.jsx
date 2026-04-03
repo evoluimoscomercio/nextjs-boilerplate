@@ -25,11 +25,11 @@ const MODELS = [
 ];
 
 const FEATURES = [
-  'Potência de 1400W e 2000W — as mais utilizadas em ambiente comercial',
+  'Potência de 1400W e 2000W, as mais utilizadas em ambiente comercial',
   'Cores disponíveis: branco, antracite nano e titan',
   'Qualquer cor RAL disponível sob encomenda',
   'Opções elétricas: ficha simples, interruptor ou cabo integrado',
-  'Resistente ao vento — calor direto, não aquece o ar',
+  'Resistente ao vento, calor direto, não aquece o ar',
   'Sem peças móveis, sem manutenção regular',
   'Não emite gases nem queima oxigénio',
   'Entrega direta da fábrica na Alemanha',
@@ -53,7 +53,7 @@ export default function ComfortSunProfessionalPage() {
     <>
       <SEOHead
         title="ComfortSun Linha Profissional — Aquecimento Infravermelhos Comercial | Evoluimos Comércio"
-        description="Linha Profissional ComfortSun: aquecedores infravermelhos de 1400W e 2000W para hotéis, restaurantes, spas e esplanadas. Tecnologia alemã. A partir de 223€ + IVA."
+        description="Linha Profissional ComfortSun: aquecedores infravermelhos de 1400W e 2000W para hotéis, restaurantes, spas e esplanadas. Tecnologia alemã."
         canonical="/products/comfortsun/professional"
         image="/ComfortSun/esplanada.png"
       />
@@ -102,7 +102,7 @@ export default function ComfortSunProfessionalPage() {
                   A <strong>Linha Profissional ComfortSun</strong> foi desenvolvida para instalações comerciais exigentes. Potência, robustez e durabilidade são as prioridades desta gama, pensada para quem precisa de um aquecimento fiável e eficiente dia após dia.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Com modelos de <strong>1400W e 2000W</strong> — os mais utilizados em ambiente comercial — e disponibilidade em diversas acabamentos de cor, esta linha adapta-se facilmente ao ambiente de qualquer espaço, sem comprometer a performance.
+                  Com modelos de <strong>1400W e 2000W</strong>, os mais utilizados em ambiente comercial, e disponibilidade em diversas acabamentos de cor, esta linha adapta-se facilmente ao ambiente de qualquer espaço, sem comprometer a performance.
                 </p>
               </div>
 
@@ -142,7 +142,7 @@ export default function ComfortSunProfessionalPage() {
                     </motion.div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-400 mt-3">A partir de 223 € + IVA. Consulte-nos para orçamento personalizado.</p>
+                <p className="text-xs text-gray-400 mt-3">Consulte-nos para orçamento personalizado.</p>
               </div>
 
               {/* Features */}
@@ -188,7 +188,7 @@ export default function ComfortSunProfessionalPage() {
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <h3 className="font-extrabold text-xl mb-1">Pedir Orçamento</h3>
                 <p className="text-gray-400 text-sm mb-5">
-                  Diga-nos o seu espaço e volume de utilização — recomendamos a solução certa.
+                  Diga-nos o seu espaço e volume de utilização, recomendamos a solução certa.
                 </p>
                 <a
                   href={WA}

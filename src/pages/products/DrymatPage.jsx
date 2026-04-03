@@ -47,13 +47,6 @@ export default function DrymatPage() {
                 <p className="text-gray-700 leading-relaxed mb-5">
                   O equipamento altera a polaridade da água existente dentro das paredes. Como resultado dessa mudança, a humidade que subia começa a descer e volta para a terra. Após alguns meses, as paredes ficam secas.
                 </p>
-                <div className="bg-cyan-900 rounded-2xl p-5 text-white flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">🛡️</span>
-                  <div>
-                    <h3 className="font-extrabold text-base mb-1">Garantia por Escrito ou Devolução do Dinheiro</h3>
-                    <p className="text-cyan-200 text-sm leading-relaxed">Se as paredes não secarem, recebe o dinheiro de volta. Esta é a nossa confiança no produto — oferecida por escrito antes da instalação.</p>
-                  </div>
-                </div>
               </div>
 
               {/* Symptoms */}

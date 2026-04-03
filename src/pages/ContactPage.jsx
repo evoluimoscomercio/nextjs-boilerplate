@@ -109,7 +109,6 @@ function ContactForm() {
             <option value="">Selecione...</option>
             <option value="Pedido de orçamento">Pedido de orçamento</option>
             <option value="Informações sobre produtos">Informações sobre produtos</option>
-            <option value="Apoio técnico / Pós-venda">Apoio técnico / Pós-venda</option>
             <option value="Serviços imobiliários">Serviços imobiliários</option>
             <option value="Outro assunto">Outro assunto</option>
           </select>
@@ -194,14 +193,14 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-gray-900 rounded-3xl p-8 sm:p-10 text-center mb-8"
+            className="bg-gray-900 rounded-3xl p-6 sm:p-8 text-center mb-8 max-w-sm mx-auto"
           >
             <div className="w-20 h-20 bg-green-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
               <MessageCircle className="w-10 h-10 text-white" aria-hidden="true" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">WhatsApp</h2>
             <p className="text-gray-400 mb-7 max-w-sm mx-auto">
-              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso — respondemos rapidamente.
+              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso, respondemos rapidamente.
             </p>
             <a
               href={WA}

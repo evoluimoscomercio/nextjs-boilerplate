@@ -48,7 +48,7 @@ const BUYER_STEPS = [
   {
     icon: ClipboardList,
     title: 'Análise e visita ao imóvel',
-    desc: 'Contacto para apurar mais informações, avaliação dos valores de mercado, visita ao imóvel com verificação de patologias e soluções — apresentação de relatório ao potencial comprador.',
+    desc: 'Contacto para apurar mais informações, avaliação dos valores de mercado, visita ao imóvel com verificação de patologias e soluções, apresentação de relatório ao potencial comprador.',
   },
   {
     icon: ShieldCheck,
@@ -68,7 +68,7 @@ const BUYER_STEPS = [
   {
     icon: Wrench,
     title: 'Pós-escritura',
-    desc: 'Apoio na resolução do que for necessário — humidade, pintura, climatização e muito mais. Soluções fornecidas diretamente pela Evoluimos Comércio.',
+    desc: 'Apoio na resolução do que for necessário, humidade, pintura, climatização e muito mais. Soluções fornecidas diretamente pela Evoluimos Comércio.',
   },
 ];
 
@@ -358,7 +358,7 @@ export default function RealEstatePage() {
                 Os agentes não fazem nada, apenas recebem comissão...
               </p>
               <p style={{ fontSize: '14px', color: '#F0A020', fontWeight: 700 }}>
-                É quase isso. — Eduardo Catarino
+                É quase isso, Eduardo Catarino
               </p>
             </div>
           </motion.div>

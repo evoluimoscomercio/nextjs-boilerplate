@@ -7,9 +7,9 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA } from '@/config/company';
 
 const MODELS = [
-  { name: 'Elite 8', area: 'até 15 m²', price: '160,00€', desc: 'Compacto e silencioso. Ideal para escritórios, quartos e pequenas salas.' },
-  { name: 'Elite 14', area: 'até 25 m²', price: '240,00€', desc: 'Para espaços médios. Inclui função antimosquitos e ionização do ar.' },
-  { name: 'MF 60', area: 'até 35 m²', price: '499,00€', desc: 'Brumiventilador de exterior. Ideal para esplanadas e espaços de grande área.' },
+  { name: 'Elite 8', area: 'até 15 m²', desc: 'Compacto e silencioso. Ideal para escritórios, quartos e pequenas salas.' },
+  { name: 'Elite 14', area: 'até 25 m²', desc: 'Para espaços médios. Inclui função antimosquitos e ionização do ar.' },
+  { name: 'MF 60', area: 'até 35 m²', desc: 'Brumiventilador de exterior. Ideal para esplanadas e espaços de grande área.' },
 ];
 
 export default function BioclimatizadoresPage() {
@@ -61,7 +61,6 @@ export default function BioclimatizadoresPage() {
                           <span className="font-extrabold text-gray-900">{m.name}</span>
                           <div className="flex items-center gap-2">
                             <span className="text-xs bg-teal-100 text-teal-700 px-2 py-0.5 rounded-full font-semibold">{m.area}</span>
-                            <span className="font-bold text-orange-600">{m.price}</span>
                           </div>
                         </div>
                         <p className="text-gray-600 text-sm">{m.desc}</p>
@@ -69,7 +68,7 @@ export default function BioclimatizadoresPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-gray-400 mt-2">* Preços com IVA incluído e entrega. Para funcionamento ideal, usar com janelas abertas em favor da corrente de ar.</p>
+                <p className="text-xs text-gray-400 mt-2">* Para funcionamento ideal, usar com janelas abertas em favor da corrente de ar.</p>
               </div>
 
               <div>
@@ -96,7 +95,7 @@ export default function BioclimatizadoresPage() {
             <div>
               <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <h3 className="font-extrabold text-xl mb-2">Encomendar</h3>
-                <p className="text-gray-400 text-sm mb-5">Preços com IVA e entrega incluídos. Entrega em Portugal continental.</p>
+                <p className="text-gray-400 text-sm mb-5">Entrega em Portugal continental.</p>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />WhatsApp

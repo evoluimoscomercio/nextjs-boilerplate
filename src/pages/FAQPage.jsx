@@ -32,37 +32,47 @@ const FAQS = [
   {
     cat: 'infrared',
     q: 'O que distingue os aquecedores por infravermelhos dos convencionais?',
-    a: 'Os aquecedores convencionais aquecem o ar (convecção), que sobe e se dissipa facilmente. Os infravermelhos transferem calor diretamente para objetos e pessoas (radiação), eliminando perdas e proporcionando conforto imediato — mesmo ao ar livre com vento.',
+    a: 'Os aquecedores convencionais aquecem o ar (convecção), que sobe e se dissipa facilmente. Os infravermelhos transferem calor diretamente para objetos e pessoas (radiação), eliminando perdas e proporcionando conforto imediato, mesmo ao ar livre com vento.',
   },
   {
     cat: 'infrared',
     q: 'Com que rapidez os aquecedores aquecem um espaço?',
-    a: 'O aquecimento é praticamente imediato. Como o calor é emitido diretamente para superfícies e pessoas, sente-se a diferença em segundos — ao contrário dos sistemas tradicionais que demoram a aquecer todo o volume de ar.',
+    a: 'O aquecimento é praticamente imediato. Como o calor é emitido diretamente para superfícies e pessoas, sente-se a diferença em segundos, ao contrário dos sistemas tradicionais que demoram a aquecer todo o volume de ar.',
   },
   {
     cat: 'infrared',
     q: 'Posso usar aquecedores por infravermelhos no exterior?',
-    a: 'Sim, são a solução ideal para esplanadas, jardins e terraços. O calor não é disperso pelo vento, proporcionando conforto mesmo em dias frios e ventosos. Modelos como o Solamagic e ComfortSun Polivalente têm certificação IP65 para uso ao ar livre.',
+    a: 'Sim, são a solução ideal para esplanadas, jardins e terraços. O calor não é disperso pelo vento, proporcionando conforto mesmo em dias frios e ventosos. Modelos como o Solamagic e ComfortSun têm certificação IP65 para uso ao ar livre.',
   },
   {
     cat: 'infrared',
     q: 'Posso usar aquecedores por infravermelhos no interior?',
-    a: 'Sim. Modelos como o ComfortSun Especializado e os painéis AHT são concebidos especificamente para interiores — sem ruído, sem odores, sem circulação de poeiras. São particularmente indicados para pessoas com alergias ou sensibilidades respiratórias.',
+    a: 'Sim. Modelos como o ComfortSun Especializado, os painéis AHT e as pedras da Duotherm são concebidos especificamente para interiores, sem ruído, sem odores, sem circulação de poeiras. São particularmente indicados para pessoas com alergias ou sensibilidades respiratórias.',
   },
   {
     cat: 'infrared',
     q: 'Por que o calor infravermelho é comparado à luz solar?',
-    a: 'Tanto o sol como os aquecedores por infravermelhos utilizam radiação infravermelha para aquecer diretamente. É o mesmo tipo de calor natural que sentimos ao sol — imediato, confortável e sem ressecar o ambiente. A diferença é que os nossos equipamentos não emitem radiação UV prejudicial.',
+    a: 'Tanto o sol como os aquecedores por infravermelhos utilizam radiação infravermelha para aquecer diretamente. É o mesmo tipo de calor natural que sentimos ao sol, imediato, confortável e sem ressecar o ambiente. A diferença é que os nossos equipamentos não emitem radiação UV prejudicial.',
   },
   {
     cat: 'infrared',
     q: 'Qual a diferença entre ComfortSun e Solamagic?',
-    a: 'O Solamagic é a nossa gama premium de infravermelhos de onda curta, com 92% de eficiência e design alemão de topo — ideal para espaços de luxo. O ComfortSun oferece excelente relação qualidade-preço com múltiplas linhas (Polivalente, Professional, Deluxe, Especializado) adaptadas a diferentes necessidades e orçamentos.',
+    a: 'O Solamagic é a nossa gama premium de infravermelhos de onda curta, com 92% de eficiência e design alemão de topo, ideal para espaços de luxo. O ComfortSun oferece excelente relação qualidade-preço com múltiplas linhas (Polivalente, Professional, Deluxe, Especializado) adaptadas a diferentes necessidades e orçamentos.',
   },
   {
     cat: 'infrared',
     q: 'Qual a diferença entre as linhas Professional e Deluxe da ComfortSun?',
     a: 'A linha Professional prioriza potência e durabilidade para uso intensivo em espaços comerciais. A linha Deluxe apresenta design sofisticado, com controlo remoto, conectividade Bluetooth e app móvel, e lâmpadas Low Glare para menor brilho.',
+  },
+  {
+    cat: 'infrared',
+    q: 'O que é a linha Especializado da ComfortSun?',
+    a: 'A linha Especializado da ComfortSun destina-se a ambientes com requisitos específicos. Inclui o aquecedor CSB para casa de banho, certificado IP 24 (proteção contra salpicos) e aprovado pelo TÜV, disponível em 1000W, 1200W e 1400W, com telecomando e timer programável. Inclui também um aquecedor para fraldário de bebé com lâmpada Low Glare de iluminação suave e proteção de dupla camada para máxima segurança.',
+  },
+  {
+    cat: 'infrared',
+    q: 'O que são os painéis AHT da linha Polivalente ComfortSun?',
+    a: 'Os painéis AHT são aquecedores de infravermelhos para interior integrados na linha Polivalente da ComfortSun. Funcionam com infravermelhos de onda longa, ideais para aquecimento de divisões interiores. Incluem ecrã LED touchscreen, conectividade Wi-Fi com app de controlo, timer programável, duplo termostato de segurança e temperatura ajustável entre 16°C e 37°C. São silenciosos, sem emissão de gases e sem circulação de poeiras.',
   },
   {
     cat: 'infrared',
@@ -84,7 +94,7 @@ const FAQS = [
   {
     cat: 'moisture',
     q: 'Quanto tempo demora o Drymat a secar as paredes?',
-    a: 'Os resultados visíveis surgem entre 2 a 6 meses, dependendo da espessura das paredes e do grau de humidade. A redução de humidade situa-se entre 80% e 100%. Oferecemos garantia escrita de resultados ou devolução do dinheiro.',
+    a: 'Os resultados visíveis surgem entre 2 a 6 meses, dependendo da espessura das paredes e do grau de humidade. A redução de humidade situa-se entre 80% e 100%.',
   },
   {
     cat: 'moisture',
@@ -99,7 +109,7 @@ const FAQS = [
   {
     cat: 'moisture',
     q: 'O ClimateCoating substitui o isolamento tradicional?',
-    a: 'Em muitos casos, sim. Funciona como mais do que uma tinta — substitui tanto a pintura como sistemas de isolamento convencional. A membrana cerâmica cria um efeito endotérmico que regula a temperatura e humidade, com resultados validados por estudos internacionais.',
+    a: 'Em muitos casos, sim. Funciona como mais do que uma tinta, substitui tanto a pintura como sistemas de isolamento convencional. A membrana cerâmica cria um efeito endotérmico que regula a temperatura e humidade, com resultados validados por estudos internacionais.',
   },
   {
     cat: 'moisture',
@@ -116,7 +126,7 @@ const FAQS = [
   {
     cat: 'interior',
     q: 'Os radiadores Duotherm são difíceis de instalar?',
-    a: 'Não. Não requerem instalação invasiva — basta fixar na parede e ligar à corrente. Incluem termostato para controlo preciso de temperatura. Não necessitam de manutenção (apenas ligar/desligar) e têm garantia de fábrica de 10 anos.',
+    a: 'Não. Não requerem instalação invasiva, basta fixar na parede e ligar à corrente. Incluem termostato para controlo preciso de temperatura. Não necessitam de manutenção (apenas ligar/desligar) e têm garantia de fábrica de 10 anos.',
   },
   {
     cat: 'interior',
@@ -128,17 +138,17 @@ const FAQS = [
   {
     cat: 'comfort',
     q: 'O que são os bioclimatizadores e como funcionam?',
-    a: 'São sistemas de arrefecimento por evaporação natural de água — uma alternativa saudável ao ar condicionado. Não usam compressor nem gases fluorados, consomem muito pouca eletricidade e humidificam o ar em climas secos. Funcionam melhor com ventilação (janelas abertas).',
+    a: 'São sistemas de arrefecimento por evaporação natural de água, uma alternativa saudável ao ar condicionado. Não usam compressor nem gases fluorados, consomem muito pouca eletricidade e humidificam o ar em climas secos. Funcionam melhor com ventilação (janelas abertas).',
   },
   {
     cat: 'comfort',
     q: 'Qual bioclimatizador devo escolher?',
-    a: 'Para espaços até 15 m², o Elite 8 (€160) é compacto e silencioso. Para espaços até 25 m², o Elite 14 (€240) inclui função anti-mosquitos e ionização do ar. Para espaços grandes ou exteriores até 35 m², o MF 60 (€499) é um ventilador com nebulização.',
+    a: 'Para espaços até 15 m², o Elite 8 é compacto e silencioso. Para espaços até 25 m², o Elite 14 inclui função anti-mosquitos e ionização do ar. Para espaços grandes ou exteriores até 35 m², o MF 60 é um ventilador com nebulização.',
   },
   {
     cat: 'comfort',
     q: 'O que são as biolareiras Herkell?',
-    a: 'São lareiras ecológicas que funcionam com bioetanol (derivado de plantas renováveis). Não necessitam de chaminé, ligação a gás nem obras de instalação — basta colocar onde desejar. Produzem chama real, emitindo apenas vapor de água e CO₂ mínimo (equivalente à respiração).',
+    a: 'São lareiras ecológicas que funcionam com bioetanol (derivado de plantas renováveis). Não necessitam de chaminé, ligação a gás nem obras de instalação, basta colocar onde desejar. Produzem chama real, emitindo apenas vapor de água e CO₂ mínimo (equivalente à respiração).',
   },
   {
     cat: 'comfort',
@@ -155,12 +165,12 @@ const FAQS = [
   {
     cat: 'safety',
     q: 'Os aquecedores por infravermelhos são benéficos para a saúde?',
-    a: 'Sim. Ao contrário dos aquecedores convencionais, não ressecam o ar nem levantam poeiras. São ideais para pessoas com alergias, asma, problemas respiratórios ou pele sensível. O calor radiante é semelhante ao do sol — natural e confortável.',
+    a: 'Sim. Ao contrário dos aquecedores convencionais, não ressecam o ar nem levantam poeiras. São ideais para pessoas com alergias, asma, problemas respiratórios ou pele sensível. O calor radiante é semelhante ao do sol, natural e confortável.',
   },
   {
     cat: 'safety',
     q: 'Os aquecedores são resistentes às intempéries?',
-    a: 'Os modelos para exterior são concebidos para resistir a condições adversas. Modelos com classificação IP65 (ComfortSun Polivalente, Solamagic) são totalmente resistentes à água e poeiras. Modelos com certificação TÜV podem permanecer expostos à chuva.',
+    a: 'Os modelos para exterior são concebidos para resistir a condições adversas. Modelos com classificação IP65 (ComfortSun, Solamagic) são totalmente resistentes à água e poeiras. Modelos com certificação TÜV podem permanecer expostos à chuva.',
   },
   {
     cat: 'safety',
@@ -177,7 +187,7 @@ const FAQS = [
   {
     cat: 'purchase',
     q: 'Que garantias oferecem os vossos produtos?',
-    a: 'As garantias variam por produto: Duotherm oferece 10 anos de garantia de fábrica, Drymat oferece garantia escrita de resultados (devolução se as paredes não secarem), e todos os produtos ComfortSun e Solamagic têm certificação TÜV e suporte técnico do fabricante alemão.',
+    a: 'As garantias variam por produto: Duotherm oferece 10 anos de garantia de fábrica, e todos os produtos ComfortSun e Solamagic têm certificação TÜV e suporte técnico do fabricante alemão.',
   },
   {
     cat: 'purchase',
@@ -187,7 +197,7 @@ const FAQS = [
   {
     cat: 'purchase',
     q: 'Devo consultar um profissional antes de comprar?',
-    a: 'Recomendamos sempre uma consulta prévia gratuita. A orientação profissional permite selecionar o modelo ideal tendo em conta a potência necessária, o local de instalação e o tipo de uso. Contacte-nos sem compromisso — ajudamos a encontrar a solução certa para o seu caso.',
+    a: 'Recomendamos sempre uma consulta prévia gratuita. A orientação profissional permite selecionar o modelo ideal tendo em conta a potência necessária, o local de instalação e o tipo de uso. Contacte-nos sem compromisso, ajudamos a encontrar a solução certa para o seu caso.',
   },
   {
     cat: 'purchase',
@@ -202,7 +212,7 @@ const FAQS = [
   {
     cat: 'purchase',
     q: 'Os aquecedores por infravermelhos precisam de manutenção?',
-    a: 'Não. São equipamentos de baixa manutenção — não possuem peças móveis, filtros nem consumíveis. Basta manter a superfície emissora limpa com um pano seco para garantir o desempenho ideal ao longo de muitos anos.',
+    a: 'Não. São equipamentos de baixa manutenção, não possuem peças móveis, filtros nem consumíveis. Basta manter a superfície emissora limpa com um pano seco para garantir o desempenho ideal ao longo de muitos anos.',
   },
 ];
 
@@ -445,7 +455,7 @@ export default function FAQPage() {
           >
             <h2 className="text-xl font-extrabold text-gray-900 mb-2">Ainda tem dúvidas?</h2>
             <p className="text-gray-600 text-sm mb-6">
-              Fale connosco diretamente — respondemos rapidamente e sem compromisso.
+              Fale connosco diretamente, respondemos rapidamente e sem compromisso.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a

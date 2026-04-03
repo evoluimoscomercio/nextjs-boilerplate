@@ -13,7 +13,6 @@ const MODELS = [
     name: 'Torre de Aquecimento 2000W',
     imgs: ['/ComfortSun/torreaquecimento1.webp', '/ComfortSun/torreaquecimento2.webp', '/ComfortSun/torreaquecimento3.webp'],
     watts: ['2000W'],
-    price: 'A partir de 399 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 65 (TÜV)',
     tag: 'Exterior',
@@ -24,18 +23,17 @@ const MODELS = [
       'Uso móvel sem instalação permanente',
       'Tecnologia Bluetooth com app móvel ou telecomando',
       'Lâmpada Low Glare incluída',
-      'IP 65 — resistência total a humidade e intempéries',
+      'IP 65, resistência total a humidade e intempéries',
       'Materiais de qualidade alemã, baixa manutenção',
       'Ideal para esplanadas sem estrutura coberta',
-      'Resistente ao vento — calor direto, não aquece o ar',
+      'Resistente ao vento, calor direto, não aquece o ar',
     ],
   },
   {
     icon: PanelTop,
-    name: 'Painel AHT — Aquecimento Interior',
+    name: 'Painel AHT, Aquecimento Interior',
     imgs: ['/infravermelhosAHT.webp'],
     watts: ['Vários modelos'],
-    price: 'Consultar',
     coverage: 'Variável conforme modelo',
     ip: null,
     tag: 'Interior',
@@ -102,7 +100,7 @@ export default function ComfortSunPolivalentePage() {
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Interior e exterior sem compromissos</h2>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  A gama <strong>Polivalente ComfortSun</strong> adapta-se a múltiplos ambientes — desde esplanadas sem cobertura fixa até salas e divisões interiores. Duas famílias de produto, cada uma otimizada para o seu contexto.
+                  A gama <strong>Polivalente ComfortSun</strong> adapta-se a múltiplos ambientes, desde esplanadas sem cobertura fixa até salas e divisões interiores. Duas famílias de produto, cada uma otimizada para o seu contexto.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   As <strong>Torres de Aquecimento</strong> são portáteis, resistentes ao exterior (IP 65) e com Bluetooth. Os <strong>Painéis AHT</strong> são a solução elegante para interior, com touchscreen, Wi-Fi e controlo preciso de temperatura.
@@ -160,9 +158,6 @@ export default function ComfortSunPolivalentePage() {
                         ))}
                       </div>
 
-                      <div className="pt-3 border-t border-gray-100">
-                        <span className="text-blue-600 font-extrabold">{m.price}</span>
-                      </div>
                       </div>
                     </motion.div>
                   ))}
@@ -176,7 +171,7 @@ export default function ComfortSunPolivalentePage() {
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <h3 className="font-extrabold text-xl mb-1">Pedir Orçamento</h3>
                 <p className="text-gray-400 text-sm mb-5">
-                  Diga-nos onde vai usar e o espaço disponível — sugerimos a solução certa.
+                  Diga-nos onde vai usar e o espaço disponível, sugerimos a solução certa.
                 </p>
                 <a
                   href={WA}

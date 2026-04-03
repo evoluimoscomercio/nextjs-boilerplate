@@ -12,7 +12,6 @@ const MODELS = [
     name: 'CS 2000BT / 2800BT',
     watts: ['2000W', '2800W'],
     imgs: ['/ComfortSun/ComfortSun25BT_2000.webp', '/ComfortSun/ComfortSun25BT2800.webp'],
-    price: 'A partir de 515 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 25 (TÜV)',
     tag: 'Esplanada',
@@ -32,7 +31,6 @@ const MODELS = [
     name: 'Torre de Aquecimento Deluxe',
     watts: ['2000W'],
     imgs: ['/ComfortSun/torreaquecimento1.webp', '/ComfortSun/torreaquecimento2.webp'],
-    price: 'A partir de 412 € + IVA',
     coverage: 'Até 14 m²',
     ip: 'IP 65 (TÜV)',
     tag: 'Portátil',
@@ -42,7 +40,7 @@ const MODELS = [
       'Tecnologia Bluetooth com app móvel',
       'Lâmpada Low Glare incluída',
       'Cores: Nano Antracite e Titan',
-      'IP 65 — resistência total à humidade',
+      'IP 65, resistência total à humidade',
       'Ideal para residências e espaços sem estrutura permanente',
       'Design moderno e compacto',
     ],
@@ -169,9 +167,6 @@ export default function ComfortSunDeluxePage() {
                           </div>
                         ))}
                       </div>
-                      <div className="pt-3 border-t border-gray-100">
-                        <span className="text-amber-600 font-extrabold">{m.price}</span>
-                      </div>
                       </div>
                     </motion.div>
                   ))}
@@ -185,7 +180,7 @@ export default function ComfortSunDeluxePage() {
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <h3 className="font-extrabold text-xl mb-1">Pedir Orçamento</h3>
                 <p className="text-gray-400 text-sm mb-5">
-                  Indique o espaço e o uso pretendido — recomendamos o modelo certo.
+                  Indique o espaço e o uso pretendido, recomendamos o modelo certo.
                 </p>
                 <a
                   href={WA}

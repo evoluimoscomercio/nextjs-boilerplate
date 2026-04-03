@@ -10,7 +10,7 @@ import { WA_URL as WA } from '@/config/company';
 const MODELS = [
   {
     icon: Bath,
-    name: 'CSB — Aquecedor de Casa de Banho',
+    name: 'CSB, Aquecedor de Casa de Banho',
     watts: ['1000W', '1200W', '1400W'],
     ip: 'IP 24',
     coverage: 'Até 10 m²',
@@ -45,7 +45,7 @@ const MODELS = [
       'Lâmpada especial Low Glare com iluminação suave',
       'Telecomando incluído',
       'Timer on/off ajustável',
-      'IP 24 — proteção contra salpicos',
+      'IP 24, proteção contra salpicos',
       'Montagem: teto, parede ou tripé',
       '"Made in Germany"',
     ],
@@ -170,7 +170,7 @@ export default function ComfortSunEspecializadoPage() {
               <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
                 <h3 className="font-extrabold text-xl mb-1">Pedir Informação</h3>
                 <p className="text-gray-400 text-sm mb-5">
-                  Diga-nos a aplicação pretendida — orientamos na escolha certa.
+                  Diga-nos a aplicação pretendida, orientamos na escolha certa.
                 </p>
                 <a
                   href={WA}

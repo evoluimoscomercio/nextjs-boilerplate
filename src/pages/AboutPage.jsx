@@ -59,12 +59,12 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}>
-              <div className="mb-6">
+              <div className="mb-6 flex justify-center">
                 <img
                   src="/eduardocatarino.jpg"
                   alt="Eduardo Catarino"
-                  className="w-full rounded-2xl object-cover shadow-md"
-                  style={{ maxHeight: '320px', objectPosition: 'center top' }}
+                  className="w-64 h-64 rounded-full object-cover shadow-md"
+                  style={{ objectPosition: 'center top' }}
                 />
               </div>
               <div className="grid grid-cols-2 gap-4 mb-6">

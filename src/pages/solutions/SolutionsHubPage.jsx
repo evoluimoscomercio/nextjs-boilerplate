@@ -21,7 +21,7 @@ const SolutionsHubPage = () => {
       name: language === 'pt' ? 'Melhorar Conforto em Esplanadas' : 'Improve Outdoor Comfort',
       desc: language === 'pt' ? 'Aumente a rentabilidade do seu espaço exterior.' : 'Increase profitability of your outdoor space.',
       icon: Sun,
-      image: '/ComfortSun/jantaraquecedor.png'
+      image: '/ComfortSun/almocoaquecedor.jpg'
     },
     {
       id: 'eliminate-moisture',

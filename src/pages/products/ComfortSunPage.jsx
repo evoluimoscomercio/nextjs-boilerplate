@@ -260,7 +260,7 @@ export default function ComfortSunPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-orange-600 text-center mb-10">
               Onde quer aplicar o seu aquecedor?
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               {SITUATIONS.map((s, i) => (
                 <motion.div
                   key={i}

@@ -35,7 +35,7 @@ const NAV = [
       { label: 'Reduzir Custos de Aquecimento', path: '/solutions/reduce-heating-costs' },
       { group: 'Proteção e Conforto' },
       { label: 'Eliminar Humidade nas Paredes', path: '/solutions/eliminate-moisture' },
-      { label: 'Arrefecimento Natural', path: '/solutions/natural-cooling', badge: 'Novo' },
+      { label: 'Arrefecimento Natural', path: '/solutions/natural-cooling' },
       { group: 'Empresas' },
       { label: 'Soluções para Empresas', path: '/solutions/sustainable-business' },
     ]

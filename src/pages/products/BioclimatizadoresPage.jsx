@@ -23,7 +23,7 @@ export default function BioclimatizadoresPage() {
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="/Bioclimatizadores/bioclimatizadorquarto.png" alt="Bioclimatizador em quarto — arrefecimento natural" className="w-full h-full object-cover object-top" loading="eager" />
+          <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores arrefecimento natural" className="w-full h-full object-cover object-top" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute inset-0 flex flex-col">
             <div className="flex justify-center pt-3 px-4">
@@ -42,12 +42,17 @@ export default function BioclimatizadoresPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Arrefecimento Natural sem Compressor</h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Os bioclimatizadores são uma alternativa saudável ao ar condicionado convencional. O arrefecimento é produzido através da <strong>evaporação de água</strong> quanto mais calor fizer, maior o arrefecimento, com humidificação natural do ar.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  O consumo elétrico é baixíssimo limita-se à ventoinha que suga o ar quente e o impulsiona arrefecido para o ambiente. Os modelos Elite têm design moderno, comando remoto, 3 velocidades, função antimosquitos e ionização do ar.
-                </p>
+                <div className="flex gap-5 items-start">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      Os bioclimatizadores são uma alternativa saudável ao ar condicionado convencional. O arrefecimento é produzido através da <strong>evaporação de água</strong> quanto mais calor fizer, maior o arrefecimento, com humidificação natural do ar.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      O consumo elétrico é baixíssimo limita-se à ventoinha que suga o ar quente e o impulsiona arrefecido para o ambiente. Os modelos Elite têm design moderno, comando remoto, 3 velocidades, função antimosquitos e ionização do ar.
+                    </p>
+                  </div>
+                  <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores" className="w-28 sm:w-36 flex-shrink-0 rounded-xl object-cover" style={{aspectRatio: '3/4'}} loading="lazy" />
+                </div>
               </div>
 
               <div>
@@ -75,33 +80,26 @@ export default function BioclimatizadoresPage() {
 
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Vantagens</h2>
-                <div className="grid sm:grid-cols-2 gap-2.5">
-                  {[
-                    'Sem compressor, sem gases fluorados',
-                    'Baixíssimo consumo elétrico',
-                    'Humidifica o ar seco',
-                    'Sem instalação plug & play',
-                    'Função antimosquitos (Elite)',
-                    'Ionização do ar (Elite)',
-                    'Ideal para verão e esplanadas',
-                    'Design moderno com comando',
-                  ].map((b, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" />{b}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-1 min-w-0">
+                    <div className="grid sm:grid-cols-2 gap-2.5">
+                      {[
+                        'Sem compressor, sem gases fluorados',
+                        'Baixíssimo consumo elétrico',
+                        'Humidifica o ar seco',
+                        'Sem instalação plug & play',
+                        'Função antimosquitos (Elite)',
+                        'Ionização do ar (Elite)',
+                        'Ideal para verão e esplanadas',
+                        'Design moderno com comando',
+                      ].map((b, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                          <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" />{b}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores" className="w-full h-full object-cover" loading="lazy" />
                   </div>
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img src="/Bioclimatizadores/mf60.png" alt="Bioclimatizador MF60" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
+                  <img src="/Bioclimatizadores/mf60.png" alt="Bioclimatizador MF60" className="w-28 sm:w-36 flex-shrink-0 rounded-xl object-cover" style={{aspectRatio: '3/4'}} loading="lazy" />
                 </div>
               </div>
             </div>

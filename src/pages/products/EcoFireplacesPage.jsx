@@ -36,43 +36,41 @@ export default function EcoFireplacesPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Lareiras sem Obras nem Chaminé</h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  As biolareiras Herkell a bio-etanol e os grelhadores a pellets oferecem todo o conforto e estética de uma lareira tradicional sem necessidade de chaminé, instalação de gás ou obras de qualquer tipo.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  O bio-etanol é um combustível renovável derivado de plantas. A combustão produz apenas vapor de água e CO₂ em quantidades mínimas equivalente ao que expiramos ao respirar.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
-                <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img src="/biolareiras/biolareirasalaestar.jpg" alt="Biolareira Herkell em sala de estar" className="w-full h-full object-cover" loading="lazy" />
+                <div className="flex gap-5 items-start mb-4">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      As biolareiras Herkell a bio-etanol e os grelhadores a pellets oferecem todo o conforto e estética de uma lareira tradicional sem necessidade de chaminé, instalação de gás ou obras de qualquer tipo.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      O bio-etanol é um combustível renovável derivado de plantas. A combustão produz apenas vapor de água e CO₂ em quantidades mínimas equivalente ao que expiramos ao respirar.
+                    </p>
                   </div>
-                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                    <img src="/biolareiras/biolareira.jpg" alt="Biolareira Herkell" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
+                  <img src="/biolareiras/biolareirasalaestar.jpg" alt="Biolareira Herkell em sala de estar" className="w-28 sm:w-36 flex-shrink-0 rounded-xl object-cover" style={{aspectRatio: '3/4'}} loading="lazy" />
                 </div>
               </div>
 
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Vantagens</h2>
-                <div className="grid sm:grid-cols-2 gap-2.5">
-                  {[
-                    'Sem chaminé nem instalação de gás',
-                    'Sem obras coloca onde quiser',
-                    'Combustível renovável (bio-etanol)',
-                    'Chama real visível',
-                    '100% ecológico',
-                    'Design moderno e elegante',
-                    'Grelhadores a pellets disponíveis',
-                    'Ideal para interior e exterior',
-                  ].map((b, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />{b}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-1 min-w-0">
+                    <div className="grid sm:grid-cols-2 gap-2.5">
+                      {[
+                        'Sem chaminé nem instalação de gás',
+                        'Sem obras coloca onde quiser',
+                        'Combustível renovável (bio-etanol)',
+                        'Chama real visível',
+                        '100% ecológico',
+                        'Design moderno e elegante',
+                        'Grelhadores a pellets disponíveis',
+                        'Ideal para interior e exterior',
+                      ].map((b, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                          <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />{b}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  <img src="/biolareiras/biolareira.jpg" alt="Biolareira Herkell" className="w-28 sm:w-36 flex-shrink-0 rounded-xl object-cover" style={{aspectRatio: '3/4'}} loading="lazy" />
                 </div>
               </div>
             </div>

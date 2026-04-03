@@ -21,7 +21,7 @@ const OutdoorComfortPage = () => {
 
   const faqs = isPt ? [
     { question: 'O aquecimento por infravermelhos funciona com vento?', answer: 'Sim. Ao contrário do aquecimento convencional, os infravermelhos aqueciam os objetos e pessoas diretamente, não o ar, pelo que o vento não afeta a eficiência.' },
-    { question: 'Quanto aumenta o faturamento com esplanadas aquecidas?', answer: 'Os nossos clientes reportam aumentos de 40-50% na utilização das esplanadas, com extensão da época de 3-4 meses extra por ano.' },
+    { question: 'Quanto aumenta a faturação com esplanadas aquecidas?', answer: 'Os nossos clientes reportam aumentos de 40-50% na utilização das esplanadas, com extensão da época de 3-4 meses extra por ano.' },
     { question: 'Os aquecedores são seguros para uso exterior?', answer: 'Sim, os modelos Solamagic têm certificação IP para uso exterior, proteção contra chuva e são seguros para espaços com clientes.' },
     { question: 'Qual o consumo elétrico dos aquecedores?', answer: 'Os modelos variam entre 900W e 3000W. Com a tecnologia de carbono Solamagic, o consumo é até 30% inferior a aquecedores convencionais.' },
   ] : [
@@ -124,10 +124,15 @@ const OutdoorComfortPage = () => {
                     ? 'Em Portugal, as esplanadas e terraços representam uma enorme oportunidade de negócio mas apenas se estiverem confortáveis durante a época fria. Com aquecimento por infravermelhos Solamagic, transforma o exterior num espaço utilizável 12 meses por ano.'
                     : 'In Portugal, patios and terraces represent a huge business opportunity but only if they are comfortable during the cold season. With Solamagic infrared heating, you transform the exterior into a usable space 12 months a year.'}
                 </p>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed mb-4">
                   {isPt
                     ? 'Ao contrário de braseiras a gás (com fumo e custos de consumíveis), os infravermelhos são limpos, eficientes e instantâneos. Aquecem as pessoas diretamente, sem desperdiçar energia a aquecer o ar.'
                     : 'Unlike gas braziers (with smoke and consumable costs), infrared is clean, efficient and instant. It heats people directly, without wasting energy heating the air.'}
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  {isPt
+                    ? 'Complementando a gama Solamagic, os aquecedores de exterior da ComfortSun e os aquecedores polivalentes da ComfortSun oferecem mais opções para aquecer esplanadas e terraços, com tecnologia alemã TÜV certificada.'
+                    : 'Complementing the Solamagic range, ComfortSun outdoor heaters and ComfortSun multipurpose heaters offer more options for heating patios and terraces, with certified German TÜV technology.'}
                 </p>
               </div>
 

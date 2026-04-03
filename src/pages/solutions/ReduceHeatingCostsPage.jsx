@@ -67,7 +67,7 @@ const ReduceHeatingCostsPage = () => {
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="/Duotherm/sala.png"
+            src="/reduzircustos.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"
@@ -216,7 +216,6 @@ const ReduceHeatingCostsPage = () => {
                 <div className="mt-4 pt-4 border-t border-orange-500 space-y-2 text-sm text-orange-100">
                   <div>✓ {isPt ? 'Sem obras' : 'No construction'}</div>
                   <div>✓ {isPt ? 'ROI em 3-5 anos' : 'ROI in 3-5 years'}</div>
-                  <div>✓ {isPt ? 'Garantia até 25 anos' : 'Warranty up to 25 years'}</div>
                 </div>
               </div>
 

@@ -99,7 +99,7 @@ const SustainableBusinessPage = () => {
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="/ClimateCoating/expositor.png"
+            src="/soluçõesparaempresas.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

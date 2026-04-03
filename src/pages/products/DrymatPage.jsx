@@ -49,6 +49,9 @@ export default function DrymatPage() {
                 <p className="text-gray-700 leading-relaxed mb-5">
                   O equipamento altera a polaridade da água existente dentro das paredes. Como resultado dessa mudança, a humidade que subia começa a descer e volta para a terra. Após alguns meses, as paredes ficam secas.
                 </p>
+                <div className="rounded-xl overflow-hidden aspect-[4/3] mb-2">
+                  <img src="/Drymat/drymat.jpg" alt="Aparelho Drymat instalado" className="w-full h-full object-cover" loading="lazy" />
+                </div>
               </div>
 
               {/* Symptoms */}
@@ -104,7 +107,13 @@ export default function DrymatPage() {
               <div className="bg-gray-900 rounded-3xl p-6 text-white">
                 <Droplets className="w-8 h-8 text-cyan-400 mb-3" />
                 <h3 className="font-extrabold text-xl mb-2">Visita e Análise Gratuitas</h3>
-                <p className="text-gray-400 text-sm mb-5">Deslocamo-nos ao seu imóvel, confirmamos se o problema é humidade ascendente e avaliamos a solução ideal. Grátis e sem compromisso.</p>
+                <p className="text-gray-400 text-sm mb-2">Deslocamo-nos ao seu imóvel para confirmar se o problema é humidade ascendente e avaliar a solução ideal.</p>
+                <p className="text-gray-400 text-sm mb-4">Serviço gratuito, sujeito a consulta prévia consoante a localização/distância. Sem compromisso.</p>
+                <div className="space-y-1.5 mb-5 text-sm text-gray-300">
+                  <div>✓ Relatório detalhado</div>
+                  <div>✓ Sem obras invasivas</div>
+                  <div>✓ Elegível apoios PT2030</div>
+                </div>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
                   <MessageCircle className="w-5 h-5" />WhatsApp
@@ -112,7 +121,6 @@ export default function DrymatPage() {
                 <Link to="/contact" className="block w-full py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-center transition-colors">
                   Pedir Análise
                 </Link>
-                <p className="text-gray-500 text-xs text-center mt-3">Análise completamente gratuita</p>
               </div>
             </div>
           </div>

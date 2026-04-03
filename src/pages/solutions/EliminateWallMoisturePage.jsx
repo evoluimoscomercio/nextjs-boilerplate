@@ -23,12 +23,12 @@ const EliminateWallMoisturePage = () => {
     { question: 'Quanto tempo demora a eliminar a humidade?', answer: 'Em 2 a 6 meses observa-se uma redução de 80 a 100% da humidade nas paredes.' },
     { question: 'O DRYMAT funciona em edifícios antigos?', answer: 'Sim, é especialmente eficaz em edifícios históricos e de reabilitação, sem obras invasivas.' },
     { question: 'É necessário fazer obras?', answer: 'Não. O sistema DRYMAT é instalado sem demolição e o ClimateCoating é aplicado como tinta normal.' },
-    { question: 'Qual é a garantia?', answer: 'O sistema DRYMAT tem garantia de 10 anos e o ClimateCoating de 25 anos.' },
+    { question: 'Qual é a garantia?', answer: 'O sistema DRYMAT tem garantia de 10 anos e a Climate Coating tem garantia superior a 15 anos.' },
   ] : [
     { question: 'How long does it take to eliminate moisture?', answer: 'In 2 to 6 months you will see an 80 to 100% reduction in wall moisture.' },
     { question: 'Does DRYMAT work in old buildings?', answer: 'Yes, it is especially effective in historic and rehabilitation buildings, without invasive works.' },
     { question: 'Is construction work needed?', answer: 'No. The DRYMAT system is installed without demolition and ClimateCoating is applied like normal paint.' },
-    { question: 'What is the warranty?', answer: 'The DRYMAT system has a 10-year warranty and ClimateCoating has 25 years.' },
+    { question: 'What is the warranty?', answer: 'The DRYMAT system has a 10-year warranty and ClimateCoating has a warranty of over 15 years.' },
   ];
 
   const symptoms = isPt
@@ -57,7 +57,7 @@ const EliminateWallMoisturePage = () => {
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="/ClimateCoating/eduardoacompanhado1.png"
+            src="/semhumidade.png"
             alt={title}
             className="w-full h-full object-cover"
             loading="eager"

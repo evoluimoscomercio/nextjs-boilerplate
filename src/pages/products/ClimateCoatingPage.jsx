@@ -23,7 +23,7 @@ export default function ClimateCoatingPage() {
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="/ClimateCoating/baldestinta.webp" alt="ClimateCoating revestimento térmico cerâmico" className="w-full h-full object-cover" loading="eager" />
+          <img src="/ClimateCoating/climatecoatingbalde.jpg" alt="ClimateCoating revestimento térmico cerâmico" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute inset-0 flex flex-col">
             <div className="flex justify-center pt-3 px-4">

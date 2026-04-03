@@ -53,11 +53,16 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Plus Jakarta Sans', sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    max-width: 100%;
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, MessageCircle, Droplets, Zap, FileText, ExternalLink } from 'lucide-react';
+import { CheckCircle2, MessageCircle, Droplets, Zap, FileText, ExternalLink, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -17,33 +17,9 @@ const FEATURES = [
   'Adequados para habitação, cozinha e pontos de uso',
 ];
 
-const ADVANTAGES = [
-  {
-    icon: Zap,
-    title: 'Instantâneo',
-    desc: 'Água quente imediata, sem tempo de espera. Só aquece quando é necessário.',
-  },
-  {
-    icon: Droplets,
-    title: 'Sem Depósito',
-    desc: 'Elimina perdas por manutenção de temperatura. Maior higiene e eficiência.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Made in Germany',
-    desc: 'Produzido pela Clage, fabricante alemão com décadas de experiência em aquecimento de água.',
-  },
-];
-
 const CATALOGS = [
-  {
-    label: 'Catálogo Clage 1',
-    url: 'https://jumpshare.com/v/C0i89LsYBKCpl2L7bpW2',
-  },
-  {
-    label: 'Catálogo Clage 2',
-    url: 'https://jumpshare.com/v/7iVPezJFdJFAyx8HqnS2',
-  },
+  { label: 'Catálogo Clage 1', url: 'https://jumpshare.com/v/C0i89LsYBKCpl2L7bpW2' },
+  { label: 'Catálogo Clage 2', url: 'https://jumpshare.com/v/7iVPezJFdJFAyx8HqnS2' },
 ];
 
 export default function EsquentadoresPage() {
@@ -51,20 +27,20 @@ export default function EsquentadoresPage() {
     <>
       <SEOHead
         title="Esquentadores Clage Instantâneos Made in Germany | Evoluimos Comércio"
-        description="Esquentadores elétricos instantâneos Clage. Sem depósito, agua quente imediata, alta eficiência energética. Tecnologia alemã para habitação e espaços comerciais."
+        description="Esquentadores elétricos instantâneos Clage. Sem depósito, água quente imediata, alta eficiência energética. Tecnologia alemã para habitação e espaços comerciais."
         canonical="/products/esquentadores"
       />
       <div className="min-h-screen">
-        {/* Hero */}
-        <div className="relative h-80 md:h-[420px] overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
-          {/* Try to show an image if available, gracefully falls back to gradient */}
+
+        {/* ── Hero ── */}
+        <div className="relative h-80 md:h-[480px] overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
           <img
             src="/Esquentadores/poster.jpg"
-            alt="Esquentador Clage"
-            className="w-full h-full object-cover opacity-40"
+            alt="Esquentadores Clage"
+            className="w-full h-full object-cover opacity-50"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/85" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb
               items={[
@@ -82,153 +58,181 @@ export default function EsquentadoresPage() {
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
               Esquentadores Clage
             </h1>
-            <p className="text-blue-300 font-semibold mt-3 text-lg drop-shadow">
+            <p className="text-blue-200 font-semibold mt-3 text-lg drop-shadow">
               Água Quente Instantânea · Sem Depósito · Alta Eficiência
             </p>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-          <div className="grid lg:grid-cols-3 gap-10">
-            {/* Main content */}
-            <div className="lg:col-span-2 space-y-10">
-
-              {/* Intro */}
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">O que são os Esquentadores Clage?</h2>
+        {/* ── Section 1: Intro + product image ── */}
+        <section className="bg-white py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Tecnologia alemã</span>
+                <h2 className="text-3xl font-extrabold text-gray-900 mt-2 mb-5 leading-tight">
+                  Água quente<br />quando precisa, sem esperas
+                </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Os <strong>esquentadores instantâneos Clage</strong> são equipamentos elétricos de aquecimento de água sem depósito, produzidos na Alemanha com os mais elevados padrões de qualidade e eficiência energética.
                 </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Ao contrário dos esquentadores tradicionais com reservatório, os modelos Clage aquecem a água <strong>apenas no momento em que é necessária</strong>, eliminando completamente as perdas de energia por manutenção de temperatura. O resultado é água quente imediata, higiene superior e contas de energia mais baixas.
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Ao contrário dos esquentadores tradicionais com reservatório, os modelos Clage aquecem a água <strong>apenas no momento em que é necessária</strong>, eliminando completamente as perdas de energia e proporcionando água quente imediata com higiene superior.
                 </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Ideais para instalação em cozinhas, casas de banho, lavabos e outros pontos de uso, os esquentadores Clage destacam-se pelo design compacto, facilidade de instalação e fiabilidade a longo prazo.
-                </p>
-              </div>
-
-              {/* Advantages */}
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-5">Vantagens Principais</h2>
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {ADVANTAGES.map((a, i) => {
-                    const Icon = a.icon;
+                <div className="flex flex-col gap-2.5">
+                  {[
+                    { icon: Zap, text: 'Água quente imediata, sem tempo de espera' },
+                    { icon: Droplets, text: 'Sem depósito, sem perdas de energia' },
+                    { icon: ShieldCheck, text: 'Certificado e produzido na Alemanha' },
+                  ].map((item, i) => {
+                    const Icon = item.icon;
                     return (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        className="bg-blue-50 border border-blue-100 rounded-2xl p-5 text-center"
-                      >
-                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                          <Icon className="w-5 h-5 text-white" />
+                      <div key={i} className="flex items-center gap-3 text-sm text-gray-700">
+                        <div className="w-7 h-7 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-4 h-4 text-blue-600" />
                         </div>
-                        <h3 className="font-extrabold text-gray-900 mb-1 text-sm">{a.title}</h3>
-                        <p className="text-gray-600 text-xs leading-relaxed">{a.desc}</p>
-                      </motion.div>
+                        {item.text}
+                      </div>
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Features */}
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Características</h2>
-                <div className="grid sm:grid-cols-2 gap-2.5">
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                <img
+                  src="/Esquentadores/produto1.png"
+                  alt="Esquentador Clage"
+                  className="w-full max-h-96 object-contain rounded-2xl bg-gray-50 p-6"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 2: Use cases — full-width atmospheric ── */}
+        <section className="bg-gray-50 py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-2 gap-6">
+
+              {/* Card com imagem na casa de banho */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-2xl overflow-hidden h-72 group"
+              >
+                <img
+                  src="/Esquentadores/nacasadebanho.jpg"
+                  alt="Esquentador Clage na casa de banho"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <span className="text-blue-300 text-xs font-bold uppercase tracking-widest">Aplicação</span>
+                  <h3 className="text-white font-extrabold text-xl mt-1">Casa de Banho</h3>
+                  <p className="text-white/75 text-sm mt-1">Solução compacta para banho instantâneo sem espera</p>
+                </div>
+              </motion.div>
+
+              {/* Card com imagem aplicações especiais */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="relative rounded-2xl overflow-hidden h-72 group"
+              >
+                <img
+                  src="/Esquentadores/paraaplicacoesespeciais.jpg"
+                  alt="Esquentador Clage para aplicações especiais"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <span className="text-blue-300 text-xs font-bold uppercase tracking-widest">Aplicação</span>
+                  <h3 className="text-white font-extrabold text-xl mt-1">Múltiplos Pontos de Uso</h3>
+                  <p className="text-white/75 text-sm mt-1">Cozinha, lavabos e aplicações especiais</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 3: Features + mini-instant image ── */}
+        <section className="bg-white py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <img
+                  src="/Esquentadores/mini-instant-water-heaters.png"
+                  alt="Mini esquentadores instantâneos Clage"
+                  className="w-full max-h-80 object-contain rounded-2xl bg-blue-50 p-6"
+                />
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">Características</span>
+                <h2 className="text-2xl font-extrabold text-gray-900 mt-2 mb-6">Pensado para durar e poupar</h2>
+                <div className="space-y-3">
                   {FEATURES.map((f, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <div key={i} className="flex items-start gap-3 text-sm text-gray-700">
                       <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       {f}
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
-              {/* Catalogs */}
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Catálogos</h2>
-                <p className="text-gray-600 text-sm mb-4">
-                  Consulte os catálogos completos para conhecer todos os modelos e especificações técnicas disponíveis.
+        {/* ── Section 4: Catalogs + CTA ── */}
+        <section className="bg-gray-900 py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">Documentação</span>
+                <h2 className="text-2xl font-extrabold text-white mt-2 mb-3">Consulte os catálogos</h2>
+                <p className="text-gray-400 text-sm mb-6">
+                  Conheça todos os modelos, especificações técnicas e opções disponíveis nos catálogos oficiais Clage.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col gap-3">
                   {CATALOGS.map((c, i) => (
-                    <a
-                      key={i}
-                      href={c.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-3 bg-white border border-blue-200 hover:border-blue-400 hover:bg-blue-50 text-blue-700 font-semibold rounded-xl transition-all text-sm"
-                    >
-                      <FileText className="w-4 h-4" />
+                    <a key={i} href={c.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white font-semibold rounded-xl transition-all text-sm">
+                      <FileText className="w-4 h-4 text-blue-400" />
                       {c.label}
-                      <ExternalLink className="w-3 h-3 opacity-60" />
+                      <ExternalLink className="w-3 h-3 opacity-50 ml-auto" />
                     </a>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Image gallery placeholder */}
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {[
-                    '/Esquentadores/produto1.png',
-                    '/Esquentadores/nacasadebanho.jpg',
-                    '/Esquentadores/paraaplicacoesespeciais.jpg',
-                    '/Esquentadores/mini-instant-water-heaters.png',
-                    '/Esquentadores/poster.jpg',
-                  ].map((img, i) => (
-                    <div key={i} className="aspect-square bg-gray-100 rounded-xl overflow-hidden">
-                      <img
-                        src={img}
-                        alt={`Esquentador Clage ${i + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                <div className="bg-white/05 border border-white/10 rounded-2xl p-6">
+                  <Droplets className="w-8 h-8 text-blue-400 mb-4" />
+                  <h3 className="font-extrabold text-xl text-white mb-2">Pedir Informação</h3>
+                  <p className="text-gray-400 text-sm mb-6">
+                    Diga-nos a sua aplicação, o caudal necessário e o ponto de instalação, recomendamos o modelo certo.
+                  </p>
+                  <a href={WA} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3">
+                    <MessageCircle className="w-5 h-5" />
+                    WhatsApp
+                  </a>
+                  <Link to="/contact"
+                    className="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-center transition-colors text-sm">
+                    Formulário de Contacto
+                  </Link>
+                  <p className="text-gray-500 text-xs text-center mt-3">Análise gratuita e sem compromisso</p>
                 </div>
-              </div>
-
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-4">
-              <div className="bg-gray-900 rounded-3xl p-6 text-white sticky top-24">
-                <Droplets className="w-8 h-8 text-blue-400 mb-3" />
-                <h3 className="font-extrabold text-xl mb-2">Pedir Informação</h3>
-                <p className="text-gray-400 text-sm mb-5">
-                  Diga-nos a sua aplicação, o caudal necessário e o ponto de instalação, recomendamos o modelo certo.
-                </p>
-                <a
-                  href={WA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors mb-3"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp
-                </a>
-                <Link
-                  to="/contact"
-                  className="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-center transition-colors"
-                >
-                  Formulário de Contacto
-                </Link>
-                <p className="text-gray-500 text-xs text-center mt-3">Análise gratuita e sem compromisso</p>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-                <h3 className="font-extrabold text-gray-900 mb-2 text-sm">Sobre a Clage</h3>
-                <p className="text-gray-600 text-xs leading-relaxed">
-                  A Clage é uma empresa alemã especializada em aquecimento instantâneo de água, com décadas de experiência e presença em mais de 50 países. Os seus produtos combinam tecnologia de ponta com eficiência energética e durabilidade excepcional.
-                </p>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
     </>
   );

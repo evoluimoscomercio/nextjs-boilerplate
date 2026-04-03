@@ -6,106 +6,98 @@ import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA, COMPANY } from '@/config/company';
 
+const CONTACT_ITEMS = [
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: COMPANY.phone,
+    sub: 'A forma mais rápida',
+    href: null, // handled separately as main CTA
+    color: 'text-green-400',
+    bg: 'bg-green-500/10',
+  },
+  {
+    icon: Phone,
+    label: 'Telefone',
+    value: COMPANY.phone,
+    sub: 'Rede móvel nacional',
+    href: `tel:${COMPANY.phoneBare}`,
+    color: 'text-orange-400',
+    bg: 'bg-orange-500/10',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: COMPANY.email,
+    sub: 'Resposta em 24h úteis',
+    href: `mailto:${COMPANY.email}`,
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/10',
+  },
+  {
+    icon: MapPin,
+    label: 'Localização',
+    value: COMPANY.address.city,
+    sub: `${COMPANY.address.postalCode} · ${COMPANY.address.country}`,
+    href: null,
+    color: 'text-gray-400',
+    bg: 'bg-gray-500/10',
+  },
+];
+
 function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
-  const [status, setStatus] = useState(null); // null | 'sending' | 'sent' | 'error'
+  const [status, setStatus] = useState(null);
 
-  const handleChange = (e) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  const handleChange = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('sending');
-
-    // Build mailto fallback with form data
     const subject = encodeURIComponent(form.subject || 'Contacto via site');
     const body = encodeURIComponent(
       `Nome: ${form.name}\nEmail: ${form.email}\nTelefone: ${form.phone || 'Não indicado'}\n\n${form.message}`
     );
     window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`;
-
     setTimeout(() => {
       setStatus('sent');
       setForm({ name: '', email: '', phone: '', subject: '', message: '' });
     }, 500);
   };
 
-  return (
-    <motion.form
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-      className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8"
-      aria-label="Formulário de contacto"
-    >
-      <h2 className="text-xl font-extrabold text-gray-900 mb-1">Envie-nos uma mensagem</h2>
-      <p className="text-gray-500 text-sm mb-6">Preencha o formulário e responderemos o mais breve possível.</p>
+  const inputClass = "w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all";
 
-      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+  return (
+    <form onSubmit={handleSubmit} aria-label="Formulário de contacto" className="space-y-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Nome <span className="text-red-500" aria-hidden="true">*</span>
+            Nome <span className="text-red-500">*</span>
           </label>
-          <input
-            id="contact-name"
-            name="name"
-            type="text"
-            required
-            value={form.name}
-            onChange={handleChange}
-            placeholder="O seu nome"
-            autoComplete="name"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all"
-          />
+          <input id="contact-name" name="name" type="text" required value={form.name}
+            onChange={handleChange} placeholder="O seu nome" autoComplete="name" className={inputClass} />
         </div>
         <div>
           <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Email <span className="text-red-500" aria-hidden="true">*</span>
+            Email <span className="text-red-500">*</span>
           </label>
-          <input
-            id="contact-email"
-            name="email"
-            type="email"
-            required
-            value={form.email}
-            onChange={handleChange}
-            placeholder="email@exemplo.com"
-            autoComplete="email"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all"
-          />
+          <input id="contact-email" name="email" type="email" required value={form.email}
+            onChange={handleChange} placeholder="email@exemplo.com" autoComplete="email" className={inputClass} />
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Telefone
-          </label>
-          <input
-            id="contact-phone"
-            name="phone"
-            type="tel"
-            value={form.phone}
-            onChange={handleChange}
-            placeholder="+351 900 000 000"
-            autoComplete="tel"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all"
-          />
+          <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">Telefone</label>
+          <input id="contact-phone" name="phone" type="tel" value={form.phone}
+            onChange={handleChange} placeholder="+351 900 000 000" autoComplete="tel" className={inputClass} />
         </div>
         <div>
           <label htmlFor="contact-subject" className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Assunto <span className="text-red-500" aria-hidden="true">*</span>
+            Assunto <span className="text-red-500">*</span>
           </label>
-          <select
-            id="contact-subject"
-            name="subject"
-            required
-            value={form.subject}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all"
-          >
+          <select id="contact-subject" name="subject" required value={form.subject}
+            onChange={handleChange} className={inputClass}>
             <option value="">Selecione...</option>
             <option value="Pedido de orçamento">Pedido de orçamento</option>
             <option value="Informações sobre produtos">Informações sobre produtos</option>
@@ -115,48 +107,34 @@ function ContactForm() {
         </div>
       </div>
 
-      <div className="mb-6">
+      <div>
         <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-1.5">
-          Mensagem <span className="text-red-500" aria-hidden="true">*</span>
+          Mensagem <span className="text-red-500">*</span>
         </label>
-        <textarea
-          id="contact-message"
-          name="message"
-          required
-          rows={5}
-          value={form.message}
-          onChange={handleChange}
-          placeholder="Descreva o que procura, o espaço, ou a sua dúvida..."
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none transition-all resize-y"
-        />
+        <textarea id="contact-message" name="message" required rows={5} value={form.message}
+          onChange={handleChange} placeholder="Descreva o que procura, o espaço, ou a sua dúvida..."
+          className={`${inputClass} resize-y`} />
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
         <p className="text-xs text-gray-400">
-          Os seus dados são tratados de acordo com a nossa{' '}
+          Dados tratados conforme a{' '}
           <Link to="/privacy-policy" className="text-orange-600 hover:underline">Política de Privacidade</Link>.
         </p>
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          <Send className="w-4 h-4" aria-hidden="true" />
+        <button type="submit" disabled={status === 'sending'}
+          className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold transition-colors disabled:opacity-60 whitespace-nowrap">
+          <Send className="w-4 h-4" />
           {status === 'sending' ? 'A enviar...' : 'Enviar Mensagem'}
         </button>
       </div>
 
       {status === 'sent' && (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-4 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium"
-          role="status"
-        >
-          O seu cliente de email foi aberto com a mensagem pré-preenchida. Se preferir, pode também contactar-nos via WhatsApp para uma resposta mais rápida.
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+          className="p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium" role="status">
+          Mensagem preparada. Se o cliente de email não abriu automaticamente, contacte-nos via WhatsApp.
         </motion.div>
       )}
-    </motion.form>
+    </form>
   );
 }
 
@@ -168,134 +146,106 @@ export default function ContactPage() {
         description="Fale connosco via WhatsApp, telefone ou email. Análise gratuita e sem compromisso."
         canonical="/contact"
       />
-      <div className="min-h-screen bg-gray-50 pt-12 pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="min-h-screen bg-gray-50 pt-10 pb-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
 
           <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Contactos', path: '/contact' }]} />
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-14"
-          >
+          {/* Page header */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
             <span className="text-orange-600 text-xs font-bold uppercase tracking-widest">Contactos</span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mt-3 mb-4 tracking-tight">
-              Fale Connosco
-            </h1>
-            <p className="text-gray-500 text-lg max-w-lg mx-auto">
-              A forma mais rápida é via WhatsApp. Respondemos normalmente em poucos minutos.
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mt-2 mb-3 tracking-tight">Fale Connosco</h1>
+            <p className="text-gray-500 max-w-md">
+              Respondemos rapidamente. A forma mais cómoda é via WhatsApp.
             </p>
           </motion.div>
 
-          {/* WhatsApp hero card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="bg-gray-900 rounded-3xl p-6 sm:p-8 text-center mb-8 max-w-sm mx-auto"
-          >
-            <div className="w-20 h-20 bg-green-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
-              <MessageCircle className="w-10 h-10 text-white" aria-hidden="true" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">WhatsApp</h2>
-            <p className="text-gray-400 mb-7 max-w-sm mx-auto">
-              A forma mais rápida e cómoda. Envie fotos, vídeos ou descreva o seu caso, respondemos rapidamente.
-            </p>
-            <a
-              href={WA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-extrabold text-lg transition-all shadow-xl hover:shadow-green-500/40 active:scale-95"
+          {/* Two-column layout */}
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+
+            {/* LEFT — Contact info sidebar */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              className="lg:col-span-2 space-y-4"
             >
-              <MessageCircle className="w-6 h-6" aria-hidden="true" />
-              Abrir WhatsApp
-            </a>
-            <p className="text-gray-500 text-sm mt-5">{COMPANY.phone}</p>
-          </motion.div>
-
-          {/* Other contacts */}
-          <div className="grid sm:grid-cols-3 gap-4 mb-10">
-            {[
-              {
-                icon: Phone,
-                title: 'Telefone',
-                value: COMPANY.phone,
-                href: `tel:${COMPANY.phoneBare}`,
-                sub: 'Chamada para rede móvel nacional',
-                color: 'bg-orange-50 text-orange-600',
-              },
-              {
-                icon: Mail,
-                title: 'Email',
-                value: COMPANY.email,
-                href: `mailto:${COMPANY.email}`,
-                sub: 'Resposta em 24h úteis',
-                color: 'bg-blue-50 text-blue-600',
-              },
-              {
-                icon: MapPin,
-                title: 'Localização',
-                value: COMPANY.address.city,
-                href: null,
-                sub: `${COMPANY.address.postalCode} · ${COMPANY.address.country}`,
-                color: 'bg-gray-100 text-gray-600',
-              },
-            ].map((c, i) => {
-              const Icon = c.icon;
-              const inner = (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + i * 0.07 }}
-                  className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-orange-200 hover:shadow-md transition-all text-center"
-                >
-                  <div className={`w-12 h-12 ${c.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                    <Icon className="w-5 h-5" aria-hidden="true" />
+              {/* WhatsApp CTA */}
+              <div className="bg-gray-900 rounded-2xl p-6 text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-5 h-5 text-white" />
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{c.title}</div>
-                  <div className="font-bold text-gray-900 text-sm">{c.value}</div>
-                  <div className="text-gray-500 text-xs mt-1">{c.sub}</div>
-                </motion.div>
-              );
-              return c.href
-                ? <a key={i} href={c.href} aria-label={`${c.title}: ${c.value}`}>{inner}</a>
-                : <div key={i}>{inner}</div>;
-            })}
+                  <div>
+                    <div className="font-extrabold text-white">WhatsApp</div>
+                    <div className="text-gray-400 text-xs">Resposta em minutos</div>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-sm mb-5">
+                  Envie fotos, vídeos ou descreva o seu caso, respondemos rapidamente.
+                </p>
+                <a href={WA} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-colors">
+                  <MessageCircle className="w-4 h-4" />
+                  Abrir WhatsApp
+                </a>
+              </div>
+
+              {/* Other contact methods */}
+              <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden">
+                {CONTACT_ITEMS.slice(1).map((c, i) => {
+                  const Icon = c.icon;
+                  const inner = (
+                    <div className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
+                      <div className={`w-9 h-9 ${c.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-4 h-4 ${c.color}`} />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-bold uppercase tracking-widest text-gray-400">{c.label}</div>
+                        <div className="font-semibold text-gray-900 text-sm truncate">{c.value}</div>
+                        <div className="text-gray-500 text-xs">{c.sub}</div>
+                      </div>
+                    </div>
+                  );
+                  return c.href
+                    ? <a key={i} href={c.href} aria-label={`${c.label}: ${c.value}`}>{inner}</a>
+                    : <div key={i}>{inner}</div>;
+                })}
+              </div>
+
+              {/* Quick links */}
+              <div className="bg-orange-50 border border-orange-100 rounded-2xl p-5">
+                <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-3">Pode também interessar</p>
+                <div className="space-y-2">
+                  {[
+                    { label: 'Perguntas Frequentes', path: '/faqs' },
+                    { label: 'Os Nossos Produtos', path: '/products' },
+                    { label: 'Sobre Nós', path: '/about' },
+                  ].map(link => (
+                    <Link key={link.path} to={link.path}
+                      className="flex items-center justify-between p-2.5 bg-white rounded-xl border border-orange-100 hover:border-orange-300 hover:shadow-sm transition-all group">
+                      <span className="font-semibold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">{link.label}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-orange-400" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT — Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.15 }}
+              className="lg:col-span-3 bg-white rounded-2xl border border-gray-200 p-6 sm:p-8"
+            >
+              <h2 className="text-xl font-extrabold text-gray-900 mb-1">Envie-nos uma mensagem</h2>
+              <p className="text-gray-500 text-sm mb-6">Preencha o formulário e respondemos o mais breve possível.</p>
+              <ContactForm />
+            </motion.div>
           </div>
 
-          {/* Contact Form */}
-          <ContactForm />
-
-          {/* Helpful links */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-10 bg-orange-50 border border-orange-200 rounded-2xl p-6 sm:p-8"
-          >
-            <h2 className="text-lg font-extrabold text-gray-900 mb-4">Pode também interessar-lhe</h2>
-            <div className="grid sm:grid-cols-3 gap-3">
-              {[
-                { label: 'Perguntas Frequentes', desc: 'Respostas rápidas às dúvidas mais comuns', path: '/faqs' },
-                { label: 'Os Nossos Produtos', desc: 'Conheça todas as soluções disponíveis', path: '/products' },
-                { label: 'Sobre Nós', desc: 'Conheça o Eduardo e a empresa', path: '/about' },
-              ].map(link => (
-                <Link key={link.path} to={link.path}
-                  className="flex items-center gap-3 p-4 bg-white rounded-xl border border-orange-100 hover:border-orange-300 hover:shadow-sm transition-all group"
-                >
-                  <div className="flex-1">
-                    <div className="font-bold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">{link.label}</div>
-                    <div className="text-gray-500 text-xs mt-0.5">{link.desc}</div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-orange-400 flex-shrink-0" aria-hidden="true" />
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* NIF */}
+          {/* Footer info */}
           <p className="text-center text-gray-400 text-sm mt-10">
             {COMPANY.legalName} · NIF {COMPANY.nif}
           </p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WA_URL as WA } from '@/config/company';
@@ -7,6 +7,7 @@ import { WA_URL as WA } from '@/config/company';
 const NAV = [
   {
     label: 'Produtos',
+    path: '/products',
     children: [
       { label: 'Todos os Produtos', path: '/products' },
       { group: 'Infravermelhos Exterior' },
@@ -73,12 +74,14 @@ const DropItem = ({ item, onClose }) => {
 const DesktopDrop = ({ item }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const active = item.children?.some(c => c.path && location.pathname === c.path);
+  const navigate = useNavigate();
+  const active = item.children?.some(c => c.path && location.pathname === c.path) || (item.path && location.pathname === item.path);
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         aria-expanded={open}
         aria-haspopup="true"
+        onClick={() => item.path && navigate(item.path)}
         style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '8px 12px', borderRadius: '8px', border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '14px', fontWeight: 500, color: active ? '#F0A020' : '#A09890', transition: 'color 0.15s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         onMouseEnter={e => { if (!active) e.currentTarget.style.color = '#F0EBE3'; }}
         onMouseLeave={e => { if (!active) e.currentTarget.style.color = '#A09890'; }}>

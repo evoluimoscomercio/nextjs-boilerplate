@@ -36,13 +36,6 @@ const ALL_PRODUCTS = [
     img: '/Duotherm/saladeestar.png',
   },
   {
-    name: 'Esquentadores Clage',
-    tag: 'MADE IN GERMANY',
-    desc: 'Esquentadores instantâneos elétricos de alta eficiência. Sem depósito, sem esperas, sem desperdício. Tecnologia alemã Clage para água quente imediata.',
-    path: '/products/esquentadores',
-    img: '/Esquentadores/produto1.png',
-  },
-  {
     name: 'ClimateCoating',
     tag: 'REVESTIMENTO TÉRMICO',
     desc: 'Membrana cerâmica de nanotecnologia alemã. Aplica-se como tinta, isola termicamente, regula a humidade do ar e reduz custos de climatização.',
@@ -63,6 +56,13 @@ const ALL_PRODUCTS = [
     path: '/products/bioclimatizadores',
     img: '/Bioclimatizadores/bioclimatizadorquarto.png',
     objectPosition: 'bottom',
+  },
+  {
+    name: 'Esquentadores Clage',
+    tag: 'MADE IN GERMANY',
+    desc: 'Esquentadores instantâneos elétricos de alta eficiência. Sem depósito, sem esperas, sem desperdício. Tecnologia alemã Clage para água quente imediata.',
+    path: '/products/esquentadores',
+    img: '/Esquentadores/produto1.png',
   },
   {
     name: 'Biolareiras Herkell',

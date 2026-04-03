@@ -8,7 +8,7 @@ const SEOHead = ({
   canonical,
   schemas = [],
   language = 'pt',
-  image = 'https://images.unsplash.com/photo-1691246276155-f38f5c2e6856',
+  image = '/logo.png',
   type = 'website',
 }) => {
   const fullCanonical = canonical ? `${COMPANY.baseUrl}${canonical}` : COMPANY.baseUrl;

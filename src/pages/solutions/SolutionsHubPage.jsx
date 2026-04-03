@@ -55,7 +55,7 @@ const SolutionsHubPage = () => {
 
   return (
     <>
-      <SEOHead title={`${title} | Evoluimos Comércio`} description={desc} canonical="/solutions" language={language} image="https://images.unsplash.com/photo-1693594558979-aed4872ff156" />
+      <SEOHead title={`${title} | Evoluimos Comércio`} description={desc} canonical="/solutions" language={language} image="/semhumidade.png" />
       <div className="min-h-screen pt-24 pb-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <Breadcrumb items={[{ label: t?.nav?.home || 'Home', path: '/' }, { label: t?.nav?.solutions || 'Solutions', path: '/solutions' }]} />

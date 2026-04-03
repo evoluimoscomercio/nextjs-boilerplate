@@ -324,7 +324,7 @@ export default function HomePage() {
       `}</style>
 
       <SEOHead
-        title="Evoluimos Comércio Conforto Térmico Sustentável"
+        title="Evoluimos Comércio | Conforto Térmico Sustentável"
         description="Aquecimento, arrefecimento e proteção de edifícios com tecnologia europeia de alta eficiência. Distribuidores oficiais de Solamagic, Duotherm, Drymat e mais."
         canonical="/"
       />

@@ -20,7 +20,8 @@
       "Bash(ls c:/Users/maria/Documents/Evolucom/nextjs-boilerplate/postcss.config*)",
       "Bash(wc -l \"c:\\\\Users\\\\maria\\\\Documents\\\\Evolucom\\\\nextjs-boilerplate\\\\src\\\\pages\"/*.jsx)",
       "Bash(grep -n \"text-4xl sm:text-6xl\" c:/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/*.jsx)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(npm uninstall:*)"
     ]
   }
 }

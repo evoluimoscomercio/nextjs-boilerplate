@@ -18,7 +18,8 @@
       "Bash(npx vite:*)",
       "Bash(npm install:*)",
       "Bash(ls c:/Users/maria/Documents/Evolucom/nextjs-boilerplate/postcss.config*)",
-      "Bash(wc -l \"c:\\\\Users\\\\maria\\\\Documents\\\\Evolucom\\\\nextjs-boilerplate\\\\src\\\\pages\"/*.jsx)"
+      "Bash(wc -l \"c:\\\\Users\\\\maria\\\\Documents\\\\Evolucom\\\\nextjs-boilerplate\\\\src\\\\pages\"/*.jsx)",
+      "Bash(grep -n \"text-4xl sm:text-6xl\" c:/Users/maria/Documents/Evolucom/nextjs-boilerplate/src/pages/products/*.jsx)"
     ]
   }
 }

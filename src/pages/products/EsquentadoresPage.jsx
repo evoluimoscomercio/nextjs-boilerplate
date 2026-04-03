@@ -55,10 +55,10 @@ export default function EsquentadoresPage() {
             <span className="inline-block bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
               Made in Germany
             </span>
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-lg">
               Esquentadores Clage
             </h1>
-            <p className="text-blue-200 font-semibold mt-3 text-lg drop-shadow">
+            <p className="text-blue-200 font-semibold mt-3 text-base sm:text-lg drop-shadow px-2">
               Água Quente Instantânea · Sem Depósito · Alta Eficiência
             </p>
           </div>

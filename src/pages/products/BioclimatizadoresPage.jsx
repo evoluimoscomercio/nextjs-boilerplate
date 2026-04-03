@@ -30,8 +30,8 @@ export default function BioclimatizadoresPage() {
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <span className="inline-block bg-teal-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Arrefecimento Natural</span>
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Bioclimatizadores</h1>
-            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Arrefecimento por Evaporação · Sem Compressor · Baixo Consumo</p>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Bioclimatizadores</h1>
+            <p className="text-orange-400 font-semibold mt-2 text-base sm:text-lg drop-shadow px-2">Arrefecimento por Evaporação · Sem Compressor · Baixo Consumo</p>
           </div>
         </div>
 

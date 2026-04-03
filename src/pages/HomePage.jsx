@@ -395,7 +395,7 @@ export default function HomePage() {
 
             {/* Heading + text */}
             <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 56px' }}>
-              <h2 className="pjs" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '18px' }}>
+              <h2 className="pjs" style={{ fontSize: 'clamp(1.55rem, 5vw, 2.8rem)', fontWeight: 800, color: '#F5F0E8', lineHeight: 1.15, marginBottom: '18px' }}>
                 Complementaridade <span style={{ color: '#B84500' }}>é a chave.</span>
               </h2>
               <p className="pjs" style={{ fontSize: '16px', color: '#9A9490', lineHeight: 1.85 }}>

@@ -114,7 +114,7 @@ export default function ComfortSunPage() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Tecnologia Alemã</span>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ComfortSun</h1>
-            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">4 Linhas · Interior & Exterior · TÜV&nbsp;Certificado</p>
+            <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow leading-snug">4 Linhas · Interior & Exterior<br />TÜV&nbsp;Certificado</p>
           </div>
         </div>
 

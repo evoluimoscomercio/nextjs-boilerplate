@@ -348,20 +348,6 @@ export default function RealEstatePage() {
               );
             })}
           </div>
-
-          {/* Ironic quote */}
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ marginTop: '48px', background: 'rgba(184,69,0,0.06)', border: '1px solid rgba(184,69,0,0.18)', borderRadius: '16px', padding: '28px 32px', display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '48px', color: 'rgba(184,69,0,0.35)', lineHeight: 0.8, fontFamily: 'Georgia, serif', flexShrink: 0 }}>"</span>
-            <div>
-              <p style={{ fontSize: '16px', color: '#C8C0B8', lineHeight: 1.8, fontStyle: 'italic', marginBottom: '10px' }}>
-                Os agentes não fazem nada, apenas recebem comissão...
-              </p>
-              <p style={{ fontSize: '14px', color: '#F0A020', fontWeight: 700 }}>
-                É quase isso, Eduardo Catarino
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 

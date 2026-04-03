@@ -40,14 +40,14 @@ const ALL_PRODUCTS = [
     tag: 'MADE IN GERMANY',
     desc: 'Esquentadores instantâneos elétricos de alta eficiência. Sem depósito, sem esperas, sem desperdício. Tecnologia alemã Clage para água quente imediata.',
     path: '/products/esquentadores',
-    img: '/esquentadores/esquentador.webp',
+    img: '/Esquentadores/produto1.png',
   },
   {
     name: 'ClimateCoating',
     tag: 'REVESTIMENTO TÉRMICO',
     desc: 'Membrana cerâmica de nanotecnologia alemã. Aplica-se como tinta, isola termicamente, regula a humidade do ar e reduz custos de climatização.',
     path: '/products/climatecoating',
-    img: '/baldestinta.webp',
+    img: '/ClimateCoating/baldestinta.webp',
   },
   {
     name: 'Drymat',

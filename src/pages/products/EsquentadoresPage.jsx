@@ -59,11 +59,10 @@ export default function EsquentadoresPage() {
         <div className="relative h-80 md:h-[420px] overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900">
           {/* Try to show an image if available, gracefully falls back to gradient */}
           <img
-            src="/esquentadores/esquentador.webp"
+            src="/Esquentadores/poster.jpg"
             alt="Esquentador Clage"
             className="w-full h-full object-cover opacity-40"
             loading="eager"
-            onError={e => { e.currentTarget.style.display = 'none'; }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
@@ -175,9 +174,11 @@ export default function EsquentadoresPage() {
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {[
-                    '/esquentadores/esquentador.webp',
-                    '/esquentadores/instalacao.webp',
-                    '/esquentadores/detalhe.webp',
+                    '/Esquentadores/produto1.png',
+                    '/Esquentadores/nacasadebanho.jpg',
+                    '/Esquentadores/paraaplicacoesespeciais.jpg',
+                    '/Esquentadores/mini-instant-water-heaters.png',
+                    '/Esquentadores/poster.jpg',
                   ].map((img, i) => (
                     <div key={i} className="aspect-square bg-gray-100 rounded-xl overflow-hidden">
                       <img
@@ -185,9 +186,6 @@ export default function EsquentadoresPage() {
                         alt={`Esquentador Clage ${i + 1}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
-                        onError={e => {
-                          e.currentTarget.parentElement.style.display = 'none';
-                        }}
                       />
                     </div>
                   ))}

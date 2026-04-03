@@ -277,7 +277,7 @@ const PRODUCTS = [
   { name: 'Solamagic', tag: 'Premium', icon: Sun, desc: 'Infravermelhos de onda curta para esplanadas. Calor imediato, 92% de eficiência. Made in Germany.', path: '/products/solamagic', img: '/Solamagic/aquecedorexterior.png' },
   { name: 'ComfortSun', tag: 'Polivalente', icon: Zap, desc: 'Quatro linhas de aquecedores infravermelhos para qualquer espaço e orçamento.', path: '/products/comfortsun', img: '/ComfortSun/esplanada.png' },
   { name: 'Duotherm', tag: 'Radiante', icon: Thermometer, desc: 'Radiadores em pedra natural. Calor saudável por infravermelhos, sem CO2.', path: '/products/duotherm', img: '/Duotherm/saladeestar.png' },
-  { name: 'ClimateCoating', tag: 'Revestimento', icon: Wind, desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: '/baldestinta.webp' },
+  { name: 'ClimateCoating', tag: 'Revestimento', icon: Wind, desc: 'Membrana cerâmica de nanotecnologia. Isola termicamente e regula humidade.', path: '/products/climatecoating', img: '/ClimateCoating/baldestinta.webp' },
   { name: 'Drymat', tag: 'Anti-Humidade', icon: Droplets, desc: 'Elimina humidade ascendente sem obras. Tecnologia eletromagnética austríaca.', path: '/products/drymat', img: 'https://images.unsplash.com/photo-1693594558979-aed4872ff156?w=700&q=80' },
   { name: 'Bioclimatizadores', tag: 'Arrefecimento', icon: Wind, desc: 'Arrefecimento natural por evaporação. Sem compressor. Ideal para o verão.', path: '/products/bioclimatizadores', img: '/Bioclimatizadores/bioclimatizadorquarto.png', objectPosition: 'bottom' },
 ];

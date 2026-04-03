@@ -285,7 +285,7 @@ export default function ComfortSunPage() {
                     to={s.path}
                     className="block w-full py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold text-center rounded-lg transition-colors"
                   >
-                    saber mais
+                    SABER MAIS
                   </Link>
                 </motion.div>
               ))}

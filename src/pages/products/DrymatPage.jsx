@@ -49,7 +49,7 @@ export default function DrymatPage() {
                 <p className="text-gray-700 leading-relaxed mb-5">
                   O equipamento altera a polaridade da água existente dentro das paredes. Como resultado dessa mudança, a humidade que subia começa a descer e volta para a terra. Após alguns meses, as paredes ficam secas.
                 </p>
-                <div className="rounded-xl overflow-hidden aspect-[4/3] mb-2">
+                <div className="rounded-xl overflow-hidden aspect-[4/3] mb-2 max-w-xs">
                   <img src="/Drymat/drymat.jpg" alt="Aparelho Drymat instalado" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>

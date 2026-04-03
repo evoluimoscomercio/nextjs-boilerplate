@@ -23,7 +23,7 @@ export default function BioclimatizadoresPage() {
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores arrefecimento natural" className="w-full h-full object-cover object-top" loading="eager" />
+          <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores arrefecimento natural" className="w-full h-full object-cover object-bottom" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute inset-0 flex flex-col">
             <div className="flex justify-center pt-3 px-4">
@@ -99,7 +99,7 @@ export default function BioclimatizadoresPage() {
                       ))}
                     </div>
                   </div>
-                  <img src="/Bioclimatizadores/mf60.png" alt="Bioclimatizador MF60" className="w-28 sm:w-36 flex-shrink-0 rounded-xl object-cover" style={{aspectRatio: '3/4'}} loading="lazy" />
+                  <img src="/Bioclimatizadores/mf60.png" alt="Bioclimatizador MF60" className="w-16 sm:w-20 flex-shrink-0 rounded-xl object-contain" style={{aspectRatio: '1/2'}} loading="lazy" />
                 </div>
               </div>
             </div>

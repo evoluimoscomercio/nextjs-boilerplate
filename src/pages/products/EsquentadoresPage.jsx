@@ -41,7 +41,8 @@ export default function EsquentadoresPage() {
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/85" />
-          <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
+          <div className="absolute inset-0 flex flex-col">
+            <div className="flex justify-center pt-3 px-4">
             <Breadcrumb
               items={[
                 { label: 'Início', path: '/' },
@@ -50,8 +51,8 @@ export default function EsquentadoresPage() {
               ]}
               dark
             />
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-4 pb-8">
             <span className="inline-block bg-blue-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
               Made in Germany
             </span>
@@ -61,6 +62,7 @@ export default function EsquentadoresPage() {
             <p className="text-blue-200 font-semibold mt-3 text-base sm:text-lg drop-shadow px-2">
               Água Quente Instantânea · Sem Depósito · Alta Eficiência
             </p>
+          </div>
           </div>
         </div>
 

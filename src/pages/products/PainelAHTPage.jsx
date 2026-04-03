@@ -37,7 +37,8 @@ export default function PainelAHTPage() {
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
-          <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
+          <div className="absolute inset-0 flex flex-col">
+            <div className="flex justify-center pt-3 px-4">
             <Breadcrumb
               items={[
                 { label: 'Início', path: '/' },
@@ -46,11 +47,12 @@ export default function PainelAHTPage() {
               ]}
               dark
             />
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-4 pb-8">
             <span className="inline-block bg-indigo-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Aquecimento Interior</span>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">Painel AHT</h1>
             <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow">Aquecimento Interior · Wi-Fi · Touchscreen</p>
+          </div>
           </div>
         </div>
 

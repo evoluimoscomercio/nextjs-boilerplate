@@ -105,16 +105,18 @@ export default function ComfortSunPage() {
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
-          <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
+          <div className="absolute inset-0 flex flex-col">
+            <div className="flex justify-center pt-3 px-4">
             <Breadcrumb
               items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'ComfortSun', path: '/products/comfortsun' }]}
               dark
             />
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-4 pb-8">
             <span className="inline-block bg-orange-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Tecnologia Alemã</span>
             <h1 className="text-4xl sm:text-6xl font-extrabold text-white mt-4 tracking-tight drop-shadow-lg">ComfortSun</h1>
             <p className="text-orange-400 font-semibold mt-2 text-lg drop-shadow leading-snug">4 Linhas · Interior & Exterior<br />TÜV&nbsp;Certificado</p>
+          </div>
           </div>
         </div>
 

@@ -15,17 +15,19 @@ const NAV = [
       { label: 'ComfortSun', path: '/products/comfortsun', badge: 'Polivalente' },
       { group: 'Aquecimento Interior' },
       { label: 'Duotherm Radiante', path: '/products/duotherm' },
+      { label: 'Painel AHT', path: '/products/painel-aht' },
       { group: 'Proteção e Conforto' },
       { label: 'ClimateCoating', path: '/products/climatecoating' },
       { label: 'Drymat Anti-Humidade', path: '/products/drymat' },
       { label: 'Bioclimatizadores', path: '/products/bioclimatizadores' },
       { label: 'Biolareiras Herkell', path: '/products/eco-fireplaces' },
       { group: 'Água Quente' },
-      { label: 'Esquentadores Clage', path: '/products/esquentadores', badge: 'Novo' },
+      { label: 'Esquentadores Clage', path: '/products/esquentadores' },
     ]
   },
   {
     label: 'Soluções',
+    path: '/solutions',
     children: [
       { label: 'Todas as Soluções', path: '/solutions' },
       { group: 'Aquecimento' },

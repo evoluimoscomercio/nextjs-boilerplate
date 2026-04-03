@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle2, MessageCircle, Thermometer, PanelTop } from 'lucide-react';
+import { CheckCircle2, MessageCircle, Thermometer } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -27,27 +27,6 @@ const MODELS = [
       'Materiais de qualidade alemã, baixa manutenção',
       'Ideal para esplanadas sem estrutura coberta',
       'Resistente ao vento, calor direto, não aquece o ar',
-    ],
-  },
-  {
-    icon: PanelTop,
-    name: 'Painel AHT, Aquecimento Interior',
-    imgs: ['/infravermelhosAHT.webp'],
-    watts: ['Vários modelos'],
-    coverage: 'Variável conforme modelo',
-    ip: null,
-    tag: 'Interior',
-    tagColor: 'bg-indigo-600',
-    colors: ['Branco PET'],
-    features: [
-      'Ecrã LED touchscreen integrado no painel',
-      'Temperatura ajustável: 16°C a 37°C',
-      'Conectividade Wi-Fi com app de controlo',
-      'Timer programável até 9 horas',
-      'Timer semanal programável',
-      'Duplo termostato interno contra sobreaquecimento',
-      'Telecomando incluído',
-      'Montagem em parede, teto ou suporte móvel',
     ],
   },
 ];
@@ -82,7 +61,7 @@ export default function ComfortSunPolivalentePage() {
                 Polivalente
               </h1>
               <p className="text-blue-300 mt-2 font-medium">
-                Interior & Exterior · Torres · Painéis AHT · Bluetooth & Wi-Fi
+                Exterior · Torres · Bluetooth
               </p>
             </div>
             <div className="mt-6">
@@ -100,10 +79,10 @@ export default function ComfortSunPolivalentePage() {
               <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Interior e exterior sem compromissos</h2>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  A gama <strong>Polivalente ComfortSun</strong> adapta-se a múltiplos ambientes, desde esplanadas sem cobertura fixa até salas e divisões interiores. Duas famílias de produto, cada uma otimizada para o seu contexto.
+                  A gama <strong>Polivalente ComfortSun</strong> adapta-se a múltiplos ambientes exteriores, desde esplanadas sem cobertura fixa a terraços e eventos.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  As <strong>Torres de Aquecimento</strong> são portáteis, resistentes ao exterior (IP 65) e com Bluetooth. Os <strong>Painéis AHT</strong> são a solução elegante para interior, com touchscreen, Wi-Fi e controlo preciso de temperatura.
+                  As <strong>Torres de Aquecimento</strong> são portáteis, resistentes ao exterior (IP 65) e com Bluetooth para controlo remoto via app ou telecomando.
                 </p>
               </div>
 

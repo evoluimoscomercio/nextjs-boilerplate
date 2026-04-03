@@ -21,6 +21,7 @@ import DrymatPage from '@/pages/products/DrymatPage';
 import BioclimatizadoresPage from '@/pages/products/BioclimatizadoresPage';
 import EcoFireplacesPage from '@/pages/products/EcoFireplacesPage';
 import EsquentadoresPage from '@/pages/products/EsquentadoresPage';
+import PainelAHTPage from '@/pages/products/PainelAHTPage';
 
 import SolutionsHubPage from '@/pages/solutions/SolutionsHubPage';
 import EliminateWallMoisturePage from '@/pages/solutions/EliminateWallMoisturePage';
@@ -62,6 +63,7 @@ function App() {
                 <Route path="/products/bioclimatizadores" element={<BioclimatizadoresPage />} />
                 <Route path="/products/eco-fireplaces" element={<EcoFireplacesPage />} />
                 <Route path="/products/esquentadores" element={<EsquentadoresPage />} />
+                <Route path="/products/painel-aht" element={<PainelAHTPage />} />
 
                 <Route path="/solutions" element={<SolutionsHubPage />} />
                 <Route path="/solutions/eliminate-moisture" element={<EliminateWallMoisturePage />} />

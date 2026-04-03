@@ -29,7 +29,7 @@ export default function DuothermPage() {
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="/Duotherm/saladeestar.png" alt="Duotherm Aquecimento Radiante em sala de estar" className="w-full h-full object-cover" loading="eager" />
+          <img src="/Duotherm/saladeestar.png" alt="Duotherm Aquecimento Radiante em sala de estar" className="w-full h-full object-cover object-top" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Duotherm', path: '/products/duotherm' }]} dark />

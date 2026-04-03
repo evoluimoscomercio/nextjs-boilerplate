@@ -159,7 +159,7 @@ export default function SolamagicPage() {
               <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
                 <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Comparação</p>
                 <p className="text-sm text-gray-700 font-semibold mb-1">Solamagic vs ComfortSun</p>
-                <p className="text-xs text-gray-500">Solamagic é o posicionamento premium (Mercedes). ComfortSun é a alternativa polivalente de volume (Fiat).</p>
+                <p className="text-xs text-gray-500">Solamagic é o posicionamento premium de topo de gama. ComfortSun é a alternativa polivalente de volume.</p>
                 <Link to="/products/comfortsun" className="inline-flex items-center gap-1 text-xs text-orange-600 font-bold mt-3 hover:text-orange-700">
                   Ver ComfortSun <ArrowRight className="w-3 h-3" />
                 </Link>

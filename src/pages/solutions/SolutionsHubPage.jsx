@@ -21,35 +21,35 @@ const SolutionsHubPage = () => {
       name: language === 'pt' ? 'Melhorar Conforto em Esplanadas' : 'Improve Outdoor Comfort',
       desc: language === 'pt' ? 'Aumente a rentabilidade do seu espaço exterior.' : 'Increase profitability of your outdoor space.',
       icon: Sun,
-      image: 'https://images.unsplash.com/photo-1662976631114-bcec16615950'
+      image: '/ComfortSun/jantaraquecedor.png'
     },
     {
       id: 'eliminate-moisture',
       name: language === 'pt' ? 'Eliminar Humidade nas Paredes' : 'Eliminate Wall Moisture',
       desc: language === 'pt' ? 'Soluções definitivas sem obras.' : 'Definitive solutions without renovation.',
       icon: Droplets,
-      image: 'https://images.unsplash.com/photo-1697228428093-dda1eb6d9f1e'
+      image: '/semhumidade.png'
     },
     {
       id: 'reduce-heating-costs',
       name: language === 'pt' ? 'Reduzir Custos de Aquecimento' : 'Reduce Heating Costs',
       desc: language === 'pt' ? 'Aumente a eficiência energética.' : 'Increase energy efficiency.',
       icon: TrendingDown,
-      image: 'https://images.unsplash.com/photo-1654630106961-955f61257d8f'
+      image: '/reduzircustos.png'
     },
     {
       id: 'natural-cooling',
       name: language === 'pt' ? 'Arrefecimento Natural' : 'Natural Cooling',
       desc: language === 'pt' ? 'Alternativa ecológica ao ar condicionado. Até 80% menos consumo.' : 'Eco-friendly alternative to air conditioning. Up to 80% less consumption.',
       icon: Wind,
-      image: 'https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a'
+      image: '/arrefecimentonatural.png'
     },
     {
       id: 'sustainable-business',
       name: language === 'pt' ? 'Soluções para Empresas' : 'Business Solutions',
       desc: language === 'pt' ? 'Soluções corporativas e ESG. Reduza emissões e pague menos energia.' : 'Corporate and ESG solutions. Reduce emissions and lower energy costs.',
       icon: Building2,
-      image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e'
+      image: '/soluçõesparaempresas.png'
     }
   ];
 

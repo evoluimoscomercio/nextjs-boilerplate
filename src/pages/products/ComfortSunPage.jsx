@@ -64,16 +64,6 @@ const SITUATIONS = [
     path: '/products/comfortsun/polivalente',
   },
   {
-    label: 'Jantar ao Ar Livre',
-    img: '/ComfortSun/jantaraquecedor.png',
-    path: '/products/comfortsun/professional',
-  },
-  {
-    label: 'Igrejas',
-    img: '/ComfortSun/igrejas.webp',
-    path: '/contact',
-  },
-  {
     label: 'Esplanadas',
     img: '/ComfortSun/esplanada.png',
     path: '/products/comfortsun/professional',
@@ -84,14 +74,14 @@ const SITUATIONS = [
     path: '/products/comfortsun/polivalente',
   },
   {
-    label: 'Praia e Espaços Abertos',
-    img: '/ComfortSun/praia.png',
-    path: '/products/comfortsun/polivalente',
+    label: 'Igrejas, Massagem e Bem-Estar',
+    img: '/ComfortSun/igrejas.webp',
+    path: '/contact',
   },
   {
-    label: 'Massagem e Bem-Estar',
-    img: '/ComfortSun/massagistaaquecedor.jpg',
-    path: '/contact',
+    label: 'Chapéus-de-sol',
+    img: '/ComfortSun/praia.png',
+    path: '/products/comfortsun/polivalente',
   },
 ];
 
@@ -109,7 +99,7 @@ export default function ComfortSunPage() {
         {/* Hero */}
         <div className="relative h-80 md:h-[500px] overflow-hidden">
           <img
-            src="/ComfortSun/esplanada.png"
+            src="/ComfortSun/aquecedorrua.png"
             alt="ComfortSun — aquecedores infravermelhos em esplanada"
             className="w-full h-full object-cover"
             loading="eager"

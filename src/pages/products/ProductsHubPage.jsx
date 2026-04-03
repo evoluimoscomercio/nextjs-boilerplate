@@ -69,7 +69,7 @@ const ALL_PRODUCTS = [
     tag: 'BIOLAREIRAS ECO',
     desc: 'Lareiras a bio-etanol e grelhadores a pellets. Conforto e estética sem chaminé, sem instalação de gás, totalmente ecológicos.',
     path: '/products/eco-fireplaces',
-    img: 'https://images.unsplash.com/photo-1679419857423-ad10bd29a74f?w=700&q=80',
+    img: '/biolareiras/biolareira.jpg',
   },
 ];
 

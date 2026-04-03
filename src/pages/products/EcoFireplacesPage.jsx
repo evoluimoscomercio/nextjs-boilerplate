@@ -43,6 +43,18 @@ export default function EcoFireplacesPage() {
               </div>
 
               <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
+                <div className="grid grid-cols-2 gap-3 mb-8">
+                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                    <img src="/biolareiras/biolareirasalaestar.jpg" alt="Biolareira Herkell em sala de estar" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                    <img src="/biolareiras/biolareira.jpg" alt="Biolareira Herkell" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Vantagens</h2>
                 <div className="grid sm:grid-cols-2 gap-2.5">
                   {[

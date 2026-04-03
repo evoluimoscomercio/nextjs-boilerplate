@@ -23,7 +23,7 @@ export default function BioclimatizadoresPage() {
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">
-          <img src="/Bioclimatizadores/bioclimatizadorquarto.png" alt="Bioclimatizador em quarto — arrefecimento natural" className="w-full h-full object-cover" loading="eager" />
+          <img src="/Bioclimatizadores/bioclimatizadorquarto.png" alt="Bioclimatizador em quarto — arrefecimento natural" className="w-full h-full object-cover object-top" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
           <div className="absolute top-20 left-0 right-0 flex justify-center px-4">
             <Breadcrumb items={[{ label: 'Início', path: '/' }, { label: 'Produtos', path: '/products' }, { label: 'Bioclimatizadores', path: '/products/bioclimatizadores' }]} dark />
@@ -88,6 +88,18 @@ export default function BioclimatizadoresPage() {
                       <CheckCircle2 className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" />{b}
                     </div>
                   ))}
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4">Galeria</h2>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                    <img src="/Bioclimatizadores/bioclimatizadores.png" alt="Bioclimatizadores" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="rounded-xl overflow-hidden aspect-[4/3]">
+                    <img src="/Bioclimatizadores/mf60.png" alt="Bioclimatizador MF60" className="w-full h-full object-cover" loading="lazy" />
+                  </div>
                 </div>
               </div>
             </div>

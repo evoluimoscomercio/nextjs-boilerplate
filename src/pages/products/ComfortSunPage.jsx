@@ -4,7 +4,8 @@ import { CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 const LINES = [
   {
@@ -93,6 +94,7 @@ export default function ComfortSunPage() {
         description="Gama ComfortSun de aquecedores infravermelhos: Polivalente, Profissional, Deluxe e Especializado. Tecnologia alemã TÜV para esplanadas, hotéis, jardins e interior."
         canonical="/products/comfortsun"
         image="/ComfortSun/esplanada.png"
+        schemas={[generateProductSchema({ name: 'ComfortSun', description: 'Gama de aquecedores infravermelhos para esplanadas, hotéis, jardins e interior. Tecnologia alemã TÜV.', image: `${COMPANY.baseUrl}/ComfortSun/esplanada.png`, brand: 'ComfortSun', url: `${COMPANY.baseUrl}/products/comfortsun` })]}
       />
 
       <div className="min-h-screen">

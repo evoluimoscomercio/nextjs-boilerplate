@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateLocalBusinessSchema, generateContactSchema } from '@/utils/schemaMarkup';
 
 const CONTACT_ITEMS = [
   {
@@ -145,6 +146,7 @@ export default function ContactPage() {
         title="Contactos | Evoluimos Comércio"
         description="Fale connosco via WhatsApp, telefone ou email. Análise gratuita e sem compromisso."
         canonical="/contact"
+        schemas={[generateLocalBusinessSchema(), generateContactSchema()]}
       />
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">

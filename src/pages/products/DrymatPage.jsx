@@ -4,7 +4,8 @@ import { CheckCircle2, MessageCircle, Droplets, AlertTriangle } from 'lucide-rea
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 export default function DrymatPage() {
   const symptoms = ['Manchas escuras nas paredes', 'Cheiro a bolor', 'Salitre e eflorescências', 'Tinta a descascar', 'Paredes frias e húmidas', 'Problemas respiratórios'];
@@ -21,6 +22,7 @@ export default function DrymatPage() {
         description="Drymat elimina humidade ascendente sem obras. Tecnologia alemã de frequência eletromagnética. Análise gratuita ao seu imóvel."
         canonical="/products/drymat"
         image="/Drymat/Eliminarhumidadeparedes.png"
+        schemas={[generateProductSchema({ name: 'Drymat', description: 'Elimina humidade ascendente sem obras. Tecnologia alemã de frequência eletromagnética. Análise gratuita ao imóvel.', image: `${COMPANY.baseUrl}/Drymat/Eliminarhumidadeparedes.png`, brand: 'Drymat', url: `${COMPANY.baseUrl}/products/drymat` })]}
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">

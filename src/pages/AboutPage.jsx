@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 import { WA_URL as WA } from '@/config/company';
+import { generateOrganizationSchema } from '@/utils/schemaMarkup';
 
 const BRANDS = ['SOLAMAGIC', 'COMFORTSUN', 'DUOTHERM', 'CLIMATECOATING', 'DRYMAT', 'HERKELL', 'CLAGE'];
 
@@ -15,6 +16,7 @@ export default function AboutPage() {
         title="Sobre Nós Eduardo Catarino | Evoluimos Comércio"
         description="Fundada por Eduardo Catarino em 2018. Especialistas em conforto térmico sustentável aquecimento, arrefecimento e proteção de edifícios com tecnologia alemã."
         canonical="/about"
+        schemas={[generateOrganizationSchema()]}
       />
       <div className="min-h-screen bg-gray-50 pt-10 pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">

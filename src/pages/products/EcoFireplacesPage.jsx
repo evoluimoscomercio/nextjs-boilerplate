@@ -4,7 +4,8 @@ import { CheckCircle2, MessageCircle, Flame } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 export default function EcoFireplacesPage() {
   return (
@@ -14,6 +15,7 @@ export default function EcoFireplacesPage() {
         description="Biolareiras a bio-etanol e grelhadores a pellets Herkell. Sem chaminé, sem gás, 100% ecológico. Conforto e estética para qualquer espaço."
         canonical="/products/eco-fireplaces"
         image="/biolareiras/biolareira.jpg"
+        schemas={[generateProductSchema({ name: 'Biolareiras Herkell', description: 'Biolareiras a bio-etanol e grelhadores a pellets. Sem chaminé, sem gás, 100% ecológico.', image: `${COMPANY.baseUrl}/biolareiras/biolareira.jpg`, brand: 'Herkell', url: `${COMPANY.baseUrl}/products/eco-fireplaces` })]}
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">

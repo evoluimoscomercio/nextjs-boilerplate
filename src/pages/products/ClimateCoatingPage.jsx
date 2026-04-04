@@ -4,7 +4,8 @@ import { CheckCircle2, MessageCircle, Wind } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 export default function ClimateCoatingPage() {
   const products = [
@@ -20,6 +21,7 @@ export default function ClimateCoatingPage() {
         description="ClimateCoating: membrana cerâmica de nanotecnologia alemã. Isola termicamente, regula humidade, aplica-se como tinta. Economias de 30-40% em climatização."
         canonical="/products/climatecoating"
         image="/ClimateCoating/bannermarketing.png"
+        schemas={[generateProductSchema({ name: 'ClimateCoating', description: 'Membrana cerâmica de nanotecnologia alemã. Isola termicamente, regula humidade, aplica-se como tinta. Economias de 30-40% em climatização.', image: `${COMPANY.baseUrl}/ClimateCoating/bannermarketing.png`, brand: 'ClimateCoating', url: `${COMPANY.baseUrl}/products/climatecoating` })]}
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Phone, Sun, Droplets, Wind, Thermometer, Zap, Flame, Snowflake } from 'lucide-react';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateLocalBusinessSchema, generateOrganizationSchema } from '@/utils/schemaMarkup';
 
 /* ── Animated SVG Hero (interactive) ──────────────────────────────── */
 function HeroGraphic() {
@@ -327,6 +328,7 @@ export default function HomePage() {
         title="Evoluimos Comércio | Conforto Térmico Sustentável"
         description="Aquecimento, arrefecimento e proteção de edifícios com tecnologia europeia de alta eficiência. Distribuidores oficiais de Solamagic, Duotherm, Drymat e mais."
         canonical="/"
+        schemas={[generateLocalBusinessSchema(), generateOrganizationSchema()]}
       />
 
       {/* ── HERO ── */}

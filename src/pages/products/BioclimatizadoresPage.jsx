@@ -4,7 +4,8 @@ import { CheckCircle2, MessageCircle, Wind } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 const MODELS = [
   { name: 'Elite 8', area: 'até 15 m²', desc: 'Compacto e silencioso. Ideal para escritórios, quartos e pequenas salas.' },
@@ -20,6 +21,7 @@ export default function BioclimatizadoresPage() {
         description="Bioclimatizadores Elite e MF60. Arrefecimento natural sem compressor, baixo consumo, sem gases. Alternativa saudável ao ar condicionado."
         canonical="/products/bioclimatizadores"
         image="/Bioclimatizadores/bioclimatizadorquarto.png"
+        schemas={[generateProductSchema({ name: 'Bioclimatizadores', description: 'Arrefecimento natural sem compressor, baixo consumo, sem gases. Alternativa saudável ao ar condicionado.', image: `${COMPANY.baseUrl}/Bioclimatizadores/bioclimatizadorquarto.png`, brand: 'Evoluimos Comércio', url: `${COMPANY.baseUrl}/products/bioclimatizadores` })]}
       />
       <div className="min-h-screen">
         <div className="relative h-80 md:h-[500px] overflow-hidden">

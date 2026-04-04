@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
 import ComfortSunLineNav from '@/components/ComfortSunLineNav';
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 const MODELS = [
   {
@@ -38,6 +39,7 @@ export default function ComfortSunPolivalentePage() {
         title="ComfortSun Aquecimento Polivalente, Torres e Painéis Interior | Evoluimos Comércio"
         description="Aquecimento polivalente ComfortSun: torres de 2000W para exterior (IP65, Bluetooth) e painéis infravermelhos AHT para interior com Wi-Fi e touchscreen. A partir de 399€ + IVA."
         canonical="/products/comfortsun/polivalente"
+        schemas={[generateProductSchema({ name: 'ComfortSun Polivalente', description: 'Torres de 2000W para exterior (IP65, Bluetooth) e painéis infravermelhos AHT para interior com Wi-Fi e touchscreen.', image: `${COMPANY.baseUrl}/aquecimentopolivalente.webp`, brand: 'ComfortSun', url: `${COMPANY.baseUrl}/products/comfortsun/polivalente` })]}
       />
 
       <div className="min-h-screen bg-gray-50">

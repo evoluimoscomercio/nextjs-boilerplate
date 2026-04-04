@@ -4,7 +4,8 @@ import { CheckCircle2, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 const FEATURES = [
   'Ecrã LED touchscreen integrado no painel',
@@ -25,6 +26,7 @@ export default function PainelAHTPage() {
         description="Painel AHT ComfortSun para aquecimento interior. Touchscreen, Wi-Fi, timer programável e duplo termostato. Solução elegante para salas e espaços interiores."
         canonical="/products/painel-aht"
         image="/ComfortSun/painelaht.jpg"
+        schemas={[generateProductSchema({ name: 'Painel AHT ComfortSun', description: 'Painel de aquecimento interior por infravermelhos. Touchscreen, Wi-Fi, timer programável e duplo termostato.', image: `${COMPANY.baseUrl}/ComfortSun/painelaht.jpg`, brand: 'ComfortSun', url: `${COMPANY.baseUrl}/products/painel-aht` })]}
       />
 
       <div className="min-h-screen">

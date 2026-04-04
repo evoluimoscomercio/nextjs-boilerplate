@@ -4,8 +4,8 @@ import { CheckCircle2, ArrowRight, MessageCircle, Phone, Star, Zap, Shield, Drop
 import { motion } from 'framer-motion';
 import SEOHead from '@/components/SEOHead';
 import Breadcrumb from '@/components/Breadcrumb';
-
-import { WA_URL as WA } from '@/config/company';
+import { WA_URL as WA, COMPANY } from '@/config/company';
+import { generateProductSchema } from '@/utils/schemaMarkup';
 
 const SPECS = [
   { label: 'Tecnologia', value: 'Infravermelhos onda curta' },
@@ -31,6 +31,7 @@ export default function SolamagicPage() {
         description="Representante nacional Solamagic em Portugal. Aquecedores infravermelhos de onda curta para exterior. Calor imediato, 92% eficiência, made in Germany."
         canonical="/products/solamagic"
         image="/Solamagic/aquecedorexterior.png"
+        schemas={[generateProductSchema({ name: 'Solamagic', description: 'Aquecedores infravermelhos de onda curta para exterior. Calor imediato, 92% eficiência, made in Germany.', image: `${COMPANY.baseUrl}/Solamagic/aquecedorexterior.png`, brand: 'Solamagic', url: `${COMPANY.baseUrl}/products/solamagic` })]}
       />
 
       <div className="min-h-screen">

@@ -52,7 +52,7 @@ export default function ComfortSunProfessionalPage() {
   return (
     <>
       <SEOHead
-        title="ComfortSun Linha Profissional — Aquecimento Infravermelhos Comercial | Evoluimos Comércio"
+        title="ComfortSun Linha Profissional, Aquecimento Infravermelhos Comercial | Evoluimos Comércio"
         description="Linha Profissional ComfortSun: aquecedores infravermelhos de 1400W e 2000W para hotéis, restaurantes, spas e esplanadas. Tecnologia alemã."
         canonical="/products/comfortsun/professional"
         image="/ComfortSun/esplanada.png"

@@ -58,7 +58,7 @@ export default function ComfortSunDeluxePage() {
   return (
     <>
       <SEOHead
-        title="ComfortSun Linha Deluxe — Bluetooth & App | Evoluimos Comércio"
+        title="ComfortSun Linha Deluxe, Bluetooth e App | Evoluimos Comércio"
         description="Linha Deluxe ComfortSun: aquecedores infravermelhos com Bluetooth, app móvel e telecomando. 2000W e 2800W para esplanadas e uso portátil. A partir de 412€ + IVA."
         canonical="/products/comfortsun/deluxe"
       />

@@ -5,7 +5,9 @@ const LanguageContext = createContext(null);
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
-    console.warn('useLanguage must be used within a LanguageProvider. Using fallback.');
+    if (import.meta.env.DEV) {
+      console.warn('useLanguage must be used within a LanguageProvider. Using fallback.');
+    }
     return { language: 'pt', toggleLanguage: () => {}, t: translations.pt };
   }
   return context;

@@ -11,10 +11,10 @@ const ElectricWaterHeatersPage = () => {
 
   return (
     <>
-      <SEOHead title={metaTitle} description={title} canonical="/products/water-heaters" language={language} />
+      <SEOHead title={metaTitle} description={title} canonical="/products/esquentadores" language={language} />
       <div className="min-h-screen pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-5xl">
-          <Breadcrumb items={[{ label: t.nav.home, path: '/' }, { label: t.nav.products, path: '/products' }, { label: 'Clage', path: '/products/water-heaters' }]} />
+          <Breadcrumb items={[{ label: t.nav.home, path: '/' }, { label: t.nav.products, path: '/products' }, { label: 'Clage', path: '/products/esquentadores' }]} />
           
           <div className="relative h-96 rounded-2xl overflow-hidden mb-12">
             <img src="https://images.unsplash.com/photo-1673696663705-6c338b43cdfb" alt="Clage" className="w-full h-full object-cover" loading="lazy" />

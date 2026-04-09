@@ -22,6 +22,11 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={fullCanonical} />
 
+      {/* hreflang para suporte bilingue (PT/EN no mesmo URL) */}
+      <link rel="alternate" hreflang="pt-PT" href={fullCanonical} />
+      <link rel="alternate" hreflang="en" href={fullCanonical} />
+      <link rel="alternate" hreflang="x-default" href={fullCanonical} />
+
       {/* Open Graph */}
       <meta property="og:site_name" content={COMPANY.name} />
       <meta property="og:title" content={title} />

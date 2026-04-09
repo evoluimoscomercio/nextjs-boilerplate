@@ -409,7 +409,7 @@ export default function HomePage() {
             <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {[
                 { n: 25, suffix: '+', label: 'Anos de\nexperiência' },
-                { n: 3, suffix: '', label: 'Grandes clientes\nnacionais' },
+                { n: 10, suffix: '+', label: 'Grandes clientes\nnacionais' },
                 { n: 7, suffix: '', label: 'Marcas\neuropeias' },
               ].map((s, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}

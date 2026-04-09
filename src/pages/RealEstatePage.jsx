@@ -14,6 +14,8 @@ const LANGUAGES = [
   { code: 'PT', name: 'Português', native: true },
   { code: 'EN', name: 'Inglês', native: false },
   { code: 'DE', name: 'Alemão', native: false },
+  { code: 'ES', name: 'Espanhol', native: false },
+  { code: 'FR', name: 'Francês', native: false },
 ];
 
 const SERVICES = [
@@ -35,7 +37,7 @@ const SERVICES = [
   {
     icon: Globe,
     title: 'Atendimento Multilingue',
-    desc: 'Poliglota com experiência internacional. Atendimento em português, inglês e alemão, ideal para clientes estrangeiros no mercado imobiliário português.',
+    desc: 'Poliglota com experiência internacional. Atendimento em português, inglês, alemão, espanhol e francês, ideal para clientes estrangeiros no mercado imobiliário português.',
   },
 ];
 
@@ -140,7 +142,10 @@ export default function RealEstatePage() {
                   EXP Portugal
                 </span>
                 <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#A09890', fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 14px', borderRadius: '999px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <Award style={{ width: '11px', height: '11px' }} /> CAP Certified
+                  <Award style={{ width: '11px', height: '11px' }} /> CAP Certified 2025
+                </span>
+                <span style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', color: '#A09890', fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 14px', borderRadius: '999px' }}>
+                  AMI 18470
                 </span>
               </div>
 
@@ -212,8 +217,7 @@ export default function RealEstatePage() {
                 />
                 {/* Floating badge */}
                 <div style={{ position: 'absolute', bottom: '24px', left: '-20px', background: '#1A1000', border: '1px solid rgba(184,69,0,0.3)', borderRadius: '16px', padding: '14px 18px', boxShadow: '0 16px 40px rgba(0,0,0,0.5)' }}>
-                  <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F0A020', marginBottom: '4px' }}>Algarve</div>
-                  <div style={{ fontSize: '13px', fontWeight: 700, color: '#F5F0E8' }}>EXP Portugal · CAP</div>
+                  <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#F0A020', marginBottom: '4px' }}>Algarve e eXp Portugal</div>
                 </div>
               </div>
             </motion.div>
@@ -228,7 +232,7 @@ export default function RealEstatePage() {
           <div className="grid grid-cols-3 gap-6 text-center">
             {[
               { value: '25+', label: 'Anos de experiência' },
-              { value: '3', label: 'Línguas faladas' },
+              { value: '5', label: 'Línguas faladas' },
               { value: 'CAP', label: 'Certificação EXP' },
             ].map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
@@ -278,7 +282,7 @@ export default function RealEstatePage() {
                   'Diagnóstico gratuito de humidade e eficiência térmica',
                   'Comissionamento apenas em caso de sucesso',
                   'Rede de contactos em toda a região do Algarve',
-                  'Atendimento em português, inglês e alemão',
+                  'Atendimento em português, inglês, alemão, espanhol e francês',
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <CheckCircle2 style={{ width: '16px', height: '16px', color: '#B84500', flexShrink: 0 }} />

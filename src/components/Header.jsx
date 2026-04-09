@@ -21,6 +21,7 @@ const NAV = [
       { label: 'Drymat Anti-Humidade', path: '/products/drymat' },
       { label: 'Bioclimatizadores', path: '/products/bioclimatizadores' },
       { label: 'Biolareiras Herkell', path: '/products/eco-fireplaces' },
+      { label: 'Piso radiante eléctrico', path: '/products/piso-radiante' },
       { group: 'Água Quente' },
       { label: 'Esquentadores Clage', path: '/products/esquentadores' },
     ]

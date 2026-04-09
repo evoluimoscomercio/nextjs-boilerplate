@@ -71,6 +71,13 @@ const ALL_PRODUCTS = [
     path: '/products/eco-fireplaces',
     img: '/biolareiras/biolareira.jpg',
   },
+  {
+    name: 'Piso Radiante Eléctrico',
+    tag: 'PROTEÇÃO E CONFORTO',
+    desc: 'Aquecimento de pavimento por resistência eléctrica. Conforto uniforme desde o chão, sem correntes de ar. Ideal para casas de banho, cozinhas e divisões interiores.',
+    path: '/products/piso-radiante',
+    img: '/Piso radiante/Pisoradianteahtcasadebanho.jpg',
+  },
 ];
 
 const ProductCard = ({ p }) => (
@@ -140,8 +147,8 @@ export default function ProductsHubPage() {
             </p>
           </div>
 
-          {/* Uniform product grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/* Uniform product grid — 9 produtos em grelha 3×3 */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {ALL_PRODUCTS.map((p, i) => <ProductCard key={i} p={p} />)}
           </div>
 
